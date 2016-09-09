@@ -1,0 +1,65 @@
+################## java
+
+*.class
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+################## maven
+target/
+pom.xml.versionsBackup
+
+################## idea
+
+*.iml
+*.ipr
+*.iws
+.idea/
+.DS_Store
+
+################## eclipse
+
+*.pydevproject
+.project
+.metadata
+bin/**
+tmp/**
+tmp/**/*
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.classpath
+.settings/
+.loadpath
+
+# External tool builders
+.externalToolBuilders/
+
+# Locally stored "Eclipse launch configurations"
+*.launch
+
+# CDT-specific
+.cproject
+
+# PDT-specific
+.buildpath
+
+################## windows
+
+# Windows image file caches
+Thumbs.db
+
+# Folder config file
+Desktop.ini
+
+################## sbt
+
+lib_managed/
+src_managed/
+project/boot/
+
+lucene-indexes
