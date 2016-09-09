@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+   <modelVersion>4.0.0</modelVersion>
+   <groupId>com.startupheroes.checkstyle</groupId>
+   <artifactId>startupheroes-checkstyle-config</artifactId>
+   <version>1.0-SNAPSHOT</version>
+   <name>StartupHeroes Checkstyle Config</name>
+   <description>Checkstyle configuration corresponding to StartupHeroes's coding conventions.</description>
+   <url>https://github.com/startupheroes/startupheroes-checkstyle-config</url>
+
+   <properties>
+      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+      <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+   </properties>
+
+   <scm>
+      <url>https://github.com/startupheroes/startupheroes-checkstyle-config</url>
+      <connection>scm:git:git@github.com:startupheroes/startupheroes-checkstyle-config.git</connection>
+      <developerConnection>scm:git:git@github.com:startupheroes/startupheroes-checkstyle-config.git</developerConnection>
+      <tag>HEAD</tag>
+   </scm>
+
+   <developers>
+      <developer>
+         <id>ozlmulg</id>
+         <name>Özlem Ulağ</name>
+         <email>ozlmulg@gmail.com</email>
+      </developer>
+   </developers>
+
+   <build>
+      <plugins>
+         <plugin>
+            <artifactId>maven-release-plugin</artifactId>
+            <version>2.5.2</version>
+            <configuration>
+               <tagNameFormat>v@{project.version}</tagNameFormat>
+               <allowTimestampedSnapshots>true</allowTimestampedSnapshots>
+            </configuration>
+            <dependencies>
+               <dependency>
+                  <groupId>org.apache.maven.scm</groupId>
+                  <artifactId>maven-scm-provider-gitexe</artifactId>
+                  <version>1.9</version>
+               </dependency>
+            </dependencies>
+         </plugin>
+      </plugins>
+   </build>
+</project>
