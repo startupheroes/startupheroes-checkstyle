@@ -55,3 +55,9 @@ company-wide parent pom, meaning that projects only need to specify the below in
       <artifactId>maven-checkstyle-plugin</artifactId>
    </plugin>
 ```
+
+To run checkstyle plugin:
+
+```
+   mvn checkstyle:check
+```
