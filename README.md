@@ -1,4 +1,4 @@
-StartupHeroes Checkstyle Configuration
+# StartupHeroes Checkstyle Configuration
 
 This project provides a default configuration for checkstyle at StartupHeroes projects.
 

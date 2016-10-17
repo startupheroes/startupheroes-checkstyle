@@ -1,4 +1,4 @@
-Checks for File:
+# Checks for File:
 
 1. Translation : Checks to ensure the correct translation of code by checking locale-specific resource files(like .properties files)
 for consistency regarding their keys.
@@ -172,3 +172,8 @@ Comments are indented at the same level as the surrounding code.
 (null for object references, zero for numeric types and char and false for boolean.)
 22. PackageDeclaration: Ensures that a class has a package declaration, and (optionally)
 whether the package name matches the directory name for the source file.
+
+
+Custom checks:
+
+1. LoggerOrderCheck: Checks for LOGGER definitions should be at the top of the class.
