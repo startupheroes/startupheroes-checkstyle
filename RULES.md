@@ -5,13 +5,13 @@ for consistency regarding their keys.
 2. FileLength : Checks for long source files whether maximum file length is 1500 lines.
 3. FileTabCharacter : Checks to see if a file contains a tab character.
 
-Checks for Spaces:
+# Checks for Spaces:
 
 1. RegexpSingleline("\s+$") : Checks line has trailing spaces.
 2. RegexpSingleline("^\s*(for|if)\b[^ ]") : Checks space needed before opening parenthesis after if and for.
 3. RegexpSingleline("^\s*for \(.*?([^ ]:|:[^ ])") : Checks space needed around ':' character in for.
 
-Checks for Naming Conventions:
+# Checks for Naming Conventions:
 
 1. ConstantName : Checks that constant names conform to default format.(default format : "^[a-z][a-zA-Z0-9]*$")
 2. LocalFinalVariableName : Checks that local final variable names conform to default format.
@@ -23,19 +23,19 @@ Checks for Naming Conventions:
 8. StaticVariableName : Checks that static, non-final variable names conform to default format.
 9. TypeName : Checks that type names conform to default format.
 
-Checks for imports:
+# Checks for imports:
 
 1. AvoidStarImport : Check that finds import statements that use the * notation.
 2. IllegalImport : Checks for imports from a set of illegal packages.
 3. RedundantImport : Checks for imports that are redundant like it is a duplicate of another import.
 4. UnusedImports : Checks for unused import statements.
 
-Checks for Size Violations:
+# Checks for Size Violations:
 
 1. LineLength : Checks for long lines. Max line length is 100.
 2. MethodLength : Checks for long methods. Max line length is 200.
 
-Checks for Whitespace:
+# Checks for Whitespace:
 
 1. EmptyForIteratorPad: Checks the padding of an empty for iterator; that is whether a space is required at an empty for iterator.
 2. GenericWhitespace: Checks that the whitespace around the Generic tokens (angle brackets) "<" and ">" are correct to the typical convention.
@@ -48,7 +48,7 @@ constructor definition, method call, or constructor invocation; and the left par
 8. WhitespaceAfter: Checks that a token is followed by whitespace, with the exception that it does not check for whitespace after the semicolon of an empty for iterator.
 9. WhitespaceAround: Checks that a token is surrounded by whitespace.
 
-Checks for Modifiers:
+# Checks for Modifiers:
 
 1. ModifierOrder : Checks that the order of modifiers conforms to the suggestions in the
   [Java Language specification, sections 8.1.1, 8.3.1 and 8.4.3](http://docs.oracle.com/javase/specs/jls/se8/html/jls-8.html)
@@ -57,7 +57,7 @@ The correct order is: public, protected, private, abstract, static, final, trans
 final modifier on methods of final classes, interface declarations that are declared as static,
 non public class constructors and enum constructors, nested enum definitions that are declared static.
 
-Checks for Blocks:
+# Checks for Blocks:
 
 1. AvoidNestedBlocks: Checks nested blocks.
 2. EmptyBlock: Checks for empty blocks.
@@ -65,7 +65,7 @@ Checks for Blocks:
 4. NeedBraces: Checks for braces around code blocks.
 5. RightCurly: Checks the placement of right curly braces.
 
-Checks for Coding problems:
+# Checks for Coding problems:
 
 1. EmptyStatement: Detects empty statements (standalone ';').
 2. EqualsAvoidNull: Checks that any combination of String literals is on the left side of an equals() comparison.
@@ -77,7 +77,7 @@ Checks for Coding problems:
 8. SimplifyBooleanExpression: Checks for overly complicated boolean expressions.
 9. SimplifyBooleanReturn: Checks for overly complicated boolean return statements.
 
-Checks for Class design:
+# Checks for Class design:
 
 1. FinalClass: Checks that class which has only private ctors is declared as final.
 2. HideUtilityClassConstructor: Make sure that utility classes (classes that contain only static methods) do not have a public constructor.
@@ -87,7 +87,7 @@ it is therefore inappropriate to define an interface that does not contain any m
 may be public, other class members must be private unless allowProtected/Package is set.
 
 
-Miscellaneous other checks:
+# Miscellaneous other checks:
 
 1. OuterTypeFilename: Checks that the outer type name and the file name match. For example, the class Foo must be in a file named Foo.java.
 2. IllegalTokenText: Checks for illegal token text to avoid using corresponding octal or Unicode escape.
@@ -174,6 +174,7 @@ Comments are indented at the same level as the surrounding code.
 whether the package name matches the directory name for the source file.
 
 
-Custom checks:
+# Custom checks:
 
-1. LoggerOrderCheck: Checks for LOGGER definitions should be at the top of the class.
+1. AntiHungarianCheck: Checks for Hungarian notations that variables starts with 'm'.
+2. LoggerOrderCheck: Checks for LOGGER definitions should be at the top of the class.

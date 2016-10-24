@@ -180,7 +180,8 @@
       <module name="PackageDeclaration"/>
 
       <!-- Custom Checks-->
-      <module name="startupheroes.checks.LoggerOrderCheck"/>
+      <module name="startupheroes.checkstyle.checks.custom.AntiHungarianCheck"/>
+      <module name="startupheroes.checkstyle.checks.custom.LoggerOrderCheck"/>
 
    </module>
 </module>
