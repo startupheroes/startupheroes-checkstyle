@@ -5,27 +5,32 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Index;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
 @Entity
 @Table(uniqueConstraints = {
     @UniqueConstraint(
-        name = "test_entity_pmi_av1_av2_av3_uk",
-        columnNames = {"productModelId", "attributeValue_1", "attributeValue_2", "attributeValue_3"}),
-    @UniqueConstraint(name = "test_entity_relative_url_uk", columnNames = {"relativeUrl"})
-})
-class TestEntity {
+        name = "uk_pmi_av1_av2_av3", // not correct naming for uk!
+        columnNames = {"productModelId", "attributeValue_1", "attributeValue_2", "attributeValue_3"})
+},
+    indexes = {
+        @Index(
+            name = "sku_index", // not correct naming for index!
+            columnList = "sku"
+        )})
+class TestWrongEntity {
 
    @Id
    @Column // redundant with Id annotation!
    @GeneratedValue
-   private Integer productId;
+   private Integer productId; // name as direct 'id' the generated column.
 
    /**
     * can be the same for all variants, depends on shop owner
     */
-   @Column
+   @Column // redundant with Id annotation!
    @javax.persistence.Id
    private String sku;
 
@@ -45,25 +50,24 @@ class TestEntity {
     * can be the same for all variants, depends on shop owner
     */
    @Column(nullable = false)
-   private String name;
+   private String productName;
 
    /**
     * can be the same for all variants, depends on shop owner
     */
-   @Column(nullable = false)
+   @Column(nullable = false, unique = true) // unique should not be here, define inside @Table annotation.
    private String relativeUrl;
 
    @Column(nullable = false)
    private Integer searchBoost;
 
-   @Column(length = 2048)
+   @Column(length = 2048, nullable = true) // redundant default assign!
    private String searchKeywords;
 
-   @Column(nullable = false)
+   @Column // created at and last updated at columns must be nullable = false!
    private Date createdAt;
 
-   @Column(nullable = false)
-   private Date lastUpdatedAt;
+   // no lastUpdatedAt column!
 
    public Integer getProductId() {
       return productId;
@@ -113,13 +117,7 @@ class TestEntity {
       this.attributeValue_3 = attributeValue_3;
    }
 
-   public String getName() {
-      return name;
-   }
-
-   public void setName(String name) {
-      this.name = name;
-   }
+   // no getters setters for product name column!
 
    public String getRelativeUrl() {
       return relativeUrl;
@@ -153,29 +151,6 @@ class TestEntity {
       this.createdAt = createdAt;
    }
 
-   public Date getLastUpdatedAt() {
-      return lastUpdatedAt;
-   }
+   // no toString() method!
 
-   public void setLastUpdatedAt(Date lastUpdatedAt) {
-      this.lastUpdatedAt = lastUpdatedAt;
-   }
-
-   @Override
-   public String toString() {
-      return "TestEntity{" +
-             "productId=" + productId +
-             ", sku='" + sku + '\'' +
-             ", productModelId=" + productModelId +
-             ", attributeValue_1='" + attributeValue_1 + '\'' +
-             ", attributeValue_2='" + attributeValue_2 + '\'' +
-             ", attributeValue_3='" + attributeValue_3 + '\'' +
-             ", name='" + name + '\'' +
-             ", relativeUrl='" + relativeUrl + '\'' +
-             ", searchBoost=" + searchBoost +
-             ", searchKeywords='" + searchKeywords + '\'' +
-             ", createdAt=" + createdAt +
-             ", lastUpdatedAt=" + lastUpdatedAt +
-             '}';
-   }
 }

@@ -13,8 +13,8 @@
       <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
       <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
       <checkstyle.version>7.1.2</checkstyle.version>
-      <slf4j.version>1.7.21</slf4j.version>
       <junit.version>4.11</junit.version>
+      <slf4j.version>1.7.21</slf4j.version>
       <javax-persistence.version>2.1.0</javax-persistence.version>
    </properties>
 
@@ -40,12 +40,6 @@
          <version>${checkstyle.version}</version>
       </dependency>
 
-      <dependency>
-         <groupId>org.slf4j</groupId>
-         <artifactId>slf4j-api</artifactId>
-         <version>${slf4j.version}</version>
-      </dependency>
-
       <!-- Test -->
 
       <dependency>
@@ -60,6 +54,13 @@
          <groupId>junit</groupId>
          <artifactId>junit</artifactId>
          <version>${junit.version}</version>
+         <scope>test</scope>
+      </dependency>
+
+      <dependency>
+         <groupId>org.slf4j</groupId>
+         <artifactId>slf4j-api</artifactId>
+         <version>${slf4j.version}</version>
          <scope>test</scope>
       </dependency>
 

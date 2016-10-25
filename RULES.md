@@ -177,4 +177,4 @@ whether the package name matches the directory name for the source file.
 
 1. AntiHungarianCheck: Checks for Hungarian notations that variables starts with 'm'.
 2. LoggerOrderCheck: Checks for LOGGER definitions should be at the top of the class.
-3. RedundantEntityColumnAnnotationCheck: Checks for redundant usage of @Column and @Id annotation together for a variable of an entity.
+3. RedundantMultipleAnnotationCheck: Checks for together usage of given set of annotations redundantly.

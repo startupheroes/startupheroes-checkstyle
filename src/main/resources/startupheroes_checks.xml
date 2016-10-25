@@ -182,7 +182,11 @@
       <!-- Custom Checks-->
       <module name="startupheroes.checkstyle.checks.custom.AntiHungarianCheck"/>
       <module name="startupheroes.checkstyle.checks.custom.LoggerOrderCheck"/>
-      <module name="startupheroes.checkstyle.checks.custom.RedundantEntityColumnAnnotationCheck"/>
+      <module name="startupheroes.checkstyle.checks.custom.RedundantMultipleAnnotationCheck">
+         <property name="tokens" value="VARIABLE_DEF"/>
+         <property name="annotationSet1" value="Id, javax.persistence.Id"/>
+         <property name="annotationSet2" value="Column, javax.persistence.Column"/>
+      </module>
 
    </module>
 </module>
