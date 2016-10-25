@@ -13,8 +13,9 @@
       <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
       <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
       <checkstyle.version>7.1.2</checkstyle.version>
-      <junit.version>4.11</junit.version>
       <slf4j.version>1.7.21</slf4j.version>
+      <junit.version>4.11</junit.version>
+      <javax-persistence.version>2.1.0</javax-persistence.version>
    </properties>
 
    <scm>
@@ -40,6 +41,14 @@
       </dependency>
 
       <dependency>
+         <groupId>org.slf4j</groupId>
+         <artifactId>slf4j-api</artifactId>
+         <version>${slf4j.version}</version>
+      </dependency>
+
+      <!-- Test -->
+
+      <dependency>
          <groupId>com.puppycrawl.tools</groupId>
          <artifactId>checkstyle</artifactId>
          <type>test-jar</type>
@@ -55,9 +64,10 @@
       </dependency>
 
       <dependency>
-         <groupId>org.slf4j</groupId>
-         <artifactId>slf4j-api</artifactId>
-         <version>${slf4j.version}</version>
+         <groupId>org.eclipse.persistence</groupId>
+         <artifactId>javax.persistence</artifactId>
+         <version>${javax-persistence.version}</version>
+         <scope>test</scope>
       </dependency>
 
    </dependencies>

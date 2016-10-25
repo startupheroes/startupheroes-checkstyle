@@ -86,7 +86,6 @@ it is therefore inappropriate to define an interface that does not contain any m
 4. VisibilityModifier: Checks visibility of class members. Only static final, immutable or annotated by specified annotation members
 may be public, other class members must be private unless allowProtected/Package is set.
 
-
 # Miscellaneous other checks:
 
 1. OuterTypeFilename: Checks that the outer type name and the file name match. For example, the class Foo must be in a file named Foo.java.
@@ -178,3 +177,4 @@ whether the package name matches the directory name for the source file.
 
 1. AntiHungarianCheck: Checks for Hungarian notations that variables starts with 'm'.
 2. LoggerOrderCheck: Checks for LOGGER definitions should be at the top of the class.
+3. RedundantEntityColumnAnnotationCheck: Checks for redundant usage of @Column and @Id annotation together for a variable of an entity.

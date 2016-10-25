@@ -3,7 +3,7 @@ package startupheroes.checkstyle.checks.custom;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class TestWrongInputForLoggerOrderCheck {
+class TestWrongInputForLoggerOrderCheck {
 
    private static final String FIELD_1 = "Field_1";
 

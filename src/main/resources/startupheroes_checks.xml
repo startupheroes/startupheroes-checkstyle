@@ -182,6 +182,7 @@
       <!-- Custom Checks-->
       <module name="startupheroes.checkstyle.checks.custom.AntiHungarianCheck"/>
       <module name="startupheroes.checkstyle.checks.custom.LoggerOrderCheck"/>
+      <module name="startupheroes.checkstyle.checks.custom.RedundantEntityColumnAnnotationCheck"/>
 
    </module>
 </module>
