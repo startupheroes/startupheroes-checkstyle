@@ -50,7 +50,7 @@ class TestWrongEntity {
     * can be the same for all variants, depends on shop owner
     */
    @Column(nullable = false)
-   private String productName;
+   private String productName; // wrong naming, name as "name" without context!
 
    /**
     * can be the same for all variants, depends on shop owner

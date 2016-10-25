@@ -187,6 +187,9 @@
          <property name="annotationSet1" value="Id, javax.persistence.Id"/>
          <property name="annotationSet2" value="Column, javax.persistence.Column"/>
       </module>
+      <module name="startupheroes.checkstyle.checks.custom.BlockedAnnotationKeyCheck">
+         <property name="annotationBlockedKeyMap" value="Column:unique, javax.persistence.Column:unique"/>
+      </module>
 
    </module>
 </module>
