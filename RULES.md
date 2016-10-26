@@ -179,3 +179,4 @@ whether the package name matches the directory name for the source file.
 2. LoggerOrderCheck: Checks for LOGGER definitions should be at the top of the class.
 3. RedundantMultipleAnnotationCheck: Checks for together usage of given set of annotations redundantly.
 4. BlockedAnnotationKeyCheck: Checks to block of usage the given key inside given annotation.
+5. EntityEqualsHashCodeCheck: Checks whether there is or not a default equals and hashCode methods in entity class.

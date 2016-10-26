@@ -190,6 +190,9 @@
       <module name="startupheroes.checkstyle.checks.custom.BlockedAnnotationKeyCheck">
          <property name="annotationBlockedKeyMap" value="Column:unique, javax.persistence.Column:unique"/>
       </module>
+      <module name="startupheroes.checkstyle.checks.custom.EntityEqualsHashCodeCheck">
+         <property name="entityAnnotations" value="Entity, javax.persistence.Entity"/>
+      </module>
 
    </module>
 </module>

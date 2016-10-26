@@ -45,7 +45,7 @@ public class RedundantMultipleAnnotationCheck extends AbstractCheck {
       }
    }
 
-   private Optional<String> findAnnotation(DetailAST ast, Set<String> annotationSet) {
+   private static Optional<String> findAnnotation(DetailAST ast, Set<String> annotationSet) {
       return annotationSet.stream().filter(annotation -> AnnotationUtility.containsAnnotation(ast, annotation)).findFirst();
    }
 

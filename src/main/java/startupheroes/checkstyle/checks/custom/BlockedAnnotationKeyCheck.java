@@ -42,7 +42,7 @@ public class BlockedAnnotationKeyCheck extends AbstractCheck {
       }
    }
 
-   private Boolean annotationContainsKey(DetailAST ast, String annotation, String key) {
+   private static Boolean annotationContainsKey(DetailAST ast, String annotation, String key) {
       Boolean annotationContainsKey = false;
       DetailAST annotationAst = AnnotationUtility.getAnnotation(ast, annotation);
       if (Objects.nonNull(annotationAst)) {
@@ -57,7 +57,7 @@ public class BlockedAnnotationKeyCheck extends AbstractCheck {
       return annotationContainsKey;
    }
 
-   private List<DetailAST> findByType(DetailAST ast, int type) {
+   private static List<DetailAST> findByType(DetailAST ast, int type) {
       List<DetailAST> astListByType = new ArrayList<>();
       for (DetailAST child = ast.getFirstChild(); child != null; child = child.getNextSibling()) {
          if (child.getType() == type) {
@@ -71,7 +71,7 @@ public class BlockedAnnotationKeyCheck extends AbstractCheck {
       this.annotationBlockedKeyMap = map(property, ",");
    }
 
-   private Map<String, String> map(String property, String splitter) {
+   private static Map<String, String> map(String property, String splitter) {
       return Splitter.on(splitter).omitEmptyStrings().trimResults().withKeyValueSeparator(":").split(property);
    }
 
