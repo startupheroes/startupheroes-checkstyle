@@ -1,6 +1,6 @@
 package startupheroes.checkstyle.checks.custom;
 
-import com.puppycrawl.tools.checkstyle.DefaultConfiguration;
+import com.google.common.collect.ImmutableMap;
 import org.junit.Test;
 import startupheroes.checkstyle.checks.BaseCheckTestSupport;
 
@@ -13,28 +13,24 @@ public class RedundantMultipleAnnotationCheckTest extends BaseCheckTestSupport {
 
    @Test
    public void testByWrongInput() throws Exception {
-      DefaultConfiguration checkConfig = getCheckerConfig();
-      String[] expected = {
-          "25: " + getCheckMessage(MSG_KEY, "Id", "Column"),
-          "33: " + getCheckMessage(MSG_KEY, "javax.persistence.Id", "Column")
-      };
-      verify(checkConfig, getPath("TestWrongEntity.java"), expected);
+      String[] expectedMessages = {"25: " + getCheckMessage(MSG_KEY, "Id", "Column"),
+                                   "33: " + getCheckMessage(MSG_KEY, "javax.persistence.Id", "Column")};
+      test("TestWrongEntity.java", expectedMessages);
    }
 
    @Test
    public void testByCorrectInput() throws Exception {
-      DefaultConfiguration checkConfig = getCheckerConfig();
-      String[] expected = {};
-      verify(checkConfig, getPath("TestCorrectEntity.java"), expected);
+      String[] expectedMessages = {};
+      test("TestCorrectEntity.java", expectedMessages);
    }
 
-   private static DefaultConfiguration getCheckerConfig() {
-      DefaultConfiguration checkConfig =
-          createCheckConfig(RedundantMultipleAnnotationCheck.class);
-      checkConfig.addAttribute("tokens", "VARIABLE_DEF");
-      checkConfig.addAttribute("annotationSet1", "Id, javax.persistence.Id");
-      checkConfig.addAttribute("annotationSet2", "Column, javax.persistence.Column");
-      return checkConfig;
+   private void test(String fileName, String[] expectedMessages) throws Exception {
+      verify(createCheckConfig(RedundantMultipleAnnotationCheck.class,
+                               ImmutableMap.of("tokens", "VARIABLE_DEF",
+                                               "annotationSet1", "Id, javax.persistence.Id",
+                                               "annotationSet2", "Column, javax.persistence.Column")),
+             getPath(fileName),
+             expectedMessages);
    }
 
 }

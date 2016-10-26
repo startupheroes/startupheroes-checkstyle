@@ -18,8 +18,10 @@ import java.io.OutputStream;
 import java.io.PrintStream;
 import java.io.UnsupportedEncodingException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.Map;
 import java.util.Properties;
 import org.junit.Assert;
 
@@ -53,6 +55,15 @@ public abstract class BaseCheckTestSupport extends Assert {
 
    protected static DefaultConfiguration createCheckConfig(Class<?> clazz) {
       return new DefaultConfiguration(clazz.getName());
+   }
+
+   protected static DefaultConfiguration createCheckConfig(Class<?> clazz, Map<String, String> attributeMap) {
+      DefaultConfiguration checkConfig = createCheckConfig(clazz);
+      for (String attributeName : attributeMap.keySet()) {
+         String value = attributeMap.get(attributeName);
+         checkConfig.addAttribute(attributeName, value);
+      }
+      return checkConfig;
    }
 
    protected void verify(Configuration config, String fileName, String[] expected)
@@ -160,6 +171,14 @@ public abstract class BaseCheckTestSupport extends Assert {
     */
    protected String getCheckMessage(String messageKey, Object... arguments) {
       return format(getCheckMessage(messageKey), arguments);
+   }
+
+   protected List<File> prepareFilesToBeChecked(String fileName) {
+      URL testFileUrl = getClass().getResource(fileName);
+      File testFile = new File(testFileUrl.getFile());
+      List<File> files = new ArrayList<File>();
+      files.add(testFile);
+      return files;
    }
 
 }

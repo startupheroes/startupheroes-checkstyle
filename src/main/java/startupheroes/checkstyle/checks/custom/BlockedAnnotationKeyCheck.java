@@ -5,13 +5,14 @@ import com.puppycrawl.tools.checkstyle.api.AbstractCheck;
 import com.puppycrawl.tools.checkstyle.api.DetailAST;
 import com.puppycrawl.tools.checkstyle.api.TokenTypes;
 import com.puppycrawl.tools.checkstyle.utils.AnnotationUtility;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
+
+import static startupheroes.checkstyle.util.CommonUtil.findByType;
 
 /**
  * @author ozlem.ulag
@@ -55,16 +56,6 @@ public class BlockedAnnotationKeyCheck extends AbstractCheck {
          }
       }
       return annotationContainsKey;
-   }
-
-   private static List<DetailAST> findByType(DetailAST ast, int type) {
-      List<DetailAST> astListByType = new ArrayList<>();
-      for (DetailAST child = ast.getFirstChild(); child != null; child = child.getNextSibling()) {
-         if (child.getType() == type) {
-            astListByType.add(child);
-         }
-      }
-      return astListByType;
    }
 
    public void setAnnotationBlockedKeyMap(String property) {

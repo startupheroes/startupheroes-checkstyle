@@ -5,6 +5,8 @@ import com.puppycrawl.tools.checkstyle.api.DetailAST;
 import com.puppycrawl.tools.checkstyle.api.TokenTypes;
 import java.util.regex.Pattern;
 
+import static startupheroes.checkstyle.util.CommonUtil.getVariableName;
+
 public class AntiHungarianCheck extends AbstractCheck {
 
    /**
@@ -21,24 +23,15 @@ public class AntiHungarianCheck extends AbstractCheck {
    }
 
    @Override
-   public void visitToken(DetailAST aAST) {
-      String variableName = findVariableName(aAST);
-      if (itsAFieldVariable(aAST) && detector.detectsNotation(variableName)) {
-         reportStyleError(aAST, variableName);
+   public void visitToken(DetailAST ast) {
+      String variableName = getVariableName(ast);
+      if (isFieldVariable(ast) && detector.detectsNotation(variableName)) {
+         log(ast.getLineNo(), MSG_KEY + variableName);
       }
    }
 
-   private String findVariableName(DetailAST aAST) {
-      DetailAST identifier = aAST.findFirstToken(TokenTypes.IDENT);
-      return identifier.toString();
-   }
-
-   private boolean itsAFieldVariable(DetailAST aAST) {
-      return aAST.getParent().getType() == TokenTypes.OBJBLOCK;
-   }
-
-   private void reportStyleError(DetailAST aAST, String variableName) {
-      log(aAST.getLineNo(), MSG_KEY + variableName);
+   private Boolean isFieldVariable(DetailAST ast) {
+      return ast.getParent().getType() == TokenTypes.OBJBLOCK;
    }
 
    private static final class HungarianNotationMemberDetector {
@@ -48,6 +41,7 @@ public class AntiHungarianCheck extends AbstractCheck {
       Boolean detectsNotation(String variableName) {
          return pattern.matcher(variableName).matches();
       }
+
    }
 
 }

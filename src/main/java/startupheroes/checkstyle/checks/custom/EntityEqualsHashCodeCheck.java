@@ -5,13 +5,14 @@ import com.puppycrawl.tools.checkstyle.api.AbstractCheck;
 import com.puppycrawl.tools.checkstyle.api.DetailAST;
 import com.puppycrawl.tools.checkstyle.api.FullIdent;
 import com.puppycrawl.tools.checkstyle.api.TokenTypes;
-import com.puppycrawl.tools.checkstyle.utils.AnnotationUtility;
 import com.puppycrawl.tools.checkstyle.utils.CheckUtils;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import startupheroes.checkstyle.util.CommonUtil;
+
+import static startupheroes.checkstyle.util.CommonUtil.getClassMethods;
 
 /**
  * @author ozlem.ulag
@@ -36,29 +37,15 @@ public class EntityEqualsHashCodeCheck extends AbstractCheck {
 
    @Override
    public void visitToken(DetailAST ast) {
-      Boolean isEntity = isEntity(ast);
+      Boolean isEntity = CommonUtil.isEntity(entityAnnotations, ast);
       if (isEntity) {
-         List<DetailAST> methods = findByType(ast.findFirstToken(TokenTypes.OBJBLOCK), TokenTypes.METHOD_DEF);
+         List<DetailAST> methods = getClassMethods(ast);
          Boolean containsEquals = methods.stream().anyMatch(EntityEqualsHashCodeCheck::isEqualsMethod);
          Boolean containsHashCode = methods.stream().anyMatch(EntityEqualsHashCodeCheck::isHashCodeMethod);
          if (!containsEquals || !containsHashCode) {
             log(ast.getLineNo(), MSG_KEY);
          }
       }
-   }
-
-   private Boolean isEntity(DetailAST ast) {
-      return entityAnnotations.stream().anyMatch(entityAnnotation -> AnnotationUtility.containsAnnotation(ast, entityAnnotation));
-   }
-
-   private static List<DetailAST> findByType(DetailAST ast, int type) {
-      List<DetailAST> astListByType = new ArrayList<>();
-      for (DetailAST child = ast.getFirstChild(); child != null; child = child.getNextSibling()) {
-         if (child.getType() == type) {
-            astListByType.add(child);
-         }
-      }
-      return astListByType;
    }
 
    /**

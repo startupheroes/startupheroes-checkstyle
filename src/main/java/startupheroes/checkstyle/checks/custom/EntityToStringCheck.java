@@ -4,12 +4,13 @@ import antlr.collections.AST;
 import com.puppycrawl.tools.checkstyle.api.AbstractCheck;
 import com.puppycrawl.tools.checkstyle.api.DetailAST;
 import com.puppycrawl.tools.checkstyle.api.TokenTypes;
-import com.puppycrawl.tools.checkstyle.utils.AnnotationUtility;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import startupheroes.checkstyle.util.CommonUtil;
+
+import static startupheroes.checkstyle.util.CommonUtil.getClassMethods;
 
 /**
  * @author ozlem.ulag
@@ -34,9 +35,9 @@ public class EntityToStringCheck extends AbstractCheck {
 
    @Override
    public void visitToken(DetailAST ast) {
-      Boolean isEntity = isEntity(ast);
+      Boolean isEntity = CommonUtil.isEntity(entityAnnotations, ast);
       if (isEntity) {
-         List<DetailAST> methods = findByType(ast.findFirstToken(TokenTypes.OBJBLOCK), TokenTypes.METHOD_DEF);
+         List<DetailAST> methods = getClassMethods(ast);
          Boolean containsToString = methods.stream().anyMatch(EntityToStringCheck::isToStringMethod);
          if (!containsToString) {
             log(ast.getLineNo(), MSG_KEY);
@@ -44,25 +45,11 @@ public class EntityToStringCheck extends AbstractCheck {
       }
    }
 
-   private Boolean isEntity(DetailAST ast) {
-      return entityAnnotations.stream().anyMatch(entityAnnotation -> AnnotationUtility.containsAnnotation(ast, entityAnnotation));
-   }
-
-   private static List<DetailAST> findByType(DetailAST ast, int type) {
-      List<DetailAST> astListByType = new ArrayList<>();
-      for (DetailAST child = ast.getFirstChild(); child != null; child = child.getNextSibling()) {
-         if (child.getType() == type) {
-            astListByType.add(child);
-         }
-      }
-      return astListByType;
-   }
-
    /**
-    * Determines if an AST is a valid HashCode method implementation.
+    * Determines if an AST is a valid toString method implementation.
     *
     * @param ast the AST to check
-    * @return true if the {code ast} is a HashCode method.
+    * @return true if the {code ast} is a toString method.
     */
    private static Boolean isToStringMethod(DetailAST ast) {
       final DetailAST modifiers = ast.getFirstChild();

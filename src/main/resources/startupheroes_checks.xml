@@ -196,6 +196,9 @@
       <module name="startupheroes.checkstyle.checks.custom.EntityToStringCheck">
          <property name="entityAnnotations" value="Entity, javax.persistence.Entity"/>
       </module>
+      <module name="startupheroes.checkstyle.checks.custom.EntityGettersSettersCheck">
+         <property name="entityAnnotations" value="Entity, javax.persistence.Entity"/>
+      </module>
 
    </module>
 </module>

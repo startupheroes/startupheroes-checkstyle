@@ -1,6 +1,6 @@
 package startupheroes.checkstyle.checks.custom;
 
-import com.puppycrawl.tools.checkstyle.DefaultConfiguration;
+import com.google.common.collect.ImmutableMap;
 import org.junit.Test;
 import startupheroes.checkstyle.checks.BaseCheckTestSupport;
 
@@ -13,25 +13,21 @@ public class EntityToStringCheckTest extends BaseCheckTestSupport {
 
    @Test
    public void testByWrongInput() throws Exception {
-      DefaultConfiguration checkConfig = getCheckerConfig();
-      String[] expected = {
-          "12: " + getCheckMessage(MSG_KEY)
-      };
-      verify(checkConfig, getPath("TestWrongEntity.java"), expected);
+      String[] expectedMessages = {"12: " + getCheckMessage(MSG_KEY)};
+      test("TestWrongEntity.java", expectedMessages);
    }
 
    @Test
    public void testByCorrectInput() throws Exception {
-      DefaultConfiguration checkConfig = getCheckerConfig();
-      String[] expected = {};
-      verify(checkConfig, getPath("TestCorrectEntity.java"), expected);
+      String[] expectedMessages = {};
+      test("TestCorrectEntity.java", expectedMessages);
    }
 
-   private static DefaultConfiguration getCheckerConfig() {
-      DefaultConfiguration checkConfig =
-          createCheckConfig(EntityToStringCheck.class);
-      checkConfig.addAttribute("entityAnnotations", "Entity, javax.persistence.Entity");
-      return checkConfig;
+   private void test(String fileName, String[] expectedMessages) throws Exception {
+      verify(createCheckConfig(EntityToStringCheck.class,
+                               ImmutableMap.of("entityAnnotations", "Entity, javax.persistence.Entity")),
+             getPath(fileName),
+             expectedMessages);
    }
 
 }

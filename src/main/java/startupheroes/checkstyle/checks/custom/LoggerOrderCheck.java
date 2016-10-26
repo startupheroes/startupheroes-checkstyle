@@ -7,7 +7,9 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import java.util.function.Function;
 import java.util.stream.Collectors;
+import startupheroes.checkstyle.util.CommonUtil;
 
 /**
  * @author ozlem.ulag
@@ -29,37 +31,31 @@ public class LoggerOrderCheck extends AbstractCheck {
 
    @Override
    public void visitToken(DetailAST ast) {
-      DetailAST objBlock = ast.findFirstToken(TokenTypes.OBJBLOCK);
-
-      Map<DetailAST, String> astClassVariableMap = new LinkedHashMap<>();
-
-      for (DetailAST child = objBlock.getFirstChild(); child != null; child = child.getNextSibling()) {
-         if (child.getType() == TokenTypes.VARIABLE_DEF) {
-            String variableName = child.findFirstToken(TokenTypes.IDENT).getText();
-            astClassVariableMap.put(child, variableName);
-         }
-      }
-
-      List<String> classVariables = astClassVariableMap.values().stream().collect(Collectors.toList());
-      if (!classVariables.isEmpty() && isLoggerInCorrectOrder(classVariables)) {
-         reportStyleError(getASTHasLoggerVariable(astClassVariableMap));
+      Map<DetailAST, String> variableAstNameMap = getOrderedVariableAstNameMap(ast);
+      if (!variableAstNameMap.isEmpty() && isLoggerInCorrectOrder(variableAstNameMap)) {
+         log(getLoggerAst(variableAstNameMap).getLineNo(), MSG_KEY);
       }
    }
 
-   private DetailAST getASTHasLoggerVariable(Map<DetailAST, String> astClassVariableMap) {
-      return astClassVariableMap.entrySet()
-                                .stream()
-                                .filter(entry -> Objects.equals(entry.getValue(), VARIABLE_LOGGER))
-                                .map(Map.Entry::getKey)
-                                .collect(Collectors.toSet()).iterator().next();
+   private static LinkedHashMap<DetailAST, String> getOrderedVariableAstNameMap(DetailAST ast) {
+      List<DetailAST> variables = CommonUtil.getClassVariables(ast);
+      return variables.stream().collect(Collectors.toMap(Function.identity(),
+                                                         vAst -> vAst.findFirstToken(TokenTypes.IDENT).getText(),
+                                                         (v1, v2) -> null,
+                                                         LinkedHashMap::new));
    }
 
-   private Boolean isLoggerInCorrectOrder(List<String> classVariables) {
-      return classVariables.contains(VARIABLE_LOGGER) && classVariables.indexOf(VARIABLE_LOGGER) != 0;
+   private static DetailAST getLoggerAst(Map<DetailAST, String> astVariableMap) {
+      return astVariableMap.entrySet()
+                           .stream()
+                           .filter(entry -> Objects.equals(entry.getValue(), VARIABLE_LOGGER))
+                           .map(Map.Entry::getKey)
+                           .collect(Collectors.toSet()).iterator().next();
    }
 
-   private void reportStyleError(DetailAST aAST) {
-      log(aAST.getLineNo(), MSG_KEY);
+   private static Boolean isLoggerInCorrectOrder(Map<DetailAST, String> astVariableMap) {
+      List<String> variableNames = astVariableMap.values().stream().collect(Collectors.toList());
+      return variableNames.contains(VARIABLE_LOGGER) && variableNames.indexOf(VARIABLE_LOGGER) != 0;
    }
 
 }
