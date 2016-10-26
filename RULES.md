@@ -182,3 +182,4 @@ whether the package name matches the directory name for the source file.
 5. EntityEqualsHashCodeCheck: Checks whether there is or not a default equals and hashCode methods in entity class.
 6. EntityToStringCheck: Checks whether there is or not toString method in entity class.
 7. EntityGettersSettersCheck: Checks if there is no getter or setter any variable of entity class.
+8. EntityMandatoryVariableCheck: Checks that mandatory to declare some variables in entity class.

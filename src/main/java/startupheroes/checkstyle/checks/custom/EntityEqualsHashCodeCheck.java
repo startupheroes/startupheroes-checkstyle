@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Set;
 import startupheroes.checkstyle.util.CommonUtil;
 
-import static startupheroes.checkstyle.util.CommonUtil.getClassMethods;
+import static startupheroes.checkstyle.util.CommonUtil.getMethods;
 
 /**
  * @author ozlem.ulag
@@ -37,9 +37,8 @@ public class EntityEqualsHashCodeCheck extends AbstractCheck {
 
    @Override
    public void visitToken(DetailAST ast) {
-      Boolean isEntity = CommonUtil.isEntity(entityAnnotations, ast);
-      if (isEntity) {
-         List<DetailAST> methods = getClassMethods(ast);
+      if (CommonUtil.isEntity(entityAnnotations, ast)) {
+         List<DetailAST> methods = getMethods(ast);
          Boolean containsEquals = methods.stream().anyMatch(EntityEqualsHashCodeCheck::isEqualsMethod);
          Boolean containsHashCode = methods.stream().anyMatch(EntityEqualsHashCodeCheck::isHashCodeMethod);
          if (!containsEquals || !containsHashCode) {
@@ -54,7 +53,7 @@ public class EntityEqualsHashCodeCheck extends AbstractCheck {
     * @param ast the AST to check
     * @return true if the {code ast} is a Equals method.
     */
-   private static boolean isEqualsMethod(DetailAST ast) {
+   private static Boolean isEqualsMethod(DetailAST ast) {
       final DetailAST modifiers = ast.getFirstChild();
       final DetailAST parameters = ast.findFirstToken(TokenTypes.PARAMETERS);
 
@@ -71,7 +70,7 @@ public class EntityEqualsHashCodeCheck extends AbstractCheck {
     * @param ast the AST to check
     * @return true if the {code ast} is a HashCode method.
     */
-   private static boolean isHashCodeMethod(DetailAST ast) {
+   private static Boolean isHashCodeMethod(DetailAST ast) {
       final DetailAST modifiers = ast.getFirstChild();
       final AST type = ast.findFirstToken(TokenTypes.TYPE);
       final AST methodName = ast.findFirstToken(TokenTypes.IDENT);
@@ -92,7 +91,7 @@ public class EntityEqualsHashCodeCheck extends AbstractCheck {
     * @param paramNode the AST to check
     * @return true if firstChild is a parameter of an Object type.
     */
-   private static boolean isObjectParam(DetailAST paramNode) {
+   private static Boolean isObjectParam(DetailAST paramNode) {
       final DetailAST typeNode = paramNode.findFirstToken(TokenTypes.TYPE);
       final FullIdent fullIdent = FullIdent.createFullIdentBelow(typeNode);
       final String name = fullIdent.getText();

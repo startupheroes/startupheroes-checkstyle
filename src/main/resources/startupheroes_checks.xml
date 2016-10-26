@@ -199,6 +199,10 @@
       <module name="startupheroes.checkstyle.checks.custom.EntityGettersSettersCheck">
          <property name="entityAnnotations" value="Entity, javax.persistence.Entity"/>
       </module>
+      <module name="startupheroes.checkstyle.checks.custom.EntityMandatoryVariableCheck">
+         <property name="entityAnnotations" value="Entity, javax.persistence.Entity"/>
+         <property name="mandatoryVariables" value="createdAt, lastUpdatedAt"/>
+      </module>
 
    </module>
 </module>

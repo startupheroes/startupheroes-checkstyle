@@ -9,12 +9,11 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.function.Function;
 import java.util.stream.Collectors;
 import startupheroes.checkstyle.util.CommonUtil;
 
-import static startupheroes.checkstyle.util.CommonUtil.getClassMethods;
-import static startupheroes.checkstyle.util.CommonUtil.getClassVariables;
+import static startupheroes.checkstyle.util.CommonUtil.getMethods;
+import static startupheroes.checkstyle.util.CommonUtil.getVariableNameAstMap;
 
 /**
  * @author ozlem.ulag
@@ -45,16 +44,12 @@ public class EntityGettersSettersCheck extends AbstractCheck {
 
    @Override
    public void visitToken(DetailAST ast) {
-      Boolean isEntity = CommonUtil.isEntity(entityAnnotations, ast);
-      if (isEntity) {
-         List<DetailAST> methods = getClassMethods(ast);
+      if (CommonUtil.isEntity(entityAnnotations, ast)) {
+         List<DetailAST> methods = getMethods(ast);
          List<DetailAST> getters = methods.stream().filter(CheckUtils::isGetterMethod).collect(Collectors.toList());
          List<DetailAST> setters = methods.stream().filter(CheckUtils::isSetterMethod).collect(Collectors.toList());
 
-         Map<String, DetailAST> variableNameAstMap =
-             getClassVariables(ast).stream()
-                                   .collect(Collectors.toMap(CommonUtil::getVariableName, Function.identity()));
-
+         Map<String, DetailAST> variableNameAstMap = getVariableNameAstMap(ast, false);
          List<String> getterVariableNames = getters.stream()
                                                    .map(getter -> CommonUtil.getMethodName(getter).split(GETTER_PREFIX_REGEX)[1])
                                                    .collect(Collectors.toList());

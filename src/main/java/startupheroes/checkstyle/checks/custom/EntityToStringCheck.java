@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Set;
 import startupheroes.checkstyle.util.CommonUtil;
 
-import static startupheroes.checkstyle.util.CommonUtil.getClassMethods;
+import static startupheroes.checkstyle.util.CommonUtil.getMethods;
 
 /**
  * @author ozlem.ulag
@@ -35,9 +35,8 @@ public class EntityToStringCheck extends AbstractCheck {
 
    @Override
    public void visitToken(DetailAST ast) {
-      Boolean isEntity = CommonUtil.isEntity(entityAnnotations, ast);
-      if (isEntity) {
-         List<DetailAST> methods = getClassMethods(ast);
+      if (CommonUtil.isEntity(entityAnnotations, ast)) {
+         List<DetailAST> methods = getMethods(ast);
          Boolean containsToString = methods.stream().anyMatch(EntityToStringCheck::isToStringMethod);
          if (!containsToString) {
             log(ast.getLineNo(), MSG_KEY);

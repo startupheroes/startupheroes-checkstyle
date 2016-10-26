@@ -3,13 +3,11 @@ package startupheroes.checkstyle.checks.custom;
 import com.puppycrawl.tools.checkstyle.api.AbstractCheck;
 import com.puppycrawl.tools.checkstyle.api.DetailAST;
 import com.puppycrawl.tools.checkstyle.api.TokenTypes;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
-import java.util.function.Function;
 import java.util.stream.Collectors;
-import startupheroes.checkstyle.util.CommonUtil;
+
+import static startupheroes.checkstyle.util.CommonUtil.getVariableNameAstMap;
 
 /**
  * @author ozlem.ulag
@@ -31,31 +29,16 @@ public class LoggerOrderCheck extends AbstractCheck {
 
    @Override
    public void visitToken(DetailAST ast) {
-      Map<DetailAST, String> variableAstNameMap = getOrderedVariableAstNameMap(ast);
-      if (!variableAstNameMap.isEmpty() && isLoggerInCorrectOrder(variableAstNameMap)) {
-         log(getLoggerAst(variableAstNameMap).getLineNo(), MSG_KEY);
+      Map<String, DetailAST> variableNameAstMap = getVariableNameAstMap(ast, true);
+      if (variableNameAstMap.containsKey(VARIABLE_LOGGER) &&
+          isLoggerInCorrectOrder(variableNameAstMap)) {
+         log(variableNameAstMap.get(VARIABLE_LOGGER).getLineNo(), MSG_KEY);
       }
    }
 
-   private static LinkedHashMap<DetailAST, String> getOrderedVariableAstNameMap(DetailAST ast) {
-      List<DetailAST> variables = CommonUtil.getClassVariables(ast);
-      return variables.stream().collect(Collectors.toMap(Function.identity(),
-                                                         vAst -> vAst.findFirstToken(TokenTypes.IDENT).getText(),
-                                                         (v1, v2) -> null,
-                                                         LinkedHashMap::new));
-   }
-
-   private static DetailAST getLoggerAst(Map<DetailAST, String> astVariableMap) {
-      return astVariableMap.entrySet()
-                           .stream()
-                           .filter(entry -> Objects.equals(entry.getValue(), VARIABLE_LOGGER))
-                           .map(Map.Entry::getKey)
-                           .collect(Collectors.toSet()).iterator().next();
-   }
-
-   private static Boolean isLoggerInCorrectOrder(Map<DetailAST, String> astVariableMap) {
-      List<String> variableNames = astVariableMap.values().stream().collect(Collectors.toList());
-      return variableNames.contains(VARIABLE_LOGGER) && variableNames.indexOf(VARIABLE_LOGGER) != 0;
+   private static Boolean isLoggerInCorrectOrder(Map<String, DetailAST> variableNameAstMap) {
+      List<String> variableNames = variableNameAstMap.keySet().stream().collect(Collectors.toList());
+      return variableNames.indexOf(VARIABLE_LOGGER) != 0;
    }
 
 }
