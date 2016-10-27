@@ -175,11 +175,11 @@ whether the package name matches the directory name for the source file.
 
 # Custom checks:
 
-1. AntiHungarianCheck: Checks for Hungarian notations that variables starts with 'm'.
-2. LoggerOrderCheck: Checks for LOGGER definitions should be at the top of the class.
-3. RedundantMultipleAnnotationCheck: Checks for together usage of given set of annotations redundantly.
-4. BlockedAnnotationKeyCheck: Checks to block of usage the given key inside given annotation.
-5. EntityEqualsHashCodeCheck: Checks whether there is or not a default equals and hashCode methods in entity class.
-6. EntityToStringCheck: Checks whether there is or not toString method in entity class.
-7. EntityGettersSettersCheck: Checks if there is no getter or setter any variable of entity class.
-8. EntityMandatoryVariableCheck: Checks that mandatory to declare some variables in entity class.
+1. LoggerOrderCheck: Checks for LOGGER definitions should be at the top of the class.
+2. RedundantMultipleAnnotationCheck: Checks for together usage of given set of annotations redundantly.
+3. BlockedAnnotationKeyCheck: Checks to block of usage the given key inside given annotation.
+4. EntityEqualsHashCodeCheck: Checks whether there is or not a default equals and hashCode methods in entity class.
+5. EntityToStringCheck: Checks whether there is or not toString method in entity class.
+6. EntityGettersSettersCheck: Checks if there is no getter or setter any variable of entity class.
+7. EntityMandatoryVariableCheck: Checks that mandatory to declare some variables in entity class.
+8. EntityVariableAnnotationKeyValueCheck: Checks that an entity variable has given key and value pair in given annotation.

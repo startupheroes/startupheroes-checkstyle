@@ -4,8 +4,6 @@ import com.google.common.collect.ImmutableMap;
 import org.junit.Test;
 import startupheroes.checkstyle.checks.BaseCheckTestSupport;
 
-import static startupheroes.checkstyle.checks.custom.EntityEqualsHashCodeCheck.MSG_KEY;
-
 /**
  * @author ozlem.ulag
  */
@@ -13,7 +11,7 @@ public class EntityEqualsHashCodeCheckTest extends BaseCheckTestSupport {
 
    @Test
    public void testByWrongInput() throws Exception {
-      String[] expectedMessages = {"12: " + getCheckMessage(MSG_KEY)};
+      String[] expectedMessages = {"12: " + getCheckMessage("entityEqualsHashCodeCheckMessage")};
       test(expectedMessages, "TestWrongEntity.java");
    }
 
@@ -25,7 +23,7 @@ public class EntityEqualsHashCodeCheckTest extends BaseCheckTestSupport {
 
    private void test(String[] expectedMessages, String fileName) throws Exception {
       verify(createCheckConfig(EntityEqualsHashCodeCheck.class,
-                               ImmutableMap.of("entityAnnotations", "Entity, javax.persistence.Entity")),
+                               ImmutableMap.of("entityAnnotation", "javax.persistence.Entity")),
              getPath(fileName),
              expectedMessages);
    }

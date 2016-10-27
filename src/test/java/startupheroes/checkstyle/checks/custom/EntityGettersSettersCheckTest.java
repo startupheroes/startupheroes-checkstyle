@@ -4,8 +4,6 @@ import com.google.common.collect.ImmutableMap;
 import org.junit.Test;
 import startupheroes.checkstyle.checks.BaseCheckTestSupport;
 
-import static startupheroes.checkstyle.checks.custom.EntityGettersSettersCheck.MSG_KEY;
-
 /**
  * @author ozlem.ulag
  */
@@ -13,7 +11,7 @@ public class EntityGettersSettersCheckTest extends BaseCheckTestSupport {
 
    @Test
    public void testByWrongInput() throws Exception {
-      String[] expectedMessages = {"52: " + getCheckMessage(MSG_KEY, "productName")};
+      String[] expectedMessages = {"52: " + getCheckMessage("entityGettersSettersCheckMessage", "productName")};
       test("TestWrongEntity.java", expectedMessages);
    }
 
@@ -25,7 +23,7 @@ public class EntityGettersSettersCheckTest extends BaseCheckTestSupport {
 
    private void test(String fileName, String[] expectedMessages) throws Exception {
       verify(createCheckConfig(EntityGettersSettersCheck.class,
-                               ImmutableMap.of("entityAnnotations", "Entity, javax.persistence.Entity")),
+                               ImmutableMap.of("entityAnnotation", "javax.persistence.Entity")),
              getPath(fileName),
              expectedMessages);
    }

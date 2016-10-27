@@ -1,18 +1,13 @@
 package startupheroes.checkstyle.checks.custom;
 
-import antlr.collections.AST;
 import com.puppycrawl.tools.checkstyle.api.AbstractCheck;
 import com.puppycrawl.tools.checkstyle.api.DetailAST;
-import com.puppycrawl.tools.checkstyle.api.FullIdent;
 import com.puppycrawl.tools.checkstyle.api.TokenTypes;
-import com.puppycrawl.tools.checkstyle.utils.CheckUtils;
-import java.util.Collections;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
-import startupheroes.checkstyle.util.CommonUtil;
+import startupheroes.checkstyle.util.MethodUtil;
 
-import static startupheroes.checkstyle.util.CommonUtil.getMethods;
+import static startupheroes.checkstyle.util.ClassUtil.isEntity;
+import static startupheroes.checkstyle.util.MethodUtil.getMethods;
 
 /**
  * @author ozlem.ulag
@@ -20,15 +15,14 @@ import static startupheroes.checkstyle.util.CommonUtil.getMethods;
 public class EntityEqualsHashCodeCheck extends AbstractCheck {
 
    /**
-    * A key is pointing to the warning message text in "messages.properties"
-    * file.
+    * A key is pointing to the warning message text in "messages.properties" file.
     */
-   static final String MSG_KEY = "entityEqualsHashCodeCheckMessage";
+   private static final String MSG_KEY = "entityEqualsHashCodeCheckMessage";
 
    /**
-    * set possible annotations to understand that a class is an entity.
+    * set entity annotation to understand that a class is an entity.
     */
-   private Set<String> entityAnnotations = new HashSet<>();
+   private String entityAnnotation;
 
    @Override
    public int[] getDefaultTokens() {
@@ -37,69 +31,18 @@ public class EntityEqualsHashCodeCheck extends AbstractCheck {
 
    @Override
    public void visitToken(DetailAST ast) {
-      if (CommonUtil.isEntity(entityAnnotations, ast)) {
+      if (isEntity(ast, entityAnnotation)) {
          List<DetailAST> methods = getMethods(ast);
-         Boolean containsEquals = methods.stream().anyMatch(EntityEqualsHashCodeCheck::isEqualsMethod);
-         Boolean containsHashCode = methods.stream().anyMatch(EntityEqualsHashCodeCheck::isHashCodeMethod);
-         if (!containsEquals || !containsHashCode) {
+         Boolean hasEquals = methods.stream().anyMatch(MethodUtil::isEqualsMethod);
+         Boolean hasHashCode = methods.stream().anyMatch(MethodUtil::isHashCodeMethod);
+         if (!hasEquals || !hasHashCode) {
             log(ast.getLineNo(), MSG_KEY);
          }
       }
    }
 
-   /**
-    * Determines if an AST is a valid Equals method implementation.
-    *
-    * @param ast the AST to check
-    * @return true if the {code ast} is a Equals method.
-    */
-   private static Boolean isEqualsMethod(DetailAST ast) {
-      final DetailAST modifiers = ast.getFirstChild();
-      final DetailAST parameters = ast.findFirstToken(TokenTypes.PARAMETERS);
-
-      return CheckUtils.isEqualsMethod(ast)
-             && modifiers.branchContains(TokenTypes.LITERAL_PUBLIC)
-             && isObjectParam(parameters.getFirstChild())
-             && (ast.branchContains(TokenTypes.SLIST)
-                 || modifiers.branchContains(TokenTypes.LITERAL_NATIVE));
-   }
-
-   /**
-    * Determines if an AST is a valid HashCode method implementation.
-    *
-    * @param ast the AST to check
-    * @return true if the {code ast} is a HashCode method.
-    */
-   private static Boolean isHashCodeMethod(DetailAST ast) {
-      final DetailAST modifiers = ast.getFirstChild();
-      final AST type = ast.findFirstToken(TokenTypes.TYPE);
-      final AST methodName = ast.findFirstToken(TokenTypes.IDENT);
-      final DetailAST parameters = ast.findFirstToken(TokenTypes.PARAMETERS);
-
-      return type.getFirstChild().getType() == TokenTypes.LITERAL_INT
-             && "hashCode".equals(methodName.getText())
-             && modifiers.branchContains(TokenTypes.LITERAL_PUBLIC)
-             && !modifiers.branchContains(TokenTypes.LITERAL_STATIC)
-             && parameters.getFirstChild() == null
-             && (ast.branchContains(TokenTypes.SLIST)
-                 || modifiers.branchContains(TokenTypes.LITERAL_NATIVE));
-   }
-
-   /**
-    * Determines if an AST is a formal param of type Object.
-    *
-    * @param paramNode the AST to check
-    * @return true if firstChild is a parameter of an Object type.
-    */
-   private static Boolean isObjectParam(DetailAST paramNode) {
-      final DetailAST typeNode = paramNode.findFirstToken(TokenTypes.TYPE);
-      final FullIdent fullIdent = FullIdent.createFullIdentBelow(typeNode);
-      final String name = fullIdent.getText();
-      return "Object".equals(name) || "java.lang.Object".equals(name);
-   }
-
-   public void setEntityAnnotations(String... entityAnnotations) {
-      Collections.addAll(this.entityAnnotations, entityAnnotations);
+   public void setEntityAnnotation(String entityAnnotation) {
+      this.entityAnnotation = entityAnnotation;
    }
 
 }

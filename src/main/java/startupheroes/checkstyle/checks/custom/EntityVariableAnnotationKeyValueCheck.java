@@ -1,0 +1,108 @@
+package startupheroes.checkstyle.checks.custom;
+
+import com.google.common.collect.HashBasedTable;
+import com.google.common.collect.Table;
+import com.puppycrawl.tools.checkstyle.api.AbstractCheck;
+import com.puppycrawl.tools.checkstyle.api.DetailAST;
+import com.puppycrawl.tools.checkstyle.api.TokenTypes;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Optional;
+import java.util.Set;
+
+import static java.util.Objects.isNull;
+import static java.util.Objects.nonNull;
+import static startupheroes.checkstyle.util.AnnotationUtil.getAnnotation;
+import static startupheroes.checkstyle.util.AnnotationUtil.getAnnotationKeyPairAstMap;
+import static startupheroes.checkstyle.util.AnnotationUtil.getAnnotationValueAsString;
+import static startupheroes.checkstyle.util.ClassUtil.isEntity;
+import static startupheroes.checkstyle.util.CommonUtil.getSimpleName;
+import static startupheroes.checkstyle.util.VariableUtil.getOrderedVariableNameAstMap;
+
+/**
+ * @author ozlem.ulag
+ */
+public class EntityVariableAnnotationKeyValueCheck extends AbstractCheck {
+
+   /**
+    * A key is pointing to the warning message text in "messages.properties" file.
+    */
+   private static final String MSG_KEY = "entityAnnotationKeyValueCheckMessage";
+
+   /**
+    * set entity annotation to understand that a class is an entity.
+    */
+   private String entityAnnotation;
+
+   private Table<String, String, Map<String, String>> variableAnnotationKeyValueTable = HashBasedTable.create();
+
+   @Override
+   public int[] getDefaultTokens() {
+      return new int[]{TokenTypes.CLASS_DEF};
+   }
+
+   @Override
+   public void visitToken(DetailAST ast) {
+      if (isEntity(ast, entityAnnotation)) {
+         Map<String, DetailAST> variableNameAstMap = getOrderedVariableNameAstMap(ast);
+         Set<String> checkedVariables = variableAnnotationKeyValueTable.rowKeySet();
+         Set<String> checkedAnnotations = variableAnnotationKeyValueTable.columnKeySet();
+         checkedVariables.stream()
+                         .filter(checkedVariable -> variableNameAstMap.keySet().contains(checkedVariable))
+                         .forEach(checkedVariable -> {
+                            DetailAST variableAst = variableNameAstMap.get(checkedVariable);
+                            checkedAnnotations.forEach(checkedAnnotation -> checkAnnotation(checkedVariable,
+                                                                                            variableAst,
+                                                                                            checkedAnnotation));
+                         });
+      }
+   }
+
+   private void checkAnnotation(String checkedVariable, DetailAST variableAst, String checkedAnnotation) {
+      DetailAST annotationAst = getAnnotation(variableAst, checkedAnnotation);
+      Map<String, DetailAST> annotationKeyPairAstMap = getAnnotationKeyPairAstMap(annotationAst);
+      Map<String, String> checkedKeyValueMap = variableAnnotationKeyValueTable.get(checkedVariable, checkedAnnotation);
+      checkedKeyValueMap.keySet().forEach(checkedKey -> checkKeyValuePair(checkedVariable,
+                                                                          checkedAnnotation,
+                                                                          annotationAst,
+                                                                          annotationKeyPairAstMap,
+                                                                          checkedKeyValueMap,
+                                                                          checkedKey));
+   }
+
+   private void checkKeyValuePair(String checkedVariable, String checkedAnnotation, DetailAST annotationAst,
+                                  Map<String, DetailAST> annotationKeyPairAstMap, Map<String, String> checkedKeyValueMap,
+                                  String checkedKey) {
+      String checkedValue = checkedKeyValueMap.get(checkedKey);
+      DetailAST annotationKeyValueAst = annotationKeyPairAstMap.get(checkedKey);
+      if (nonNull(annotationKeyValueAst)) {
+         Optional<String> annotationValueAsString = getAnnotationValueAsString(annotationKeyValueAst);
+         if (annotationValueAsString.isPresent() && !annotationValueAsString.get().equals(checkedValue)) {
+            log(annotationAst.getLineNo(), MSG_KEY, checkedVariable, getSimpleName(checkedAnnotation), checkedKey, checkedValue);
+         }
+      } else {
+         log(annotationAst.getLineNo(), MSG_KEY, checkedVariable, getSimpleName(checkedAnnotation), checkedKey, checkedValue);
+      }
+   }
+
+   public void setEntityAnnotation(String entityAnnotation) {
+      this.entityAnnotation = entityAnnotation;
+   }
+
+   public void setVariableAnnotationKeyValueTable(String... variableAnnotationKeyValues) {
+      for (String variableAnnotationKeyValue : variableAnnotationKeyValues) {
+         String[] splitted = variableAnnotationKeyValue.split(":");
+         String variable = splitted[0];
+         String annotation = splitted[1];
+         String key = splitted[2];
+         String value = splitted[3];
+         Map<String, String> keyValueMap = variableAnnotationKeyValueTable.get(variable, annotation);
+         if (isNull(keyValueMap)) {
+            keyValueMap = new HashMap<>();
+         }
+         keyValueMap.put(key, value);
+         variableAnnotationKeyValueTable.put(variable, annotation, keyValueMap);
+      }
+   }
+
+}

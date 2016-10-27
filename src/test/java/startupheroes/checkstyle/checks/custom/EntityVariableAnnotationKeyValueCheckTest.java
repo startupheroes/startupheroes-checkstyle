@@ -7,11 +7,12 @@ import startupheroes.checkstyle.checks.BaseCheckTestSupport;
 /**
  * @author ozlem.ulag
  */
-public class EntityMandatoryVariableCheckTest extends BaseCheckTestSupport {
+public class EntityVariableAnnotationKeyValueCheckTest extends BaseCheckTestSupport {
 
    @Test
    public void testByWrongInput() throws Exception {
-      String[] expectedMessages = {"12: " + getCheckMessage("entityMandatoryVariableCheckMessage", "lastUpdatedAt")};
+      String[] expectedMessages = {"67: " + getCheckMessage("entityAnnotationKeyValueCheckMessage",
+                                                            "createdAt", "Column", "nullable", "false")};
       test("TestWrongEntity.java", expectedMessages);
    }
 
@@ -22,9 +23,10 @@ public class EntityMandatoryVariableCheckTest extends BaseCheckTestSupport {
    }
 
    private void test(String fileName, String[] expectedMessages) throws Exception {
-      verify(createCheckConfig(EntityMandatoryVariableCheck.class,
+      verify(createCheckConfig(EntityVariableAnnotationKeyValueCheck.class,
                                ImmutableMap.of("entityAnnotation", "javax.persistence.Entity",
-                                               "mandatoryVariables", "createdAt, lastUpdatedAt")),
+                                               "variableAnnotationKeyValueTable",
+                                               "createdAt:javax.persistence.Column:nullable:false, lastUpdatedAt:javax.persistence.Column:nullable:false")),
              getPath(fileName),
              expectedMessages);
    }

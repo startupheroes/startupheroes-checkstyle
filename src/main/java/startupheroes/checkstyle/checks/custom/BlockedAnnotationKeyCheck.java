@@ -1,18 +1,15 @@
 package startupheroes.checkstyle.checks.custom;
 
-import com.google.common.base.Splitter;
 import com.puppycrawl.tools.checkstyle.api.AbstractCheck;
 import com.puppycrawl.tools.checkstyle.api.DetailAST;
 import com.puppycrawl.tools.checkstyle.api.TokenTypes;
-import com.puppycrawl.tools.checkstyle.utils.AnnotationUtility;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 import java.util.Set;
-import java.util.stream.Collectors;
 
-import static startupheroes.checkstyle.util.CommonUtil.findByType;
+import static startupheroes.checkstyle.util.AnnotationUtil.annotationContainsKey;
+import static startupheroes.checkstyle.util.CommonUtil.getKeyValueMap;
+import static startupheroes.checkstyle.util.CommonUtil.getSimpleName;
 
 /**
  * @author ozlem.ulag
@@ -20,10 +17,9 @@ import static startupheroes.checkstyle.util.CommonUtil.findByType;
 public class BlockedAnnotationKeyCheck extends AbstractCheck {
 
    /**
-    * A key is pointing to the warning message text in "messages.properties"
-    * file.
+    * A key is pointing to the warning message text in "messages.properties" file.
     */
-   static final String MSG_KEY = "blockedAnnotationKeyCheckMessage";
+   private static final String MSG_KEY = "blockedAnnotationKeyCheckMessage";
 
    private Map<String, String> annotationBlockedKeyMap = new HashMap<>();
 
@@ -38,32 +34,13 @@ public class BlockedAnnotationKeyCheck extends AbstractCheck {
       for (String annotation : annotations) {
          String blockedKey = annotationBlockedKeyMap.get(annotation);
          if (annotationContainsKey(ast, annotation, blockedKey)) {
-            log(ast.getLineNo(), MSG_KEY, blockedKey, annotation);
+            log(ast.getLineNo(), MSG_KEY, blockedKey, getSimpleName(annotation));
          }
       }
-   }
-
-   private static Boolean annotationContainsKey(DetailAST ast, String annotation, String key) {
-      Boolean annotationContainsKey = false;
-      DetailAST annotationAst = AnnotationUtility.getAnnotation(ast, annotation);
-      if (Objects.nonNull(annotationAst)) {
-         List<DetailAST> keyValuePairAstList = findByType(annotationAst, TokenTypes.ANNOTATION_MEMBER_VALUE_PAIR);
-         if (!keyValuePairAstList.isEmpty()) {
-            List<String> annotationKeys = keyValuePairAstList.stream()
-                                                             .map(keyValuePairAst -> keyValuePairAst.getFirstChild().getText())
-                                                             .collect(Collectors.toList());
-            annotationContainsKey = annotationKeys.contains(key);
-         }
-      }
-      return annotationContainsKey;
    }
 
    public void setAnnotationBlockedKeyMap(String property) {
-      this.annotationBlockedKeyMap = map(property, ",");
-   }
-
-   private static Map<String, String> map(String property, String splitter) {
-      return Splitter.on(splitter).omitEmptyStrings().trimResults().withKeyValueSeparator(":").split(property);
+      this.annotationBlockedKeyMap = getKeyValueMap(property);
    }
 
 }

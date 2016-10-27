@@ -7,9 +7,9 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import startupheroes.checkstyle.util.CommonUtil;
 
-import static startupheroes.checkstyle.util.CommonUtil.getVariableNames;
+import static startupheroes.checkstyle.util.ClassUtil.isEntity;
+import static startupheroes.checkstyle.util.VariableUtil.getVariableNames;
 
 /**
  * @author ozlem.ulag
@@ -17,18 +17,17 @@ import static startupheroes.checkstyle.util.CommonUtil.getVariableNames;
 public class EntityMandatoryVariableCheck extends AbstractCheck {
 
    /**
-    * A key is pointing to the warning message text in "messages.properties"
-    * file.
+    * A key is pointing to the warning message text in "messages.properties" file.
     */
-   static final String MSG_KEY = "entityMandatoryVariableCheckMessage";
+   private static final String MSG_KEY = "entityMandatoryVariableCheckMessage";
 
    /**
-    * set possible annotations to understand that a class is an entity.
+    * set entity annotation to understand that a class is an entity.
     */
-   private Set<String> entityAnnotations = new HashSet<>();
+   private String entityAnnotation;
 
    /**
-    * set mandotary variables that must exist in each entity.
+    * set mandatory variables that must exist in each entity.
     */
    private Set<String> mandatoryVariables = new HashSet<>();
 
@@ -39,7 +38,7 @@ public class EntityMandatoryVariableCheck extends AbstractCheck {
 
    @Override
    public void visitToken(DetailAST ast) {
-      if (CommonUtil.isEntity(entityAnnotations, ast)) {
+      if (isEntity(ast, entityAnnotation)) {
          List<String> variableNames = getVariableNames(ast);
          mandatoryVariables.stream()
                            .filter(mandatoryVariable -> !variableNames.contains(mandatoryVariable))
@@ -47,8 +46,8 @@ public class EntityMandatoryVariableCheck extends AbstractCheck {
       }
    }
 
-   public void setEntityAnnotations(String... entityAnnotations) {
-      Collections.addAll(this.entityAnnotations, entityAnnotations);
+   public void setEntityAnnotation(String entityAnnotation) {
+      this.entityAnnotation = entityAnnotation;
    }
 
    public void setMandatoryVariables(String... mandatoryVariables) {
