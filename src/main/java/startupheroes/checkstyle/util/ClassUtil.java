@@ -1,6 +1,13 @@
 package startupheroes.checkstyle.util;
 
 import com.puppycrawl.tools.checkstyle.api.DetailAST;
+import com.puppycrawl.tools.checkstyle.api.TokenTypes;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Optional;
+
+import static startupheroes.checkstyle.util.CommonUtil.getFullName;
+import static startupheroes.checkstyle.util.CommonUtil.getSimpleName;
 
 /**
  * @author ozlem.ulag
@@ -16,7 +23,36 @@ public final class ClassUtil {
     * @return true if class is an entity, otherwise false
     */
    public static Boolean isEntity(DetailAST classAst, String fullEntityAnnotation) {
-      return AnnotationUtil.containsAnnotation(classAst, fullEntityAnnotation);
+      return AnnotationUtil.hasAnnotation(classAst, fullEntityAnnotation);
+   }
+
+   /**
+    * @param anyAstBelowClass : any type of ast
+    * @return class Ast of given ast if exists
+    */
+   public static Optional<DetailAST> getClass(DetailAST anyAstBelowClass) {
+      Optional<DetailAST> classAst = Optional.empty();
+      for (DetailAST parent = anyAstBelowClass; parent != null; parent = parent.getParent()) {
+         if (parent.getType() == TokenTypes.CLASS_DEF) {
+            classAst = Optional.of(parent);
+            break;
+         }
+      }
+      return classAst;
+   }
+
+   /**
+    * @param rootAst Require to be CLASS_DEF type
+    * @return simple name -> full name of imports like Object -> java.lang.Object
+    */
+   public static Map<String, String> getImportSimpleFullNameMap(DetailAST rootAst) {
+      Map<String, String> simpleFullNameMapOfImports = new LinkedHashMap<>();
+      for (DetailAST sibling = rootAst; sibling != null; sibling = sibling.getNextSibling()) {
+         if (sibling.getType() == TokenTypes.IMPORT) {
+            simpleFullNameMapOfImports.put(getSimpleName(sibling), getFullName(sibling));
+         }
+      }
+      return simpleFullNameMapOfImports;
    }
 
 }

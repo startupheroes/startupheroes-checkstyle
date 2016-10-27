@@ -9,9 +9,11 @@ import startupheroes.checkstyle.checks.BaseCheckTestSupport;
  */
 public class BlockedAnnotationKeyCheckTest extends BaseCheckTestSupport {
 
+   private static final String MSG_KEY = "blockedAnnotationKeyCheckMessage";
+
    @Test
    public void testByWrongInput() throws Exception {
-      String[] expectedMessages = {"58: " + getCheckMessage("blockedAnnotationKeyCheckMessage", "unique", "Column")};
+      String[] expectedMessages = {"58: " + getCheckMessage(MSG_KEY, "unique", "Column")};
       test("TestWrongEntity.java", expectedMessages);
    }
 

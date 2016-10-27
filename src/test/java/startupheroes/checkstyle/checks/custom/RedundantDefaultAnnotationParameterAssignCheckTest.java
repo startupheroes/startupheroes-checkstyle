@@ -1,19 +1,22 @@
 package startupheroes.checkstyle.checks.custom;
 
-import com.google.common.collect.ImmutableMap;
 import org.junit.Test;
 import startupheroes.checkstyle.checks.BaseCheckTestSupport;
 
 /**
  * @author ozlem.ulag
  */
-public class EntityGettersSettersCheckTest extends BaseCheckTestSupport {
+public class RedundantDefaultAnnotationParameterAssignCheckTest extends BaseCheckTestSupport {
 
-   private static final String MSG_KEY = "entityGettersSettersCheckMessage";
+   private static final String MSG_KEY = "redundantDefaultAnnotationParameterAssignCheckMessage";
 
    @Test
    public void testByWrongInput() throws Exception {
-      String[] expectedMessages = {"52: " + getCheckMessage(MSG_KEY, "productName")};
+      String[] expectedMessages = {
+          "64: " + getCheckMessage(MSG_KEY, "nullable"),
+          "72: " + getCheckMessage(MSG_KEY, "insertable"),
+          "72: " + getCheckMessage(MSG_KEY, "length"),
+          "72: " + getCheckMessage(MSG_KEY, "updatable")};
       test("TestWrongEntity.java", expectedMessages);
    }
 
@@ -24,8 +27,7 @@ public class EntityGettersSettersCheckTest extends BaseCheckTestSupport {
    }
 
    private void test(String fileName, String[] expectedMessages) throws Exception {
-      verify(createCheckConfig(EntityGettersSettersCheck.class,
-                               ImmutableMap.of("entityAnnotation", "javax.persistence.Entity")),
+      verify(createCheckConfig(RedundantDefaultAnnotationParameterAssignCheck.class),
              getPath(fileName),
              expectedMessages);
    }

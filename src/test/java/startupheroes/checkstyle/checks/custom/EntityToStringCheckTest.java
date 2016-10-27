@@ -9,9 +9,11 @@ import startupheroes.checkstyle.checks.BaseCheckTestSupport;
  */
 public class EntityToStringCheckTest extends BaseCheckTestSupport {
 
+   private static final String MSG_KEY = "entityToStringCheckMessage";
+
    @Test
    public void testByWrongInput() throws Exception {
-      String[] expectedMessages = {"12: " + getCheckMessage("entityToStringCheckMessage")};
+      String[] expectedMessages = {"12: " + getCheckMessage(MSG_KEY)};
       test("TestWrongEntity.java", expectedMessages);
    }
 

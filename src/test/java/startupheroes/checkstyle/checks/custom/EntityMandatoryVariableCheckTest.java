@@ -9,9 +9,11 @@ import startupheroes.checkstyle.checks.BaseCheckTestSupport;
  */
 public class EntityMandatoryVariableCheckTest extends BaseCheckTestSupport {
 
+   private static final String MSG_KEY = "entityMandatoryVariableCheckMessage";
+
    @Test
    public void testByWrongInput() throws Exception {
-      String[] expectedMessages = {"12: " + getCheckMessage("entityMandatoryVariableCheckMessage", "lastUpdatedAt")};
+      String[] expectedMessages = {"12: " + getCheckMessage(MSG_KEY, "lastUpdatedAt")};
       test("TestWrongEntity.java", expectedMessages);
    }
 

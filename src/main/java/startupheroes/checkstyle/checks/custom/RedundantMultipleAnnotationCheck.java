@@ -6,8 +6,8 @@ import com.puppycrawl.tools.checkstyle.api.TokenTypes;
 import java.util.HashMap;
 import java.util.Map;
 
-import static startupheroes.checkstyle.util.AnnotationUtil.containsAnnotation;
-import static startupheroes.checkstyle.util.CommonUtil.getKeyValueMap;
+import static startupheroes.checkstyle.util.AnnotationUtil.hasAnnotation;
+import static startupheroes.checkstyle.util.CommonUtil.splitProperty;
 import static startupheroes.checkstyle.util.CommonUtil.getSimpleName;
 
 /**
@@ -24,6 +24,11 @@ public class RedundantMultipleAnnotationCheck extends AbstractCheck {
 
    @Override
    public int[] getDefaultTokens() {
+      return getAcceptableTokens();
+   }
+
+   @Override
+   public int[] getAcceptableTokens() {
       return new int[]{
           TokenTypes.CLASS_DEF,
           TokenTypes.INTERFACE_DEF,
@@ -35,17 +40,22 @@ public class RedundantMultipleAnnotationCheck extends AbstractCheck {
    }
 
    @Override
+   public int[] getRequiredTokens() {
+      return getAcceptableTokens();
+   }
+
+   @Override
    public void visitToken(final DetailAST ast) {
       for (String annotation1 : redundantAnnotationPairs.keySet()) {
          String annotation2 = redundantAnnotationPairs.get(annotation1);
-         if (containsAnnotation(ast, annotation1) && containsAnnotation(ast, annotation2)) {
+         if (hasAnnotation(ast, annotation1) && hasAnnotation(ast, annotation2)) {
             log(ast.getLineNo(), MSG_KEY, getSimpleName(annotation1), getSimpleName(annotation2));
          }
       }
    }
 
    public void setRedundantAnnotationPairs(String property) {
-      this.redundantAnnotationPairs = getKeyValueMap(property);
+      this.redundantAnnotationPairs = splitProperty(property);
    }
 
 }

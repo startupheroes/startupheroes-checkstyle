@@ -8,9 +8,11 @@ import startupheroes.checkstyle.checks.BaseCheckTestSupport;
  */
 public class LoggerOrderCheckTest extends BaseCheckTestSupport {
 
+   private static final String MSG_KEY = "loggerOrderCheckMessage";
+
    @Test
    public void testByWrongInput() throws Exception {
-      String[] expectedMessages = {"12: " + getCheckMessage("loggerOrderCheckMessage")};
+      String[] expectedMessages = {"12: " + getCheckMessage(MSG_KEY)};
       test("TestWrongInputForLoggerOrderCheck.java", expectedMessages);
    }
 

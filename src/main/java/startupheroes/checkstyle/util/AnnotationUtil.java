@@ -3,6 +3,9 @@ package startupheroes.checkstyle.util;
 import com.puppycrawl.tools.checkstyle.api.DetailAST;
 import com.puppycrawl.tools.checkstyle.api.TokenTypes;
 import com.puppycrawl.tools.checkstyle.utils.AnnotationUtility;
+import java.lang.reflect.Method;
+import java.util.Collection;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -10,8 +13,8 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import static java.util.Objects.nonNull;
-import static startupheroes.checkstyle.util.CommonUtil.findByType;
-import static startupheroes.checkstyle.util.CommonUtil.getListOfSimpleAndFullName;
+import static startupheroes.checkstyle.util.CommonUtil.getChildsByType;
+import static startupheroes.checkstyle.util.CommonUtil.getSimpleAndFullNames;
 import static startupheroes.checkstyle.util.CommonUtil.getSimpleName;
 
 /**
@@ -24,11 +27,11 @@ public final class AnnotationUtil {
 
    /**
     * @param fullAnnotation : Full qualifier of annotation like java.lang.Object
-    * @return : true if ast contains any possible annotation, otherwise false
+    * @return : true if ast has any possible annotation, otherwise false
     */
-   public static Boolean containsAnnotation(DetailAST ast, String fullAnnotation) {
-      return getListOfSimpleAndFullName(fullAnnotation).stream()
-                                                       .anyMatch(annotation -> AnnotationUtility.containsAnnotation(ast, annotation));
+   public static Boolean hasAnnotation(DetailAST ast, String fullAnnotation) {
+      return getSimpleAndFullNames(fullAnnotation).stream()
+                                                  .anyMatch(annotation -> AnnotationUtility.containsAnnotation(ast, annotation));
    }
 
    public static DetailAST getAnnotation(DetailAST ast, String fullAnnotation) {
@@ -36,30 +39,29 @@ public final class AnnotationUtil {
       return nonNull(simpleAnnotationAst) ? simpleAnnotationAst : AnnotationUtility.getAnnotation(ast, fullAnnotation);
    }
 
-   public static Boolean annotationContainsKey(DetailAST ast, String annotation, String key) {
-      Boolean annotationContainsKey = false;
-      DetailAST annotationAst = getAnnotation(ast, annotation);
-      if (nonNull(annotationAst)) {
-         List<String> annotationKeys = getAnnotationKeys(annotationAst);
-         annotationContainsKey = annotationKeys.contains(key);
-      }
-      return annotationContainsKey;
-   }
-
-   public static List<String> getAnnotationKeys(DetailAST annotationAst) {
-      List<DetailAST> keyValuePairAstList = findByType(annotationAst, TokenTypes.ANNOTATION_MEMBER_VALUE_PAIR);
+   public static List<String> getKeys(DetailAST annotationAst) {
+      List<DetailAST> keyValuePairAstList = getChildsByType(annotationAst, TokenTypes.ANNOTATION_MEMBER_VALUE_PAIR);
       return keyValuePairAstList.stream()
                                 .map(keyValuePairAst -> keyValuePairAst.getFirstChild().getText())
                                 .collect(Collectors.toList());
    }
 
-   public static Map<String, DetailAST> getAnnotationKeyPairAstMap(DetailAST annotationAst) {
-      List<DetailAST> keyValuePairAstList = findByType(annotationAst, TokenTypes.ANNOTATION_MEMBER_VALUE_PAIR);
+   /**
+    * key -> ANNOTATION_MEMBER_VALUE_PAIR type ast
+    */
+   public static Map<String, DetailAST> getKeyValueAstMap(DetailAST annotationAst) {
+      List<DetailAST> keyValuePairAstList = getChildsByType(annotationAst, TokenTypes.ANNOTATION_MEMBER_VALUE_PAIR);
       return keyValuePairAstList.stream().collect(Collectors.toMap(keyValuePairAst -> keyValuePairAst.getFirstChild().getText(),
-                                                                   Function.identity()));
+                                                                   Function.identity(),
+                                                                   (v1, v2) -> null,
+                                                                   LinkedHashMap::new));
    }
 
-   public static Optional<String> getAnnotationValueAsString(DetailAST annotationKeyValueAst) {
+   /**
+    * @param annotationKeyValueAst : ANNOTATION_MEMBER_VALUE_PAIR type ast
+    * @return value of key
+    */
+   public static Optional<String> getValue(DetailAST annotationKeyValueAst) {
       Optional<String> result = Optional.empty();
       DetailAST exprAst = annotationKeyValueAst.findFirstToken(TokenTypes.EXPR);
       if (nonNull(exprAst)) {
@@ -69,6 +71,39 @@ public final class AnnotationUtil {
          }
       }
       return result;
+   }
+
+   public static Object getDefaultValue(String fullAnnotationName, String key) {
+      Object defaultValue = null;
+      try {
+         Class<?> annotationClass = Class.forName(fullAnnotationName);
+         defaultValue = getDefaultValue(annotationClass, key);
+      } catch (ClassNotFoundException ignored) {
+      }
+      return defaultValue;
+   }
+
+   public static Object getDefaultValue(Class<?> annotationClass, String key) {
+      Object defaultValue = null;
+      try {
+         Method method = annotationClass.getMethod(key);
+         defaultValue = method.getDefaultValue();
+      } catch (NoSuchMethodException ignored) {
+      }
+      return defaultValue;
+   }
+
+   /**
+    * key -> default value
+    */
+   public static Map<String, Object> getKeyDefaultValueMap(String fullAnnotationName, Collection<String> keys) {
+      Map<String, Object> keyDefaultValueMap = new LinkedHashMap<>();
+      try {
+         Class<?> annotationClass = Class.forName(fullAnnotationName);
+         keys.forEach(key -> keyDefaultValueMap.put(key, getDefaultValue(annotationClass, key)));
+      } catch (ClassNotFoundException ignored) {
+      }
+      return keyDefaultValueMap;
    }
 
 }

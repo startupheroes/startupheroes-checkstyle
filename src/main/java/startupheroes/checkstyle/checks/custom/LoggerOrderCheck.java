@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import static startupheroes.checkstyle.util.VariableUtil.getOrderedVariableNameAstMap;
+import static startupheroes.checkstyle.util.VariableUtil.getVariableNameAstMap;
 
 /**
  * @author ozlem.ulag
@@ -23,12 +23,22 @@ public class LoggerOrderCheck extends AbstractCheck {
 
    @Override
    public int[] getDefaultTokens() {
-      return new int[]{TokenTypes.CLASS_DEF, TokenTypes.INTERFACE_DEF};
+      return getAcceptableTokens();
+   }
+
+   @Override
+   public int[] getAcceptableTokens() {
+      return new int[]{TokenTypes.CLASS_DEF};
+   }
+
+   @Override
+   public int[] getRequiredTokens() {
+      return getAcceptableTokens();
    }
 
    @Override
    public void visitToken(DetailAST ast) {
-      Map<String, DetailAST> variableNameAstMap = getOrderedVariableNameAstMap(ast);
+      Map<String, DetailAST> variableNameAstMap = getVariableNameAstMap(ast);
       if (variableNameAstMap.containsKey(VARIABLE_LOGGER) && isLoggerInCorrectOrder(variableNameAstMap)) {
          log(variableNameAstMap.get(VARIABLE_LOGGER).getLineNo(), MSG_KEY);
       }

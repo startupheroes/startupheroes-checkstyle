@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
-import static startupheroes.checkstyle.util.CommonUtil.findByType;
+import static startupheroes.checkstyle.util.CommonUtil.getChildsByType;
 
 /**
  * @author ozlem.ulag
@@ -24,7 +24,7 @@ public final class VariableUtil {
     */
    public static List<DetailAST> getVariables(DetailAST classAst) {
       DetailAST objBlock = classAst.findFirstToken(TokenTypes.OBJBLOCK);
-      return findByType(objBlock, TokenTypes.VARIABLE_DEF);
+      return getChildsByType(objBlock, TokenTypes.VARIABLE_DEF);
    }
 
    /**
@@ -48,7 +48,7 @@ public final class VariableUtil {
     * @param classAst required to be CLASS_DEF type
     * @return : ordered variable name -> variable AST
     */
-   public static Map<String, DetailAST> getOrderedVariableNameAstMap(DetailAST classAst) {
+   public static Map<String, DetailAST> getVariableNameAstMap(DetailAST classAst) {
       List<DetailAST> variables = getVariables(classAst);
       return variables.stream().collect(Collectors.toMap(VariableUtil::getVariableName,
                                                          Function.identity(),

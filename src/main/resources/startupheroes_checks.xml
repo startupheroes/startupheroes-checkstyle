@@ -206,6 +206,7 @@
          <property name="variableAnnotationKeyValueTable"
              value="createdAt:javax.persistence.Column:nullable:false, lastUpdatedAt:javax.persistence.Column:nullable:false"/>
       </module>
+      <module name="startupheroes.checkstyle.checks.custom.RedundantDefaultAnnotationParameterAssignCheck"/>
 
    </module>
 </module>

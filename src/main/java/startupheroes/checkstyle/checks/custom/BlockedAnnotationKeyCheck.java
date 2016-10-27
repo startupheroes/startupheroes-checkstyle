@@ -7,8 +7,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
 
-import static startupheroes.checkstyle.util.AnnotationUtil.annotationContainsKey;
-import static startupheroes.checkstyle.util.CommonUtil.getKeyValueMap;
+import static startupheroes.checkstyle.util.AnnotationUtil.getKeys;
+import static startupheroes.checkstyle.util.CommonUtil.splitProperty;
 import static startupheroes.checkstyle.util.CommonUtil.getSimpleName;
 
 /**
@@ -25,22 +25,35 @@ public class BlockedAnnotationKeyCheck extends AbstractCheck {
 
    @Override
    public int[] getDefaultTokens() {
-      return new int[]{TokenTypes.VARIABLE_DEF};
+      return getAcceptableTokens();
+   }
+
+   @Override
+   public int[] getAcceptableTokens() {
+      return new int[]{TokenTypes.ANNOTATION};
+   }
+
+   @Override
+   public int[] getRequiredTokens() {
+      return getAcceptableTokens();
    }
 
    @Override
    public void visitToken(final DetailAST ast) {
-      Set<String> annotations = annotationBlockedKeyMap.keySet();
-      for (String annotation : annotations) {
-         String blockedKey = annotationBlockedKeyMap.get(annotation);
-         if (annotationContainsKey(ast, annotation, blockedKey)) {
-            log(ast.getLineNo(), MSG_KEY, blockedKey, getSimpleName(annotation));
-         }
-      }
+      Set<String> checkedAnnotations = annotationBlockedKeyMap.keySet();
+      String annotationSimpleName = getSimpleName(ast);
+      checkedAnnotations.stream()
+                        .filter(checkedAnnotation -> getSimpleName(checkedAnnotation).equals(annotationSimpleName))
+                        .forEach(checkedAnnotation -> {
+                           String blockedKey = annotationBlockedKeyMap.get(checkedAnnotation);
+                           if (getKeys(ast).contains(blockedKey)) {
+                              log(ast.getLineNo(), MSG_KEY, blockedKey, annotationSimpleName);
+                           }
+                        });
    }
 
    public void setAnnotationBlockedKeyMap(String property) {
-      this.annotationBlockedKeyMap = getKeyValueMap(property);
+      this.annotationBlockedKeyMap = splitProperty(property);
    }
 
 }

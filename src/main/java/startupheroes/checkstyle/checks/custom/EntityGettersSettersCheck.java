@@ -8,10 +8,10 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 import static startupheroes.checkstyle.util.ClassUtil.isEntity;
-import static startupheroes.checkstyle.util.MethodUtil.getGetterMethods;
+import static startupheroes.checkstyle.util.MethodUtil.getGetters;
 import static startupheroes.checkstyle.util.MethodUtil.getMethodName;
-import static startupheroes.checkstyle.util.MethodUtil.getSetterMethods;
-import static startupheroes.checkstyle.util.VariableUtil.getOrderedVariableNameAstMap;
+import static startupheroes.checkstyle.util.MethodUtil.getSetters;
+import static startupheroes.checkstyle.util.VariableUtil.getVariableNameAstMap;
 
 /**
  * @author ozlem.ulag
@@ -36,20 +36,30 @@ public class EntityGettersSettersCheck extends AbstractCheck {
 
    @Override
    public int[] getDefaultTokens() {
+      return getAcceptableTokens();
+   }
+
+   @Override
+   public int[] getAcceptableTokens() {
       return new int[]{TokenTypes.CLASS_DEF};
+   }
+
+   @Override
+   public int[] getRequiredTokens() {
+      return getAcceptableTokens();
    }
 
    @Override
    public void visitToken(DetailAST ast) {
       if (isEntity(ast, entityAnnotation)) {
-         Map<String, DetailAST> variableNameAstMap = getOrderedVariableNameAstMap(ast);
-         List<String> getterVariableNames = getGetterMethods(ast).stream()
-                                                                 .map(getter -> getMethodName(getter).split(GETTER_PREFIX_REGEX)[1])
-                                                                 .collect(Collectors.toList());
+         Map<String, DetailAST> variableNameAstMap = getVariableNameAstMap(ast);
+         List<String> getterVariableNames = getGetters(ast).stream()
+                                                           .map(getter -> getMethodName(getter).split(GETTER_PREFIX_REGEX)[1])
+                                                           .collect(Collectors.toList());
 
-         List<String> setterVariableNames = getSetterMethods(ast).stream()
-                                                                 .map(setter -> getMethodName(setter).split(SETTER_PREFIX_REGEX)[1])
-                                                                 .collect(Collectors.toList());
+         List<String> setterVariableNames = getSetters(ast).stream()
+                                                           .map(setter -> getMethodName(setter).split(SETTER_PREFIX_REGEX)[1])
+                                                           .collect(Collectors.toList());
 
          for (String variableName : variableNameAstMap.keySet()) {
             String nameInGettersAndSetters = variableName.substring(0, 1).toUpperCase() + variableName.substring(1);

@@ -13,11 +13,11 @@ import java.util.Set;
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 import static startupheroes.checkstyle.util.AnnotationUtil.getAnnotation;
-import static startupheroes.checkstyle.util.AnnotationUtil.getAnnotationKeyPairAstMap;
-import static startupheroes.checkstyle.util.AnnotationUtil.getAnnotationValueAsString;
+import static startupheroes.checkstyle.util.AnnotationUtil.getKeyValueAstMap;
+import static startupheroes.checkstyle.util.AnnotationUtil.getValue;
 import static startupheroes.checkstyle.util.ClassUtil.isEntity;
 import static startupheroes.checkstyle.util.CommonUtil.getSimpleName;
-import static startupheroes.checkstyle.util.VariableUtil.getOrderedVariableNameAstMap;
+import static startupheroes.checkstyle.util.VariableUtil.getVariableNameAstMap;
 
 /**
  * @author ozlem.ulag
@@ -38,13 +38,23 @@ public class EntityVariableAnnotationKeyValueCheck extends AbstractCheck {
 
    @Override
    public int[] getDefaultTokens() {
+      return getAcceptableTokens();
+   }
+
+   @Override
+   public int[] getAcceptableTokens() {
       return new int[]{TokenTypes.CLASS_DEF};
+   }
+
+   @Override
+   public int[] getRequiredTokens() {
+      return getAcceptableTokens();
    }
 
    @Override
    public void visitToken(DetailAST ast) {
       if (isEntity(ast, entityAnnotation)) {
-         Map<String, DetailAST> variableNameAstMap = getOrderedVariableNameAstMap(ast);
+         Map<String, DetailAST> variableNameAstMap = getVariableNameAstMap(ast);
          Set<String> checkedVariables = variableAnnotationKeyValueTable.rowKeySet();
          Set<String> checkedAnnotations = variableAnnotationKeyValueTable.columnKeySet();
          checkedVariables.stream()
@@ -60,7 +70,7 @@ public class EntityVariableAnnotationKeyValueCheck extends AbstractCheck {
 
    private void checkAnnotation(String checkedVariable, DetailAST variableAst, String checkedAnnotation) {
       DetailAST annotationAst = getAnnotation(variableAst, checkedAnnotation);
-      Map<String, DetailAST> annotationKeyPairAstMap = getAnnotationKeyPairAstMap(annotationAst);
+      Map<String, DetailAST> annotationKeyPairAstMap = getKeyValueAstMap(annotationAst);
       Map<String, String> checkedKeyValueMap = variableAnnotationKeyValueTable.get(checkedVariable, checkedAnnotation);
       checkedKeyValueMap.keySet().forEach(checkedKey -> checkKeyValuePair(checkedVariable,
                                                                           checkedAnnotation,
@@ -76,7 +86,7 @@ public class EntityVariableAnnotationKeyValueCheck extends AbstractCheck {
       String checkedValue = checkedKeyValueMap.get(checkedKey);
       DetailAST annotationKeyValueAst = annotationKeyPairAstMap.get(checkedKey);
       if (nonNull(annotationKeyValueAst)) {
-         Optional<String> annotationValueAsString = getAnnotationValueAsString(annotationKeyValueAst);
+         Optional<String> annotationValueAsString = getValue(annotationKeyValueAst);
          if (annotationValueAsString.isPresent() && !annotationValueAsString.get().equals(checkedValue)) {
             log(annotationAst.getLineNo(), MSG_KEY, checkedVariable, getSimpleName(checkedAnnotation), checkedKey, checkedValue);
          }

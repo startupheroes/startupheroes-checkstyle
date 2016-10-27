@@ -183,3 +183,4 @@ whether the package name matches the directory name for the source file.
 6. EntityGettersSettersCheck: Checks if there is no getter or setter any variable of entity class.
 7. EntityMandatoryVariableCheck: Checks that mandatory to declare some variables in entity class.
 8. EntityVariableAnnotationKeyValueCheck: Checks that an entity variable has given key and value pair in given annotation.
+9. RedundantDefaultAnnotationParameterAssignCheck: Checks for redundant default parameter value assign of annotation.

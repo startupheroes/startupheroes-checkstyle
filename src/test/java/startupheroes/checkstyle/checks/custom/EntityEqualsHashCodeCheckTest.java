@@ -9,9 +9,11 @@ import startupheroes.checkstyle.checks.BaseCheckTestSupport;
  */
 public class EntityEqualsHashCodeCheckTest extends BaseCheckTestSupport {
 
+   private static final String MSG_KEY = "entityEqualsHashCodeCheckMessage";
+
    @Test
    public void testByWrongInput() throws Exception {
-      String[] expectedMessages = {"12: " + getCheckMessage("entityEqualsHashCodeCheckMessage")};
+      String[] expectedMessages = {"12: " + getCheckMessage(MSG_KEY)};
       test(expectedMessages, "TestWrongEntity.java");
    }
 

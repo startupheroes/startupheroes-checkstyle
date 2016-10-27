@@ -9,10 +9,11 @@ import startupheroes.checkstyle.checks.BaseCheckTestSupport;
  */
 public class EntityVariableAnnotationKeyValueCheckTest extends BaseCheckTestSupport {
 
+   private static final String MSG_KEY = "entityAnnotationKeyValueCheckMessage";
+
    @Test
    public void testByWrongInput() throws Exception {
-      String[] expectedMessages = {"67: " + getCheckMessage("entityAnnotationKeyValueCheckMessage",
-                                                            "createdAt", "Column", "nullable", "false")};
+      String[] expectedMessages = {"67: " + getCheckMessage(MSG_KEY, "createdAt", "Column", "nullable", "false")};
       test("TestWrongEntity.java", expectedMessages);
    }
 

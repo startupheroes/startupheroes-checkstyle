@@ -34,7 +34,7 @@ class TestWrongEntity {
    @javax.persistence.Id
    private String sku;
 
-   @Column(nullable = false)
+   @javax.persistence.Column(nullable = false)
    private Integer productModelId;
 
    @Column
@@ -68,6 +68,9 @@ class TestWrongEntity {
    private Date createdAt;
 
    // no lastUpdatedAt column!
+
+   @Column(insertable = true, updatable = true, length = 255)
+   private Date defaultValue;
 
    public Integer getProductId() {
       return productId;
@@ -149,6 +152,14 @@ class TestWrongEntity {
 
    public void setCreatedAt(Date createdAt) {
       this.createdAt = createdAt;
+   }
+
+   public Date getDefaultValue() {
+      return defaultValue;
+   }
+
+   public void setDefaultValue(Date defaultValue) {
+      this.defaultValue = defaultValue;
    }
 
    // no toString() method!

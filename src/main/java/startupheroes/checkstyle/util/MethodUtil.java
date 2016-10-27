@@ -8,8 +8,8 @@ import com.puppycrawl.tools.checkstyle.utils.CheckUtils;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static startupheroes.checkstyle.util.CommonUtil.findByType;
-import static startupheroes.checkstyle.util.CommonUtil.getListOfSimpleAndFullName;
+import static startupheroes.checkstyle.util.CommonUtil.getChildsByType;
+import static startupheroes.checkstyle.util.CommonUtil.getSimpleAndFullNames;
 
 /**
  * @author ozlem.ulag
@@ -33,7 +33,7 @@ public final class MethodUtil {
     */
    public static List<DetailAST> getMethods(DetailAST classAst) {
       DetailAST objBlock = classAst.findFirstToken(TokenTypes.OBJBLOCK);
-      return findByType(objBlock, TokenTypes.METHOD_DEF);
+      return getChildsByType(objBlock, TokenTypes.METHOD_DEF);
    }
 
    /**
@@ -45,11 +45,11 @@ public final class MethodUtil {
       return type.getNextSibling().getText();
    }
 
-   public static List<DetailAST> getGetterMethods(DetailAST classAst) {
+   public static List<DetailAST> getGetters(DetailAST classAst) {
       return getMethods(classAst).stream().filter(CheckUtils::isGetterMethod).collect(Collectors.toList());
    }
 
-   public static List<DetailAST> getSetterMethods(DetailAST classAst) {
+   public static List<DetailAST> getSetters(DetailAST classAst) {
       return getMethods(classAst).stream().filter(CheckUtils::isSetterMethod).collect(Collectors.toList());
    }
 
@@ -103,7 +103,7 @@ public final class MethodUtil {
       final AST methodName = ast.findFirstToken(TokenTypes.IDENT);
       final DetailAST parameters = ast.findFirstToken(TokenTypes.PARAMETERS);
 
-      return getListOfSimpleAndFullName(STRING_FULL_NAME).contains(type.getFirstChild().getText())
+      return getSimpleAndFullNames(STRING_FULL_NAME).contains(type.getFirstChild().getText())
              && TO_STRING_METHOD_NAME.equals(methodName.getText())
              && modifiers.branchContains(TokenTypes.LITERAL_PUBLIC)
              && !modifiers.branchContains(TokenTypes.LITERAL_STATIC)
@@ -122,7 +122,7 @@ public final class MethodUtil {
       final DetailAST typeNode = paramNode.findFirstToken(TokenTypes.TYPE);
       final FullIdent fullIdent = FullIdent.createFullIdentBelow(typeNode);
       final String name = fullIdent.getText();
-      return getListOfSimpleAndFullName(OBJECT_FULL_NAME).contains(name);
+      return getSimpleAndFullNames(OBJECT_FULL_NAME).contains(name);
    }
 
 }
