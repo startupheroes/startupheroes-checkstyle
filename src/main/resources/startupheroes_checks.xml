@@ -213,6 +213,9 @@
          <property name="generatedValueAnnotation" value="javax.persistence.GeneratedValue"/>
          <property name="suggestedGeneratedPrimaryKeyName" value="id"/>
       </module>
+      <module name="startupheroes.checkstyle.checks.EntityVariableNameCheck">
+         <property name="entityAnnotation" value="javax.persistence.Entity"/>
+      </module>
 
    </module>
 </module>

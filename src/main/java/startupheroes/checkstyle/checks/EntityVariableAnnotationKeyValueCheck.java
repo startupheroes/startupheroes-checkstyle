@@ -103,11 +103,11 @@ public class EntityVariableAnnotationKeyValueCheck extends AbstractCheck {
 
    public void setVariableAnnotationKeyValueTable(String... variableAnnotationKeyValues) {
       for (String variableAnnotationKeyValue : variableAnnotationKeyValues) {
-         String[] splitted = variableAnnotationKeyValue.split(":");
-         String variable = splitted[0];
-         String annotation = splitted[1];
-         String key = splitted[2];
-         String value = splitted[3];
+         String[] separated = variableAnnotationKeyValue.split(":");
+         String variable = separated[0];
+         String annotation = separated[1];
+         String key = separated[2];
+         String value = separated[3];
          Map<String, String> keyValueMap = variableAnnotationKeyValueTable.get(variable, annotation);
          if (isNull(keyValueMap)) {
             keyValueMap = new HashMap<>();

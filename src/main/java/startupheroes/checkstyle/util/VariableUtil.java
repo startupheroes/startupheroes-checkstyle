@@ -32,8 +32,8 @@ public final class VariableUtil {
     * @return name of the variable
     */
    public static String getVariableName(DetailAST variableAst) {
-      DetailAST identifier = variableAst.findFirstToken(TokenTypes.IDENT);
-      return identifier.getText();
+      DetailAST type = variableAst.findFirstToken(TokenTypes.TYPE);
+      return type.getNextSibling().getText();
    }
 
    /**

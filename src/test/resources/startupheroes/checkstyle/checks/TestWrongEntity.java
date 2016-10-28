@@ -13,7 +13,7 @@ import javax.persistence.UniqueConstraint;
 @Table(uniqueConstraints = {
     @UniqueConstraint(
         name = "uk_pmi_av1_av2_av3", // not correct naming for uk!
-        columnNames = {"productModelId", "attributeValue_1", "attributeValue_2", "attributeValue_3"})
+        columnNames = {"testWrongEntityModelId", "attributeValue_1", "attributeValue_2", "attributeValue_3"})
 },
     indexes = {
         @Index(
@@ -25,7 +25,7 @@ public class TestWrongEntity {
    @Id
    @Column // redundant with Id annotation!
    @GeneratedValue
-   private Integer productId; // name as direct 'id' the generated column.
+   private Integer testWrongEntityId; // name as direct 'id' the generated column.
 
    /**
     * can be the same for all variants, depends on shop owner
@@ -34,7 +34,7 @@ public class TestWrongEntity {
    private String sku;
 
    @javax.persistence.Column(nullable = false)
-   private Integer productModelId;
+   private Integer testWrongEntityModelId; // wrong naming, name as "modelId" without context!
 
    @Column
    private String attributeValue_1;
@@ -49,7 +49,7 @@ public class TestWrongEntity {
     * can be the same for all variants, depends on shop owner
     */
    @Column(nullable = false)
-   private String productName; // wrong naming, name as "name" without context!
+   private String testWrongEntityName; // wrong naming, name as "name" without context!
 
    /**
     * can be the same for all variants, depends on shop owner
@@ -71,12 +71,12 @@ public class TestWrongEntity {
    @Column(insertable = true, updatable = true, length = 255)
    private Date defaultValue;
 
-   public Integer getProductId() {
-      return productId;
+   public Integer getTestWrongEntityId() {
+      return testWrongEntityId;
    }
 
-   public void setProductId(Integer productId) {
-      this.productId = productId;
+   public void setTestWrongEntityId(Integer testWrongEntityId) {
+      this.testWrongEntityId = testWrongEntityId;
    }
 
    public String getSku() {
@@ -87,12 +87,12 @@ public class TestWrongEntity {
       this.sku = sku;
    }
 
-   public Integer getProductModelId() {
-      return productModelId;
+   public Integer getTestWrongEntityModelId() {
+      return testWrongEntityModelId;
    }
 
-   public void setProductModelId(Integer productModelId) {
-      this.productModelId = productModelId;
+   public void setTestWrongEntityModelId(Integer testWrongEntityModelId) {
+      this.testWrongEntityModelId = testWrongEntityModelId;
    }
 
    public String getAttributeValue_1() {

@@ -185,3 +185,4 @@ whether the package name matches the directory name for the source file.
 8. EntityVariableAnnotationKeyValueCheck: Checks that an entity variable has given key and value pair in given annotation.
 9. RedundantDefaultAnnotationParameterAssignCheck: Checks for redundant default parameter value assign of annotation.
 10. EntityGeneratedPrimaryKeyNameCheck: Checks for generated primary key name of the entity, it should be 'id'.
+11. EntityVariableNameCheck: Checks for variable's names of the entity, names should not be in context of the entity name.

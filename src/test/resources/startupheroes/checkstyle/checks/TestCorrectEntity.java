@@ -13,7 +13,7 @@ import javax.persistence.UniqueConstraint;
 @Table(uniqueConstraints = {
     @UniqueConstraint(
         name = "test_correct_entity_pmi_av1_av2_av3_uk",
-        columnNames = {"productModelId", "attributeValue_1", "attributeValue_2", "attributeValue_3"}),
+        columnNames = {"modelId", "attributeValue_1", "attributeValue_2", "attributeValue_3"}),
     @UniqueConstraint(name = "test_entity_relative_url_uk", columnNames = {"relativeUrl"})
 },
     indexes = {
@@ -34,7 +34,7 @@ public class TestCorrectEntity {
    private String sku;
 
    @Column(nullable = false)
-   private Integer productModelId;
+   private Integer modelId;
 
    @Column
    private String attributeValue_1;
@@ -85,12 +85,12 @@ public class TestCorrectEntity {
       this.sku = sku;
    }
 
-   public Integer getProductModelId() {
-      return productModelId;
+   public Integer getModelId() {
+      return modelId;
    }
 
-   public void setProductModelId(Integer productModelId) {
-      this.productModelId = productModelId;
+   public void setModelId(Integer modelId) {
+      this.modelId = modelId;
    }
 
    public String getAttributeValue_1() {
@@ -185,7 +185,7 @@ public class TestCorrectEntity {
       return "TestCorrectEntity{" +
              "id=" + id +
              ", sku='" + sku + '\'' +
-             ", productModelId=" + productModelId +
+             ", modelId=" + modelId +
              ", attributeValue_1='" + attributeValue_1 + '\'' +
              ", attributeValue_2='" + attributeValue_2 + '\'' +
              ", attributeValue_3='" + attributeValue_3 + '\'' +

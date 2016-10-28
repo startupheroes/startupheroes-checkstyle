@@ -86,4 +86,5 @@ public class EntityGeneratedPrimaryKeyNameCheck extends AbstractCheck {
    public void setSuggestedGeneratedPrimaryKeyName(String suggestedGeneratedPrimaryKeyName) {
       this.suggestedGeneratedPrimaryKeyName = suggestedGeneratedPrimaryKeyName;
    }
+
 }

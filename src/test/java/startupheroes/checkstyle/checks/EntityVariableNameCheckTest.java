@@ -6,13 +6,15 @@ import org.junit.Test;
 /**
  * @author ozlem.ulag
  */
-public class EntityGettersSettersCheckTest extends BaseCheckTestSupport {
+public class EntityVariableNameCheckTest extends BaseCheckTestSupport {
 
-   private static final String MSG_KEY = "entityGettersSettersCheckMessage";
+   private static final String MSG_KEY = "entityVariableNameCheckMessage";
 
    @Test
    public void testByWrongInput() throws Exception {
-      String[] expectedMessages = {"51: " + getCheckMessage(MSG_KEY, "testWrongEntityName")};
+      String[] expectedMessages = {"25: " + getCheckMessage(MSG_KEY, "id"),
+                                   "36: " + getCheckMessage(MSG_KEY, "modelId"),
+                                   "51: " + getCheckMessage(MSG_KEY, "name")};
       test("TestWrongEntity.java", expectedMessages);
    }
 
@@ -23,7 +25,7 @@ public class EntityGettersSettersCheckTest extends BaseCheckTestSupport {
    }
 
    private void test(String fileName, String[] expectedMessages) throws Exception {
-      verify(createCheckConfig(EntityGettersSettersCheck.class,
+      verify(createCheckConfig(EntityVariableNameCheck.class,
                                ImmutableMap.of("entityAnnotation", "javax.persistence.Entity")),
              getPath(fileName),
              expectedMessages);
