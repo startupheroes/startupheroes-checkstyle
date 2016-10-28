@@ -1,7 +1,6 @@
-package startupheroes.checkstyle.checks.custom;
+package startupheroes.checkstyle.checks;
 
 import org.junit.Test;
-import startupheroes.checkstyle.checks.BaseCheckTestSupport;
 
 /**
  * @author ozlem.ulag

@@ -1,35 +1,28 @@
-package startupheroes.checkstyle.checks.custom;
+package startupheroes.checkstyle.checks;
 
 import com.puppycrawl.tools.checkstyle.api.AbstractCheck;
 import com.puppycrawl.tools.checkstyle.api.DetailAST;
 import com.puppycrawl.tools.checkstyle.api.TokenTypes;
-import java.util.Collections;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
+import startupheroes.checkstyle.util.MethodUtil;
 
 import static startupheroes.checkstyle.util.ClassUtil.isEntity;
-import static startupheroes.checkstyle.util.VariableUtil.getVariableNames;
+import static startupheroes.checkstyle.util.MethodUtil.getMethods;
 
 /**
  * @author ozlem.ulag
  */
-public class EntityMandatoryVariableCheck extends AbstractCheck {
+public class EntityEqualsHashCodeCheck extends AbstractCheck {
 
    /**
     * A key is pointing to the warning message text in "messages.properties" file.
     */
-   private static final String MSG_KEY = "entityMandatoryVariableCheckMessage";
+   private static final String MSG_KEY = "entityEqualsHashCodeCheckMessage";
 
    /**
     * set entity annotation to understand that a class is an entity.
     */
    private String entityAnnotation;
-
-   /**
-    * set mandatory variables that must exist in each entity.
-    */
-   private Set<String> mandatoryVariables = new HashSet<>();
 
    @Override
    public int[] getDefaultTokens() {
@@ -49,19 +42,17 @@ public class EntityMandatoryVariableCheck extends AbstractCheck {
    @Override
    public void visitToken(DetailAST ast) {
       if (isEntity(ast, entityAnnotation)) {
-         List<String> variableNames = getVariableNames(ast);
-         mandatoryVariables.stream()
-                           .filter(mandatoryVariable -> !variableNames.contains(mandatoryVariable))
-                           .forEach(mandatoryVariable -> log(ast.getLineNo(), MSG_KEY, mandatoryVariable));
+         List<DetailAST> methods = getMethods(ast);
+         Boolean hasEquals = methods.stream().anyMatch(MethodUtil::isEqualsMethod);
+         Boolean hasHashCode = methods.stream().anyMatch(MethodUtil::isHashCodeMethod);
+         if (!hasEquals || !hasHashCode) {
+            log(ast.getLineNo(), MSG_KEY);
+         }
       }
    }
 
    public void setEntityAnnotation(String entityAnnotation) {
       this.entityAnnotation = entityAnnotation;
-   }
-
-   public void setMandatoryVariables(String... mandatoryVariables) {
-      Collections.addAll(this.mandatoryVariables, mandatoryVariables);
    }
 
 }

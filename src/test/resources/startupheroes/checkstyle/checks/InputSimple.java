@@ -3,7 +3,7 @@
 // Created: Feb-2001
 // Ignore error
 ////////////////////////////////////////////////////////////////////////////////
-package startupheroes.checkstyle.checks.sizes;
+package startupheroes.checkstyle.checks;
 import java.io.*;
 /**
  * Contains simple mistakes:

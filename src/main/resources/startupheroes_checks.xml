@@ -180,33 +180,33 @@
       <module name="PackageDeclaration"/>
 
       <!-- Custom Checks-->
-      <module name="startupheroes.checkstyle.checks.custom.LoggerOrderCheck"/>
-      <module name="startupheroes.checkstyle.checks.custom.RedundantMultipleAnnotationCheck">
+      <module name="startupheroes.checkstyle.checks.LoggerOrderCheck"/>
+      <module name="startupheroes.checkstyle.checks.RedundantMultipleAnnotationCheck">
          <property name="tokens" value="VARIABLE_DEF"/>
          <property name="redundantAnnotationPairs" value="javax.persistence.Id:javax.persistence.Column"/>
       </module>
-      <module name="startupheroes.checkstyle.checks.custom.BlockedAnnotationKeyCheck">
+      <module name="startupheroes.checkstyle.checks.BlockedAnnotationKeyCheck">
          <property name="annotationBlockedKeyMap" value="javax.persistence.Column:unique"/>
       </module>
-      <module name="startupheroes.checkstyle.checks.custom.EntityEqualsHashCodeCheck">
+      <module name="startupheroes.checkstyle.checks.EntityEqualsHashCodeCheck">
          <property name="entityAnnotation" value="javax.persistence.Entity"/>
       </module>
-      <module name="startupheroes.checkstyle.checks.custom.EntityToStringCheck">
+      <module name="startupheroes.checkstyle.checks.EntityToStringCheck">
          <property name="entityAnnotation" value="javax.persistence.Entity"/>
       </module>
-      <module name="startupheroes.checkstyle.checks.custom.EntityGettersSettersCheck">
+      <module name="startupheroes.checkstyle.checks.EntityGettersSettersCheck">
          <property name="entityAnnotation" value="javax.persistence.Entity"/>
       </module>
-      <module name="startupheroes.checkstyle.checks.custom.EntityMandatoryVariableCheck">
+      <module name="startupheroes.checkstyle.checks.EntityMandatoryVariableCheck">
          <property name="entityAnnotation" value="javax.persistence.Entity"/>
          <property name="mandatoryVariables" value="createdAt, lastUpdatedAt"/>
       </module>
-      <module name="startupheroes.checkstyle.checks.custom.EntityVariableAnnotationKeyValueCheck">
+      <module name="startupheroes.checkstyle.checks.EntityVariableAnnotationKeyValueCheck">
          <property name="entityAnnotation" value="javax.persistence.Entity"/>
          <property name="variableAnnotationKeyValueTable"
              value="createdAt:javax.persistence.Column:nullable:false, lastUpdatedAt:javax.persistence.Column:nullable:false"/>
       </module>
-      <module name="startupheroes.checkstyle.checks.custom.RedundantDefaultAnnotationParameterAssignCheck"/>
+      <module name="startupheroes.checkstyle.checks.RedundantDefaultAnnotationParameterAssignCheck"/>
 
    </module>
 </module>

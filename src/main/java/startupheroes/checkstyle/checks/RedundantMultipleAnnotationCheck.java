@@ -1,4 +1,4 @@
-package startupheroes.checkstyle.checks.custom;
+package startupheroes.checkstyle.checks;
 
 import com.puppycrawl.tools.checkstyle.api.AbstractCheck;
 import com.puppycrawl.tools.checkstyle.api.DetailAST;

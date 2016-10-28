@@ -1,4 +1,4 @@
-package startupheroes.checkstyle.checks.custom;
+package startupheroes.checkstyle.checks;
 
 import java.util.Date;
 import javax.persistence.Column;
@@ -12,29 +12,28 @@ import javax.persistence.UniqueConstraint;
 @Entity
 @Table(uniqueConstraints = {
     @UniqueConstraint(
-        name = "uk_pmi_av1_av2_av3", // not correct naming for uk!
-        columnNames = {"productModelId", "attributeValue_1", "attributeValue_2", "attributeValue_3"})
+        name = "test_correct_entity_pmi_av1_av2_av3_uk",
+        columnNames = {"productModelId", "attributeValue_1", "attributeValue_2", "attributeValue_3"}),
+    @UniqueConstraint(name = "test_entity_relative_url_uk", columnNames = {"relativeUrl"})
 },
     indexes = {
         @Index(
-            name = "sku_index", // not correct naming for index!
-            columnList = "sku"
+            name = "test_entity_sku_index",
+            columnList = "userId"
         )})
-class TestWrongEntity {
+public class TestCorrectEntity {
 
    @Id
-   @Column // redundant with Id annotation!
    @GeneratedValue
-   private Integer productId; // name as direct 'id' the generated column.
+   private Integer id;
 
    /**
     * can be the same for all variants, depends on shop owner
     */
-   @Column // redundant with Id annotation!
-   @javax.persistence.Id
+   @Column
    private String sku;
 
-   @javax.persistence.Column(nullable = false)
+   @Column(nullable = false)
    private Integer productModelId;
 
    @Column
@@ -50,34 +49,32 @@ class TestWrongEntity {
     * can be the same for all variants, depends on shop owner
     */
    @Column(nullable = false)
-   private String productName; // wrong naming, name as "name" without context!
+   private String name;
 
    /**
     * can be the same for all variants, depends on shop owner
     */
-   @Column(nullable = false, unique = true) // unique should not be here, define inside @Table annotation.
+   @Column(nullable = false)
    private String relativeUrl;
 
    @Column(nullable = false)
    private Integer searchBoost;
 
-   @Column(length = 2048, nullable = true) // redundant default assign!
+   @Column(length = 2048)
    private String searchKeywords;
 
-   @Column // created at and last updated at columns must be nullable = false!
+   @Column(nullable = false)
    private Date createdAt;
 
-   // no lastUpdatedAt column!
+   @Column(nullable = false)
+   private Date lastUpdatedAt;
 
-   @Column(insertable = true, updatable = true, length = 255)
-   private Date defaultValue;
-
-   public Integer getProductId() {
-      return productId;
+   public Integer getId() {
+      return id;
    }
 
-   public void setProductId(Integer productId) {
-      this.productId = productId;
+   public void setId(Integer id) {
+      this.id = id;
    }
 
    public String getSku() {
@@ -120,7 +117,13 @@ class TestWrongEntity {
       this.attributeValue_3 = attributeValue_3;
    }
 
-   // no getters setters for product name column!
+   public String getName() {
+      return name;
+   }
+
+   public void setName(String name) {
+      this.name = name;
+   }
 
    public String getRelativeUrl() {
       return relativeUrl;
@@ -154,14 +157,45 @@ class TestWrongEntity {
       this.createdAt = createdAt;
    }
 
-   public Date getDefaultValue() {
-      return defaultValue;
+   public Date getLastUpdatedAt() {
+      return lastUpdatedAt;
    }
 
-   public void setDefaultValue(Date defaultValue) {
-      this.defaultValue = defaultValue;
+   public void setLastUpdatedAt(Date lastUpdatedAt) {
+      this.lastUpdatedAt = lastUpdatedAt;
    }
 
-   // no toString() method!
+   @Override
+   public boolean equals(Object o) {
+      if (this == o) return true;
+      if (o == null || getClass() != o.getClass()) return false;
+
+      TestCorrectEntity that = (TestCorrectEntity) o;
+
+      return id != null ? id.equals(that.id) : that.id == null;
+   }
+
+   @Override
+   public int hashCode() {
+      return id != null ? id.hashCode() : 0;
+   }
+
+   @Override
+   public String toString() {
+      return "TestCorrectEntity{" +
+             "id=" + id +
+             ", sku='" + sku + '\'' +
+             ", productModelId=" + productModelId +
+             ", attributeValue_1='" + attributeValue_1 + '\'' +
+             ", attributeValue_2='" + attributeValue_2 + '\'' +
+             ", attributeValue_3='" + attributeValue_3 + '\'' +
+             ", name='" + name + '\'' +
+             ", relativeUrl='" + relativeUrl + '\'' +
+             ", searchBoost=" + searchBoost +
+             ", searchKeywords='" + searchKeywords + '\'' +
+             ", createdAt=" + createdAt +
+             ", lastUpdatedAt=" + lastUpdatedAt +
+             '}';
+   }
 
 }

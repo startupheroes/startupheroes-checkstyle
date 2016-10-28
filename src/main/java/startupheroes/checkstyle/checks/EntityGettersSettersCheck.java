@@ -1,4 +1,4 @@
-package startupheroes.checkstyle.checks.custom;
+package startupheroes.checkstyle.checks;
 
 import com.puppycrawl.tools.checkstyle.api.AbstractCheck;
 import com.puppycrawl.tools.checkstyle.api.DetailAST;
@@ -27,7 +27,7 @@ public class EntityGettersSettersCheck extends AbstractCheck {
    private static final String GETTER_PREFIX_REGEX = "get";
 
    /** Pattern matching names of setter methods. */
-   private static final String SETTER_PREFIX_REGEX = "set";
+   private static final String SETTER_PREFIX_REGEX = "^set";
 
    /**
     * set entity annotation to understand that a class is an entity.

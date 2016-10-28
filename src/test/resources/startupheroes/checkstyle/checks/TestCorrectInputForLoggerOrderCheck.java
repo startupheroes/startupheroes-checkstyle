@@ -1,9 +1,9 @@
-package startupheroes.checkstyle.checks.custom;
+package startupheroes.checkstyle.checks;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-class TestCorrectInputForLoggerOrderCheck {
+public class TestCorrectInputForLoggerOrderCheck {
 
    private static final Logger LOGGER = LoggerFactory.getLogger(TestCorrectInputForLoggerOrderCheck.class);
 

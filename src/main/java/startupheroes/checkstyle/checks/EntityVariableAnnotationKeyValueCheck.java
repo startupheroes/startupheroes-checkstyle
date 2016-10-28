@@ -1,4 +1,4 @@
-package startupheroes.checkstyle.checks.custom;
+package startupheroes.checkstyle.checks;
 
 import com.google.common.collect.HashBasedTable;
 import com.google.common.collect.Table;

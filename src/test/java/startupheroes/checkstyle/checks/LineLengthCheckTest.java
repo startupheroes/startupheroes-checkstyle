@@ -1,9 +1,8 @@
-package startupheroes.checkstyle.checks.sizes;
+package startupheroes.checkstyle.checks;
 
 import com.puppycrawl.tools.checkstyle.DefaultConfiguration;
 import com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck;
 import org.junit.Test;
-import startupheroes.checkstyle.checks.BaseCheckTestSupport;
 
 import static com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck.MSG_KEY;
 
