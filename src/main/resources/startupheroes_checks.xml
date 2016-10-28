@@ -207,6 +207,12 @@
              value="createdAt:javax.persistence.Column:nullable:false, lastUpdatedAt:javax.persistence.Column:nullable:false"/>
       </module>
       <module name="startupheroes.checkstyle.checks.RedundantDefaultAnnotationParameterAssignCheck"/>
+      <module name="startupheroes.checkstyle.checks.EntityGeneratedPrimaryKeyNameCheck">
+         <property name="entityAnnotation" value="javax.persistence.Entity"/>
+         <property name="idAnnotation" value="javax.persistence.Id"/>
+         <property name="generatedValueAnnotation" value="javax.persistence.GeneratedValue"/>
+         <property name="suggestedGeneratedPrimaryKeyName" value="id"/>
+      </module>
 
    </module>
 </module>

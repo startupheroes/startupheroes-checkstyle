@@ -12,7 +12,7 @@ public class BlockedAnnotationKeyCheckTest extends BaseCheckTestSupport {
 
    @Test
    public void testByWrongInput() throws Exception {
-      String[] expectedMessages = {"58: " + getCheckMessage(MSG_KEY, "unique", "Column")};
+      String[] expectedMessages = {"57: " + getCheckMessage(MSG_KEY, "unique", "Column")};
       test("TestWrongEntity.java", expectedMessages);
    }
 

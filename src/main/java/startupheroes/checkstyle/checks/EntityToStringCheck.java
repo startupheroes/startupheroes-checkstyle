@@ -43,8 +43,8 @@ public class EntityToStringCheck extends AbstractCheck {
    public void visitToken(DetailAST ast) {
       if (isEntity(ast, entityAnnotation)) {
          List<DetailAST> methods = getMethods(ast);
-         Boolean containsToString = methods.stream().anyMatch(MethodUtil::isToStringMethod);
-         if (!containsToString) {
+         Boolean hasToString = methods.stream().anyMatch(MethodUtil::isToStringMethod);
+         if (!hasToString) {
             log(ast.getLineNo(), MSG_KEY);
          }
       }

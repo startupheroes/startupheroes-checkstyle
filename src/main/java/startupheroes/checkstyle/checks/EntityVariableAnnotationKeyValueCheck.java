@@ -70,14 +70,16 @@ public class EntityVariableAnnotationKeyValueCheck extends AbstractCheck {
 
    private void checkAnnotation(String checkedVariable, DetailAST variableAst, String checkedAnnotation) {
       DetailAST annotationAst = getAnnotation(variableAst, checkedAnnotation);
-      Map<String, DetailAST> annotationKeyPairAstMap = getKeyValueAstMap(annotationAst);
-      Map<String, String> checkedKeyValueMap = variableAnnotationKeyValueTable.get(checkedVariable, checkedAnnotation);
-      checkedKeyValueMap.keySet().forEach(checkedKey -> checkKeyValuePair(checkedVariable,
-                                                                          checkedAnnotation,
-                                                                          annotationAst,
-                                                                          annotationKeyPairAstMap,
-                                                                          checkedKeyValueMap,
-                                                                          checkedKey));
+      if (nonNull(annotationAst)) {
+         Map<String, DetailAST> annotationKeyPairAstMap = getKeyValueAstMap(annotationAst);
+         Map<String, String> checkedKeyValueMap = variableAnnotationKeyValueTable.get(checkedVariable, checkedAnnotation);
+         checkedKeyValueMap.keySet().forEach(checkedKey -> checkKeyValuePair(checkedVariable,
+                                                                             checkedAnnotation,
+                                                                             annotationAst,
+                                                                             annotationKeyPairAstMap,
+                                                                             checkedKeyValueMap,
+                                                                             checkedKey));
+      }
    }
 
    private void checkKeyValuePair(String checkedVariable, String checkedAnnotation, DetailAST annotationAst,

@@ -24,7 +24,7 @@ public class EntityGettersSettersCheck extends AbstractCheck {
    private static final String MSG_KEY = "entityGettersSettersCheckMessage";
 
    /** Pattern matching names of getter methods. */
-   private static final String GETTER_PREFIX_REGEX = "get";
+   private static final String GETTER_PREFIX_REGEX = "^get";
 
    /** Pattern matching names of setter methods. */
    private static final String SETTER_PREFIX_REGEX = "^set";

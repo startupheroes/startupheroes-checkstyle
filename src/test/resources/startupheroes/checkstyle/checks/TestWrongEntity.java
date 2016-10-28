@@ -31,7 +31,6 @@ public class TestWrongEntity {
     * can be the same for all variants, depends on shop owner
     */
    @Column // redundant with Id annotation!
-   @javax.persistence.Id
    private String sku;
 
    @javax.persistence.Column(nullable = false)
