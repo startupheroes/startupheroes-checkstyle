@@ -217,6 +217,9 @@
          <property name="entityAnnotation" value="javax.persistence.Entity"/>
       </module>
       <module name="startupheroes.checkstyle.checks.MissingOverrideAnnotationCheck"/>
+      <module name="startupheroes.checkstyle.checks.BlockedClassAnnotationCheck">
+         <property name="blockedAnnotations" value="com.clovify.lyso.core.annotation.LysoRepository"/>
+      </module>
 
    </module>
 </module>

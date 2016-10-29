@@ -187,3 +187,4 @@ whether the package name matches the directory name for the source file.
 10. EntityGeneratedPrimaryKeyNameCheck: Checks for generated primary key name of the entity, it should be 'id'.
 11. EntityVariableNameCheck: Checks for variable's names of the entity, names should not be in context of the entity name.
 12. MissingOverrideAnnotationCheck: Checks for missing override annotations for overriden methods.
+13. BlockedClassAnnotationCheck: Checks for prevent to use blocked annotations on class or interface.
