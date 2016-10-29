@@ -11,7 +11,7 @@ import static com.puppycrawl.tools.checkstyle.checks.modifier.RedundantModifierC
 public class RedundantModifierCheckTest extends BaseCheckTestSupport {
 
    @Test
-   public void testByWrongInput() throws Exception {
+   public void testInterface() throws Exception {
       String[] expectedMessages = {"5:4: " + getCheckMessage(MSG_KEY, "public"),
                                    "7:4: " + getCheckMessage(MSG_KEY, "static"),
                                    "9:4: " + getCheckMessage(MSG_KEY, "final"),

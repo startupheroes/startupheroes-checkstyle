@@ -216,6 +216,7 @@
       <module name="startupheroes.checkstyle.checks.EntityVariableNameCheck">
          <property name="entityAnnotation" value="javax.persistence.Entity"/>
       </module>
+      <module name="startupheroes.checkstyle.checks.MissingOverrideAnnotationCheck"/>
 
    </module>
 </module>

@@ -5,10 +5,16 @@ import com.puppycrawl.tools.checkstyle.api.DetailAST;
 import com.puppycrawl.tools.checkstyle.api.FullIdent;
 import com.puppycrawl.tools.checkstyle.api.TokenTypes;
 import com.puppycrawl.tools.checkstyle.utils.CheckUtils;
+import java.lang.reflect.Method;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
+import static startupheroes.checkstyle.util.ClassUtil.OBJECT_CLASS_NAME_BY_PACKAGE;
+import static startupheroes.checkstyle.util.ClassUtil.STRING_CLASS_NAME_BY_PACKAGE;
 import static startupheroes.checkstyle.util.CommonUtil.getChildsByType;
+import static startupheroes.checkstyle.util.CommonUtil.getFullName;
 import static startupheroes.checkstyle.util.CommonUtil.getSimpleAndFullNames;
 
 /**
@@ -16,13 +22,9 @@ import static startupheroes.checkstyle.util.CommonUtil.getSimpleAndFullNames;
  */
 public final class MethodUtil {
 
-   private static final String STRING_FULL_NAME = "java.lang.String";
-
    private static final String TO_STRING_METHOD_NAME = "toString";
 
    private static final String HASH_CODE_METHOD_NAME = "hashCode";
-
-   private static final String OBJECT_FULL_NAME = "java.lang.Object";
 
    private MethodUtil() {
    }
@@ -45,6 +47,51 @@ public final class MethodUtil {
       return type.getNextSibling().getText();
    }
 
+   /**
+    * @param methodAst : required to be METHOD_DEF type
+    * @return list of class types of each parameters of method.
+    */
+   public static Class<?>[] getParameterTypes(DetailAST methodAst, Map<String, String> importSimpleFullNameMap) {
+      DetailAST parameters = methodAst.findFirstToken(TokenTypes.PARAMETERS);
+      List<DetailAST> parameterNodes = getChildsByType(parameters, TokenTypes.PARAMETER_DEF);
+      List<Class<?>> parameterTypes = new ArrayList<>();
+      for (DetailAST parameterNode : parameterNodes) {
+         String paramTypeSimpleName = getParamTypeSimpleName(parameterNode);
+         String paramTypeFullName = getFullName(methodAst, importSimpleFullNameMap, paramTypeSimpleName);
+         try {
+            Class<?> parameterClass = Class.forName(paramTypeFullName);
+            parameterTypes.add(parameterClass);
+         } catch (ClassNotFoundException ignored) {
+         }
+      }
+      return parameterTypes.stream().toArray(Class<?>[]::new);
+   }
+
+   private static String getParamTypeSimpleName(DetailAST paramNode) {
+      DetailAST typeNode = paramNode.findFirstToken(TokenTypes.TYPE);
+      return FullIdent.createFullIdentBelow(typeNode).getText();
+   }
+
+   public static Boolean isMethodOverriden(Method method) {
+      Class<?> declaringClass = method.getDeclaringClass();
+      if (declaringClass.equals(Object.class)) {
+         return false;
+      }
+      try {
+         declaringClass.getSuperclass().getDeclaredMethod(method.getName(), method.getParameterTypes());
+         return true;
+      } catch (NoSuchMethodException ex) {
+         for (Class<?> implementedInterface : declaringClass.getInterfaces()) {
+            try {
+               implementedInterface.getDeclaredMethod(method.getName(), method.getParameterTypes());
+               return true;
+            } catch (NoSuchMethodException ignored) {
+            }
+         }
+         return false;
+      }
+   }
+
    public static List<DetailAST> getGetters(DetailAST classAst) {
       return getMethods(classAst).stream().filter(CheckUtils::isGetterMethod).collect(Collectors.toList());
    }
@@ -60,8 +107,8 @@ public final class MethodUtil {
     * @return true if the {code ast} is a Equals method.
     */
    public static Boolean isEqualsMethod(DetailAST ast) {
-      final DetailAST modifiers = ast.getFirstChild();
-      final DetailAST parameters = ast.findFirstToken(TokenTypes.PARAMETERS);
+      DetailAST modifiers = ast.getFirstChild();
+      DetailAST parameters = ast.findFirstToken(TokenTypes.PARAMETERS);
 
       return CheckUtils.isEqualsMethod(ast)
              && modifiers.branchContains(TokenTypes.LITERAL_PUBLIC)
@@ -77,10 +124,10 @@ public final class MethodUtil {
     * @return true if the {code ast} is a HashCode method.
     */
    public static Boolean isHashCodeMethod(DetailAST ast) {
-      final DetailAST modifiers = ast.getFirstChild();
-      final AST type = ast.findFirstToken(TokenTypes.TYPE);
-      final AST methodName = ast.findFirstToken(TokenTypes.IDENT);
-      final DetailAST parameters = ast.findFirstToken(TokenTypes.PARAMETERS);
+      DetailAST modifiers = ast.getFirstChild();
+      AST type = ast.findFirstToken(TokenTypes.TYPE);
+      AST methodName = ast.findFirstToken(TokenTypes.IDENT);
+      DetailAST parameters = ast.findFirstToken(TokenTypes.PARAMETERS);
 
       return type.getFirstChild().getType() == TokenTypes.LITERAL_INT
              && HASH_CODE_METHOD_NAME.equals(methodName.getText())
@@ -98,12 +145,12 @@ public final class MethodUtil {
     * @return true if the {code ast} is a toString method.
     */
    public static Boolean isToStringMethod(DetailAST ast) {
-      final DetailAST modifiers = ast.getFirstChild();
-      final AST type = ast.findFirstToken(TokenTypes.TYPE);
-      final AST methodName = ast.findFirstToken(TokenTypes.IDENT);
-      final DetailAST parameters = ast.findFirstToken(TokenTypes.PARAMETERS);
+      DetailAST modifiers = ast.getFirstChild();
+      AST type = ast.findFirstToken(TokenTypes.TYPE);
+      AST methodName = ast.findFirstToken(TokenTypes.IDENT);
+      DetailAST parameters = ast.findFirstToken(TokenTypes.PARAMETERS);
 
-      return getSimpleAndFullNames(STRING_FULL_NAME).contains(type.getFirstChild().getText())
+      return getSimpleAndFullNames(STRING_CLASS_NAME_BY_PACKAGE).contains(type.getFirstChild().getText())
              && TO_STRING_METHOD_NAME.equals(methodName.getText())
              && modifiers.branchContains(TokenTypes.LITERAL_PUBLIC)
              && !modifiers.branchContains(TokenTypes.LITERAL_STATIC)
@@ -119,10 +166,7 @@ public final class MethodUtil {
     * @return true if firstChild is a parameter of an Object type.
     */
    private static Boolean isObjectParam(DetailAST paramNode) {
-      final DetailAST typeNode = paramNode.findFirstToken(TokenTypes.TYPE);
-      final FullIdent fullIdent = FullIdent.createFullIdentBelow(typeNode);
-      final String name = fullIdent.getText();
-      return getSimpleAndFullNames(OBJECT_FULL_NAME).contains(name);
+      return getSimpleAndFullNames(OBJECT_CLASS_NAME_BY_PACKAGE).contains(getParamTypeSimpleName(paramNode));
    }
 
 }

@@ -39,7 +39,7 @@ public class BlockedAnnotationKeyCheck extends AbstractCheck {
    }
 
    @Override
-   public void visitToken(final DetailAST ast) {
+   public void visitToken(DetailAST ast) {
       Set<String> checkedAnnotations = annotationBlockedKeyMap.keySet();
       String annotationSimpleName = getSimpleName(ast);
       checkedAnnotations.stream()

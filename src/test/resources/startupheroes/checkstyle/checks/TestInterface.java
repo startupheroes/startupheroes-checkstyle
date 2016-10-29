@@ -11,4 +11,7 @@ public interface TestInterface {
    public Boolean redundantPublic();
 
    abstract Boolean redundantAbstract();
+
+   void overrideMe();
+
 }

@@ -45,7 +45,7 @@ public class RedundantMultipleAnnotationCheck extends AbstractCheck {
    }
 
    @Override
-   public void visitToken(final DetailAST ast) {
+   public void visitToken(DetailAST ast) {
       for (String annotation1 : redundantAnnotationPairs.keySet()) {
          String annotation2 = redundantAnnotationPairs.get(annotation1);
          if (hasAnnotation(ast, annotation1) && hasAnnotation(ast, annotation2)) {

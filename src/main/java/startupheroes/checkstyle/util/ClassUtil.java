@@ -14,6 +14,10 @@ import static startupheroes.checkstyle.util.CommonUtil.getSimpleName;
  */
 public final class ClassUtil {
 
+   public static final String STRING_CLASS_NAME_BY_PACKAGE = "java.lang.String";
+
+   public static final String OBJECT_CLASS_NAME_BY_PACKAGE = "java.lang.Object";
+
    private ClassUtil() {
    }
 
@@ -51,7 +55,7 @@ public final class ClassUtil {
    }
 
    /**
-    * @param rootAst Require to be CLASS_DEF type
+    * @param rootAst root ast of branch
     * @return simple name -> full name of imports like Object -> java.lang.Object
     */
    public static Map<String, String> getImportSimpleFullNameMap(DetailAST rootAst) {

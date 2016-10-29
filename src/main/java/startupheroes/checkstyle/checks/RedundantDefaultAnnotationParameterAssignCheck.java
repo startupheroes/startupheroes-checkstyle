@@ -48,12 +48,11 @@ public class RedundantDefaultAnnotationParameterAssignCheck extends AbstractChec
    }
 
    @Override
-   public void visitToken(final DetailAST ast) {
+   public void visitToken(DetailAST ast) {
       Map<String, DetailAST> annotationKeyValueAstMap = getKeyValueAstMap(ast);
       if (!annotationKeyValueAstMap.isEmpty()) {
          String annotationSimpleName = getSimpleName(ast);
-         String fullAnnotationName = importSimpleFullNameMap.containsKey(annotationSimpleName) ?
-             importSimpleFullNameMap.get(annotationSimpleName) : getFullName(ast);
+         String fullAnnotationName = getFullName(ast, importSimpleFullNameMap, annotationSimpleName);
          Set<String> keys = annotationKeyValueAstMap.keySet();
          Map<String, Object> keyDefaultValueMap = getKeyDefaultValueMap(fullAnnotationName, keys);
          for (String key : keys) {

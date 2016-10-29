@@ -16,6 +16,8 @@ import static java.util.Objects.isNull;
  */
 public final class CommonUtil {
 
+   private static final String JAVA_LANG_PACKAGE = "java.lang";
+
    private CommonUtil() {
    }
 
@@ -61,12 +63,39 @@ public final class CommonUtil {
       return FullIdent.createFullIdent(ast.findFirstToken(TokenTypes.DOT)).getText();
    }
 
+   public static String getFullName(DetailAST ast, Map<String, String> importSimpleFullNameMap, String simpleName) {
+      String result;
+      if (importSimpleFullNameMap.containsKey(simpleName)) {
+         result = importSimpleFullNameMap.get(simpleName);
+      } else {
+         try {
+            String className = JAVA_LANG_PACKAGE + "." + simpleName;
+            Class.forName(className);
+            result = className;
+         } catch (ClassNotFoundException e) {
+            result = getFullName(ast);
+         }
+      }
+      return result;
+   }
+
    /**
     * @param fullName Full package qualifier of any type of object like annotation, class, interface like java.lang.Object
     * @return list of simple name and full qualifier {Object, java.lang.Object}
     */
    public static List<String> getSimpleAndFullNames(String fullName) {
       return Arrays.asList(getSimpleName(fullName), fullName);
+   }
+
+   public static String getPackageName(DetailAST ast) {
+      String packageName = null;
+      for (DetailAST parent = ast; parent != null; parent = parent.getParent()) {
+         if (parent.getType() == TokenTypes.PACKAGE_DEF) {
+            packageName = getFullName(parent);
+            break;
+         }
+      }
+      return packageName;
    }
 
 }

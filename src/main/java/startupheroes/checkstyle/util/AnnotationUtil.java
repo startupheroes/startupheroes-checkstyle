@@ -22,6 +22,8 @@ import static startupheroes.checkstyle.util.CommonUtil.getSimpleName;
  */
 public final class AnnotationUtil {
 
+   public static final String OVERRIDE_ANNOTATION_NAME_BY_PACKAGE = "java.lang.Override";
+
    private AnnotationUtil() {
    }
 
@@ -86,7 +88,7 @@ public final class AnnotationUtil {
    public static Object getDefaultValue(Class<?> annotationClass, String key) {
       Object defaultValue = null;
       try {
-         Method method = annotationClass.getMethod(key);
+         Method method = annotationClass.getDeclaredMethod(key);
          defaultValue = method.getDefaultValue();
       } catch (NoSuchMethodException ignored) {
       }
