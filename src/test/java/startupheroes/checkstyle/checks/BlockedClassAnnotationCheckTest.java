@@ -12,7 +12,7 @@ public class BlockedClassAnnotationCheckTest extends BaseCheckTestSupport {
 
    @Test
    public void testByWrongInput() throws Exception {
-      String[] expectedMessages = {"5: " + getCheckMessage(MSG_KEY, "LysoRepository")};
+      String[] expectedMessages = {"6: " + getCheckMessage(MSG_KEY, "BlockedAnnotation")};
       test("TestRepository.java", expectedMessages);
    }
 
@@ -24,7 +24,7 @@ public class BlockedClassAnnotationCheckTest extends BaseCheckTestSupport {
 
    private void test(String fileName, String[] expectedMessages) throws Exception {
       verify(createCheckConfig(BlockedClassAnnotationCheck.class,
-                               ImmutableMap.of("blockedAnnotations", "com.clovify.lyso.core.annotation.LysoRepository")),
+                               ImmutableMap.of("blockedAnnotations", "startupheroes.checkstyle.checks.BlockedAnnotation")),
              getPath(fileName),
              expectedMessages);
    }

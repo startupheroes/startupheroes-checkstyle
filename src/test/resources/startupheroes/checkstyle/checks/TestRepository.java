@@ -1,20 +1,17 @@
 package startupheroes.checkstyle.checks;
 
-import com.clovify.lyso.core.annotation.LysoRepository;
+import java.util.List;
+import java.util.Optional;
 
-@LysoRepository
+@BlockedAnnotation // don't use this annotation!
 public interface TestRepository {
 
-   public static final String REDUNDANT_FIELD_PUBLIC = "Redundant public used!";
+   //@SqlSelect("SELECT * FROM test_wrong_entity WHERE relative_url = :relativeUrl")
+   Optional<TestWrongEntity> getTestWrongEntitiesByRelativeUrl(String relativeUrl);
 
-   static final String REDUNDANT_FIELD_STATIC = "Redundant static used!";
+   //@SqlSelect("SELECT * FROM test_wrong_entity")
+   List<TestWrongEntity> getAllTestWrongEntities();
 
-   final String REDUNDANT_FIELD_FINAL = "Redundant final used!";
-
-   public Boolean redundantPublic();
-
-   abstract Boolean redundantAbstract();
-
-   void overrideMe();
+   Integer addTestWrongEntity(TestWrongEntity testWrongEntity);
 
 }
