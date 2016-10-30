@@ -9,6 +9,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
+import org.springframework.util.Assert;
+import org.springframework.util.StringUtils;
 
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
@@ -53,6 +55,7 @@ public class EntityVariableAnnotationKeyValueCheck extends AbstractCheck {
 
    @Override
    public void visitToken(DetailAST ast) {
+      Assert.isTrue(!StringUtils.isEmpty(entityAnnotation));
       if (isEntity(ast, entityAnnotation)) {
          Map<String, DetailAST> variableNameAstMap = getVariableNameAstMap(ast);
          Set<String> checkedVariables = variableAnnotationKeyValueTable.rowKeySet();

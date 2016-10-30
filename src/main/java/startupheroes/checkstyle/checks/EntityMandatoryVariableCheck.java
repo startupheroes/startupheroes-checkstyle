@@ -7,6 +7,8 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import org.springframework.util.Assert;
+import org.springframework.util.StringUtils;
 
 import static startupheroes.checkstyle.util.ClassUtil.isEntity;
 import static startupheroes.checkstyle.util.VariableUtil.getVariableNames;
@@ -48,6 +50,7 @@ public class EntityMandatoryVariableCheck extends AbstractCheck {
 
    @Override
    public void visitToken(DetailAST ast) {
+      Assert.isTrue(!StringUtils.isEmpty(entityAnnotation));
       if (isEntity(ast, entityAnnotation)) {
          List<String> variableNames = getVariableNames(ast);
          mandatoryVariables.stream()

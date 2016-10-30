@@ -16,6 +16,7 @@
       <junit.version>4.11</junit.version>
       <slf4j.version>1.7.21</slf4j.version>
       <javax-persistence.version>2.1.0</javax-persistence.version>
+      <spring.version>4.3.2.RELEASE</spring.version>
    </properties>
 
    <scm>
@@ -38,6 +39,12 @@
          <groupId>com.puppycrawl.tools</groupId>
          <artifactId>checkstyle</artifactId>
          <version>${checkstyle.version}</version>
+      </dependency>
+
+      <dependency>
+         <groupId>org.springframework</groupId>
+         <artifactId>spring-core</artifactId>
+         <version>${spring.version}</version>
       </dependency>
 
       <!-- Test -->
@@ -70,7 +77,7 @@
          <version>${javax-persistence.version}</version>
          <scope>test</scope>
       </dependency>
-      
+
    </dependencies>
 
    <build>

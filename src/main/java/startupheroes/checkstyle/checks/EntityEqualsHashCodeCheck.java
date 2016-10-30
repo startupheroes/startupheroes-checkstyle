@@ -4,6 +4,8 @@ import com.puppycrawl.tools.checkstyle.api.AbstractCheck;
 import com.puppycrawl.tools.checkstyle.api.DetailAST;
 import com.puppycrawl.tools.checkstyle.api.TokenTypes;
 import java.util.List;
+import org.springframework.util.Assert;
+import org.springframework.util.StringUtils;
 import startupheroes.checkstyle.util.MethodUtil;
 
 import static startupheroes.checkstyle.util.ClassUtil.isEntity;
@@ -41,6 +43,7 @@ public class EntityEqualsHashCodeCheck extends AbstractCheck {
 
    @Override
    public void visitToken(DetailAST ast) {
+      Assert.isTrue(!StringUtils.isEmpty(entityAnnotation));
       if (isEntity(ast, entityAnnotation)) {
          List<DetailAST> methods = getMethods(ast);
          Boolean hasEquals = methods.stream().anyMatch(MethodUtil::isEqualsMethod);

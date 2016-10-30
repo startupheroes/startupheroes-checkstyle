@@ -4,6 +4,8 @@ import com.puppycrawl.tools.checkstyle.api.AbstractCheck;
 import com.puppycrawl.tools.checkstyle.api.DetailAST;
 import com.puppycrawl.tools.checkstyle.api.TokenTypes;
 import java.util.Map;
+import org.springframework.util.Assert;
+import org.springframework.util.StringUtils;
 
 import static java.util.Objects.nonNull;
 import static startupheroes.checkstyle.util.ClassUtil.getClassName;
@@ -42,6 +44,7 @@ public class EntityVariableNameCheck extends AbstractCheck {
 
    @Override
    public void visitToken(DetailAST ast) {
+      Assert.isTrue(!StringUtils.isEmpty(entityAnnotation));
       if (isEntity(ast, entityAnnotation)) {
          String className = getClassName(ast);
          Map<String, DetailAST> variableNameAstMap = getVariableNameAstMap(ast);

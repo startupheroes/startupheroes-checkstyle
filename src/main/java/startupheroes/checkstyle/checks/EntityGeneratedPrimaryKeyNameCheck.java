@@ -4,6 +4,8 @@ import com.puppycrawl.tools.checkstyle.api.AbstractCheck;
 import com.puppycrawl.tools.checkstyle.api.DetailAST;
 import com.puppycrawl.tools.checkstyle.api.TokenTypes;
 import java.util.List;
+import org.springframework.util.Assert;
+import org.springframework.util.StringUtils;
 
 import static startupheroes.checkstyle.util.AnnotationUtil.hasAnnotation;
 import static startupheroes.checkstyle.util.ClassUtil.isEntity;
@@ -57,6 +59,7 @@ public class EntityGeneratedPrimaryKeyNameCheck extends AbstractCheck {
 
    @Override
    public void visitToken(DetailAST ast) {
+      assertions();
       if (isEntity(ast, entityAnnotation)) {
          List<DetailAST> variables = getVariables(ast);
          for (DetailAST variable : variables) {
@@ -69,6 +72,13 @@ public class EntityGeneratedPrimaryKeyNameCheck extends AbstractCheck {
             }
          }
       }
+   }
+
+   private void assertions() {
+      Assert.isTrue(!StringUtils.isEmpty(entityAnnotation));
+      Assert.isTrue(!StringUtils.isEmpty(idAnnotation));
+      Assert.isTrue(!StringUtils.isEmpty(generatedValueAnnotation));
+      Assert.isTrue(!StringUtils.isEmpty(suggestedGeneratedPrimaryKeyName));
    }
 
    public void setEntityAnnotation(String entityAnnotation) {

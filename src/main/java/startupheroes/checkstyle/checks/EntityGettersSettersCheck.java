@@ -6,6 +6,8 @@ import com.puppycrawl.tools.checkstyle.api.TokenTypes;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
+import org.springframework.util.Assert;
+import org.springframework.util.StringUtils;
 
 import static startupheroes.checkstyle.util.ClassUtil.isEntity;
 import static startupheroes.checkstyle.util.MethodUtil.getGetters;
@@ -51,6 +53,7 @@ public class EntityGettersSettersCheck extends AbstractCheck {
 
    @Override
    public void visitToken(DetailAST ast) {
+      Assert.isTrue(!StringUtils.isEmpty(entityAnnotation));
       if (isEntity(ast, entityAnnotation)) {
          Map<String, DetailAST> variableNameAstMap = getVariableNameAstMap(ast);
          List<String> getterVariableNames = getGetters(ast).stream()
