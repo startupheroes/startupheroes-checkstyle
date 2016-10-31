@@ -240,6 +240,11 @@
          <property name="maxLength" value="64"/>
          <property name="regex" value="^[a-z0-9_]*$"/>
       </module>
+      <module name="startupheroes.checkstyle.checks.EntityLogDataCheck">
+         <property name="entityAnnotation" value="javax.persistence.Entity"/>
+         <property name="columnAnnotation" value="javax.persistence.Column"/>
+         <property name="limitLength" value="255"/>
+      </module>
 
    </module>
 </module>
