@@ -221,7 +221,7 @@
       <module name="startupheroes.checkstyle.checks.EntityIndexNameCheck">
          <property name="entityAnnotation" value="javax.persistence.Entity"/>
          <property name="tableAnnotation" value="javax.persistence.Table"/>
-         <property name="idAnnotation" value="javax.persistence.Id"/>
+         <property name="indexAnnotation" value="javax.persistence.Index"/>
          <property name="key" value="indexes"/>
          <property name="keyName" value="name"/>
          <property name="keyColumns" value="columnList"/>
@@ -239,10 +239,6 @@
          <property name="suggestedSuffix" value="uk"/>
          <property name="maxLength" value="64"/>
          <property name="regex" value="^[a-z0-9_]*$"/>
-      </module>
-      <module name="startupheroes.checkstyle.checks.EntityLogDataCheck">
-         <property name="entityAnnotation" value="javax.persistence.Entity"/>
-         <property name="columnAnnotation" value="javax.persistence.Column"/>
       </module>
 
    </module>
