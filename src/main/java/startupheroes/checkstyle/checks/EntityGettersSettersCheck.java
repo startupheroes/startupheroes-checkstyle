@@ -10,6 +10,8 @@ import org.springframework.util.Assert;
 import org.springframework.util.StringUtils;
 
 import static startupheroes.checkstyle.util.ClassUtil.isEntity;
+import static startupheroes.checkstyle.util.MethodUtil.GETTER_PREFIX_REGEX;
+import static startupheroes.checkstyle.util.MethodUtil.SETTER_PREFIX_REGEX;
 import static startupheroes.checkstyle.util.MethodUtil.getGetters;
 import static startupheroes.checkstyle.util.MethodUtil.getMethodName;
 import static startupheroes.checkstyle.util.MethodUtil.getSetters;
@@ -24,12 +26,6 @@ public class EntityGettersSettersCheck extends AbstractCheck {
     * A key is pointing to the warning message text in "messages.properties" file.
     */
    private static final String MSG_KEY = "entityGettersSettersCheckMessage";
-
-   /** Pattern matching names of getter methods. */
-   private static final String GETTER_PREFIX_REGEX = "^get";
-
-   /** Pattern matching names of setter methods. */
-   private static final String SETTER_PREFIX_REGEX = "^set";
 
    /**
     * set entity annotation to understand that a class is an entity.

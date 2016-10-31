@@ -10,6 +10,7 @@ import java.util.regex.Pattern;
 import org.springframework.util.Assert;
 import org.springframework.util.StringUtils;
 
+import static java.util.Objects.nonNull;
 import static startupheroes.checkstyle.util.AnnotationUtil.getAnnotation;
 import static startupheroes.checkstyle.util.AnnotationUtil.getKeyValueAstMap;
 import static startupheroes.checkstyle.util.AnnotationUtil.getValueAsAnnotations;
@@ -88,18 +89,26 @@ public class EntityIndexNameCheck extends AbstractCheck {
 
    private void checkIndexName(String className, DetailAST indexAnnotationNode) {
       Map<String, DetailAST> indexKeyValueAstMap = getKeyValueAstMap(indexAnnotationNode);
-      Optional<String> indexNameOptional = getValueAsString(indexKeyValueAstMap.get(keyName));
-      Optional<String> columnList = getValueAsString(indexKeyValueAstMap.get(keyColumns));
-      if (indexNameOptional.isPresent() && columnList.isPresent()) {
-         String indexName = indexNameOptional.get();
-         String suggestedIndexName = getSuggestedIndexName(className, columnList.get());
-         if (indexName.length() > maxLength) {
-            log(indexAnnotationNode.getLineNo(), MSG_IDENTIFIER_NAME_TOO_LONG, indexName, maxLength);
-         } else if (suggestedIndexName.length() <= maxLength && !suggestedIndexName.equals(indexName)) {
-            log(indexAnnotationNode.getLineNo(), MSG_KEY, suggestedIndexName);
-         } else if (!acceptableIndexName(className, indexName)) {
-            log(indexAnnotationNode.getLineNo(), MSG_KEY, getSuggestedIndexName(className, "fields"));
+      DetailAST nameKeyValueAst = indexKeyValueAstMap.get(keyName);
+      if (nonNull(nameKeyValueAst)) {
+         Optional<String> indexNameOptional = getValueAsString(nameKeyValueAst);
+         DetailAST columnsKeyValueAst = indexKeyValueAstMap.get(keyColumns);
+         if (nonNull(columnsKeyValueAst)) {
+            Optional<String> columnList = getValueAsString(columnsKeyValueAst);
+            if (indexNameOptional.isPresent() && columnList.isPresent()) {
+               String indexName = indexNameOptional.get();
+               String suggestedIndexName = getSuggestedIndexName(className, columnList.get());
+               if (indexName.length() > maxLength) {
+                  log(indexAnnotationNode.getLineNo(), MSG_IDENTIFIER_NAME_TOO_LONG, indexName, maxLength);
+               } else if (suggestedIndexName.length() <= maxLength && !suggestedIndexName.equals(indexName)) {
+                  log(indexAnnotationNode.getLineNo(), MSG_KEY, suggestedIndexName);
+               } else if (!acceptableIndexName(className, indexName)) {
+                  log(indexAnnotationNode.getLineNo(), MSG_KEY, getSuggestedIndexName(className, "your_fields"));
+               }
+            }
          }
+      } else {
+         log(indexAnnotationNode.getLineNo(), MSG_KEY, getSuggestedIndexName(className, "your_fields"));
       }
    }
 

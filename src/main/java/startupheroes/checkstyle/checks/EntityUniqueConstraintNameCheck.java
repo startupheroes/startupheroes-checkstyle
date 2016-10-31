@@ -11,6 +11,7 @@ import java.util.regex.Pattern;
 import org.springframework.util.Assert;
 import org.springframework.util.StringUtils;
 
+import static java.util.Objects.nonNull;
 import static startupheroes.checkstyle.util.AnnotationUtil.getAnnotation;
 import static startupheroes.checkstyle.util.AnnotationUtil.getKeyValueAstMap;
 import static startupheroes.checkstyle.util.AnnotationUtil.getValueAsAnnotations;
@@ -90,20 +91,29 @@ public class EntityUniqueConstraintNameCheck extends AbstractCheck {
 
    private void checkUniqueConstraintName(String className, DetailAST uniqueConstraintAnnotationNode) {
       Map<String, DetailAST> uniqueConstraintKeyValueAstMap = getKeyValueAstMap(uniqueConstraintAnnotationNode);
-      Optional<String> uniqueConstraintNameOptional = getValueAsString(uniqueConstraintKeyValueAstMap.get(keyName));
-      List<String> columnNames = getValueAsStringList(uniqueConstraintKeyValueAstMap.get(keyColumns));
-      if (uniqueConstraintNameOptional.isPresent() && !columnNames.isEmpty()) {
-         String uniqueConstraintName = uniqueConstraintNameOptional.get();
-         String suggestedUniqueConstraintName = getSuggestedUniqueConstraintName(className, columnNames);
-         if (uniqueConstraintName.length() > maxLength) {
-            log(uniqueConstraintAnnotationNode.getLineNo(), MSG_IDENTIFIER_NAME_TOO_LONG, uniqueConstraintName, maxLength);
-         } else if (suggestedUniqueConstraintName.length() <= maxLength &&
-                    !suggestedUniqueConstraintName.equals(uniqueConstraintName)) {
-            log(uniqueConstraintAnnotationNode.getLineNo(), MSG_KEY, suggestedUniqueConstraintName);
-         } else if (!acceptableUniqueConstraintName(className, uniqueConstraintName)) {
-            log(uniqueConstraintAnnotationNode.getLineNo(), MSG_KEY,
-                getSuggestedUniqueConstraintName(className, Collections.singletonList("fields")));
+      DetailAST nameKeyValueAst = uniqueConstraintKeyValueAstMap.get(keyName);
+      if (nonNull(nameKeyValueAst)) {
+         Optional<String> uniqueConstraintNameOptional = getValueAsString(nameKeyValueAst);
+         DetailAST columnsKeyValueAst = uniqueConstraintKeyValueAstMap.get(keyColumns);
+         if (nonNull(columnsKeyValueAst)) {
+            List<String> columnNames = getValueAsStringList(columnsKeyValueAst);
+            if (uniqueConstraintNameOptional.isPresent() && !columnNames.isEmpty()) {
+               String uniqueConstraintName = uniqueConstraintNameOptional.get();
+               String suggestedUniqueConstraintName = getSuggestedUniqueConstraintName(className, columnNames);
+               if (uniqueConstraintName.length() > maxLength) {
+                  log(uniqueConstraintAnnotationNode.getLineNo(), MSG_IDENTIFIER_NAME_TOO_LONG, uniqueConstraintName, maxLength);
+               } else if (suggestedUniqueConstraintName.length() <= maxLength &&
+                          !suggestedUniqueConstraintName.equals(uniqueConstraintName)) {
+                  log(uniqueConstraintAnnotationNode.getLineNo(), MSG_KEY, suggestedUniqueConstraintName);
+               } else if (!acceptableUniqueConstraintName(className, uniqueConstraintName)) {
+                  log(uniqueConstraintAnnotationNode.getLineNo(), MSG_KEY,
+                      getSuggestedUniqueConstraintName(className, Collections.singletonList("your_fields")));
+               }
+            }
          }
+      } else {
+         log(uniqueConstraintAnnotationNode.getLineNo(), MSG_KEY,
+             getSuggestedUniqueConstraintName(className, Collections.singletonList("your_fields")));
       }
    }
 
@@ -111,10 +121,10 @@ public class EntityUniqueConstraintNameCheck extends AbstractCheck {
       return convertToDatabaseForm(className, suggestedSuffix, columnNames);
    }
 
-   private Boolean acceptableUniqueConstraintName(String tableName, String uniqueConstraintName) {
-      return uniqueConstraintName.startsWith(getDatabaseIdentifierName(tableName + "_")) &&
-             Pattern.compile(regex).matcher(uniqueConstraintName).matches() &&
-             uniqueConstraintName.endsWith(getDatabaseIdentifierName("_" + suggestedSuffix));
+   private Boolean acceptableUniqueConstraintName(String tableName, String indexName) {
+      return indexName.startsWith(getDatabaseIdentifierName(tableName + "_")) &&
+             Pattern.compile(regex).matcher(indexName).matches() &&
+             indexName.endsWith(getDatabaseIdentifierName("_" + suggestedSuffix));
    }
 
    private void assertions() {

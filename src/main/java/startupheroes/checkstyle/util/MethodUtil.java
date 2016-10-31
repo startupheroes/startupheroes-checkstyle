@@ -26,6 +26,16 @@ public final class MethodUtil {
 
    private static final String HASH_CODE_METHOD_NAME = "hashCode";
 
+   private static final String GET = "get";
+
+   /** Pattern matching names of getter methods. */
+   public static final String GETTER_PREFIX_REGEX = "^" + GET;
+
+   private static final String SET = "set";
+
+   /** Pattern matching names of setter methods. */
+   public static final String SETTER_PREFIX_REGEX = "^" + SET;
+
    private MethodUtil() {
    }
 
@@ -93,11 +103,15 @@ public final class MethodUtil {
    }
 
    public static List<DetailAST> getGetters(DetailAST classAst) {
-      return getMethods(classAst).stream().filter(CheckUtils::isGetterMethod).collect(Collectors.toList());
+      return getMethods(classAst).stream()
+                                 .filter(getter -> CheckUtils.isGetterMethod(getter) && getMethodName(getter).startsWith(GET))
+                                 .collect(Collectors.toList());
    }
 
    public static List<DetailAST> getSetters(DetailAST classAst) {
-      return getMethods(classAst).stream().filter(CheckUtils::isSetterMethod).collect(Collectors.toList());
+      return getMethods(classAst).stream()
+                                 .filter(setter -> CheckUtils.isSetterMethod(setter) && getMethodName(setter).startsWith(SET))
+                                 .collect(Collectors.toList());
    }
 
    /**
