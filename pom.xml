@@ -47,6 +47,12 @@
          <version>${spring.version}</version>
       </dependency>
 
+      <dependency>
+         <groupId>org.eclipse.persistence</groupId>
+         <artifactId>javax.persistence</artifactId>
+         <version>${javax-persistence.version}</version>
+      </dependency>
+
       <!-- Test -->
 
       <dependency>
@@ -68,13 +74,6 @@
          <groupId>org.slf4j</groupId>
          <artifactId>slf4j-api</artifactId>
          <version>${slf4j.version}</version>
-         <scope>test</scope>
-      </dependency>
-
-      <dependency>
-         <groupId>org.eclipse.persistence</groupId>
-         <artifactId>javax.persistence</artifactId>
-         <version>${javax-persistence.version}</version>
          <scope>test</scope>
       </dependency>
 

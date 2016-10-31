@@ -206,7 +206,6 @@
          <property name="variableAnnotationKeyValueTable"
              value="createdAt:javax.persistence.Column:nullable:false, lastUpdatedAt:javax.persistence.Column:nullable:false"/>
       </module>
-      <module name="startupheroes.checkstyle.checks.RedundantDefaultAnnotationParameterAssignCheck"/>
       <module name="startupheroes.checkstyle.checks.EntityGeneratedPrimaryKeyNameCheck">
          <property name="entityAnnotation" value="javax.persistence.Entity"/>
          <property name="idAnnotation" value="javax.persistence.Id"/>
@@ -216,7 +215,6 @@
       <module name="startupheroes.checkstyle.checks.EntityVariableNameCheck">
          <property name="entityAnnotation" value="javax.persistence.Entity"/>
       </module>
-      <module name="startupheroes.checkstyle.checks.MissingOverrideAnnotationCheck"/>
       <module name="startupheroes.checkstyle.checks.BlockedClassAnnotationCheck">
          <property name="blockedAnnotations" value="com.clovify.lyso.core.annotation.LysoRepository"/>
       </module>
@@ -241,6 +239,10 @@
          <property name="suggestedSuffix" value="uk"/>
          <property name="maxLength" value="64"/>
          <property name="regex" value="^[a-z0-9_]*$"/>
+      </module>
+      <module name="startupheroes.checkstyle.checks.EntityLogDataCheck">
+         <property name="entityAnnotation" value="javax.persistence.Entity"/>
+         <property name="columnAnnotation" value="javax.persistence.Column"/>
       </module>
 
    </module>
