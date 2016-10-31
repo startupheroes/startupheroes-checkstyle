@@ -12,7 +12,7 @@ public class EntityGeneratedPrimaryKeyNameCheckTest extends BaseCheckTestSupport
 
    @Test
    public void testByWrongInput() throws Exception {
-      String[] expectedMessages = {"25: " + getCheckMessage(MSG_KEY, "id")};
+      String[] expectedMessages = {"26: " + getCheckMessage(MSG_KEY, "id")};
       test("TestWrongEntity.java", expectedMessages);
    }
 

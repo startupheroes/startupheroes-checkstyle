@@ -73,6 +73,14 @@ public final class AnnotationUtil {
       return result;
    }
 
+   public static List<String> getValueAsStringList(DetailAST annotationKeyValueAst) {
+      DetailAST annotationValueNode = getAnnotationValueNode(annotationKeyValueAst);
+      List<DetailAST> exprNodes = getChildsByType(annotationValueNode, TokenTypes.EXPR);
+      return exprNodes.stream()
+                      .map(exprNode -> exprNode.findFirstToken(TokenTypes.STRING_LITERAL).getText().replaceAll("\"", ""))
+                      .collect(Collectors.toList());
+   }
+
    public static List<DetailAST> getValueAsAnnotations(DetailAST annotationKeyValueAst) {
       DetailAST annotationValueNode = getAnnotationValueNode(annotationKeyValueAst);
       return getChildsByType(annotationValueNode, TokenTypes.ANNOTATION);

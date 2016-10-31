@@ -12,9 +12,9 @@ import javax.persistence.UniqueConstraint;
 @Entity
 @Table(uniqueConstraints = {
     @UniqueConstraint(
-        name = "test_correct_entity_pmi_av1_av2_av3_uk",
+        name = "test_correct_entity_model_id_av_1_av_2_av_3_uk",
         columnNames = {"modelId", "attributeValue_1", "attributeValue_2", "attributeValue_3"}),
-    @UniqueConstraint(name = "test_entity_relative_url_uk", columnNames = {"relativeUrl"})
+    @UniqueConstraint(name = "test_correct_entity_relative_url_uk", columnNames = {"relativeUrl"})
 },
     indexes = {
         @Index(

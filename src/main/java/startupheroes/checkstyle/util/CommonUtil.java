@@ -102,13 +102,17 @@ public final class CommonUtil {
       return packageName;
    }
 
-   public static String convertToDatabaseForm(String tableName, String suffix, String... columns) {
+   public static String convertToDatabaseForm(String tableName, String suffix, Iterable<String> columns) {
       String result = tableName;
       for (String column : columns) {
          result = result + "_" + column;
       }
       result = result + "_" + suffix;
-      return result.replaceAll("(.)([A-Z])", "$1_$2").toLowerCase();
+      return getDatabaseIdentifierName(result);
+   }
+
+   public static String getDatabaseIdentifierName(String input) {
+      return input.replaceAll("(.)([A-Z])", "$1_$2").toLowerCase();
    }
 
 }

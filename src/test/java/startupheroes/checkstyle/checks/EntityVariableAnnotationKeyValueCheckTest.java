@@ -12,7 +12,7 @@ public class EntityVariableAnnotationKeyValueCheckTest extends BaseCheckTestSupp
 
    @Test
    public void testByWrongInput() throws Exception {
-      String[] expectedMessages = {"66: " + getCheckMessage(MSG_KEY, "createdAt", "Column", "nullable", "false")};
+      String[] expectedMessages = {"67: " + getCheckMessage(MSG_KEY, "createdAt", "Column", "nullable", "false")};
       test("TestWrongEntity.java", expectedMessages);
    }
 

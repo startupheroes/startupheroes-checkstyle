@@ -12,7 +12,7 @@ public class EntityGettersSettersCheckTest extends BaseCheckTestSupport {
 
    @Test
    public void testByWrongInput() throws Exception {
-      String[] expectedMessages = {"51: " + getCheckMessage(MSG_KEY, "testWrongEntityName")};
+      String[] expectedMessages = {"52: " + getCheckMessage(MSG_KEY, "testWrongEntityName")};
       test("TestWrongEntity.java", expectedMessages);
    }
 

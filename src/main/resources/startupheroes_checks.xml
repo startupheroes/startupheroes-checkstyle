@@ -224,7 +224,23 @@
          <property name="entityAnnotation" value="javax.persistence.Entity"/>
          <property name="tableAnnotation" value="javax.persistence.Table"/>
          <property name="idAnnotation" value="javax.persistence.Id"/>
-         <property name="suggestedIndexSuffix" value="index"/>
+         <property name="key" value="indexes"/>
+         <property name="keyName" value="name"/>
+         <property name="keyColumns" value="columnList"/>
+         <property name="suggestedSuffix" value="index"/>
+         <property name="maxLength" value="64"/>
+         <property name="regex" value="^[a-z0-9_]*$"/>
+      </module>
+      <module name="startupheroes.checkstyle.checks.EntityUniqueConstraintNameCheck">
+         <property name="entityAnnotation" value="javax.persistence.Entity"/>
+         <property name="tableAnnotation" value="javax.persistence.Table"/>
+         <property name="uniqueConstraintAnnotation" value="javax.persistence.UniqueConstraint"/>
+         <property name="key" value="uniqueConstraints"/>
+         <property name="keyName" value="name"/>
+         <property name="keyColumns" value="columnNames"/>
+         <property name="suggestedSuffix" value="uk"/>
+         <property name="maxLength" value="64"/>
+         <property name="regex" value="^[a-z0-9_]*$"/>
       </module>
 
    </module>

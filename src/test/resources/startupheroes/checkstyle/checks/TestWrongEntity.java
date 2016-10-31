@@ -12,8 +12,9 @@ import javax.persistence.UniqueConstraint;
 @Entity
 @Table(uniqueConstraints = {
     @UniqueConstraint(
-        name = "uk_pmi_av1_av2_av3", // not correct naming for uk!
-        columnNames = {"testWrongEntityModelId", "attributeValue_1", "attributeValue_2", "attributeValue_3"})
+        name = "test_wrong_entity_model_id_attributeValue_1_attributeValue_1_attributeValue_1_uk", // not correct naming for uk!
+        columnNames = {"testWrongEntityModelId", "attributeValue_1", "attributeValue_2", "attributeValue_3"}),
+    @UniqueConstraint(name = "relative_url_uk", columnNames = {"relativeUrl"})
 },
     indexes = {
         @Index(

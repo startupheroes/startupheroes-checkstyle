@@ -12,7 +12,7 @@ public class RedundantMultipleAnnotationCheckTest extends BaseCheckTestSupport {
 
    @Test
    public void testByWrongInput() throws Exception {
-      String[] expectedMessages = {"25: " + getCheckMessage(MSG_KEY, "Id", "Column")};
+      String[] expectedMessages = {"26: " + getCheckMessage(MSG_KEY, "Id", "Column")};
       test("TestWrongEntity.java", expectedMessages);
    }
 

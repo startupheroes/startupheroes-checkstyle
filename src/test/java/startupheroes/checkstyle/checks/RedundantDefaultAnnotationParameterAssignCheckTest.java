@@ -12,10 +12,10 @@ public class RedundantDefaultAnnotationParameterAssignCheckTest extends BaseChec
    @Test
    public void testByWrongInput() throws Exception {
       String[] expectedMessages = {
-          "63: " + getCheckMessage(MSG_KEY, "nullable"),
-          "71: " + getCheckMessage(MSG_KEY, "insertable"),
-          "71: " + getCheckMessage(MSG_KEY, "length"),
-          "71: " + getCheckMessage(MSG_KEY, "updatable")};
+          "64: " + getCheckMessage(MSG_KEY, "nullable"),
+          "72: " + getCheckMessage(MSG_KEY, "insertable"),
+          "72: " + getCheckMessage(MSG_KEY, "length"),
+          "72: " + getCheckMessage(MSG_KEY, "updatable")};
       test("TestWrongEntity.java", expectedMessages);
    }
 
