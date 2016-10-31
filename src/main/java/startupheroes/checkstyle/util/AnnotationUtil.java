@@ -63,16 +63,23 @@ public final class AnnotationUtil {
     * @param annotationKeyValueAst : ANNOTATION_MEMBER_VALUE_PAIR type ast
     * @return value of key
     */
-   public static Optional<String> getValue(DetailAST annotationKeyValueAst) {
+   public static Optional<String> getValueAsString(DetailAST annotationKeyValueAst) {
       Optional<String> result = Optional.empty();
-      DetailAST exprAst = annotationKeyValueAst.findFirstToken(TokenTypes.EXPR);
-      if (nonNull(exprAst)) {
-         DetailAST literalValueAst = exprAst.getFirstChild();
-         if (nonNull(literalValueAst)) {
-            result = Optional.of(literalValueAst.getText());
-         }
+      DetailAST annotationValueNode = getAnnotationValueNode(annotationKeyValueAst);
+      DetailAST literalValueAst = annotationValueNode.getFirstChild();
+      if (nonNull(literalValueAst)) {
+         result = Optional.of(literalValueAst.getText().replaceAll("\"", ""));
       }
       return result;
+   }
+
+   public static List<DetailAST> getValueAsAnnotations(DetailAST annotationKeyValueAst) {
+      DetailAST annotationValueNode = getAnnotationValueNode(annotationKeyValueAst);
+      return getChildsByType(annotationValueNode, TokenTypes.ANNOTATION);
+   }
+
+   private static DetailAST getAnnotationValueNode(DetailAST annotationKeyValueAst) {
+      return annotationKeyValueAst.findFirstToken(TokenTypes.ASSIGN).getNextSibling();
    }
 
    public static Object getDefaultValue(String fullAnnotationName, String key) {

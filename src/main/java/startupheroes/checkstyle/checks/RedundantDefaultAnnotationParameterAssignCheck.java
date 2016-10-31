@@ -10,7 +10,7 @@ import java.util.Set;
 import static java.util.Objects.nonNull;
 import static startupheroes.checkstyle.util.AnnotationUtil.getKeyDefaultValueMap;
 import static startupheroes.checkstyle.util.AnnotationUtil.getKeyValueAstMap;
-import static startupheroes.checkstyle.util.AnnotationUtil.getValue;
+import static startupheroes.checkstyle.util.AnnotationUtil.getValueAsString;
 import static startupheroes.checkstyle.util.ClassUtil.getImportSimpleFullNameMap;
 import static startupheroes.checkstyle.util.CommonUtil.getFullName;
 import static startupheroes.checkstyle.util.CommonUtil.getSimpleName;
@@ -56,7 +56,7 @@ public class RedundantDefaultAnnotationParameterAssignCheck extends AbstractChec
          Set<String> keys = annotationKeyValueAstMap.keySet();
          Map<String, Object> keyDefaultValueMap = getKeyDefaultValueMap(fullAnnotationName, keys);
          for (String key : keys) {
-            Optional<String> value = getValue(annotationKeyValueAstMap.get(key));
+            Optional<String> value = getValueAsString(annotationKeyValueAstMap.get(key));
             if (value.isPresent()) {
                Object defaultValue = keyDefaultValueMap.get(key);
                if (nonNull(defaultValue) && value.get().equals(defaultValue.toString())) {

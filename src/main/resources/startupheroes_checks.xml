@@ -220,6 +220,12 @@
       <module name="startupheroes.checkstyle.checks.BlockedClassAnnotationCheck">
          <property name="blockedAnnotations" value="com.clovify.lyso.core.annotation.LysoRepository"/>
       </module>
+      <module name="startupheroes.checkstyle.checks.EntityIndexNameCheck">
+         <property name="entityAnnotation" value="javax.persistence.Entity"/>
+         <property name="tableAnnotation" value="javax.persistence.Table"/>
+         <property name="idAnnotation" value="javax.persistence.Id"/>
+         <property name="suggestedIndexSuffix" value="index"/>
+      </module>
 
    </module>
 </module>

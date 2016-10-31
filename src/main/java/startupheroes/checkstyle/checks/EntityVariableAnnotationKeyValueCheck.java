@@ -16,7 +16,7 @@ import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 import static startupheroes.checkstyle.util.AnnotationUtil.getAnnotation;
 import static startupheroes.checkstyle.util.AnnotationUtil.getKeyValueAstMap;
-import static startupheroes.checkstyle.util.AnnotationUtil.getValue;
+import static startupheroes.checkstyle.util.AnnotationUtil.getValueAsString;
 import static startupheroes.checkstyle.util.ClassUtil.isEntity;
 import static startupheroes.checkstyle.util.CommonUtil.getSimpleName;
 import static startupheroes.checkstyle.util.VariableUtil.getVariableNameAstMap;
@@ -91,7 +91,7 @@ public class EntityVariableAnnotationKeyValueCheck extends AbstractCheck {
       String checkedValue = checkedKeyValueMap.get(checkedKey);
       DetailAST annotationKeyValueAst = annotationKeyPairAstMap.get(checkedKey);
       if (nonNull(annotationKeyValueAst)) {
-         Optional<String> annotationValueAsString = getValue(annotationKeyValueAst);
+         Optional<String> annotationValueAsString = getValueAsString(annotationKeyValueAst);
          if (annotationValueAsString.isPresent() && !annotationValueAsString.get().equals(checkedValue)) {
             log(annotationAst.getLineNo(), MSG_KEY, checkedVariable, getSimpleName(checkedAnnotation), checkedKey, checkedValue);
          }

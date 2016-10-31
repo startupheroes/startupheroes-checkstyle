@@ -35,7 +35,11 @@ public final class CommonUtil {
    }
 
    public static Map<String, String> splitProperty(String property) {
-      return Splitter.on(",").omitEmptyStrings().trimResults().withKeyValueSeparator(":").split(property);
+      return getSplitterOnComma().withKeyValueSeparator(":").split(property);
+   }
+
+   public static Splitter getSplitterOnComma() {
+      return Splitter.on(",").omitEmptyStrings().trimResults();
    }
 
    /**
@@ -96,6 +100,15 @@ public final class CommonUtil {
          }
       }
       return packageName;
+   }
+
+   public static String convertToDatabaseForm(String tableName, String suffix, String... columns) {
+      String result = tableName;
+      for (String column : columns) {
+         result = result + "_" + column;
+      }
+      result = result + "_" + suffix;
+      return result.replaceAll("(.)([A-Z])", "$1_$2").toLowerCase();
    }
 
 }

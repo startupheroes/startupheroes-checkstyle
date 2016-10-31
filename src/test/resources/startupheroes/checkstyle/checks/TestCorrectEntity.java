@@ -18,8 +18,8 @@ import javax.persistence.UniqueConstraint;
 },
     indexes = {
         @Index(
-            name = "test_entity_sku_index",
-            columnList = "userId"
+            name = "test_correct_entity_sku_index",
+            columnList = "sku"
         )})
 public class TestCorrectEntity {
 
