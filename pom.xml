@@ -34,6 +34,14 @@
       </developer>
    </developers>
 
+   <distributionManagement>
+      <repository>
+         <id>bintray-startupheroes-maven</id>
+         <name>startupheroes-maven</name>
+         <url>https://api.bintray.com/maven/startupheroes/maven/startupheroes-checkstyle-config/;publish=1</url>
+      </repository>
+   </distributionManagement>
+
    <dependencies>
       <dependency>
          <groupId>com.puppycrawl.tools</groupId>
