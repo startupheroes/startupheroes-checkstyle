@@ -135,11 +135,6 @@
          <property name="format" value="\\u00(08|09|0(a|A)|0(c|C)|0(d|D)|22|27|5(C|c))|\\(0(10|11|12|14|15|42|47)|134)"/>
          <property name="message" value="Avoid using corresponding octal or Unicode escape."/>
       </module>
-      <module name="AvoidEscapedUnicodeCharacters">
-         <property name="allowEscapesForControlCharacters" value="true"/>
-         <property name="allowByTailComment" value="true"/>
-         <property name="allowNonPrintableEscapes" value="true"/>
-      </module>
       <module name="OneTopLevelClass"/>
       <module name="NoLineWrap"/>
       <module name="OneStatementPerLine"/>
@@ -149,6 +144,7 @@
       <module name="UpperEll"/>
       <module name="EmptyLineSeparator">
          <property name="allowNoEmptyLineBetweenFields" value="true"/>
+         <property name="tokens" value="IMPORT, CLASS_DEF, INTERFACE_DEF, ENUM_DEF, STATIC_INIT, INSTANCE_INIT, METHOD_DEF, CTOR_DEF, VARIABLE_DEF"/>
       </module>
       <module name="SeparatorWrap">
          <property name="tokens" value="DOT"/>
@@ -178,6 +174,11 @@
       <module name="DeclarationOrder"/>
       <module name="ExplicitInitialization"/>
       <module name="PackageDeclaration"/>
+
+      <!-- Suppress checks.-->
+      <!-- Required by SuppressWarningsFilter below -->
+      <!-- Make the @SuppressWarnings annotations available to Checkstyle -->
+      <module name="SuppressWarningsHolder"/>
 
       <!-- Custom Checks-->
       <module name="startupheroes.checkstyle.checks.LoggerOrderCheck"/>
@@ -248,4 +249,11 @@
       <module name="startupheroes.checkstyle.checks.EmptyLineCheck"/>
 
    </module>
+
+   <!-- Suppress checks.-->
+   <!-- Allow turning checks off in the code using @SuppressWarnings annotation -->
+   <!-- See http://checkstyle.sourceforge.net/config_filters.html#SuppressWarningsFilter -->
+   <!-- Filter out Checkstyle warnings that have been suppressed with the @SuppressWarnings annotation -->
+   <module name="SuppressWarningsFilter"/>
+
 </module>

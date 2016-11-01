@@ -90,9 +90,8 @@ may be public, other class members must be private unless allowProtected/Package
 
 1. OuterTypeFilename: Checks that the outer type name and the file name match. For example, the class Foo must be in a file named Foo.java.
 2. IllegalTokenText: Checks for illegal token text to avoid using corresponding octal or Unicode escape.
-3. AvoidEscapedUnicodeCharacters: Checks for escaped unicode characters.
-4. OneTopLevelClass: Checks that each top-level class, interface or enum resides in a source file of its own.
-5. NoLineWrap: Checks that chosen statements are not line-wrapped. By default this Check restricts wrapping import and package statements,
+3. OneTopLevelClass: Checks that each top-level class, interface or enum resides in a source file of its own.
+4. NoLineWrap: Checks that chosen statements are not line-wrapped. By default this Check restricts wrapping import and package statements,
 but it's possible to check any statement.
 ```
  Examples of line-wrapped statements (bad case):
@@ -105,7 +104,7 @@ but it's possible to check any statement.
  Examples of not line-wrapped statements (good case):
  import com.puppycrawl.tools.checkstyle.api.AbstractCheck;
 ```
-6. OneStatementPerLine: Restricts the number of statements per line to one.
+5. OneStatementPerLine: Restricts the number of statements per line to one.
 Rationale: It's very difficult to read multiple statements on one line.
 ```
  Each line causes violation:
@@ -123,7 +122,7 @@ Rationale: It's very difficult to read multiple statements on one line.
  int o = 1, p = 2,
  r = 5; int t; //violation here
 ```
-7. MultipleVariableDeclarations: Checks that each variable declaration is in its own statement and on its own line.
+6. MultipleVariableDeclarations: Checks that each variable declaration is in its own statement and on its own line.
 One declaration per line is recommended since it encourages commenting. In other words,
 ```
 int level; // indentation level
@@ -134,27 +133,27 @@ int level, size;
 Do not put different types on the same line. Example:
  int foo,  fooarray[]; //WRONG!
 ```
-8. ArrayTypeStyle: Checks the style of array type definitions, default Java style is used.
+7. ArrayTypeStyle: Checks the style of array type definitions, default Java style is used.
 ```
  Some like Java-style: {@code public static void main(String[] args)}
  and some like C-style: public static void main(String args[])
 ```
-9. FallThrough: Checks for fall through in switch statements. Finds locations where a case contains Java code,
+8. FallThrough: Checks for fall through in switch statements. Finds locations where a case contains Java code,
 but lacks a break, return, throw or continue statement.
-10. UpperEll: Checks that long constants are defined with an upper ell, 'L'.
-11. EmptyLineSeparator: Checks for empty line separators after header, package, all import declarations,
+9. UpperEll: Checks that long constants are defined with an upper ell, 'L'.
+10. EmptyLineSeparator: Checks for empty line separators after header, package, all import declarations,
 fields, constructors, methods, nested classes, static initializers and instance initializers.
-12. SeparatorWrap(Dot): Checks line wrapping with separators for dot at the new line.
-13. SeparatorWrap(Comma): Checks line wrapping with separators for comma at the eof.
-14. NoFinalizer: Checks that no method having zero parameters is defined using the name finalize.
-15. AbbreviationAsWordInName: The Check validate abbreviations(consecutive capital letters) length in identifier name,
+11. SeparatorWrap(Dot): Checks line wrapping with separators for dot at the new line.
+12. SeparatorWrap(Comma): Checks line wrapping with separators for comma at the eof.
+13. NoFinalizer: Checks that no method having zero parameters is defined using the name finalize.
+14. AbbreviationAsWordInName: The Check validate abbreviations(consecutive capital letters) length in identifier name,
 it also allows to enforce camel case naming.
-16. AnnotationLocation(Class, Interface, Enum, Method, Constructor): Not allow same line multiple annotations.
-17. AnnotationLocation(Variable): Allow same line multiple annotations for variables.
-18. EmptyCatchBlock: Checks for empty catch blocks.
-19. CommentsIndentation: This Check controls the indentation between comments and surrounding code.
+15. AnnotationLocation(Class, Interface, Enum, Method, Constructor): Not allow same line multiple annotations.
+16. AnnotationLocation(Variable): Allow same line multiple annotations for variables.
+17. EmptyCatchBlock: Checks for empty catch blocks.
+18. CommentsIndentation: This Check controls the indentation between comments and surrounding code.
 Comments are indented at the same level as the surrounding code.
-20. DeclarationOrder:  * Checks that the parts of a class or interface declaration appear in the order suggested by the
+19. DeclarationOrder:  * Checks that the parts of a class or interface declaration appear in the order suggested by the
   [Code Conventions for the Java Programming Language](http://www.oracle.com/technetwork/java/javase/documentation/codeconventions-141855.html#1852)
 
 ```
@@ -167,9 +166,9 @@ Comments are indented at the same level as the surrounding code.
  - Constructors
  - Methods
 ```
-21. ExplicitInitialization: Checks if any class or object member is explicitly initialized to default for its type value
+20. ExplicitInitialization: Checks if any class or object member is explicitly initialized to default for its type value
 (null for object references, zero for numeric types and char and false for boolean.)
-22. PackageDeclaration: Ensures that a class has a package declaration, and (optionally)
+21. PackageDeclaration: Ensures that a class has a package declaration, and (optionally)
 whether the package name matches the directory name for the source file.
 
 
@@ -192,3 +191,8 @@ whether the package name matches the directory name for the source file.
 15. EntityUniqueConstraintNameCheck: Checks the unique constraint name format of the entity, it should be like table_name_field1_name_field2_name_uk.
 16. EntityLogDataCheck: Checks the variables in log entity and show variables to move to the log data table.
 17. EmptyLineCheck: Checks the empty line from the last right curly bracket at the end of each class, interface and enum.
+
+# Suppress warnings checks:
+1. SuppressWarningsHolder: Make the @SuppressWarnings annotations available to Checkstyle.
+2. SuppressWarningsFilter: Filter out Checkstyle warnings that have been suppressed with the @SuppressWarnings annotation.
+

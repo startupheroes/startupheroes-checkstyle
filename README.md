@@ -5,42 +5,50 @@ This project provides a default configuration for checkstyle at StartupHeroes pr
 To use it, configure your maven-checkstyle-plugin like so:
 
 ```
-   <plugin>
-     <artifactId>maven-checkstyle-plugin</artifactId>
-     <version>2.17</version>
-     <dependencies>
-       <dependency>
-         <groupId>es.startuphero.checkstyle</groupId>
-         <artifactId>startupheroes-checkstyle-config</artifactId>
-         <version>THEVERSIONYOUWANT</version>
-       </dependency>
-       <dependency>
-         <groupId>com.puppycrawl.tools</groupId>
-         <artifactId>checkstyle</artifactId>
-         <version>7.1.2</version>
-       </dependency>
-     </dependencies>
-     <configuration>
-       <configLocation>startupheroes_checks.xml</configLocation>
-       <!-- The things above this line are required, the rest is 'bonus' -->
-       <!------------------------------------------------------------------>
-       <consoleOutput>true</consoleOutput>
-       <!-- Remove or switch to false to keep building even with checkstyle errors -->
-       <failOnViolation>true</failOnViolation>
-       <logViolationsToConsole>true</logViolationsToConsole>
-       <!-- change to 'warn' to be more strict about following checkstyle conventions -->
-       <violationSeverity>error</violationSeverity>
-     </configuration>
-     <executions>
-       <execution>
-         <id>validate</id>
-         <phase>validate</phase>
-         <goals>
-           <goal>check</goal>
-         </goals>
-       </execution>
-     </executions>
-   </plugin>
+      <profile>
+         <id>checkstyle</id>
+         <build>
+            <plugins>
+               <plugin>
+                  <groupId>org.apache.maven.plugins</groupId>
+                  <artifactId>maven-checkstyle-plugin</artifactId>
+                  <version>${maven-checkstyle-plugin.version}</version>
+                  <dependencies>
+                     <dependency>
+                        <groupId>es.startuphero.checkstyle</groupId>
+                        <artifactId>startupheroes-checkstyle-config</artifactId>
+                        <version>${startupheroes-checkstyle-config.version}</version>
+                     </dependency>
+                     <dependency>
+                        <groupId>com.puppycrawl.tools</groupId>
+                        <artifactId>checkstyle</artifactId>
+                        <version>${checkstyle.version}</version>
+                     </dependency>
+                  </dependencies>
+                  <configuration>
+                     <configLocation>startupheroes_checks.xml</configLocation>
+                     <!-- The things above this line are required, the rest is 'bonus' -->
+                     <consoleOutput>true</consoleOutput>
+                     <!-- Remove or switch to false to keep building even with checkstyle errors -->
+                     <failOnViolation>true</failOnViolation>
+                     <logViolationsToConsole>true</logViolationsToConsole>
+                     <!-- change to 'error' to be more strict about following checkstyle conventions -->
+                     <violationSeverity>warn</violationSeverity>
+                  </configuration>
+                  <executions>
+                     <execution>
+                        <id>validate</id>
+                        <phase>validate</phase>
+                        <goals>
+                           <goal>checkstyle</goal>
+                           <goal>checkstyle-aggregate</goal>
+                        </goals>
+                     </execution>
+                  </executions>
+               </plugin>
+            </plugins>
+         </build>
+      </profile>
 ```
 
 See the [maven-checkstyle-plugin docs](https://maven.apache.org/plugins/maven-checkstyle-plugin/)
@@ -59,5 +67,11 @@ company-wide parent pom, meaning that projects only need to specify the below in
 To run checkstyle plugin:
 
 ```
-   mvn checkstyle:check
+   mvn checkstyle:checkstyle
+```
+
+To run checkstyle profile:
+
+```
+   mvn clean install -Pcheckstyle
 ```
