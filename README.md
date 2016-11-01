@@ -10,14 +10,14 @@ To use it, configure your maven-checkstyle-plugin like so:
      <version>2.17</version>
      <dependencies>
        <dependency>
-         <groupId>com.startupheroes.checkstyle</groupId>
+         <groupId>es.startuphero.checkstyle</groupId>
          <artifactId>startupheroes-checkstyle-config</artifactId>
          <version>THEVERSIONYOUWANT</version>
        </dependency>
        <dependency>
          <groupId>com.puppycrawl.tools</groupId>
          <artifactId>checkstyle</artifactId>
-         <version>7.1.1</version>
+         <version>7.1.2</version>
        </dependency>
      </dependencies>
      <configuration>
@@ -28,7 +28,7 @@ To use it, configure your maven-checkstyle-plugin like so:
        <!-- Remove or switch to false to keep building even with checkstyle errors -->
        <failOnViolation>true</failOnViolation>
        <logViolationsToConsole>true</logViolationsToConsole>
-       <!-- change to 'warning' to be more strict about following checkstyle conventions -->
+       <!-- change to 'warn' to be more strict about following checkstyle conventions -->
        <violationSeverity>error</violationSeverity>
      </configuration>
      <executions>

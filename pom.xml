@@ -20,9 +20,9 @@
    </properties>
 
    <scm>
-      <url>https://github.com/startupheroes/startupheroes-checkstyle-config</url>
-      <connection>scm:git:git@github.com:startupheroes/startupheroes-checkstyle-config.git</connection>
-      <developerConnection>scm:git:git@github.com:startupheroes/startupheroes-checkstyle-config.git</developerConnection>
+      <url>https://github.com/cemo/startupheroes-checkstyle-config</url>
+      <connection>scm:git:git@github.com:cemo/startupheroes-checkstyle-config.git</connection>
+      <developerConnection>scm:git:git@github.com:cemo/startupheroes-checkstyle-config.git</developerConnection>
       <tag>HEAD</tag>
    </scm>
 
