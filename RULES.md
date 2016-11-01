@@ -191,3 +191,4 @@ whether the package name matches the directory name for the source file.
 14. EntityIndexNameCheck: Checks the index name format of the entity, it should be like table_name_field1_name_field2_name_index.
 15. EntityUniqueConstraintNameCheck: Checks the unique constraint name format of the entity, it should be like table_name_field1_name_field2_name_uk.
 16. EntityLogDataCheck: Checks the variables in log entity and show variables to move to the log data table.
+17. EmptyLineCheck: Checks the empty line from the last right curly bracket at the end of each class, interface and enum.

@@ -163,5 +163,5 @@ public class TestWrongEntity {
    }
 
    // no toString() method!
-
+   // break an empty line!
 }

@@ -245,6 +245,7 @@
          <property name="columnAnnotation" value="javax.persistence.Column"/>
          <property name="limitLength" value="255"/>
       </module>
+      <module name="startupheroes.checkstyle.checks.EmptyLineCheck"/>
 
    </module>
 </module>

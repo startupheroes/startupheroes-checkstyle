@@ -4,7 +4,7 @@
    <modelVersion>4.0.0</modelVersion>
    <groupId>com.startupheroes.checkstyle</groupId>
    <artifactId>startupheroes-checkstyle-config</artifactId>
-   <version>1.0-SNAPSHOT</version>
+   <version>1.0.0-SNAPSHOT</version>
    <name>StartupHeroes Checkstyle Config</name>
    <description>Checkstyle configuration corresponding to StartupHeroes's coding conventions.</description>
    <url>https://github.com/startupheroes/startupheroes-checkstyle-config</url>

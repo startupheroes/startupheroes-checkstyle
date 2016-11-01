@@ -14,4 +14,12 @@ public interface TestInterface {
 
    void overrideMe();
 
+   OtherInterface otherOperations();
+
+   interface OtherInterface {
+
+      void sample();
+
+      void sample2();
+   }
 }

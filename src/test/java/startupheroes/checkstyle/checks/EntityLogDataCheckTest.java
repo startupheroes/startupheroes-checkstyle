@@ -11,7 +11,7 @@ public class EntityLogDataCheckTest extends BaseCheckTestSupport {
    private static final String MSG_KEY = "entityLogDataCheckMessage";
 
    @Test
-   public void testInterface() throws Exception {
+   public void testLogEntity() throws Exception {
       String[] expectedMessages = {"31: " + getCheckMessage(MSG_KEY, "request"),
                                    "34: " + getCheckMessage(MSG_KEY, "response"),
                                    "43: " + getCheckMessage(MSG_KEY, "uri")
