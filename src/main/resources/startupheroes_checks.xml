@@ -62,9 +62,15 @@
       <module name="ParameterName"/>
       <module name="StaticVariableName"/>
       <module name="TypeName"/>
-      <module name="ClassTypeParameterName"/>
-      <module name="MethodTypeParameterName"/>
-      <module name="InterfaceTypeParameterName"/>
+      <module name="ClassTypeParameterName">
+         <property name="format" value="^[A-Z]*$"/>
+      </module>
+      <module name="MethodTypeParameterName">
+         <property name="format" value="^[A-Z]*$"/>
+      </module>
+      <module name="InterfaceTypeParameterName">
+         <property name="format" value="^[A-Z]*$"/>
+      </module>
 
       <!-- Checks for imports                              -->
       <!-- See http://checkstyle.sf.net/config_import.html -->
@@ -76,7 +82,7 @@
       <!-- Checks for Size Violations.                    -->
       <!-- See http://checkstyle.sf.net/config_sizes.html -->
       <module name="LineLength">
-         <property name="max" value="200"/>
+         <property name="max" value="150"/>
          <property name="ignorePattern" value="^package.*|^import.*|a href|href|http://|https://|ftp://"/>
       </module>
       <module name="MethodLength">
