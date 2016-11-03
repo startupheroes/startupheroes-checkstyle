@@ -80,10 +80,9 @@ non public class constructors and enum constructors, nested enum definitions tha
 # Checks for Class design:
 
 1. FinalClass: Checks that class which has only private ctors is declared as final.
-2. HideUtilityClassConstructor: Make sure that utility classes (classes that contain only static methods) do not have a public constructor.
-3. InterfaceIsType: Use Interfaces only to define types. An interface should describe a type,
+2. InterfaceIsType: Use Interfaces only to define types. An interface should describe a type,
 it is therefore inappropriate to define an interface that does not contain any methods but only constants.
-4. VisibilityModifier: Checks visibility of class members. Only static final, immutable or annotated by specified annotation members
+3. VisibilityModifier: Checks visibility of class members. Only static final, immutable or annotated by specified annotation members
 may be public, other class members must be private unless allowProtected/Package is set.
 
 # Miscellaneous other checks:
@@ -191,7 +190,6 @@ whether the package name matches the directory name for the source file.
 15. EntityUniqueConstraintNameCheck: Checks the unique constraint name format of the entity, it should be like table_name_field1_name_field2_name_uk.
 16. EntityLogDataCheck: Checks the variables in log entity and show variables to move to the log data table.
 17. EmptyLineCheck: Checks the empty line from the last right curly bracket at the end of each class, interface and enum.
-18. CustomHideUtilityClassConstructorCheck: see HideUtilityClassConstructorCheck. Avoid log for configured and application classes.
 
 # Suppress warnings checks:
 1. SuppressWarningsHolder: Make the @SuppressWarnings annotations available to Checkstyle.

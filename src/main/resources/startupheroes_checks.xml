@@ -253,9 +253,6 @@
          <property name="limitLength" value="255"/>
       </module>
       <module name="startupheroes.checkstyle.checks.EmptyLineCheck"/>
-      <module name="startupheroes.checkstyle.checks.CustomHideUtilityClassConstructorCheck">
-         <property name="exceptionalAnnotations" value="org.springframework.boot.autoconfigure.SpringBootApplication, org.springframework.context.annotation.Configuration"/>
-      </module>
 
    </module>
 
