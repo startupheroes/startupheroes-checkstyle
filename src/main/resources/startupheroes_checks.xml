@@ -263,6 +263,9 @@
          <property name="limitLength" value="255"/>
       </module>
       <module name="startupheroes.checkstyle.checks.EmptyLineCheck"/>
+      <module name="startupheroes.checkstyle.checks.AbstractEntityModifierCheck">
+         <property name="abstractEntityAnnotation" value="javax.persistence.MappedSuperclass"/>
+      </module>
 
    </module>
 
