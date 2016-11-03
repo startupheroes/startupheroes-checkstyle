@@ -11,6 +11,7 @@ import org.springframework.util.Assert;
 import org.springframework.util.StringUtils;
 
 import static startupheroes.checkstyle.util.ClassUtil.isEntity;
+import static startupheroes.checkstyle.util.ClassUtil.isExtendsAnotherClass;
 import static startupheroes.checkstyle.util.VariableUtil.getVariableNames;
 
 /**
@@ -51,7 +52,7 @@ public class EntityMandatoryVariableCheck extends AbstractCheck {
    @Override
    public void visitToken(DetailAST ast) {
       Assert.isTrue(!StringUtils.isEmpty(entityAnnotation));
-      if (isEntity(ast, entityAnnotation)) {
+      if (isEntity(ast, entityAnnotation) && !isExtendsAnotherClass(ast)) {
          List<String> variableNames = getVariableNames(ast);
          mandatoryVariables.stream()
                            .filter(mandatoryVariable -> !variableNames.contains(mandatoryVariable))

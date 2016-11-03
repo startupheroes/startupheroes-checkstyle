@@ -6,6 +6,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Optional;
 
+import static java.util.Objects.nonNull;
 import static startupheroes.checkstyle.util.CommonUtil.getFullName;
 import static startupheroes.checkstyle.util.CommonUtil.getSimpleName;
 
@@ -66,6 +67,20 @@ public final class ClassUtil {
          }
       }
       return simpleFullNameMapOfImports;
+   }
+
+   public static Optional<String> getExtendedClassName(DetailAST classAst) {
+      Optional<String> extendedClassName = Optional.empty();
+      DetailAST extendClauseNode = classAst.findFirstToken(TokenTypes.EXTENDS_CLAUSE);
+      if (nonNull(extendClauseNode)) {
+         DetailAST extendedClassNameNode = extendClauseNode.getFirstChild();
+         extendedClassName = Optional.of(extendedClassNameNode.getText());
+      }
+      return extendedClassName;
+   }
+
+   public static Boolean isExtendsAnotherClass(DetailAST classAst) {
+      return nonNull(classAst.findFirstToken(TokenTypes.EXTENDS_CLAUSE));
    }
 
 }

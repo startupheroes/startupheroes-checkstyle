@@ -197,6 +197,7 @@
       </module>
       <module name="startupheroes.checkstyle.checks.EntityEqualsHashCodeCheck">
          <property name="entityAnnotation" value="javax.persistence.Entity"/>
+         <property name="idAnnotation" value="javax.persistence.Id"/>
       </module>
       <module name="startupheroes.checkstyle.checks.EntityToStringCheck">
          <property name="entityAnnotation" value="javax.persistence.Entity"/>

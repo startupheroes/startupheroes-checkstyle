@@ -22,6 +22,12 @@ public class EntityMandatoryVariableCheckTest extends BaseCheckTestSupport {
       test("TestCorrectEntity.java", expectedMessages);
    }
 
+   @Test
+   public void testByEntityExtendsMappedSuperClass() throws Exception {
+      String[] expectedMessages = {};
+      test("ShoppingListFollow.java", expectedMessages);
+   }
+
    private void test(String fileName, String[] expectedMessages) throws Exception {
       verify(createCheckConfig(EntityMandatoryVariableCheck.class,
                                ImmutableMap.of("entityAnnotation", "javax.persistence.Entity",
