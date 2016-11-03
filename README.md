@@ -51,6 +51,11 @@ To use it, configure your maven-checkstyle-plugin like so:
       </profile>
 ```
 
+If you want to exclude specific packages or classes then add maven properties for each module like:
+```
+      <checkstyle.excludes>**/x/y/generated/GeneratedClass.java, **/generated/**</checkstyle.excludes>
+```
+
 See the [maven-checkstyle-plugin docs](https://maven.apache.org/plugins/maven-checkstyle-plugin/)
 for more information about what the configuration settings mean.
 

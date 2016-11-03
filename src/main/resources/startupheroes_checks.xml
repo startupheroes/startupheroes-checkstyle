@@ -129,7 +129,6 @@
       <!-- Checks for class design                         -->
       <!-- See http://checkstyle.sf.net/config_design.html -->
       <module name="FinalClass"/>
-      <module name="HideUtilityClassConstructor"/>
       <module name="InterfaceIsType"/>
       <module name="VisibilityModifier"/>
 
@@ -254,6 +253,9 @@
          <property name="limitLength" value="255"/>
       </module>
       <module name="startupheroes.checkstyle.checks.EmptyLineCheck"/>
+      <module name="startupheroes.checkstyle.checks.CustomHideUtilityClassConstructorCheck">
+         <property name="exceptionalAnnotations" value="org.springframework.boot.autoconfigure.SpringBootApplication, org.springframework.context.annotation.Configuration"/>
+      </module>
 
    </module>
 
