@@ -24,7 +24,8 @@ public class EntityEqualsHashCodeCheckTest extends BaseCheckTestSupport {
 
    private void test(String[] expectedMessages, String fileName) throws Exception {
       verify(createCheckConfig(EntityEqualsHashCodeCheck.class,
-                               ImmutableMap.of("entityAnnotation", "javax.persistence.Entity")),
+                               ImmutableMap.of("entityAnnotation", "javax.persistence.Entity",
+                                               "idAnnotation", "javax.persistence.Id")),
              getPath(fileName),
              expectedMessages);
    }
