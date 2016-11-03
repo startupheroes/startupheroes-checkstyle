@@ -11,7 +11,7 @@ public class EmptyLineCheckTest extends BaseCheckTestSupport {
 
    @Test
    public void testByWrongEntity() throws Exception {
-      String[] expectedMessages = {"166: " + getCheckMessage(MSG_KEY)};
+      String[] expectedMessages = {"186: " + getCheckMessage(MSG_KEY)};
       test("TestWrongEntity.java", expectedMessages);
    }
 

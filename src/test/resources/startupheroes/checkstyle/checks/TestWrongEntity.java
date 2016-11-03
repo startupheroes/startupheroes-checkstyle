@@ -72,6 +72,10 @@ public class TestWrongEntity {
    @Column(insertable = true, updatable = true, length = 255)
    private Date defaultValue;
 
+   private Integer parentTestWrongEntityId; // wrong naming -> parentId
+
+   private Integer externalTestWrongEntityId; // wrong naming -> externalId
+
    public Integer getTestWrongEntityId() {
       return testWrongEntityId;
    }
@@ -160,6 +164,22 @@ public class TestWrongEntity {
 
    public void setDefaultValue(Date defaultValue) {
       this.defaultValue = defaultValue;
+   }
+
+   public Integer getParentTestWrongEntityId() {
+      return parentTestWrongEntityId;
+   }
+
+   public void setParentTestWrongEntityId(Integer parentTestWrongEntityId) {
+      this.parentTestWrongEntityId = parentTestWrongEntityId;
+   }
+
+   public Integer getExternalTestWrongEntityId() {
+      return externalTestWrongEntityId;
+   }
+
+   public void setExternalTestWrongEntityId(Integer externalTestWrongEntityId) {
+      this.externalTestWrongEntityId = externalTestWrongEntityId;
    }
 
    // no toString() method!

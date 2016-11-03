@@ -14,7 +14,9 @@ public class EntityVariableNameCheckTest extends BaseCheckTestSupport {
    public void testByWrongInput() throws Exception {
       String[] expectedMessages = {"26: " + getCheckMessage(MSG_KEY, "id"),
                                    "37: " + getCheckMessage(MSG_KEY, "modelId"),
-                                   "52: " + getCheckMessage(MSG_KEY, "name")};
+                                   "52: " + getCheckMessage(MSG_KEY, "name"),
+                                   "75: " + getCheckMessage(MSG_KEY, "parentId"),
+                                   "77: " + getCheckMessage(MSG_KEY, "externalId")};
       test("TestWrongEntity.java", expectedMessages);
    }
 

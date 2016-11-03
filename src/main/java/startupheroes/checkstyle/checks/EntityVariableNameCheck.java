@@ -5,9 +5,8 @@ import com.puppycrawl.tools.checkstyle.api.DetailAST;
 import com.puppycrawl.tools.checkstyle.api.TokenTypes;
 import java.util.Map;
 import org.springframework.util.Assert;
-import org.springframework.util.StringUtils;
 
-import static java.util.Objects.nonNull;
+import static org.springframework.util.StringUtils.isEmpty;
 import static startupheroes.checkstyle.util.ClassUtil.getClassName;
 import static startupheroes.checkstyle.util.ClassUtil.isEntity;
 import static startupheroes.checkstyle.util.VariableUtil.getVariableNameAstMap;
@@ -44,24 +43,30 @@ public class EntityVariableNameCheck extends AbstractCheck {
 
    @Override
    public void visitToken(DetailAST ast) {
-      Assert.isTrue(!StringUtils.isEmpty(entityAnnotation));
+      Assert.isTrue(!isEmpty(entityAnnotation));
       if (isEntity(ast, entityAnnotation)) {
          String className = getClassName(ast);
          Map<String, DetailAST> variableNameAstMap = getVariableNameAstMap(ast);
          for (String variableName : variableNameAstMap.keySet()) {
-            Boolean variableNameInContextOfClassName = variableName.toLowerCase().startsWith(className.toLowerCase());
-            if (variableNameInContextOfClassName) {
-               log(variableNameAstMap.get(variableName).getLineNo(), MSG_KEY, getSuggestedVariableName(className, variableName));
+            Boolean variableNameInContextOfClassName = variableName.toLowerCase().contains(className.toLowerCase());
+            String suggestedVariableName = getSuggestedVariableName(className, variableName);
+            if (variableNameInContextOfClassName && !suggestedVariableName.equals(variableName)) {
+               log(variableNameAstMap.get(variableName).getLineNo(), MSG_KEY, suggestedVariableName);
             }
          }
       }
    }
 
    private String getSuggestedVariableName(String className, String variableName) {
+      String suggestedVariableName = "";
       String[] separated = variableName.split("(?i)" + className);
-      String restWithoutClassName = separated[1];
-      return nonNull(restWithoutClassName) ?
-          restWithoutClassName.substring(0, 1).toLowerCase() + restWithoutClassName.substring(1) : "";
+      for (String separatedName : separated) {
+         if (!isEmpty(separatedName)) {
+            suggestedVariableName = suggestedVariableName + separatedName;
+         }
+      }
+      return isEmpty(suggestedVariableName) ? variableName :
+          suggestedVariableName.substring(0, 1).toLowerCase() + suggestedVariableName.substring(1);
    }
 
    public void setEntityAnnotation(String entityAnnotation) {
