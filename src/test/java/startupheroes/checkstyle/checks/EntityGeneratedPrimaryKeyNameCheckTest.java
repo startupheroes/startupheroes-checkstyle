@@ -17,6 +17,12 @@ public class EntityGeneratedPrimaryKeyNameCheckTest extends BaseCheckTestSupport
    }
 
    @Test
+   public void testByAbstractEntity() throws Exception {
+      String[] expectedMessages = {"18: " + getCheckMessage(MSG_KEY, "id")};
+      test("AbstractUserListItem.java", expectedMessages);
+   }
+
+   @Test
    public void testByCorrectInput() throws Exception {
       String[] expectedMessages = {};
       test("TestCorrectEntity.java", expectedMessages);
@@ -25,6 +31,7 @@ public class EntityGeneratedPrimaryKeyNameCheckTest extends BaseCheckTestSupport
    private void test(String fileName, String[] expectedMessages) throws Exception {
       verify(createCheckConfig(EntityGeneratedPrimaryKeyNameCheck.class,
                                ImmutableMap.of("entityAnnotation", "javax.persistence.Entity",
+                                               "abstractEntityAnnotation", "javax.persistence.MappedSuperclass",
                                                "idAnnotation", "javax.persistence.Id",
                                                "generatedValueAnnotation", "javax.persistence.GeneratedValue",
                                                "suggestedGeneratedPrimaryKeyName", "id")),

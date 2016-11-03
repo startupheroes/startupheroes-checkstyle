@@ -17,6 +17,12 @@ public class EntityMandatoryVariableCheckTest extends BaseCheckTestSupport {
    }
 
    @Test
+   public void testByAbstractEntity() throws Exception {
+      String[] expectedMessages = {"14: " + getCheckMessage(MSG_KEY, "lastUpdatedAt")};
+      test("AbstractUserListItem.java", expectedMessages);
+   }
+
+   @Test
    public void testByCorrectInput() throws Exception {
       String[] expectedMessages = {};
       test("TestCorrectEntity.java", expectedMessages);
@@ -31,6 +37,7 @@ public class EntityMandatoryVariableCheckTest extends BaseCheckTestSupport {
    private void test(String fileName, String[] expectedMessages) throws Exception {
       verify(createCheckConfig(EntityMandatoryVariableCheck.class,
                                ImmutableMap.of("entityAnnotation", "javax.persistence.Entity",
+                                               "abstractEntityAnnotation", "javax.persistence.MappedSuperclass",
                                                "mandatoryVariables", "createdAt, lastUpdatedAt")),
              getPath(fileName),
              expectedMessages);

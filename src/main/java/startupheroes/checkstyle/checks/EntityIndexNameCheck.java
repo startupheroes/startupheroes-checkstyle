@@ -39,6 +39,8 @@ public class EntityIndexNameCheck extends AbstractCheck {
     */
    private String entityAnnotation;
 
+   private String abstractEntityAnnotation;
+
    private String tableAnnotation;
 
    private String indexAnnotation;
@@ -76,7 +78,7 @@ public class EntityIndexNameCheck extends AbstractCheck {
    @Override
    public void visitToken(DetailAST ast) {
       assertions();
-      if (isEntity(ast, entityAnnotation) && hasAnnotation(ast, tableAnnotation)) {
+      if ((isEntity(ast, entityAnnotation) || isEntity(ast, abstractEntityAnnotation)) && hasAnnotation(ast, tableAnnotation)) {
          Map<String, DetailAST> tableKeyValueAstMap = getKeyValueAstMap(getAnnotation(ast, tableAnnotation));
          if (tableKeyValueAstMap.containsKey(key)) {
             DetailAST keyValuePairNode = tableKeyValueAstMap.get(key);
@@ -126,6 +128,7 @@ public class EntityIndexNameCheck extends AbstractCheck {
 
    private void assertions() {
       Assert.isTrue(!StringUtils.isEmpty(entityAnnotation));
+      Assert.isTrue(!StringUtils.isEmpty(abstractEntityAnnotation));
       Assert.isTrue(!StringUtils.isEmpty(tableAnnotation));
       Assert.isTrue(!StringUtils.isEmpty(indexAnnotation));
       Assert.isTrue(!StringUtils.isEmpty(key));
@@ -138,6 +141,10 @@ public class EntityIndexNameCheck extends AbstractCheck {
 
    public void setEntityAnnotation(String entityAnnotation) {
       this.entityAnnotation = entityAnnotation;
+   }
+
+   public void setAbstractEntityAnnotation(String abstractEntityAnnotation) {
+      this.abstractEntityAnnotation = abstractEntityAnnotation;
    }
 
    public void setTableAnnotation(String tableAnnotation) {

@@ -36,6 +36,8 @@ public class EntityVariableAnnotationKeyValueCheck extends AbstractCheck {
     */
    private String entityAnnotation;
 
+   private String abstractEntityAnnotation;
+
    private Table<String, String, Map<String, String>> variableAnnotationKeyValueTable = HashBasedTable.create();
 
    @Override
@@ -55,8 +57,8 @@ public class EntityVariableAnnotationKeyValueCheck extends AbstractCheck {
 
    @Override
    public void visitToken(DetailAST ast) {
-      Assert.isTrue(!StringUtils.isEmpty(entityAnnotation));
-      if (isEntity(ast, entityAnnotation)) {
+      assertions();
+      if (isEntity(ast, entityAnnotation) || isEntity(ast, abstractEntityAnnotation)) {
          Map<String, DetailAST> variableNameAstMap = getVariableNameAstMap(ast, false);
          Set<String> checkedVariables = variableAnnotationKeyValueTable.rowKeySet();
          Set<String> checkedAnnotations = variableAnnotationKeyValueTable.columnKeySet();
@@ -69,6 +71,11 @@ public class EntityVariableAnnotationKeyValueCheck extends AbstractCheck {
                                                                                             checkedAnnotation));
                          });
       }
+   }
+
+   private void assertions() {
+      Assert.isTrue(!StringUtils.isEmpty(entityAnnotation));
+      Assert.isTrue(!StringUtils.isEmpty(abstractEntityAnnotation));
    }
 
    private void checkAnnotation(String checkedVariable, DetailAST variableAst, String checkedAnnotation) {
@@ -102,6 +109,10 @@ public class EntityVariableAnnotationKeyValueCheck extends AbstractCheck {
 
    public void setEntityAnnotation(String entityAnnotation) {
       this.entityAnnotation = entityAnnotation;
+   }
+
+   public void setAbstractEntityAnnotation(String abstractEntityAnnotation) {
+      this.abstractEntityAnnotation = abstractEntityAnnotation;
    }
 
    public void setVariableAnnotationKeyValueTable(String... variableAnnotationKeyValues) {

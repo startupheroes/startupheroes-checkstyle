@@ -17,7 +17,6 @@ import static startupheroes.checkstyle.util.ClassUtil.getClassName;
 import static startupheroes.checkstyle.util.ClassUtil.isEntity;
 import static startupheroes.checkstyle.util.VariableUtil.getNonStaticVariables;
 import static startupheroes.checkstyle.util.VariableUtil.getVariableName;
-import static startupheroes.checkstyle.util.VariableUtil.getVariables;
 
 /**
  * @author ozlem.ulag
@@ -35,6 +34,8 @@ public class EntityLogDataCheck extends AbstractCheck {
     * set entity annotation to understand that a class is an entity.
     */
    private String entityAnnotation;
+
+   private String abstractEntityAnnotation;
 
    private String columnAnnotation;
 
@@ -58,7 +59,7 @@ public class EntityLogDataCheck extends AbstractCheck {
    @Override
    public void visitToken(DetailAST ast) {
       assertions();
-      if (isEntity(ast, entityAnnotation)) {
+      if (isEntity(ast, entityAnnotation) || isEntity(ast, abstractEntityAnnotation)) {
          String className = getClassName(ast);
          if (className.endsWith(LOG_ENTITY_SUFFIX)) {
             List<DetailAST> variableNodes = getNonStaticVariables(ast);
@@ -69,6 +70,7 @@ public class EntityLogDataCheck extends AbstractCheck {
 
    private void assertions() {
       Assert.isTrue(!StringUtils.isEmpty(entityAnnotation));
+      Assert.isTrue(!StringUtils.isEmpty(abstractEntityAnnotation));
       Assert.isTrue(!StringUtils.isEmpty(columnAnnotation));
       Assert.isTrue(!StringUtils.isEmpty(limitLength));
    }
@@ -92,6 +94,10 @@ public class EntityLogDataCheck extends AbstractCheck {
 
    public void setEntityAnnotation(String entityAnnotation) {
       this.entityAnnotation = entityAnnotation;
+   }
+
+   public void setAbstractEntityAnnotation(String abstractEntityAnnotation) {
+      this.abstractEntityAnnotation = abstractEntityAnnotation;
    }
 
    public void setColumnAnnotation(String columnAnnotation) {

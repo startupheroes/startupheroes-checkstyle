@@ -13,18 +13,25 @@ public class EntityEqualsHashCodeCheckTest extends BaseCheckTestSupport {
    @Test
    public void testByWrongInput() throws Exception {
       String[] expectedMessages = {"12: " + getCheckMessage(MSG_KEY)};
-      test(expectedMessages, "TestWrongEntity.java");
+      test("TestWrongEntity.java", expectedMessages);
+   }
+
+   @Test
+   public void testByAbstractEntity() throws Exception {
+      String[] expectedMessages = {"14: " + getCheckMessage(MSG_KEY)};
+      test("AbstractUserListItem.java", expectedMessages);
    }
 
    @Test
    public void testByCorrectInput() throws Exception {
       String[] expectedMessages = {};
-      test(expectedMessages, "TestCorrectEntity.java");
+      test("TestCorrectEntity.java", expectedMessages);
    }
 
-   private void test(String[] expectedMessages, String fileName) throws Exception {
+   private void test(String fileName, String[] expectedMessages) throws Exception {
       verify(createCheckConfig(EntityEqualsHashCodeCheck.class,
                                ImmutableMap.of("entityAnnotation", "javax.persistence.Entity",
+                                               "abstractEntityAnnotation", "javax.persistence.MappedSuperclass",
                                                "idAnnotation", "javax.persistence.Id")),
              getPath(fileName),
              expectedMessages);

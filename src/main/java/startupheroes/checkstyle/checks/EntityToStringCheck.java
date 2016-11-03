@@ -11,7 +11,6 @@ import startupheroes.checkstyle.util.MethodUtil;
 import static startupheroes.checkstyle.util.ClassUtil.isEntity;
 import static startupheroes.checkstyle.util.MethodUtil.getMethods;
 import static startupheroes.checkstyle.util.VariableUtil.getNonStaticVariables;
-import static startupheroes.checkstyle.util.VariableUtil.getVariables;
 
 /**
  * @author ozlem.ulag
@@ -27,6 +26,8 @@ public class EntityToStringCheck extends AbstractCheck {
     * set entity annotation to understand that a class is an entity.
     */
    private String entityAnnotation;
+
+   private String abstractEntityAnnotation;
 
    @Override
    public int[] getDefaultTokens() {
@@ -45,8 +46,8 @@ public class EntityToStringCheck extends AbstractCheck {
 
    @Override
    public void visitToken(DetailAST ast) {
-      Assert.isTrue(!StringUtils.isEmpty(entityAnnotation));
-      if (isEntity(ast, entityAnnotation)) {
+      assertions();
+      if (isEntity(ast, entityAnnotation) || isEntity(ast, abstractEntityAnnotation)) {
          if (!getNonStaticVariables(ast).isEmpty()) {
             List<DetailAST> methods = getMethods(ast);
             Boolean hasToString = methods.stream().anyMatch(MethodUtil::isToStringMethod);
@@ -57,8 +58,17 @@ public class EntityToStringCheck extends AbstractCheck {
       }
    }
 
+   private void assertions() {
+      Assert.isTrue(!StringUtils.isEmpty(entityAnnotation));
+      Assert.isTrue(!StringUtils.isEmpty(abstractEntityAnnotation));
+   }
+
    public void setEntityAnnotation(String entityAnnotation) {
       this.entityAnnotation = entityAnnotation;
+   }
+
+   public void setAbstractEntityAnnotation(String abstractEntityAnnotation) {
+      this.abstractEntityAnnotation = abstractEntityAnnotation;
    }
 
 }

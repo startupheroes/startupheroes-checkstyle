@@ -17,6 +17,12 @@ public class EntityToStringCheckTest extends BaseCheckTestSupport {
    }
 
    @Test
+   public void testByAbstractEntity() throws Exception {
+      String[] expectedMessages = {};
+      test("AbstractUserListItem.java", expectedMessages);
+   }
+
+   @Test
    public void testByCorrectInput() throws Exception {
       String[] expectedMessages = {};
       test("TestCorrectEntity.java", expectedMessages);
@@ -24,7 +30,8 @@ public class EntityToStringCheckTest extends BaseCheckTestSupport {
 
    private void test(String fileName, String[] expectedMessages) throws Exception {
       verify(createCheckConfig(EntityToStringCheck.class,
-                               ImmutableMap.of("entityAnnotation", "javax.persistence.Entity")),
+                               ImmutableMap.of("entityAnnotation", "javax.persistence.Entity",
+                                               "abstractEntityAnnotation", "javax.persistence.MappedSuperclass")),
              getPath(fileName),
              expectedMessages);
    }

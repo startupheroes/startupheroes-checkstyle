@@ -17,6 +17,12 @@ public class EntityVariableAnnotationKeyValueCheckTest extends BaseCheckTestSupp
    }
 
    @Test
+   public void testByAbstractEntity() throws Exception {
+      String[] expectedMessages = {};
+      test("AbstractUserListItem.java", expectedMessages);
+   }
+
+   @Test
    public void testByCorrectInput() throws Exception {
       String[] expectedMessages = {};
       test("TestCorrectEntity.java", expectedMessages);
@@ -25,6 +31,7 @@ public class EntityVariableAnnotationKeyValueCheckTest extends BaseCheckTestSupp
    private void test(String fileName, String[] expectedMessages) throws Exception {
       verify(createCheckConfig(EntityVariableAnnotationKeyValueCheck.class,
                                ImmutableMap.of("entityAnnotation", "javax.persistence.Entity",
+                                               "abstractEntityAnnotation", "javax.persistence.MappedSuperclass",
                                                "variableAnnotationKeyValueTable",
                                                "createdAt:javax.persistence.Column:nullable:false, lastUpdatedAt:javax.persistence.Column:nullable:false")),
              getPath(fileName),

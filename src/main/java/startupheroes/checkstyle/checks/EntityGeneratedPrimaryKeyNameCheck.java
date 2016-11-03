@@ -11,7 +11,6 @@ import static startupheroes.checkstyle.util.AnnotationUtil.hasAnnotation;
 import static startupheroes.checkstyle.util.ClassUtil.isEntity;
 import static startupheroes.checkstyle.util.VariableUtil.getNonStaticVariables;
 import static startupheroes.checkstyle.util.VariableUtil.getVariableName;
-import static startupheroes.checkstyle.util.VariableUtil.getVariables;
 
 /**
  * @author ozlem.ulag
@@ -27,6 +26,8 @@ public class EntityGeneratedPrimaryKeyNameCheck extends AbstractCheck {
     * set entity annotation to understand that a class is an entity.
     */
    private String entityAnnotation;
+
+   private String abstractEntityAnnotation;
 
    /**
     * set id annotation to understand that a variable is primary key of entity.
@@ -61,7 +62,7 @@ public class EntityGeneratedPrimaryKeyNameCheck extends AbstractCheck {
    @Override
    public void visitToken(DetailAST ast) {
       assertions();
-      if (isEntity(ast, entityAnnotation)) {
+      if (isEntity(ast, entityAnnotation) || isEntity(ast, abstractEntityAnnotation)) {
          List<DetailAST> variables = getNonStaticVariables(ast);
          for (DetailAST variable : variables) {
             if (hasAnnotation(variable, idAnnotation) && hasAnnotation(variable, generatedValueAnnotation)) {
@@ -77,6 +78,7 @@ public class EntityGeneratedPrimaryKeyNameCheck extends AbstractCheck {
 
    private void assertions() {
       Assert.isTrue(!StringUtils.isEmpty(entityAnnotation));
+      Assert.isTrue(!StringUtils.isEmpty(abstractEntityAnnotation));
       Assert.isTrue(!StringUtils.isEmpty(idAnnotation));
       Assert.isTrue(!StringUtils.isEmpty(generatedValueAnnotation));
       Assert.isTrue(!StringUtils.isEmpty(suggestedGeneratedPrimaryKeyName));
@@ -84,6 +86,10 @@ public class EntityGeneratedPrimaryKeyNameCheck extends AbstractCheck {
 
    public void setEntityAnnotation(String entityAnnotation) {
       this.entityAnnotation = entityAnnotation;
+   }
+
+   public void setAbstractEntityAnnotation(String abstractEntityAnnotation) {
+      this.abstractEntityAnnotation = abstractEntityAnnotation;
    }
 
    public void setIdAnnotation(String idAnnotation) {

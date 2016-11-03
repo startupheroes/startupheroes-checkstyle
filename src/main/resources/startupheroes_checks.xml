@@ -196,37 +196,45 @@
       </module>
       <module name="startupheroes.checkstyle.checks.EntityEqualsHashCodeCheck">
          <property name="entityAnnotation" value="javax.persistence.Entity"/>
+         <property name="abstractEntityAnnotation" value="javax.persistence.MappedSuperclass"/>
          <property name="idAnnotation" value="javax.persistence.Id"/>
       </module>
       <module name="startupheroes.checkstyle.checks.EntityToStringCheck">
          <property name="entityAnnotation" value="javax.persistence.Entity"/>
+         <property name="abstractEntityAnnotation" value="javax.persistence.MappedSuperclass"/>
       </module>
       <module name="startupheroes.checkstyle.checks.EntityGettersSettersCheck">
          <property name="entityAnnotation" value="javax.persistence.Entity"/>
+         <property name="abstractEntityAnnotation" value="javax.persistence.MappedSuperclass"/>
       </module>
       <module name="startupheroes.checkstyle.checks.EntityMandatoryVariableCheck">
          <property name="entityAnnotation" value="javax.persistence.Entity"/>
+         <property name="abstractEntityAnnotation" value="javax.persistence.MappedSuperclass"/>
          <property name="mandatoryVariables" value="createdAt, lastUpdatedAt"/>
       </module>
       <module name="startupheroes.checkstyle.checks.EntityVariableAnnotationKeyValueCheck">
          <property name="entityAnnotation" value="javax.persistence.Entity"/>
+         <property name="abstractEntityAnnotation" value="javax.persistence.MappedSuperclass"/>
          <property name="variableAnnotationKeyValueTable"
              value="createdAt:javax.persistence.Column:nullable:false, lastUpdatedAt:javax.persistence.Column:nullable:false"/>
       </module>
       <module name="startupheroes.checkstyle.checks.EntityGeneratedPrimaryKeyNameCheck">
          <property name="entityAnnotation" value="javax.persistence.Entity"/>
+         <property name="abstractEntityAnnotation" value="javax.persistence.MappedSuperclass"/>
          <property name="idAnnotation" value="javax.persistence.Id"/>
          <property name="generatedValueAnnotation" value="javax.persistence.GeneratedValue"/>
          <property name="suggestedGeneratedPrimaryKeyName" value="id"/>
       </module>
       <module name="startupheroes.checkstyle.checks.EntityVariableNameCheck">
          <property name="entityAnnotation" value="javax.persistence.Entity"/>
+         <property name="abstractEntityAnnotation" value="javax.persistence.MappedSuperclass"/>
       </module>
       <module name="startupheroes.checkstyle.checks.BlockedClassAnnotationCheck">
          <property name="blockedAnnotations" value="com.clovify.lyso.core.annotation.LysoRepository"/>
       </module>
       <module name="startupheroes.checkstyle.checks.EntityIndexNameCheck">
          <property name="entityAnnotation" value="javax.persistence.Entity"/>
+         <property name="abstractEntityAnnotation" value="javax.persistence.MappedSuperclass"/>
          <property name="tableAnnotation" value="javax.persistence.Table"/>
          <property name="indexAnnotation" value="javax.persistence.Index"/>
          <property name="key" value="indexes"/>
@@ -238,6 +246,7 @@
       </module>
       <module name="startupheroes.checkstyle.checks.EntityUniqueConstraintNameCheck">
          <property name="entityAnnotation" value="javax.persistence.Entity"/>
+         <property name="abstractEntityAnnotation" value="javax.persistence.MappedSuperclass"/>
          <property name="tableAnnotation" value="javax.persistence.Table"/>
          <property name="uniqueConstraintAnnotation" value="javax.persistence.UniqueConstraint"/>
          <property name="key" value="uniqueConstraints"/>
@@ -249,6 +258,7 @@
       </module>
       <module name="startupheroes.checkstyle.checks.EntityLogDataCheck">
          <property name="entityAnnotation" value="javax.persistence.Entity"/>
+         <property name="abstractEntityAnnotation" value="javax.persistence.MappedSuperclass"/>
          <property name="columnAnnotation" value="javax.persistence.Column"/>
          <property name="limitLength" value="255"/>
       </module>

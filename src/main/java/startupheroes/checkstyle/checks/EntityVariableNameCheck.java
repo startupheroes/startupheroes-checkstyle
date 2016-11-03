@@ -9,6 +9,7 @@ import org.springframework.util.Assert;
 import static org.springframework.util.StringUtils.isEmpty;
 import static startupheroes.checkstyle.util.ClassUtil.getClassName;
 import static startupheroes.checkstyle.util.ClassUtil.isEntity;
+import static startupheroes.checkstyle.util.CommonUtil.getNameWithoutContext;
 import static startupheroes.checkstyle.util.VariableUtil.getVariableNameAstMap;
 
 /**
@@ -21,10 +22,14 @@ public class EntityVariableNameCheck extends AbstractCheck {
     */
    private static final String MSG_KEY = "entityVariableNameCheckMessage";
 
+   private static final String ABSTRACT_CLASS_PREFIX = "Abstract";
+
    /**
     * set entity annotation to understand that a class is an entity.
     */
    private String entityAnnotation;
+
+   private String abstractEntityAnnotation;
 
    @Override
    public int[] getDefaultTokens() {
@@ -43,34 +48,38 @@ public class EntityVariableNameCheck extends AbstractCheck {
 
    @Override
    public void visitToken(DetailAST ast) {
-      Assert.isTrue(!isEmpty(entityAnnotation));
-      if (isEntity(ast, entityAnnotation)) {
+      assertions();
+      if (isEntity(ast, entityAnnotation) || isEntity(ast, abstractEntityAnnotation)) {
          String className = getClassName(ast);
-         Map<String, DetailAST> variableNameAstMap = getVariableNameAstMap(ast, false);
-         for (String variableName : variableNameAstMap.keySet()) {
-            Boolean variableNameInContextOfClassName = variableName.toLowerCase().contains(className.toLowerCase());
-            String suggestedVariableName = getSuggestedVariableName(className, variableName);
-            if (variableNameInContextOfClassName && !suggestedVariableName.equals(variableName)) {
-               log(variableNameAstMap.get(variableName).getLineNo(), MSG_KEY, suggestedVariableName);
-            }
+         if (className.startsWith(ABSTRACT_CLASS_PREFIX)) {
+            className = getNameWithoutContext(className, ABSTRACT_CLASS_PREFIX);
          }
+         checkVariablesName(ast, className);
       }
    }
 
-   private String getSuggestedVariableName(String className, String variableName) {
-      String suggestedVariableName = "";
-      String[] separated = variableName.split("(?i)" + className);
-      for (String separatedName : separated) {
-         if (!isEmpty(separatedName)) {
-            suggestedVariableName = suggestedVariableName + separatedName;
+   private void assertions() {
+      Assert.isTrue(!isEmpty(entityAnnotation));
+      Assert.isTrue(!isEmpty(abstractEntityAnnotation));
+   }
+
+   private void checkVariablesName(DetailAST ast, String className) {
+      Map<String, DetailAST> variableNameAstMap = getVariableNameAstMap(ast, false);
+      for (String variableName : variableNameAstMap.keySet()) {
+         Boolean variableNameInContextOfClassName = variableName.toLowerCase().contains(className.toLowerCase());
+         String suggestedVariableName = getNameWithoutContext(variableName, className);
+         if (variableNameInContextOfClassName && !suggestedVariableName.equals(variableName)) {
+            log(variableNameAstMap.get(variableName).getLineNo(), MSG_KEY, suggestedVariableName);
          }
       }
-      return isEmpty(suggestedVariableName) ? variableName :
-          suggestedVariableName.substring(0, 1).toLowerCase() + suggestedVariableName.substring(1);
    }
 
    public void setEntityAnnotation(String entityAnnotation) {
       this.entityAnnotation = entityAnnotation;
+   }
+
+   public void setAbstractEntityAnnotation(String abstractEntityAnnotation) {
+      this.abstractEntityAnnotation = abstractEntityAnnotation;
    }
 
 }

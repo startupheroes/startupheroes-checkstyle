@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 import static java.util.Objects.isNull;
+import static org.springframework.util.StringUtils.isEmpty;
 
 /**
  * @author ozlem.ulag
@@ -122,6 +123,23 @@ public final class CommonUtil {
 
    public static String getDatabaseIdentifierName(String input) {
       return input.replaceAll("(.)([A-Z])", "$1_$2").toLowerCase();
+   }
+
+   /**
+    * @param contextName cut context name from name
+    * @param name : name of variable or class, or another to simplify without context name
+    * @return simplified name - context name
+    */
+   public static String getNameWithoutContext(String name, String contextName) {
+      String suggestedName = "";
+      String[] separated = name.split("(?i)" + contextName);
+      for (String separatedName : separated) {
+         if (!isEmpty(separatedName)) {
+            suggestedName = suggestedName + separatedName;
+         }
+      }
+      return isEmpty(suggestedName) ? name :
+          suggestedName.substring(0, 1).toLowerCase() + suggestedName.substring(1);
    }
 
 }

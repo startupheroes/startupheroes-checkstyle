@@ -18,6 +18,12 @@ public class EntityIndexNameCheckTest extends BaseCheckTestSupport {
    }
 
    @Test
+   public void testByAbstractEntity() throws Exception {
+      String[] expectedMessages = {};
+      test("AbstractUserListItem.java", expectedMessages);
+   }
+
+   @Test
    public void testByCorrectInput() throws Exception {
       String[] expectedMessages = {};
       test("TestCorrectEntity.java", expectedMessages);
@@ -33,6 +39,7 @@ public class EntityIndexNameCheckTest extends BaseCheckTestSupport {
    private Map<String, String> getPropertyMap() {
       Map<String, String> propertyMap = new HashMap<>();
       propertyMap.put("entityAnnotation", "javax.persistence.Entity");
+      propertyMap.put("abstractEntityAnnotation", "javax.persistence.MappedSuperclass");
       propertyMap.put("tableAnnotation", "javax.persistence.Table");
       propertyMap.put("indexAnnotation", "javax.persistence.Id");
       propertyMap.put("key", "indexes");

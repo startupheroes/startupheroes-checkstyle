@@ -29,6 +29,8 @@ public class EntityMandatoryVariableCheck extends AbstractCheck {
     */
    private String entityAnnotation;
 
+   private String abstractEntityAnnotation;
+
    /**
     * set mandatory variables that must exist in each entity.
     */
@@ -51,8 +53,8 @@ public class EntityMandatoryVariableCheck extends AbstractCheck {
 
    @Override
    public void visitToken(DetailAST ast) {
-      Assert.isTrue(!StringUtils.isEmpty(entityAnnotation));
-      if (isEntity(ast, entityAnnotation) && !isExtendsAnotherClass(ast)) {
+      assertions();
+      if ((isEntity(ast, entityAnnotation) || isEntity(ast, abstractEntityAnnotation)) && !isExtendsAnotherClass(ast)) {
          List<String> variableNames = getVariableNames(ast);
          mandatoryVariables.stream()
                            .filter(mandatoryVariable -> !variableNames.contains(mandatoryVariable))
@@ -60,8 +62,17 @@ public class EntityMandatoryVariableCheck extends AbstractCheck {
       }
    }
 
+   private void assertions() {
+      Assert.isTrue(!StringUtils.isEmpty(entityAnnotation));
+      Assert.isTrue(!StringUtils.isEmpty(abstractEntityAnnotation));
+   }
+
    public void setEntityAnnotation(String entityAnnotation) {
       this.entityAnnotation = entityAnnotation;
+   }
+
+   public void setAbstractEntityAnnotation(String abstractEntityAnnotation) {
+      this.abstractEntityAnnotation = abstractEntityAnnotation;
    }
 
    public void setMandatoryVariables(String... mandatoryVariables) {

@@ -25,6 +25,12 @@ public class EntityUniqueConstraintNameCheckTest extends BaseCheckTestSupport {
    }
 
    @Test
+   public void testByAbstractEntity() throws Exception {
+      String[] expectedMessages = {"15: " + getCheckMessage(MSG_KEY, "abstract_user_list_item_user_id_object_id_uk")};
+      test("AbstractUserListItem.java", expectedMessages);
+   }
+
+   @Test
    public void testByCorrectInput() throws Exception {
       String[] expectedMessages = {};
       test("TestCorrectEntity.java", expectedMessages);
@@ -40,6 +46,7 @@ public class EntityUniqueConstraintNameCheckTest extends BaseCheckTestSupport {
    private Map<String, String> getPropertyMap() {
       Map<String, String> propertyMap = new HashMap<>();
       propertyMap.put("entityAnnotation", "javax.persistence.Entity");
+      propertyMap.put("abstractEntityAnnotation", "javax.persistence.MappedSuperclass");
       propertyMap.put("tableAnnotation", "javax.persistence.Table");
       propertyMap.put("uniqueConstraintAnnotation", "javax.persistence.UniqueConstraint");
       propertyMap.put("key", "uniqueConstraints");

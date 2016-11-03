@@ -40,6 +40,8 @@ public class EntityUniqueConstraintNameCheck extends AbstractCheck {
     */
    private String entityAnnotation;
 
+   private String abstractEntityAnnotation;
+
    private String tableAnnotation;
 
    private String uniqueConstraintAnnotation;
@@ -77,7 +79,7 @@ public class EntityUniqueConstraintNameCheck extends AbstractCheck {
    @Override
    public void visitToken(DetailAST ast) {
       assertions();
-      if (isEntity(ast, entityAnnotation) && hasAnnotation(ast, tableAnnotation)) {
+      if ((isEntity(ast, entityAnnotation) || isEntity(ast, abstractEntityAnnotation)) && hasAnnotation(ast, tableAnnotation)) {
          Map<String, DetailAST> tableKeyValueAstMap = getKeyValueAstMap(getAnnotation(ast, tableAnnotation));
          if (tableKeyValueAstMap.containsKey(key)) {
             DetailAST keyValuePairNode = tableKeyValueAstMap.get(key);
@@ -92,28 +94,29 @@ public class EntityUniqueConstraintNameCheck extends AbstractCheck {
    private void checkUniqueConstraintName(String className, DetailAST uniqueConstraintAnnotationNode) {
       Map<String, DetailAST> uniqueConstraintKeyValueAstMap = getKeyValueAstMap(uniqueConstraintAnnotationNode);
       DetailAST nameKeyValueAst = uniqueConstraintKeyValueAstMap.get(keyName);
-      if (nonNull(nameKeyValueAst)) {
-         Optional<String> uniqueConstraintNameOptional = getValueAsString(nameKeyValueAst);
-         DetailAST columnsKeyValueAst = uniqueConstraintKeyValueAstMap.get(keyColumns);
-         if (nonNull(columnsKeyValueAst)) {
-            List<String> columnNames = getValueAsStringList(columnsKeyValueAst);
-            if (uniqueConstraintNameOptional.isPresent() && !columnNames.isEmpty()) {
-               String uniqueConstraintName = uniqueConstraintNameOptional.get();
-               String suggestedUniqueConstraintName = getSuggestedUniqueConstraintName(className, columnNames);
-               if (uniqueConstraintName.length() > maxLength) {
-                  log(uniqueConstraintAnnotationNode.getLineNo(), MSG_IDENTIFIER_NAME_TOO_LONG, uniqueConstraintName, maxLength);
-               } else if (suggestedUniqueConstraintName.length() <= maxLength &&
-                          !suggestedUniqueConstraintName.equals(uniqueConstraintName)) {
-                  log(uniqueConstraintAnnotationNode.getLineNo(), MSG_KEY, suggestedUniqueConstraintName);
-               } else if (!acceptableUniqueConstraintName(className, uniqueConstraintName)) {
-                  log(uniqueConstraintAnnotationNode.getLineNo(), MSG_KEY,
-                      getSuggestedUniqueConstraintName(className, Collections.singletonList("your_fields")));
-               }
+      Optional<String> ucNameOptional = nonNull(nameKeyValueAst) ? getValueAsString(nameKeyValueAst) : Optional.empty();
+      String ucName = ucNameOptional.isPresent() ? ucNameOptional.get() : "";
+      checkBySuggestedName(className, uniqueConstraintAnnotationNode, uniqueConstraintKeyValueAstMap, ucName);
+   }
+
+   private void checkBySuggestedName(String className, DetailAST uniqueConstraintAnnotationNode,
+                                     Map<String, DetailAST> uniqueConstraintKeyValueAstMap,
+                                     String uniqueConstraintName) {
+      DetailAST columnsKeyValueAst = uniqueConstraintKeyValueAstMap.get(keyColumns);
+      if (nonNull(columnsKeyValueAst)) {
+         List<String> columnNames = getValueAsStringList(columnsKeyValueAst);
+         if (!columnNames.isEmpty()) {
+            String suggestedUniqueConstraintName = getSuggestedUniqueConstraintName(className, columnNames);
+            if (uniqueConstraintName.length() > maxLength) {
+               log(uniqueConstraintAnnotationNode.getLineNo(), MSG_IDENTIFIER_NAME_TOO_LONG, uniqueConstraintName, maxLength);
+            } else if (suggestedUniqueConstraintName.length() <= maxLength &&
+                       !suggestedUniqueConstraintName.equals(uniqueConstraintName)) {
+               log(uniqueConstraintAnnotationNode.getLineNo(), MSG_KEY, suggestedUniqueConstraintName);
+            } else if (!acceptableUniqueConstraintName(className, uniqueConstraintName)) {
+               log(uniqueConstraintAnnotationNode.getLineNo(), MSG_KEY,
+                   getSuggestedUniqueConstraintName(className, Collections.singletonList("your_fields")));
             }
          }
-      } else {
-         log(uniqueConstraintAnnotationNode.getLineNo(), MSG_KEY,
-             getSuggestedUniqueConstraintName(className, Collections.singletonList("your_fields")));
       }
    }
 
@@ -129,6 +132,7 @@ public class EntityUniqueConstraintNameCheck extends AbstractCheck {
 
    private void assertions() {
       Assert.isTrue(!StringUtils.isEmpty(entityAnnotation));
+      Assert.isTrue(!StringUtils.isEmpty(abstractEntityAnnotation));
       Assert.isTrue(!StringUtils.isEmpty(tableAnnotation));
       Assert.isTrue(!StringUtils.isEmpty(uniqueConstraintAnnotation));
       Assert.isTrue(!StringUtils.isEmpty(key));
@@ -141,6 +145,10 @@ public class EntityUniqueConstraintNameCheck extends AbstractCheck {
 
    public void setEntityAnnotation(String entityAnnotation) {
       this.entityAnnotation = entityAnnotation;
+   }
+
+   public void setAbstractEntityAnnotation(String abstractEntityAnnotation) {
+      this.abstractEntityAnnotation = abstractEntityAnnotation;
    }
 
    public void setTableAnnotation(String tableAnnotation) {

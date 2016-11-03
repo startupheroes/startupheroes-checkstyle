@@ -32,6 +32,8 @@ public class EntityGettersSettersCheck extends AbstractCheck {
     */
    private String entityAnnotation;
 
+   private String abstractEntityAnnotation;
+
    @Override
    public int[] getDefaultTokens() {
       return getAcceptableTokens();
@@ -49,8 +51,8 @@ public class EntityGettersSettersCheck extends AbstractCheck {
 
    @Override
    public void visitToken(DetailAST ast) {
-      Assert.isTrue(!StringUtils.isEmpty(entityAnnotation));
-      if (isEntity(ast, entityAnnotation)) {
+      assertions();
+      if (isEntity(ast, entityAnnotation) || isEntity(ast, abstractEntityAnnotation)) {
          Map<String, DetailAST> variableNameAstMap = getVariableNameAstMap(ast, false);
          List<String> getterVariableNames = getGetters(ast).stream()
                                                            .map(getter -> getMethodName(getter).split(GETTER_PREFIX_REGEX)[1])
@@ -70,8 +72,17 @@ public class EntityGettersSettersCheck extends AbstractCheck {
       }
    }
 
+   private void assertions() {
+      Assert.isTrue(!StringUtils.isEmpty(entityAnnotation));
+      Assert.isTrue(!StringUtils.isEmpty(abstractEntityAnnotation));
+   }
+
    public void setEntityAnnotation(String entityAnnotation) {
       this.entityAnnotation = entityAnnotation;
+   }
+
+   public void setAbstractEntityAnnotation(String abstractEntityAnnotation) {
+      this.abstractEntityAnnotation = abstractEntityAnnotation;
    }
 
 }

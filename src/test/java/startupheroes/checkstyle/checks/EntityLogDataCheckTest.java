@@ -16,11 +16,22 @@ public class EntityLogDataCheckTest extends BaseCheckTestSupport {
                                    "34: " + getCheckMessage(MSG_KEY, "response"),
                                    "43: " + getCheckMessage(MSG_KEY, "uri")
       };
+      test("SmsProviderLog.java", expectedMessages);
+   }
+
+   @Test
+   public void testByAbstractEntity() throws Exception {
+      String[] expectedMessages = {};
+      test("AbstractUserListItem.java", expectedMessages);
+   }
+
+   private void test(String fileName, String[] expectedMessages) throws Exception {
       verify(createCheckConfig(EntityLogDataCheck.class,
                                ImmutableMap.of("entityAnnotation", "javax.persistence.Entity",
+                                               "abstractEntityAnnotation", "javax.persistence.MappedSuperclass",
                                                "columnAnnotation", "javax.persistence.Column",
                                                "limitLength", "255")),
-             getPath("SmsProviderLog.java"),
+             getPath(fileName),
              expectedMessages);
    }
 
