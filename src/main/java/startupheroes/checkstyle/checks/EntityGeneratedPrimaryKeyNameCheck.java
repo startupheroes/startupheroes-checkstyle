@@ -9,6 +9,7 @@ import org.springframework.util.StringUtils;
 
 import static startupheroes.checkstyle.util.AnnotationUtil.hasAnnotation;
 import static startupheroes.checkstyle.util.ClassUtil.isEntity;
+import static startupheroes.checkstyle.util.VariableUtil.getNonStaticVariables;
 import static startupheroes.checkstyle.util.VariableUtil.getVariableName;
 import static startupheroes.checkstyle.util.VariableUtil.getVariables;
 
@@ -61,7 +62,7 @@ public class EntityGeneratedPrimaryKeyNameCheck extends AbstractCheck {
    public void visitToken(DetailAST ast) {
       assertions();
       if (isEntity(ast, entityAnnotation)) {
-         List<DetailAST> variables = getVariables(ast);
+         List<DetailAST> variables = getNonStaticVariables(ast);
          for (DetailAST variable : variables) {
             if (hasAnnotation(variable, idAnnotation) && hasAnnotation(variable, generatedValueAnnotation)) {
                String generatedPrimaryKeyName = getVariableName(variable);

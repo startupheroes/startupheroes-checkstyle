@@ -10,6 +10,7 @@ import startupheroes.checkstyle.util.MethodUtil;
 
 import static startupheroes.checkstyle.util.ClassUtil.isEntity;
 import static startupheroes.checkstyle.util.MethodUtil.getMethods;
+import static startupheroes.checkstyle.util.VariableUtil.getNonStaticVariables;
 import static startupheroes.checkstyle.util.VariableUtil.getVariables;
 
 /**
@@ -46,7 +47,7 @@ public class EntityToStringCheck extends AbstractCheck {
    public void visitToken(DetailAST ast) {
       Assert.isTrue(!StringUtils.isEmpty(entityAnnotation));
       if (isEntity(ast, entityAnnotation)) {
-         if (!getVariables(ast).isEmpty()) {
+         if (!getNonStaticVariables(ast).isEmpty()) {
             List<DetailAST> methods = getMethods(ast);
             Boolean hasToString = methods.stream().anyMatch(MethodUtil::isToStringMethod);
             if (!hasToString) {

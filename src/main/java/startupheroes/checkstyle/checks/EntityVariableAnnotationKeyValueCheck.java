@@ -57,7 +57,7 @@ public class EntityVariableAnnotationKeyValueCheck extends AbstractCheck {
    public void visitToken(DetailAST ast) {
       Assert.isTrue(!StringUtils.isEmpty(entityAnnotation));
       if (isEntity(ast, entityAnnotation)) {
-         Map<String, DetailAST> variableNameAstMap = getVariableNameAstMap(ast);
+         Map<String, DetailAST> variableNameAstMap = getVariableNameAstMap(ast, false);
          Set<String> checkedVariables = variableAnnotationKeyValueTable.rowKeySet();
          Set<String> checkedAnnotations = variableAnnotationKeyValueTable.columnKeySet();
          checkedVariables.stream()

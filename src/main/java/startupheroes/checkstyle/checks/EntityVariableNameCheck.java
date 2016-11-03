@@ -46,7 +46,7 @@ public class EntityVariableNameCheck extends AbstractCheck {
       Assert.isTrue(!isEmpty(entityAnnotation));
       if (isEntity(ast, entityAnnotation)) {
          String className = getClassName(ast);
-         Map<String, DetailAST> variableNameAstMap = getVariableNameAstMap(ast);
+         Map<String, DetailAST> variableNameAstMap = getVariableNameAstMap(ast, false);
          for (String variableName : variableNameAstMap.keySet()) {
             Boolean variableNameInContextOfClassName = variableName.toLowerCase().contains(className.toLowerCase());
             String suggestedVariableName = getSuggestedVariableName(className, variableName);

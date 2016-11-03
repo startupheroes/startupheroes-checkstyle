@@ -34,6 +34,15 @@ public final class CommonUtil {
       return astListByType;
    }
 
+   /**
+    * @param ast class, variable or method ast..
+    * @return true if a given class declared as static.
+    */
+   public static Boolean isStatic(DetailAST ast) {
+      return ast.findFirstToken(TokenTypes.MODIFIERS)
+                .branchContains(TokenTypes.LITERAL_STATIC);
+   }
+
    public static Map<String, String> splitProperty(String property) {
       return getSplitterOnComma().withKeyValueSeparator(":").split(property);
    }

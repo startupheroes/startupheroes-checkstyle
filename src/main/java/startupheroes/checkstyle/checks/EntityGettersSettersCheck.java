@@ -51,7 +51,7 @@ public class EntityGettersSettersCheck extends AbstractCheck {
    public void visitToken(DetailAST ast) {
       Assert.isTrue(!StringUtils.isEmpty(entityAnnotation));
       if (isEntity(ast, entityAnnotation)) {
-         Map<String, DetailAST> variableNameAstMap = getVariableNameAstMap(ast);
+         Map<String, DetailAST> variableNameAstMap = getVariableNameAstMap(ast, false);
          List<String> getterVariableNames = getGetters(ast).stream()
                                                            .map(getter -> getMethodName(getter).split(GETTER_PREFIX_REGEX)[1])
                                                            .collect(Collectors.toList());

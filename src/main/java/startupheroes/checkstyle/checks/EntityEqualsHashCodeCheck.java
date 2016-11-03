@@ -11,6 +11,7 @@ import startupheroes.checkstyle.util.MethodUtil;
 import static startupheroes.checkstyle.util.AnnotationUtil.hasAnnotation;
 import static startupheroes.checkstyle.util.ClassUtil.isEntity;
 import static startupheroes.checkstyle.util.MethodUtil.getMethods;
+import static startupheroes.checkstyle.util.VariableUtil.getNonStaticVariables;
 import static startupheroes.checkstyle.util.VariableUtil.getVariables;
 
 /**
@@ -49,7 +50,7 @@ public class EntityEqualsHashCodeCheck extends AbstractCheck {
    public void visitToken(DetailAST ast) {
       Assert.isTrue(!StringUtils.isEmpty(entityAnnotation));
       if (isEntity(ast, entityAnnotation)) {
-         Boolean entityHasAnyId = getVariables(ast).stream().anyMatch(variable -> hasAnnotation(variable, idAnnotation));
+         Boolean entityHasAnyId = getNonStaticVariables(ast).stream().anyMatch(variable -> hasAnnotation(variable, idAnnotation));
          if (entityHasAnyId) {
             List<DetailAST> methods = getMethods(ast);
             Boolean hasEquals = methods.stream().anyMatch(MethodUtil::isEqualsMethod);

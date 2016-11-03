@@ -11,6 +11,7 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 import static startupheroes.checkstyle.util.CommonUtil.getChildsByType;
+import static startupheroes.checkstyle.util.CommonUtil.isStatic;
 
 /**
  * @author ozlem.ulag
@@ -27,6 +28,20 @@ public final class VariableUtil {
    public static List<DetailAST> getVariables(DetailAST classAst) {
       DetailAST objBlock = classAst.findFirstToken(TokenTypes.OBJBLOCK);
       return getChildsByType(objBlock, TokenTypes.VARIABLE_DEF);
+   }
+
+   public static List<DetailAST> getStaticVariables(DetailAST classAst) {
+      DetailAST objBlock = classAst.findFirstToken(TokenTypes.OBJBLOCK);
+      return getChildsByType(objBlock, TokenTypes.VARIABLE_DEF).stream()
+                                                               .filter(CommonUtil::isStatic)
+                                                               .collect(Collectors.toList());
+   }
+
+   public static List<DetailAST> getNonStaticVariables(DetailAST classAst) {
+      DetailAST objBlock = classAst.findFirstToken(TokenTypes.OBJBLOCK);
+      return getChildsByType(objBlock, TokenTypes.VARIABLE_DEF).stream()
+                                                               .filter(ast -> !isStatic(ast))
+                                                               .collect(Collectors.toList());
    }
 
    /**
@@ -68,6 +83,14 @@ public final class VariableUtil {
     */
    public static Map<String, DetailAST> getVariableNameAstMap(DetailAST classAst) {
       List<DetailAST> variables = getVariables(classAst);
+      return variables.stream().collect(Collectors.toMap(VariableUtil::getVariableName,
+                                                         Function.identity(),
+                                                         (v1, v2) -> null,
+                                                         LinkedHashMap::new));
+   }
+
+   public static Map<String, DetailAST> getVariableNameAstMap(DetailAST classAst, Boolean isStatic) {
+      List<DetailAST> variables = isStatic ? getStaticVariables(classAst) : getNonStaticVariables(classAst);
       return variables.stream().collect(Collectors.toMap(VariableUtil::getVariableName,
                                                          Function.identity(),
                                                          (v1, v2) -> null,

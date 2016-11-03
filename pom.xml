@@ -33,6 +33,11 @@
       </developer>
    </developers>
 
+   <organization>
+      <name>StartupHeroes</name>
+      <url>http://www.startuphero.es</url>
+   </organization>
+
    <distributionManagement>
       <repository>
          <id>bintray-startupheroes-maven</id>

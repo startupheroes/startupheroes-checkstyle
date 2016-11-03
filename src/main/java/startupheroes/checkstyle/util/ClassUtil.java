@@ -83,4 +83,13 @@ public final class ClassUtil {
       return nonNull(classAst.findFirstToken(TokenTypes.EXTENDS_CLAUSE));
    }
 
+   /**
+    * @param classAst class definition for check.
+    * @return true if a given class declared as abstract.
+    */
+   public static Boolean isAbstract(DetailAST classAst) {
+      return classAst.findFirstToken(TokenTypes.MODIFIERS)
+                .branchContains(TokenTypes.ABSTRACT);
+   }
+
 }

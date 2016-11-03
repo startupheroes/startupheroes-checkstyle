@@ -15,6 +15,7 @@ import static startupheroes.checkstyle.util.AnnotationUtil.getKeyValueAstMap;
 import static startupheroes.checkstyle.util.AnnotationUtil.getValueAsString;
 import static startupheroes.checkstyle.util.ClassUtil.getClassName;
 import static startupheroes.checkstyle.util.ClassUtil.isEntity;
+import static startupheroes.checkstyle.util.VariableUtil.getNonStaticVariables;
 import static startupheroes.checkstyle.util.VariableUtil.getVariableName;
 import static startupheroes.checkstyle.util.VariableUtil.getVariables;
 
@@ -60,7 +61,7 @@ public class EntityLogDataCheck extends AbstractCheck {
       if (isEntity(ast, entityAnnotation)) {
          String className = getClassName(ast);
          if (className.endsWith(LOG_ENTITY_SUFFIX)) {
-            List<DetailAST> variableNodes = getVariables(ast);
+            List<DetailAST> variableNodes = getNonStaticVariables(ast);
             variableNodes.forEach(this::checkVariableLength);
          }
       }
