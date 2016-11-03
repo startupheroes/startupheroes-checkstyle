@@ -1,7 +1,9 @@
 package startupheroes.checkstyle.util;
 
 import com.puppycrawl.tools.checkstyle.api.DetailAST;
+import com.puppycrawl.tools.checkstyle.api.Scope;
 import com.puppycrawl.tools.checkstyle.api.TokenTypes;
+import com.puppycrawl.tools.checkstyle.utils.ScopeUtils;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -28,6 +30,22 @@ public final class VariableUtil {
    }
 
    /**
+    * @param classAst : required to be CLASS_DEF type
+    * @param scope : modifier of returned variables
+    * @return variable asts that in given scope
+    */
+   public static List<DetailAST> getVariables(DetailAST classAst, Scope scope) {
+      return getVariables(classAst).stream()
+                                   .filter(variableAst -> scope.equals(getScopeOf(variableAst)))
+                                   .collect(Collectors.toList());
+   }
+
+   public static Scope getScopeOf(DetailAST variableAst) {
+      DetailAST variableModifiersNode = variableAst.findFirstToken(TokenTypes.MODIFIERS);
+      return ScopeUtils.getScopeFromMods(variableModifiersNode);
+   }
+
+   /**
     * @param variableAst : required to be VARIABLE_DEF type
     * @return name of the variable
     */
@@ -50,6 +68,14 @@ public final class VariableUtil {
     */
    public static Map<String, DetailAST> getVariableNameAstMap(DetailAST classAst) {
       List<DetailAST> variables = getVariables(classAst);
+      return variables.stream().collect(Collectors.toMap(VariableUtil::getVariableName,
+                                                         Function.identity(),
+                                                         (v1, v2) -> null,
+                                                         LinkedHashMap::new));
+   }
+
+   public static Map<String, DetailAST> getVariableNameAstMap(DetailAST classAst, Scope scope) {
+      List<DetailAST> variables = getVariables(classAst, scope);
       return variables.stream().collect(Collectors.toMap(VariableUtil::getVariableName,
                                                          Function.identity(),
                                                          (v1, v2) -> null,
