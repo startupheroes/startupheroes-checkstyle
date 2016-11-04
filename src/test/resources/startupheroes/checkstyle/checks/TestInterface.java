@@ -14,7 +14,7 @@ public interface TestInterface {
 
    void overrideMe();
 
-   OtherInterface otherOperations();
+   OtherInterface otherOperations() throws RuntimeException;
 
    interface OtherInterface {
 

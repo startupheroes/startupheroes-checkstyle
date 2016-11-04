@@ -173,7 +173,7 @@
          <property name="allowSamelineMultipleAnnotations" value="true"/>
       </module>
       <module name="EmptyCatchBlock">
-         <property name="exceptionVariableName" value="expected"/>
+         <property name="exceptionVariableName" value="expected|ignored"/>
       </module>
       <module name="CommentsIndentation"/>
       <module name="DeclarationOrder"/>
