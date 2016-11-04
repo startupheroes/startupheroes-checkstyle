@@ -92,25 +92,25 @@ public class EntityIndexNameCheck extends AbstractCheck {
    private void checkIndexName(String className, DetailAST indexAnnotationNode) {
       Map<String, DetailAST> indexKeyValueAstMap = getKeyValueAstMap(indexAnnotationNode);
       DetailAST nameKeyValueAst = indexKeyValueAstMap.get(keyName);
-      if (nonNull(nameKeyValueAst)) {
-         Optional<String> indexNameOptional = getValueAsString(nameKeyValueAst);
-         DetailAST columnsKeyValueAst = indexKeyValueAstMap.get(keyColumns);
-         if (nonNull(columnsKeyValueAst)) {
-            Optional<String> columnList = getValueAsString(columnsKeyValueAst);
-            if (indexNameOptional.isPresent() && columnList.isPresent()) {
-               String indexName = indexNameOptional.get();
-               String suggestedIndexName = getSuggestedIndexName(className, columnList.get());
-               if (indexName.length() > maxLength) {
-                  log(indexAnnotationNode.getLineNo(), MSG_IDENTIFIER_NAME_TOO_LONG, indexName, maxLength);
-               } else if (suggestedIndexName.length() <= maxLength && !suggestedIndexName.equals(indexName)) {
-                  log(indexAnnotationNode.getLineNo(), MSG_KEY, suggestedIndexName);
-               } else if (!acceptableIndexName(className, indexName)) {
-                  log(indexAnnotationNode.getLineNo(), MSG_KEY, getSuggestedIndexName(className, "your_fields"));
-               }
+      Optional<String> indexNameOptional = nonNull(nameKeyValueAst) ? getValueAsString(nameKeyValueAst) : Optional.empty();
+      String indexName = indexNameOptional.isPresent() ? indexNameOptional.get() : "";
+      checkBySuggestedName(className, indexAnnotationNode, indexKeyValueAstMap, indexName);
+   }
+
+   private void checkBySuggestedName(String className, DetailAST indexAnnotationNode, Map<String, DetailAST> indexKeyValueAstMap, String indexName) {
+      DetailAST columnsKeyValueAst = indexKeyValueAstMap.get(keyColumns);
+      if (nonNull(columnsKeyValueAst)) {
+         Optional<String> columnList = getValueAsString(columnsKeyValueAst);
+         if (columnList.isPresent()) {
+            String suggestedIndexName = getSuggestedIndexName(className, columnList.get());
+            if (indexName.length() > maxLength) {
+               log(indexAnnotationNode.getLineNo(), MSG_IDENTIFIER_NAME_TOO_LONG, indexName, maxLength);
+            } else if (suggestedIndexName.length() <= maxLength && !suggestedIndexName.equals(indexName)) {
+               log(indexAnnotationNode.getLineNo(), MSG_KEY, suggestedIndexName);
+            } else if (!acceptableIndexName(className, indexName)) {
+               log(indexAnnotationNode.getLineNo(), MSG_KEY, getSuggestedIndexName(className, "your_fields"));
             }
          }
-      } else {
-         log(indexAnnotationNode.getLineNo(), MSG_KEY, getSuggestedIndexName(className, "your_fields"));
       }
    }
 

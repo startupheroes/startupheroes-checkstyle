@@ -6,9 +6,9 @@ import org.junit.Test;
 /**
  * @author ozlem.ulag
  */
-public class AbstractEntityModifierCheckTest extends BaseCheckTestSupport {
+public class AbstractEntityNameCheckTest extends BaseCheckTestSupport {
 
-   private static final String MSG_KEY = "abstractEntityModifierCheckMessage";
+   private static final String MSG_KEY = "abstractEntityNameCheckMessage";
 
    @Test
    public void testByWrongInput() throws Exception {
@@ -23,10 +23,9 @@ public class AbstractEntityModifierCheckTest extends BaseCheckTestSupport {
    }
 
    private void test(String fileName, String[] expectedMessages) throws Exception {
-      verify(createCheckConfig(AbstractEntityModifierCheck.class,
+      verify(createCheckConfig(AbstractEntityNameCheck.class,
                                ImmutableMap.of("abstractEntityAnnotation", "javax.persistence.MappedSuperclass")),
              getPath(fileName),
              expectedMessages);
    }
-
 }

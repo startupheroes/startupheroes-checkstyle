@@ -7,6 +7,7 @@ import java.util.Map;
 import org.springframework.util.Assert;
 
 import static org.springframework.util.StringUtils.isEmpty;
+import static startupheroes.checkstyle.util.ClassUtil.ABSTRACT_CLASS_PREFIX;
 import static startupheroes.checkstyle.util.ClassUtil.getClassName;
 import static startupheroes.checkstyle.util.ClassUtil.isEntity;
 import static startupheroes.checkstyle.util.CommonUtil.getNameWithoutContext;
@@ -21,8 +22,6 @@ public class EntityVariableNameCheck extends AbstractCheck {
     * A key is pointing to the warning message text in "messages.properties" file.
     */
    private static final String MSG_KEY = "entityVariableNameCheckMessage";
-
-   private static final String ABSTRACT_CLASS_PREFIX = "Abstract";
 
    /**
     * set entity annotation to understand that a class is an entity.

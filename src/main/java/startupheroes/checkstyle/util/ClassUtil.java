@@ -19,6 +19,8 @@ public final class ClassUtil {
 
    public static final String OBJECT_CLASS_NAME_BY_PACKAGE = "java.lang.Object";
 
+   public static final String ABSTRACT_CLASS_PREFIX = "Abstract";
+
    private ClassUtil() {
    }
 

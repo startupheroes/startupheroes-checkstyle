@@ -191,6 +191,7 @@ whether the package name matches the directory name for the source file.
 16. EntityLogDataCheck: Checks the variables in log entity and show variables to move to the log data table.
 17. EmptyLineCheck: Checks the empty line from the last right curly bracket at the end of each class, interface and enum.
 18. AbstractEntityModifierCheck: Checks 'abstract' modifier for entity mapped super classes.
+19. AbstractEntityNameCheck: Checks 'Abstract' keyword in name of entity mapped super classes.
 
 # Suppress warnings checks:
 1. SuppressWarningsHolder: Make the @SuppressWarnings annotations available to Checkstyle.
