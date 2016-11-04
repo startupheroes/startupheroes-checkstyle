@@ -120,7 +120,11 @@
       <module name="EqualsAvoidNull"/>
       <module name="EqualsHashCode"/>
       <module name="IllegalInstantiation"/>
-      <module name="MagicNumber"/>
+      <module name="MagicNumber">
+         <property name="ignoreHashCodeMethod" value="true"/>
+         <property name="ignoreAnnotation" value="true"/>
+         <property name="ignoreFieldDeclaration" value="true"/>
+      </module>
       <module name="MissingSwitchDefault"/>
       <module name="DefaultComesLast"/>
       <module name="SimplifyBooleanExpression"/>
@@ -130,7 +134,9 @@
       <!-- See http://checkstyle.sf.net/config_design.html -->
       <module name="FinalClass"/>
       <module name="InterfaceIsType"/>
-      <module name="VisibilityModifier"/>
+      <module name="VisibilityModifier">
+         <property name="protectedAllowed" value="true"/>
+      </module>
 
       <!-- Miscellaneous other checks.                   -->
       <!-- See http://checkstyle.sf.net/config_misc.html -->
