@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
    <modelVersion>4.0.0</modelVersion>
    <groupId>es.startuphero.checkstyle</groupId>
-   <artifactId>startupheroes-checkstyle-config</artifactId>
+   <artifactId>startupheroes-checkstyle</artifactId>
+   <packaging>pom</packaging>
    <version>1.0.6-SNAPSHOT</version>
    <name>StartupHeroes Checkstyle Config</name>
    <description>Checkstyle configuration corresponding to StartupHeroes's coding conventions.</description>
@@ -12,6 +14,8 @@
       <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
       <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
       <checkstyle.version>7.1.2</checkstyle.version>
+      <codehause-sonar-plugin-api.version>2.8</codehause-sonar-plugin-api.version>
+      <codehause-sonar-packaging-maven-plugin.version>1.7</codehause-sonar-packaging-maven-plugin.version>
       <junit.version>4.11</junit.version>
       <slf4j.version>1.7.21</slf4j.version>
       <javax-persistence.version>2.1.0</javax-persistence.version>
@@ -91,6 +95,11 @@
       </dependency>
 
    </dependencies>
+
+   <modules>
+      <module>startupheroes-checks</module>
+      <module>startupheroes-checkstyle-sonar-plugin</module>
+   </modules>
 
    <build>
       <plugins>

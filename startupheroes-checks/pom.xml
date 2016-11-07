@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+   <modelVersion>4.0.0</modelVersion>
+
+   <parent>
+      <groupId>es.startuphero.checkstyle</groupId>
+      <artifactId>startupheroes-checkstyle</artifactId>
+      <version>1.0.6-SNAPSHOT</version>
+      <relativePath>../pom.xml</relativePath>
+   </parent>
+
+   <artifactId>startupheroes-checks</artifactId>
+   <name>${project.groupId}:${project.artifactId}:${project.version}</name>
+
+   <dependencies>
+      <dependency>
+         <groupId>com.puppycrawl.tools</groupId>
+         <artifactId>checkstyle</artifactId>
+         <version>${checkstyle.version}</version>
+      </dependency>
+
+      <dependency>
+         <groupId>org.springframework</groupId>
+         <artifactId>spring-core</artifactId>
+         <version>${spring.version}</version>
+      </dependency>
+
+      <!-- Test -->
+
+      <dependency>
+         <groupId>com.puppycrawl.tools</groupId>
+         <artifactId>checkstyle</artifactId>
+         <type>test-jar</type>
+         <scope>test</scope>
+         <version>${checkstyle.version}</version>
+      </dependency>
+
+      <dependency>
+         <groupId>junit</groupId>
+         <artifactId>junit</artifactId>
+         <version>${junit.version}</version>
+         <scope>test</scope>
+      </dependency>
+
+      <dependency>
+         <groupId>org.slf4j</groupId>
+         <artifactId>slf4j-api</artifactId>
+         <version>${slf4j.version}</version>
+         <scope>test</scope>
+      </dependency>
+
+      <dependency>
+         <groupId>org.eclipse.persistence</groupId>
+         <artifactId>javax.persistence</artifactId>
+         <version>${javax-persistence.version}</version>
+         <scope>test</scope>
+      </dependency>
+
+   </dependencies>
+
+</project>

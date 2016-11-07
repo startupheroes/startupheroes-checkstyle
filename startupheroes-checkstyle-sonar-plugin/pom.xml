@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+   <parent>
+      <artifactId>startupheroes-checkstyle</artifactId>
+      <groupId>es.startuphero.checkstyle</groupId>
+      <version>1.0.6-SNAPSHOT</version>
+   </parent>
+   <modelVersion>4.0.0</modelVersion>
+   <packaging>sonar-plugin</packaging>
+
+   <artifactId>startupheroes-checkstyle-sonar-plugin</artifactId>
+   <name>${project.groupId}:${project.artifactId}:${project.version}</name>
+
+   <dependencies>
+      <dependency>
+         <groupId>org.codehaus.sonar</groupId>
+         <artifactId>sonar-plugin-api</artifactId>
+         <version>${codehause-sonar-plugin-api.version}</version>
+      </dependency>
+
+      <dependency>
+         <groupId>es.startuphero.checkstyle</groupId>
+         <artifactId>startupheroes-checks</artifactId>
+         <version>${project.version}</version>
+      </dependency>
+
+   </dependencies>
+
+   <build>
+      <plugins>
+         <plugin>
+            <groupId>org.codehaus.sonar</groupId>
+            <artifactId>sonar-packaging-maven-plugin</artifactId>
+            <version>${codehause-sonar-packaging-maven-plugin.version}</version>
+            <extensions>true</extensions>
+            <configuration>
+               <pluginClass>es.startupheroes.checkstyle.sonar.CheckstyleExtensionPlugin</pluginClass>
+               <basePlugin>checkstyle</basePlugin>
+            </configuration>
+         </plugin>
+      </plugins>
+   </build>
+
+</project>
