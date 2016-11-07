@@ -192,53 +192,53 @@
       <module name="SuppressWarningsHolder"/>
 
       <!-- Custom Checks-->
-      <module name="es.startupheroes.checkstyle.checks.LoggerOrderCheck"/>
-      <module name="es.startupheroes.checkstyle.checks.RedundantMultipleAnnotationCheck">
+      <module name="es.startuphero.checkstyle.checks.LoggerOrderCheck"/>
+      <module name="es.startuphero.checkstyle.checks.RedundantMultipleAnnotationCheck">
          <property name="tokens" value="VARIABLE_DEF"/>
          <property name="redundantAnnotationPairs" value="javax.persistence.Id:javax.persistence.Column"/>
       </module>
-      <module name="es.startupheroes.checkstyle.checks.BlockedAnnotationKeyCheck">
+      <module name="es.startuphero.checkstyle.checks.BlockedAnnotationKeyCheck">
          <property name="annotationBlockedKeyMap" value="javax.persistence.Column:unique"/>
       </module>
-      <module name="es.startupheroes.checkstyle.checks.EntityEqualsHashCodeCheck">
+      <module name="es.startuphero.checkstyle.checks.EntityEqualsHashCodeCheck">
          <property name="entityAnnotation" value="javax.persistence.Entity"/>
          <property name="abstractEntityAnnotation" value="javax.persistence.MappedSuperclass"/>
          <property name="idAnnotation" value="javax.persistence.Id"/>
       </module>
-      <module name="es.startupheroes.checkstyle.checks.EntityToStringCheck">
+      <module name="es.startuphero.checkstyle.checks.EntityToStringCheck">
          <property name="entityAnnotation" value="javax.persistence.Entity"/>
          <property name="abstractEntityAnnotation" value="javax.persistence.MappedSuperclass"/>
       </module>
-      <module name="es.startupheroes.checkstyle.checks.EntityGettersSettersCheck">
+      <module name="es.startuphero.checkstyle.checks.EntityGettersSettersCheck">
          <property name="entityAnnotation" value="javax.persistence.Entity"/>
          <property name="abstractEntityAnnotation" value="javax.persistence.MappedSuperclass"/>
       </module>
-      <module name="es.startupheroes.checkstyle.checks.EntityMandatoryVariableCheck">
+      <module name="es.startuphero.checkstyle.checks.EntityMandatoryVariableCheck">
          <property name="entityAnnotation" value="javax.persistence.Entity"/>
          <property name="abstractEntityAnnotation" value="javax.persistence.MappedSuperclass"/>
          <property name="mandatoryVariables" value="createdAt, lastUpdatedAt"/>
       </module>
-      <module name="es.startupheroes.checkstyle.checks.EntityVariableAnnotationKeyValueCheck">
+      <module name="es.startuphero.checkstyle.checks.EntityVariableAnnotationKeyValueCheck">
          <property name="entityAnnotation" value="javax.persistence.Entity"/>
          <property name="abstractEntityAnnotation" value="javax.persistence.MappedSuperclass"/>
          <property name="variableAnnotationKeyValueTable"
              value="createdAt:javax.persistence.Column:nullable:false, lastUpdatedAt:javax.persistence.Column:nullable:false"/>
       </module>
-      <module name="es.startupheroes.checkstyle.checks.EntityGeneratedPrimaryKeyNameCheck">
+      <module name="es.startuphero.checkstyle.checks.EntityGeneratedPrimaryKeyNameCheck">
          <property name="entityAnnotation" value="javax.persistence.Entity"/>
          <property name="abstractEntityAnnotation" value="javax.persistence.MappedSuperclass"/>
          <property name="idAnnotation" value="javax.persistence.Id"/>
          <property name="generatedValueAnnotation" value="javax.persistence.GeneratedValue"/>
          <property name="suggestedGeneratedPrimaryKeyName" value="id"/>
       </module>
-      <module name="es.startupheroes.checkstyle.checks.EntityVariableNameCheck">
+      <module name="es.startuphero.checkstyle.checks.EntityVariableNameCheck">
          <property name="entityAnnotation" value="javax.persistence.Entity"/>
          <property name="abstractEntityAnnotation" value="javax.persistence.MappedSuperclass"/>
       </module>
-      <module name="es.startupheroes.checkstyle.checks.BlockedClassAnnotationCheck">
+      <module name="es.startuphero.checkstyle.checks.BlockedClassAnnotationCheck">
          <property name="blockedAnnotations" value="com.clovify.lyso.core.annotation.LysoRepository"/>
       </module>
-      <module name="es.startupheroes.checkstyle.checks.EntityIndexNameCheck">
+      <module name="es.startuphero.checkstyle.checks.EntityIndexNameCheck">
          <property name="entityAnnotation" value="javax.persistence.Entity"/>
          <property name="abstractEntityAnnotation" value="javax.persistence.MappedSuperclass"/>
          <property name="tableAnnotation" value="javax.persistence.Table"/>
@@ -250,7 +250,7 @@
          <property name="maxLength" value="64"/>
          <property name="regex" value="^[a-z0-9_]*$"/>
       </module>
-      <module name="es.startupheroes.checkstyle.checks.EntityUniqueConstraintNameCheck">
+      <module name="es.startuphero.checkstyle.checks.EntityUniqueConstraintNameCheck">
          <property name="entityAnnotation" value="javax.persistence.Entity"/>
          <property name="abstractEntityAnnotation" value="javax.persistence.MappedSuperclass"/>
          <property name="tableAnnotation" value="javax.persistence.Table"/>
@@ -262,14 +262,14 @@
          <property name="maxLength" value="64"/>
          <property name="regex" value="^[a-z0-9_]*$"/>
       </module>
-      <module name="es.startupheroes.checkstyle.checks.EntityLogDataCheck">
+      <module name="es.startuphero.checkstyle.checks.EntityLogDataCheck">
          <property name="entityAnnotation" value="javax.persistence.Entity"/>
          <property name="abstractEntityAnnotation" value="javax.persistence.MappedSuperclass"/>
          <property name="columnAnnotation" value="javax.persistence.Column"/>
          <property name="limitLength" value="255"/>
       </module>
-      <module name="es.startupheroes.checkstyle.checks.EmptyLineCheck"/>
-      <module name="es.startupheroes.checkstyle.checks.AbstractEntityModifierCheck">
+      <module name="es.startuphero.checkstyle.checks.EmptyLineCheck"/>
+      <module name="es.startuphero.checkstyle.checks.AbstractEntityModifierCheck">
          <property name="abstractEntityAnnotation" value="javax.persistence.MappedSuperclass"/>
       </module>
 

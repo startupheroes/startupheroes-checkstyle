@@ -1,0 +1,12 @@
+<rules>
+   <rule>
+      <key>es.startuphero.checkstyle.checks.EmptyLineCheck</key>
+      <name>Cause Parameter In Exception</name>
+      <category name="design"/>
+      <description>Checks that any Exception class which matches the defined className regexp have at least one constructor with Exception cause as a
+         parameter.
+      </description>
+      <configKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.EmptyLineCheck</configKey>
+   </rule>
+
+</rules>

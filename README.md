@@ -1,4 +1,4 @@
-# StartupHeroes Checkstyle Configuration
+# StartupHeroes Checkstyle
 
 This project provides a default configuration for checkstyle at StartupHeroes projects.
 
@@ -16,8 +16,8 @@ To use it, configure your maven-checkstyle-plugin like so:
                   <dependencies>
                      <dependency>
                         <groupId>es.startuphero.checkstyle</groupId>
-                        <artifactId>startupheroes-checkstyle-config</artifactId>
-                        <version>${startupheroes-checkstyle-config.version}</version>
+                        <artifactId>startupheroes-checkstyle-checks</artifactId>
+                        <version>${startupheroes-checkstyle.version}</version>
                      </dependency>
                      <dependency>
                         <groupId>com.puppycrawl.tools</groupId>

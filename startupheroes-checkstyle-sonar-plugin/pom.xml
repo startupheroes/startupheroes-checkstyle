@@ -17,13 +17,16 @@
       <dependency>
          <groupId>org.codehaus.sonar</groupId>
          <artifactId>sonar-plugin-api</artifactId>
-         <version>${codehause-sonar-plugin-api.version}</version>
       </dependency>
 
       <dependency>
          <groupId>es.startuphero.checkstyle</groupId>
          <artifactId>startupheroes-checks</artifactId>
-         <version>${project.version}</version>
+      </dependency>
+
+      <dependency>
+         <groupId>com.google.guava</groupId>
+         <artifactId>guava</artifactId>
       </dependency>
 
    </dependencies>
@@ -36,7 +39,7 @@
             <version>${codehause-sonar-packaging-maven-plugin.version}</version>
             <extensions>true</extensions>
             <configuration>
-               <pluginClass>es.startupheroes.checkstyle.sonar.CheckstyleExtensionPlugin</pluginClass>
+               <pluginClass>es.startuphero.checkstyle.sonar.CheckstyleExtensionPlugin</pluginClass>
                <basePlugin>checkstyle</basePlugin>
             </configuration>
          </plugin>

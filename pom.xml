@@ -6,13 +6,15 @@
    <artifactId>startupheroes-checkstyle</artifactId>
    <packaging>pom</packaging>
    <version>1.0.6-SNAPSHOT</version>
-   <name>StartupHeroes Checkstyle Config</name>
-   <description>Checkstyle configuration corresponding to StartupHeroes's coding conventions.</description>
+   <name>StartupHeroes Checkstyle</name>
+   <description>Checkstyle corresponding to StartupHeroes's coding conventions.</description>
    <url>https://github.com/cemo/startupheroes-checkstyle-config</url>
 
    <properties>
       <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
       <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+      <maven-compiler-plugin.version>3.6.0</maven-compiler-plugin.version>
+      <maven-compiler-java.version>1.8</maven-compiler-java.version>
       <checkstyle.version>7.1.2</checkstyle.version>
       <codehause-sonar-plugin-api.version>2.8</codehause-sonar-plugin-api.version>
       <codehause-sonar-packaging-maven-plugin.version>1.7</codehause-sonar-packaging-maven-plugin.version>
@@ -20,12 +22,13 @@
       <slf4j.version>1.7.21</slf4j.version>
       <javax-persistence.version>2.1.0</javax-persistence.version>
       <spring.version>4.3.2.RELEASE</spring.version>
+      <google-guava.version>19.0</google-guava.version>
    </properties>
 
    <scm>
-      <url>https://github.com/cemo/startupheroes-checkstyle-config</url>
-      <connection>scm:git:git@github.com:cemo/startupheroes-checkstyle-config.git</connection>
-      <developerConnection>scm:git:git@github.com:cemo/startupheroes-checkstyle-config.git</developerConnection>
+      <url>https://github.com/cemo/startupheroes-checkstyle</url>
+      <connection>scm:git:git@github.com:cemo/startupheroes-checkstyle.git</connection>
+      <developerConnection>scm:git:git@github.com:cemo/startupheroes-checkstyle.git</developerConnection>
       <tag>HEAD</tag>
    </scm>
 
@@ -46,55 +49,77 @@
       <repository>
          <id>bintray-startupheroes-maven</id>
          <name>startupheroes-maven</name>
-         <url>https://api.bintray.com/maven/startupheroes/maven/startupheroes-checkstyle-config/;publish=1</url>
+         <url>https://api.bintray.com/maven/startupheroes/maven/startupheroes-checkstyle/;publish=1</url>
       </repository>
    </distributionManagement>
 
-   <dependencies>
-      <dependency>
-         <groupId>com.puppycrawl.tools</groupId>
-         <artifactId>checkstyle</artifactId>
-         <version>${checkstyle.version}</version>
-      </dependency>
+   <dependencyManagement>
+      <dependencies>
+         <dependency>
+            <groupId>com.puppycrawl.tools</groupId>
+            <artifactId>checkstyle</artifactId>
+            <version>${checkstyle.version}</version>
+         </dependency>
 
-      <dependency>
-         <groupId>org.springframework</groupId>
-         <artifactId>spring-core</artifactId>
-         <version>${spring.version}</version>
-      </dependency>
+         <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>${spring.version}</version>
+         </dependency>
 
-      <!-- Test -->
+         <dependency>
+            <groupId>org.codehaus.sonar</groupId>
+            <artifactId>sonar-plugin-api</artifactId>
+            <version>${codehause-sonar-plugin-api.version}</version>
+         </dependency>
 
-      <dependency>
-         <groupId>com.puppycrawl.tools</groupId>
-         <artifactId>checkstyle</artifactId>
-         <type>test-jar</type>
-         <scope>test</scope>
-         <version>${checkstyle.version}</version>
-      </dependency>
+         <dependency>
+            <groupId>es.startuphero.checkstyle</groupId>
+            <artifactId>startupheroes-checks</artifactId>
+            <version>${project.version}</version>
+         </dependency>
 
-      <dependency>
-         <groupId>junit</groupId>
-         <artifactId>junit</artifactId>
-         <version>${junit.version}</version>
-         <scope>test</scope>
-      </dependency>
+         <dependency>
+            <groupId>es.startuphero.checkstyle</groupId>
+            <artifactId>startupheroes-checkstyle-sonar-plugin</artifactId>
+            <version>${project.version}</version>
+         </dependency>
 
-      <dependency>
-         <groupId>org.slf4j</groupId>
-         <artifactId>slf4j-api</artifactId>
-         <version>${slf4j.version}</version>
-         <scope>test</scope>
-      </dependency>
+         <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>${google-guava.version}</version>
+         </dependency>
 
-      <dependency>
-         <groupId>org.eclipse.persistence</groupId>
-         <artifactId>javax.persistence</artifactId>
-         <version>${javax-persistence.version}</version>
-         <scope>test</scope>
-      </dependency>
+         <!-- Test -->
 
-   </dependencies>
+         <dependency>
+            <groupId>com.puppycrawl.tools</groupId>
+            <artifactId>checkstyle</artifactId>
+            <type>test-jar</type>
+            <version>${checkstyle.version}</version>
+         </dependency>
+
+         <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+         </dependency>
+
+         <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j.version}</version>
+         </dependency>
+
+         <dependency>
+            <groupId>org.eclipse.persistence</groupId>
+            <artifactId>javax.persistence</artifactId>
+            <version>${javax-persistence.version}</version>
+         </dependency>
+
+      </dependencies>
+   </dependencyManagement>
 
    <modules>
       <module>startupheroes-checks</module>
@@ -104,27 +129,13 @@
    <build>
       <plugins>
          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
             <artifactId>maven-compiler-plugin</artifactId>
-            <version>2.3.2</version>
+            <version>${maven-compiler-plugin.version}</version>
             <configuration>
-               <source>1.8</source>
-               <target>1.8</target>
+               <source>${maven-compiler-java.version}</source>
+               <target>${maven-compiler-java.version}</target>
             </configuration>
-         </plugin>
-         <plugin>
-            <artifactId>maven-release-plugin</artifactId>
-            <version>2.5.2</version>
-            <configuration>
-               <tagNameFormat>v@{project.version}</tagNameFormat>
-               <allowTimestampedSnapshots>true</allowTimestampedSnapshots>
-            </configuration>
-            <dependencies>
-               <dependency>
-                  <groupId>org.apache.maven.scm</groupId>
-                  <artifactId>maven-scm-provider-gitexe</artifactId>
-                  <version>1.9</version>
-               </dependency>
-            </dependencies>
          </plugin>
       </plugins>
    </build>
