@@ -89,6 +89,7 @@
             <groupId>com.google.guava</groupId>
             <artifactId>guava</artifactId>
             <version>${google-guava.version}</version>
+            <scope>provided</scope>
          </dependency>
 
          <!-- Test -->
