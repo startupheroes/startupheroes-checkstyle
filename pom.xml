@@ -8,7 +8,7 @@
    <version>1.0.6-SNAPSHOT</version>
    <name>StartupHeroes Checkstyle</name>
    <description>Checkstyle corresponding to StartupHeroes's coding conventions.</description>
-   <url>https://github.com/cemo/startupheroes-checkstyle-config</url>
+   <url>https://github.com/cemo/startupheroes-checkstyle</url>
 
    <properties>
       <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
