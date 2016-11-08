@@ -24,7 +24,7 @@ public class BlockedClassAnnotationCheckTest extends BaseCheckTestSupport {
 
    private void test(String fileName, String[] expectedMessages) throws Exception {
       verify(createCheckConfig(BlockedClassAnnotationCheck.class,
-                               ImmutableMap.of("blockedAnnotations", "startupheroes.checkstyle.checks.BlockedAnnotation")),
+                               ImmutableMap.of("blockedAnnotations", "es.startuphero.checkstyle.checks.BlockedAnnotation")),
              getPath(fileName),
              expectedMessages);
    }
