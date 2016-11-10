@@ -16,7 +16,7 @@ public final class CheckstyleExtensionRepository extends RuleRepository {
 
 	private static final String REPOSITORY_LANGUAGE = "java";
 
-	private static final String RULES_RELATIVE_FILE_PATH = "/es/startuphero/checkstyle/sonar/checkstyle-extensions.xml";
+	private static final String RULES_RELATIVE_FILE_PATH = "/es/startuphero/checkstyle/sonar/startupheroes_rules.xml";
 
 	private XMLRuleParser xmlRuleParser;
 

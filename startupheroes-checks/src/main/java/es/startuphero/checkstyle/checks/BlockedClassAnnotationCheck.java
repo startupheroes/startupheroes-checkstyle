@@ -9,8 +9,6 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
-import static es.startuphero.checkstyle.util.CommonUtil.getSimpleName;
-
 /**
  * @author ozlem.ulag
  */

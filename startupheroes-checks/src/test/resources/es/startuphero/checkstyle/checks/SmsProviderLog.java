@@ -11,7 +11,7 @@ import javax.persistence.Index;
 import javax.persistence.Table;
 
 @Entity
-@Table(indexes = @Index(name = "sms_provider_log_sms_id_type_index", columnList = "smsId, type"))
+@Table(indexes = @Index(name = "smsId_type_index", columnList = "smsId, type"))
 public class SmsProviderLog {
 
    @Id

@@ -6,6 +6,7 @@
       <artifactId>startupheroes-checkstyle</artifactId>
       <groupId>es.startuphero.checkstyle</groupId>
       <version>1.0.6-SNAPSHOT</version>
+      <relativePath>../pom.xml</relativePath>
    </parent>
    <modelVersion>4.0.0</modelVersion>
    <packaging>sonar-plugin</packaging>
@@ -22,11 +23,6 @@
       <dependency>
          <groupId>es.startuphero.checkstyle</groupId>
          <artifactId>startupheroes-checks</artifactId>
-      </dependency>
-
-      <dependency>
-         <groupId>com.google.guava</groupId>
-         <artifactId>guava</artifactId>
       </dependency>
 
    </dependencies>

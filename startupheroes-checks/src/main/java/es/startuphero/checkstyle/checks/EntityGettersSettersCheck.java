@@ -12,8 +12,6 @@ import java.util.stream.Collectors;
 import org.springframework.util.Assert;
 import org.springframework.util.StringUtils;
 
-import static es.startuphero.checkstyle.util.VariableUtil.getVariableNameAstMap;
-
 /**
  * @author ozlem.ulag
  */

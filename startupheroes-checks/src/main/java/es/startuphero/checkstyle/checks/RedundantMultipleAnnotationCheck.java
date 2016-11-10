@@ -3,11 +3,11 @@ package es.startuphero.checkstyle.checks;
 import com.puppycrawl.tools.checkstyle.api.AbstractCheck;
 import com.puppycrawl.tools.checkstyle.api.DetailAST;
 import com.puppycrawl.tools.checkstyle.api.TokenTypes;
-import es.startuphero.checkstyle.util.AnnotationUtil;
 import es.startuphero.checkstyle.util.CommonUtil;
 import java.util.HashMap;
 import java.util.Map;
 
+import static es.startuphero.checkstyle.util.AnnotationUtil.hasAnnotation;
 import static es.startuphero.checkstyle.util.CommonUtil.getSimpleName;
 
 /**
@@ -48,8 +48,8 @@ public class RedundantMultipleAnnotationCheck extends AbstractCheck {
    public void visitToken(DetailAST ast) {
       for (String annotation1 : redundantAnnotationPairs.keySet()) {
          String annotation2 = redundantAnnotationPairs.get(annotation1);
-         if (AnnotationUtil.hasAnnotation(ast, annotation1) && AnnotationUtil.hasAnnotation(ast, annotation2)) {
-            log(ast.getLineNo(), MSG_KEY, CommonUtil.getSimpleName(annotation1), CommonUtil.getSimpleName(annotation2));
+         if (hasAnnotation(ast, annotation1) && hasAnnotation(ast, annotation2)) {
+            log(ast.getLineNo(), MSG_KEY, getSimpleName(annotation1), getSimpleName(annotation2));
          }
       }
    }

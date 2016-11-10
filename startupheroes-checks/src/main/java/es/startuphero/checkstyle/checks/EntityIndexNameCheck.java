@@ -71,7 +71,9 @@ public class EntityIndexNameCheck extends AbstractCheck {
    @Override
    public void visitToken(DetailAST ast) {
       assertions();
-      if ((ClassUtil.isEntity(ast, entityAnnotation) || ClassUtil.isEntity(ast, abstractEntityAnnotation)) && AnnotationUtil.hasAnnotation(ast, tableAnnotation)) {
+      if ((ClassUtil.isEntity(ast, entityAnnotation) ||
+           ClassUtil.isEntity(ast, abstractEntityAnnotation)) &&
+          AnnotationUtil.hasAnnotation(ast, tableAnnotation)) {
          Map<String, DetailAST> tableKeyValueAstMap = AnnotationUtil.getKeyValueAstMap(AnnotationUtil.getAnnotation(ast, tableAnnotation));
          if (tableKeyValueAstMap.containsKey(key)) {
             DetailAST keyValuePairNode = tableKeyValueAstMap.get(key);

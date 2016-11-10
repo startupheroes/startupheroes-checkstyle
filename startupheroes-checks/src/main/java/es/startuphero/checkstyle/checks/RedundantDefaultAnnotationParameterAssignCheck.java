@@ -5,7 +5,6 @@ import com.puppycrawl.tools.checkstyle.api.DetailAST;
 import com.puppycrawl.tools.checkstyle.api.TokenTypes;
 import es.startuphero.checkstyle.util.AnnotationUtil;
 import es.startuphero.checkstyle.util.ClassUtil;
-import es.startuphero.checkstyle.util.CommonUtil;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
@@ -50,8 +49,8 @@ public class RedundantDefaultAnnotationParameterAssignCheck extends AbstractChec
    public void visitToken(DetailAST ast) {
       Map<String, DetailAST> annotationKeyValueAstMap = AnnotationUtil.getKeyValueAstMap(ast);
       if (!annotationKeyValueAstMap.isEmpty()) {
-         String annotationSimpleName = CommonUtil.getSimpleName(ast);
-         String fullAnnotationName = CommonUtil.getFullName(ast, importSimpleFullNameMap, annotationSimpleName);
+         String annotationSimpleName = getSimpleName(ast);
+         String fullAnnotationName = getFullName(ast, importSimpleFullNameMap, annotationSimpleName);
          Set<String> keys = annotationKeyValueAstMap.keySet();
          Map<String, Object> keyDefaultValueMap = AnnotationUtil.getKeyDefaultValueMap(fullAnnotationName, keys);
          for (String key : keys) {
