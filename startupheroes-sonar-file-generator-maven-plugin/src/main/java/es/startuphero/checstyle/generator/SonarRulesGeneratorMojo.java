@@ -26,7 +26,7 @@ import org.xml.sax.XMLReader;
 /**
  * Generate sonar rules xml file from checkers modules file.
  */
-@Mojo(name = "sonar-rules", threadSafe = true)
+@Mojo(name = "generate-rules", threadSafe = true)
 @SuppressWarnings("unused")
 public class SonarRulesGeneratorMojo extends AbstractMojo {
 

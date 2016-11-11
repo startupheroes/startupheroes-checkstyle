@@ -153,34 +153,13 @@
                <target>${maven-compiler-java.version}</target>
             </configuration>
          </plugin>
-         <plugin>
-            <groupId>es.startuphero.checkstyle</groupId>
-            <artifactId>startupheroes-sonar-file-generator-maven-plugin</artifactId>
-            <version>${project.version}</version>
-            <executions>
-               <execution>
-                  <phase>initialize</phase>
-                  <goals>
-                     <goal>sonar-rules</goal>
-                  </goals>
-                  <configuration>
-                     <inputFile>
-                        ${basedir}/startupheroes-checks/src/main/resources/es/startuphero/checkstyle/checks/startupheroes_checks.xml
-                     </inputFile>
-                     <outputFile>
-                        ${basedir}/startupheroes-checkstyle-sonar-plugin/src/main/resources/es/startuphero/checkstyle/sonar/startupheroes_rules.xml
-                     </outputFile>
-                  </configuration>
-               </execution>
-            </executions>
-         </plugin>
       </plugins>
    </build>
 
    <modules>
+      <module>startupheroes-sonar-file-generator-maven-plugin</module>
       <module>startupheroes-checks</module>
       <module>startupheroes-checkstyle-sonar-plugin</module>
-      <module>startupheroes-sonar-file-generator-maven-plugin</module>
    </modules>
 
 </project>

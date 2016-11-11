@@ -51,23 +51,12 @@
             <artifactId>maven-plugin-plugin</artifactId>
             <version>${maven-plugin.version}</version>
             <configuration>
-               <goalPrefix>sonar-rules</goalPrefix>
+               <goalPrefix>generate-rules</goalPrefix>
                <skipErrorNoDescriptorsFound>true</skipErrorNoDescriptorsFound>
             </configuration>
             <executions>
                <execution>
                   <id>mojo-descriptor</id>
-                  <goals>
-                     <goal>descriptor</goal>
-                  </goals>
-               </execution>
-            </executions>
-         </plugin>
-         <plugin>
-            <groupId>org.codehaus.plexus</groupId>
-            <artifactId>plexus-maven-plugin</artifactId>
-            <executions>
-               <execution>
                   <goals>
                      <goal>descriptor</goal>
                   </goals>
