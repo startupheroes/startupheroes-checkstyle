@@ -1,7 +1,7 @@
 package es.startuphero.checstyle.generator.beans;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.LinkedHashSet;
+import java.util.Set;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -16,16 +16,13 @@ public class Rule {
    private String name;
 
    @XmlElement
-   private String description;
+   private String htmlDescription;
 
    @XmlElement
-   private String configKey;
-
-   @XmlElement
-   private RuleCategory category;
+   private String internalKey;
 
    @XmlElement(name = "param")
-   private List<RuleParam> params = new ArrayList<>();
+   private Set<RuleParam> params = new LinkedHashSet<>();
 
    public String getKey() {
       return key;
@@ -43,36 +40,43 @@ public class Rule {
       this.name = name;
    }
 
-   public String getDescription() {
-      return description;
+   public String getHtmlDescription() {
+      return htmlDescription;
    }
 
-   public void setDescription(String description) {
-      this.description = description;
+   public void setHtmlDescription(String htmlDescription) {
+      this.htmlDescription = htmlDescription;
    }
 
-   public String getConfigKey() {
-      return configKey;
+   public String getInternalKey() {
+      return internalKey;
    }
 
-   public void setConfigKey(String configKey) {
-      this.configKey = configKey;
+   public void setInternalKey(String internalKey) {
+      this.internalKey = internalKey;
    }
 
-   public RuleCategory getCategory() {
-      return category;
-   }
-
-   public void setCategory(RuleCategory category) {
-      this.category = category;
-   }
-
-   public List<RuleParam> getParams() {
+   public Set<RuleParam> getParams() {
       return params;
    }
 
-   public void setParams(List<RuleParam> params) {
+   public void setParams(Set<RuleParam> params) {
       this.params = params;
+   }
+
+   @Override
+   public boolean equals(Object o) {
+      if (this == o) return true;
+      if (o == null || getClass() != o.getClass()) return false;
+
+      Rule rule = (Rule) o;
+
+      return key != null ? key.equals(rule.key) : rule.key == null;
+   }
+
+   @Override
+   public int hashCode() {
+      return key != null ? key.hashCode() : 0;
    }
 
    @Override
@@ -80,9 +84,8 @@ public class Rule {
       return "Rule{" +
              "key='" + key + '\'' +
              ", name='" + name + '\'' +
-             ", description='" + description + '\'' +
-             ", configKey='" + configKey + '\'' +
-             ", category=" + category +
+             ", htmlDescription='" + htmlDescription + '\'' +
+             ", internalKey='" + internalKey + '\'' +
              ", params=" + params +
              '}';
    }

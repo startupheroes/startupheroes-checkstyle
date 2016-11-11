@@ -1,7 +1,7 @@
 package es.startuphero.checstyle.generator.beans;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.LinkedHashSet;
+import java.util.Set;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -15,13 +15,13 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Rules {
 
    @XmlElement(name = "rule")
-   private List<Rule> rules = new ArrayList<>();
+   private Set<Rule> rules = new LinkedHashSet<>();
 
-   public List<Rule> getRules() {
+   public Set<Rule> getRules() {
       return rules;
    }
 
-   public void setRules(List<Rule> rules) {
+   public void setRules(Set<Rule> rules) {
       this.rules = rules;
    }
 

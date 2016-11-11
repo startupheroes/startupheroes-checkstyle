@@ -15,12 +15,13 @@
       <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
       <checkstyle.version>7.1.2</checkstyle.version>
       <maven-compiler-plugin.version>3.6.0</maven-compiler-plugin.version>
-      <maven-compiler-java.version>1.8</maven-compiler-java.version>
+      <jdk.min.version>1.8</jdk.min.version>
       <maven-plugin.api.version>2.2.1</maven-plugin.api.version>
       <maven-plugin.version>3.5</maven-plugin.version>
       <maven-plugin-annotations.version>3.4</maven-plugin-annotations.version>
-      <codehause-sonar-plugin-api.version>2.8</codehause-sonar-plugin-api.version>
-      <codehause-sonar-packaging-maven-plugin.version>1.7</codehause-sonar-packaging-maven-plugin.version>
+      <sonar-plugin-api.version>5.6</sonar-plugin-api.version>
+      <sonar-packaging-maven-plugin.version>1.16</sonar-packaging-maven-plugin.version>
+      <commons-logging.version>1.2</commons-logging.version>
       <codehause-plexus-utils.version>3.0.22</codehause-plexus-utils.version>
       <junit.version>4.11</junit.version>
       <slf4j.version>1.7.21</slf4j.version>
@@ -77,9 +78,15 @@
          </dependency>
 
          <dependency>
-            <groupId>org.codehaus.sonar</groupId>
+            <groupId>org.sonarsource.sonarqube</groupId>
             <artifactId>sonar-plugin-api</artifactId>
-            <version>${codehause-sonar-plugin-api.version}</version>
+            <version>${sonar-plugin-api.version}</version>
+         </dependency>
+
+         <dependency>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+            <version>${commons-logging.version}</version>
          </dependency>
 
          <dependency>
@@ -149,8 +156,8 @@
             <artifactId>maven-compiler-plugin</artifactId>
             <version>${maven-compiler-plugin.version}</version>
             <configuration>
-               <source>${maven-compiler-java.version}</source>
-               <target>${maven-compiler-java.version}</target>
+               <source>${jdk.min.version}</source>
+               <target>${jdk.min.version}</target>
             </configuration>
          </plugin>
       </plugins>

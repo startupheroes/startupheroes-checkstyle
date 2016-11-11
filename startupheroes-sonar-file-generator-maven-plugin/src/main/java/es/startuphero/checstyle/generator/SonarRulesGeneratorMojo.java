@@ -3,7 +3,6 @@ package es.startuphero.checstyle.generator;
 import es.startuphero.checstyle.generator.beans.Module;
 import es.startuphero.checstyle.generator.beans.ModuleProperty;
 import es.startuphero.checstyle.generator.beans.Rule;
-import es.startuphero.checstyle.generator.beans.RuleCategory;
 import es.startuphero.checstyle.generator.beans.RuleParam;
 import es.startuphero.checstyle.generator.beans.Rules;
 import java.io.File;
@@ -108,7 +107,8 @@ public class SonarRulesGeneratorMojo extends AbstractMojo {
    /** skip Checker and TreeWalker modules **/
    private static void addNewRule(Rules rules, Module module) {
       if (module.getChilds().isEmpty()) {
-         rules.getRules().add(convertModuleToRule(module));
+         Rule newRule = convertModuleToRule(module);
+         rules.getRules().add(newRule);
       }
    }
 
@@ -116,9 +116,8 @@ public class SonarRulesGeneratorMojo extends AbstractMojo {
       Rule rule = new Rule();
       rule.setKey(module.getName());
       rule.setName(getSeparatedString(module.getName()));
-      rule.setDescription(getSeparatedString(module.getName()));
-      rule.setConfigKey(getConfigKey(module));
-      rule.setCategory(new RuleCategory("coding"));
+      rule.setHtmlDescription(getSeparatedString(module.getName()));
+      rule.setInternalKey(getConfigKey(module));
       module.getProperties()
             .forEach(property -> rule.getParams()
                                      .add(convertModulePropertyToRuleParam(property)));
@@ -128,8 +127,8 @@ public class SonarRulesGeneratorMojo extends AbstractMojo {
    private static RuleParam convertModulePropertyToRuleParam(ModuleProperty property) {
       RuleParam param = new RuleParam();
       param.setKey(property.getName());
+      param.setName(getSeparatedString(property.getName()));
       param.setDefaultValue(property.getValue());
-      param.setType("STRING");
       param.setDescription(getSeparatedString(property.getName()) + " property with value of '" + property.getValue() + "'");
       return param;
    }

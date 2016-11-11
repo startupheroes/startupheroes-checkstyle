@@ -3,17 +3,15 @@
     <rule>
         <key>Translation</key>
         <name>Translation</name>
-        <description>Translation</description>
-        <configKey>Checker/Translation</configKey>
-        <category name="coding"/>
+        <htmlDescription>Translation</htmlDescription>
+        <internalKey>Checker/Translation</internalKey>
     </rule>
     <rule>
         <key>FileLength</key>
         <name>File Length</name>
-        <description>File Length</description>
-        <configKey>Checker/FileLength</configKey>
-        <category name="coding"/>
-        <param key="max" type="STRING">
+        <htmlDescription>File Length</htmlDescription>
+        <internalKey>Checker/FileLength</internalKey>
+        <param key="max" name="Max">
             <defaultValue>1500</defaultValue>
             <description>Max property with value of '1500'</description>
         </param>
@@ -21,10 +19,9 @@
     <rule>
         <key>FileTabCharacter</key>
         <name>File Tab Character</name>
-        <description>File Tab Character</description>
-        <configKey>Checker/FileTabCharacter</configKey>
-        <category name="coding"/>
-        <param key="eachLine" type="STRING">
+        <htmlDescription>File Tab Character</htmlDescription>
+        <internalKey>Checker/FileTabCharacter</internalKey>
+        <param key="eachLine" name="Each Line">
             <defaultValue>true</defaultValue>
             <description>Each Line property with value of 'true'</description>
         </param>
@@ -32,133 +29,91 @@
     <rule>
         <key>RegexpSingleline</key>
         <name>Regexp Singleline</name>
-        <description>Regexp Singleline</description>
-        <configKey>Checker/RegexpSingleline</configKey>
-        <category name="coding"/>
-        <param key="format" type="STRING">
+        <htmlDescription>Regexp Singleline</htmlDescription>
+        <internalKey>Checker/RegexpSingleline</internalKey>
+        <param key="format" name="Format">
             <defaultValue>\s+$</defaultValue>
             <description>Format property with value of '\s+$'</description>
         </param>
-        <param key="minimum" type="STRING">
+        <param key="minimum" name="Minimum">
             <defaultValue>0</defaultValue>
             <description>Minimum property with value of '0'</description>
         </param>
-        <param key="maximum" type="STRING">
+        <param key="maximum" name="Maximum">
             <defaultValue>0</defaultValue>
             <description>Maximum property with value of '0'</description>
         </param>
-        <param key="message" type="STRING">
+        <param key="message" name="Message">
             <defaultValue>Line has trailing spaces.</defaultValue>
             <description>Message property with value of 'Line has trailing spaces.'</description>
         </param>
     </rule>
     <rule>
-        <key>RegexpSingleline</key>
-        <name>Regexp Singleline</name>
-        <description>Regexp Singleline</description>
-        <configKey>Checker/RegexpSingleline</configKey>
-        <category name="coding"/>
-        <param key="format" type="STRING">
-            <defaultValue>^\s*(for|if)\b[^ ]</defaultValue>
-            <description>Format property with value of '^\s*(for|if)\b[^ ]'</description>
-        </param>
-        <param key="message" type="STRING">
-            <defaultValue>Space needed before opening parenthesis.</defaultValue>
-            <description>Message property with value of 'Space needed before opening parenthesis.'</description>
-        </param>
-    </rule>
-    <rule>
-        <key>RegexpSingleline</key>
-        <name>Regexp Singleline</name>
-        <description>Regexp Singleline</description>
-        <configKey>Checker/RegexpSingleline</configKey>
-        <category name="coding"/>
-        <param key="format" type="STRING">
-            <defaultValue>^\s*for \(.*?([^ ]:|:[^ ])</defaultValue>
-            <description>Format property with value of '^\s*for \(.*?([^ ]:|:[^ ])'</description>
-        </param>
-        <param key="message" type="STRING">
-            <defaultValue>Space needed around ':' character.</defaultValue>
-            <description>Message property with value of 'Space needed around ':' character.'</description>
-        </param>
-    </rule>
-    <rule>
         <key>ConstantName</key>
         <name>Constant Name</name>
-        <description>Constant Name</description>
-        <configKey>Checker/TreeWalker/ConstantName</configKey>
-        <category name="coding"/>
+        <htmlDescription>Constant Name</htmlDescription>
+        <internalKey>Checker/TreeWalker/ConstantName</internalKey>
     </rule>
     <rule>
         <key>LocalFinalVariableName</key>
         <name>Local Final Variable Name</name>
-        <description>Local Final Variable Name</description>
-        <configKey>Checker/TreeWalker/LocalFinalVariableName</configKey>
-        <category name="coding"/>
+        <htmlDescription>Local Final Variable Name</htmlDescription>
+        <internalKey>Checker/TreeWalker/LocalFinalVariableName</internalKey>
     </rule>
     <rule>
         <key>LocalVariableName</key>
         <name>Local Variable Name</name>
-        <description>Local Variable Name</description>
-        <configKey>Checker/TreeWalker/LocalVariableName</configKey>
-        <category name="coding"/>
+        <htmlDescription>Local Variable Name</htmlDescription>
+        <internalKey>Checker/TreeWalker/LocalVariableName</internalKey>
     </rule>
     <rule>
         <key>CatchParameterName</key>
         <name>Catch Parameter Name</name>
-        <description>Catch Parameter Name</description>
-        <configKey>Checker/TreeWalker/CatchParameterName</configKey>
-        <category name="coding"/>
+        <htmlDescription>Catch Parameter Name</htmlDescription>
+        <internalKey>Checker/TreeWalker/CatchParameterName</internalKey>
     </rule>
     <rule>
         <key>MemberName</key>
         <name>Member Name</name>
-        <description>Member Name</description>
-        <configKey>Checker/TreeWalker/MemberName</configKey>
-        <category name="coding"/>
+        <htmlDescription>Member Name</htmlDescription>
+        <internalKey>Checker/TreeWalker/MemberName</internalKey>
     </rule>
     <rule>
         <key>MethodName</key>
         <name>Method Name</name>
-        <description>Method Name</description>
-        <configKey>Checker/TreeWalker/MethodName</configKey>
-        <category name="coding"/>
+        <htmlDescription>Method Name</htmlDescription>
+        <internalKey>Checker/TreeWalker/MethodName</internalKey>
     </rule>
     <rule>
         <key>PackageName</key>
         <name>Package Name</name>
-        <description>Package Name</description>
-        <configKey>Checker/TreeWalker/PackageName</configKey>
-        <category name="coding"/>
+        <htmlDescription>Package Name</htmlDescription>
+        <internalKey>Checker/TreeWalker/PackageName</internalKey>
     </rule>
     <rule>
         <key>ParameterName</key>
         <name>Parameter Name</name>
-        <description>Parameter Name</description>
-        <configKey>Checker/TreeWalker/ParameterName</configKey>
-        <category name="coding"/>
+        <htmlDescription>Parameter Name</htmlDescription>
+        <internalKey>Checker/TreeWalker/ParameterName</internalKey>
     </rule>
     <rule>
         <key>StaticVariableName</key>
         <name>Static Variable Name</name>
-        <description>Static Variable Name</description>
-        <configKey>Checker/TreeWalker/StaticVariableName</configKey>
-        <category name="coding"/>
+        <htmlDescription>Static Variable Name</htmlDescription>
+        <internalKey>Checker/TreeWalker/StaticVariableName</internalKey>
     </rule>
     <rule>
         <key>TypeName</key>
         <name>Type Name</name>
-        <description>Type Name</description>
-        <configKey>Checker/TreeWalker/TypeName</configKey>
-        <category name="coding"/>
+        <htmlDescription>Type Name</htmlDescription>
+        <internalKey>Checker/TreeWalker/TypeName</internalKey>
     </rule>
     <rule>
         <key>ClassTypeParameterName</key>
         <name>Class Type Parameter Name</name>
-        <description>Class Type Parameter Name</description>
-        <configKey>Checker/TreeWalker/ClassTypeParameterName</configKey>
-        <category name="coding"/>
-        <param key="format" type="STRING">
+        <htmlDescription>Class Type Parameter Name</htmlDescription>
+        <internalKey>Checker/TreeWalker/ClassTypeParameterName</internalKey>
+        <param key="format" name="Format">
             <defaultValue>^[A-Z]*$</defaultValue>
             <description>Format property with value of '^[A-Z]*$'</description>
         </param>
@@ -166,10 +121,9 @@
     <rule>
         <key>MethodTypeParameterName</key>
         <name>Method Type Parameter Name</name>
-        <description>Method Type Parameter Name</description>
-        <configKey>Checker/TreeWalker/MethodTypeParameterName</configKey>
-        <category name="coding"/>
-        <param key="format" type="STRING">
+        <htmlDescription>Method Type Parameter Name</htmlDescription>
+        <internalKey>Checker/TreeWalker/MethodTypeParameterName</internalKey>
+        <param key="format" name="Format">
             <defaultValue>^[A-Z]*$</defaultValue>
             <description>Format property with value of '^[A-Z]*$'</description>
         </param>
@@ -177,10 +131,9 @@
     <rule>
         <key>InterfaceTypeParameterName</key>
         <name>Interface Type Parameter Name</name>
-        <description>Interface Type Parameter Name</description>
-        <configKey>Checker/TreeWalker/InterfaceTypeParameterName</configKey>
-        <category name="coding"/>
-        <param key="format" type="STRING">
+        <htmlDescription>Interface Type Parameter Name</htmlDescription>
+        <internalKey>Checker/TreeWalker/InterfaceTypeParameterName</internalKey>
+        <param key="format" name="Format">
             <defaultValue>^[A-Z]*$</defaultValue>
             <description>Format property with value of '^[A-Z]*$'</description>
         </param>
@@ -188,42 +141,37 @@
     <rule>
         <key>AvoidStarImport</key>
         <name>Avoid Star Import</name>
-        <description>Avoid Star Import</description>
-        <configKey>Checker/TreeWalker/AvoidStarImport</configKey>
-        <category name="coding"/>
+        <htmlDescription>Avoid Star Import</htmlDescription>
+        <internalKey>Checker/TreeWalker/AvoidStarImport</internalKey>
     </rule>
     <rule>
         <key>IllegalImport</key>
         <name>Illegal Import</name>
-        <description>Illegal Import</description>
-        <configKey>Checker/TreeWalker/IllegalImport</configKey>
-        <category name="coding"/>
+        <htmlDescription>Illegal Import</htmlDescription>
+        <internalKey>Checker/TreeWalker/IllegalImport</internalKey>
     </rule>
     <rule>
         <key>RedundantImport</key>
         <name>Redundant Import</name>
-        <description>Redundant Import</description>
-        <configKey>Checker/TreeWalker/RedundantImport</configKey>
-        <category name="coding"/>
+        <htmlDescription>Redundant Import</htmlDescription>
+        <internalKey>Checker/TreeWalker/RedundantImport</internalKey>
     </rule>
     <rule>
         <key>UnusedImports</key>
         <name>Unused Imports</name>
-        <description>Unused Imports</description>
-        <configKey>Checker/TreeWalker/UnusedImports</configKey>
-        <category name="coding"/>
+        <htmlDescription>Unused Imports</htmlDescription>
+        <internalKey>Checker/TreeWalker/UnusedImports</internalKey>
     </rule>
     <rule>
         <key>LineLength</key>
         <name>Line Length</name>
-        <description>Line Length</description>
-        <configKey>Checker/TreeWalker/LineLength</configKey>
-        <category name="coding"/>
-        <param key="max" type="STRING">
+        <htmlDescription>Line Length</htmlDescription>
+        <internalKey>Checker/TreeWalker/LineLength</internalKey>
+        <param key="max" name="Max">
             <defaultValue>150</defaultValue>
             <description>Max property with value of '150'</description>
         </param>
-        <param key="ignorePattern" type="STRING">
+        <param key="ignorePattern" name="Ignore Pattern">
             <defaultValue>^package.*|^import.*|a href|href|http://|https://|ftp://</defaultValue>
             <description>Ignore Pattern property with value of '^package.*|^import.*|a href|href|http://|https://|ftp://'</description>
         </param>
@@ -231,10 +179,9 @@
     <rule>
         <key>MethodLength</key>
         <name>Method Length</name>
-        <description>Method Length</description>
-        <configKey>Checker/TreeWalker/MethodLength</configKey>
-        <category name="coding"/>
-        <param key="max" type="STRING">
+        <htmlDescription>Method Length</htmlDescription>
+        <internalKey>Checker/TreeWalker/MethodLength</internalKey>
+        <param key="max" name="Max">
             <defaultValue>200</defaultValue>
             <description>Max property with value of '200'</description>
         </param>
@@ -242,158 +189,137 @@
     <rule>
         <key>EmptyForIteratorPad</key>
         <name>Empty For Iterator Pad</name>
-        <description>Empty For Iterator Pad</description>
-        <configKey>Checker/TreeWalker/EmptyForIteratorPad</configKey>
-        <category name="coding"/>
+        <htmlDescription>Empty For Iterator Pad</htmlDescription>
+        <internalKey>Checker/TreeWalker/EmptyForIteratorPad</internalKey>
     </rule>
     <rule>
         <key>GenericWhitespace</key>
         <name>Generic Whitespace</name>
-        <description>Generic Whitespace</description>
-        <configKey>Checker/TreeWalker/GenericWhitespace</configKey>
-        <category name="coding"/>
+        <htmlDescription>Generic Whitespace</htmlDescription>
+        <internalKey>Checker/TreeWalker/GenericWhitespace</internalKey>
     </rule>
     <rule>
         <key>MethodParamPad</key>
         <name>Method Param Pad</name>
-        <description>Method Param Pad</description>
-        <configKey>Checker/TreeWalker/MethodParamPad</configKey>
-        <category name="coding"/>
+        <htmlDescription>Method Param Pad</htmlDescription>
+        <internalKey>Checker/TreeWalker/MethodParamPad</internalKey>
     </rule>
     <rule>
         <key>NoWhitespaceAfter</key>
         <name>No Whitespace After</name>
-        <description>No Whitespace After</description>
-        <configKey>Checker/TreeWalker/NoWhitespaceAfter</configKey>
-        <category name="coding"/>
+        <htmlDescription>No Whitespace After</htmlDescription>
+        <internalKey>Checker/TreeWalker/NoWhitespaceAfter</internalKey>
     </rule>
     <rule>
         <key>NoWhitespaceBefore</key>
         <name>No Whitespace Before</name>
-        <description>No Whitespace Before</description>
-        <configKey>Checker/TreeWalker/NoWhitespaceBefore</configKey>
-        <category name="coding"/>
+        <htmlDescription>No Whitespace Before</htmlDescription>
+        <internalKey>Checker/TreeWalker/NoWhitespaceBefore</internalKey>
     </rule>
     <rule>
         <key>ParenPad</key>
         <name>Paren Pad</name>
-        <description>Paren Pad</description>
-        <configKey>Checker/TreeWalker/ParenPad</configKey>
-        <category name="coding"/>
+        <htmlDescription>Paren Pad</htmlDescription>
+        <internalKey>Checker/TreeWalker/ParenPad</internalKey>
     </rule>
     <rule>
         <key>TypecastParenPad</key>
         <name>Typecast Paren Pad</name>
-        <description>Typecast Paren Pad</description>
-        <configKey>Checker/TreeWalker/TypecastParenPad</configKey>
-        <category name="coding"/>
+        <htmlDescription>Typecast Paren Pad</htmlDescription>
+        <internalKey>Checker/TreeWalker/TypecastParenPad</internalKey>
     </rule>
     <rule>
         <key>WhitespaceAfter</key>
         <name>Whitespace After</name>
-        <description>Whitespace After</description>
-        <configKey>Checker/TreeWalker/WhitespaceAfter</configKey>
-        <category name="coding"/>
+        <htmlDescription>Whitespace After</htmlDescription>
+        <internalKey>Checker/TreeWalker/WhitespaceAfter</internalKey>
     </rule>
     <rule>
         <key>WhitespaceAround</key>
         <name>Whitespace Around</name>
-        <description>Whitespace Around</description>
-        <configKey>Checker/TreeWalker/WhitespaceAround</configKey>
-        <category name="coding"/>
+        <htmlDescription>Whitespace Around</htmlDescription>
+        <internalKey>Checker/TreeWalker/WhitespaceAround</internalKey>
     </rule>
     <rule>
         <key>ModifierOrder</key>
         <name>Modifier Order</name>
-        <description>Modifier Order</description>
-        <configKey>Checker/TreeWalker/ModifierOrder</configKey>
-        <category name="coding"/>
+        <htmlDescription>Modifier Order</htmlDescription>
+        <internalKey>Checker/TreeWalker/ModifierOrder</internalKey>
     </rule>
     <rule>
         <key>RedundantModifier</key>
         <name>Redundant Modifier</name>
-        <description>Redundant Modifier</description>
-        <configKey>Checker/TreeWalker/RedundantModifier</configKey>
-        <category name="coding"/>
+        <htmlDescription>Redundant Modifier</htmlDescription>
+        <internalKey>Checker/TreeWalker/RedundantModifier</internalKey>
     </rule>
     <rule>
         <key>AvoidNestedBlocks</key>
         <name>Avoid Nested Blocks</name>
-        <description>Avoid Nested Blocks</description>
-        <configKey>Checker/TreeWalker/AvoidNestedBlocks</configKey>
-        <category name="coding"/>
+        <htmlDescription>Avoid Nested Blocks</htmlDescription>
+        <internalKey>Checker/TreeWalker/AvoidNestedBlocks</internalKey>
     </rule>
     <rule>
         <key>EmptyBlock</key>
         <name>Empty Block</name>
-        <description>Empty Block</description>
-        <configKey>Checker/TreeWalker/EmptyBlock</configKey>
-        <category name="coding"/>
+        <htmlDescription>Empty Block</htmlDescription>
+        <internalKey>Checker/TreeWalker/EmptyBlock</internalKey>
     </rule>
     <rule>
         <key>LeftCurly</key>
         <name>Left Curly</name>
-        <description>Left Curly</description>
-        <configKey>Checker/TreeWalker/LeftCurly</configKey>
-        <category name="coding"/>
+        <htmlDescription>Left Curly</htmlDescription>
+        <internalKey>Checker/TreeWalker/LeftCurly</internalKey>
     </rule>
     <rule>
         <key>NeedBraces</key>
         <name>Need Braces</name>
-        <description>Need Braces</description>
-        <configKey>Checker/TreeWalker/NeedBraces</configKey>
-        <category name="coding"/>
+        <htmlDescription>Need Braces</htmlDescription>
+        <internalKey>Checker/TreeWalker/NeedBraces</internalKey>
     </rule>
     <rule>
         <key>RightCurly</key>
         <name>Right Curly</name>
-        <description>Right Curly</description>
-        <configKey>Checker/TreeWalker/RightCurly</configKey>
-        <category name="coding"/>
+        <htmlDescription>Right Curly</htmlDescription>
+        <internalKey>Checker/TreeWalker/RightCurly</internalKey>
     </rule>
     <rule>
         <key>EmptyStatement</key>
         <name>Empty Statement</name>
-        <description>Empty Statement</description>
-        <configKey>Checker/TreeWalker/EmptyStatement</configKey>
-        <category name="coding"/>
+        <htmlDescription>Empty Statement</htmlDescription>
+        <internalKey>Checker/TreeWalker/EmptyStatement</internalKey>
     </rule>
     <rule>
         <key>EqualsAvoidNull</key>
         <name>Equals Avoid Null</name>
-        <description>Equals Avoid Null</description>
-        <configKey>Checker/TreeWalker/EqualsAvoidNull</configKey>
-        <category name="coding"/>
+        <htmlDescription>Equals Avoid Null</htmlDescription>
+        <internalKey>Checker/TreeWalker/EqualsAvoidNull</internalKey>
     </rule>
     <rule>
         <key>EqualsHashCode</key>
         <name>Equals Hash Code</name>
-        <description>Equals Hash Code</description>
-        <configKey>Checker/TreeWalker/EqualsHashCode</configKey>
-        <category name="coding"/>
+        <htmlDescription>Equals Hash Code</htmlDescription>
+        <internalKey>Checker/TreeWalker/EqualsHashCode</internalKey>
     </rule>
     <rule>
         <key>IllegalInstantiation</key>
         <name>Illegal Instantiation</name>
-        <description>Illegal Instantiation</description>
-        <configKey>Checker/TreeWalker/IllegalInstantiation</configKey>
-        <category name="coding"/>
+        <htmlDescription>Illegal Instantiation</htmlDescription>
+        <internalKey>Checker/TreeWalker/IllegalInstantiation</internalKey>
     </rule>
     <rule>
         <key>MagicNumber</key>
         <name>Magic Number</name>
-        <description>Magic Number</description>
-        <configKey>Checker/TreeWalker/MagicNumber</configKey>
-        <category name="coding"/>
-        <param key="ignoreHashCodeMethod" type="STRING">
+        <htmlDescription>Magic Number</htmlDescription>
+        <internalKey>Checker/TreeWalker/MagicNumber</internalKey>
+        <param key="ignoreHashCodeMethod" name="Ignore Hash Code Method">
             <defaultValue>true</defaultValue>
             <description>Ignore Hash Code Method property with value of 'true'</description>
         </param>
-        <param key="ignoreAnnotation" type="STRING">
+        <param key="ignoreAnnotation" name="Ignore Annotation">
             <defaultValue>true</defaultValue>
             <description>Ignore Annotation property with value of 'true'</description>
         </param>
-        <param key="ignoreFieldDeclaration" type="STRING">
+        <param key="ignoreFieldDeclaration" name="Ignore Field Declaration">
             <defaultValue>true</defaultValue>
             <description>Ignore Field Declaration property with value of 'true'</description>
         </param>
@@ -401,52 +327,45 @@
     <rule>
         <key>MissingSwitchDefault</key>
         <name>Missing Switch Default</name>
-        <description>Missing Switch Default</description>
-        <configKey>Checker/TreeWalker/MissingSwitchDefault</configKey>
-        <category name="coding"/>
+        <htmlDescription>Missing Switch Default</htmlDescription>
+        <internalKey>Checker/TreeWalker/MissingSwitchDefault</internalKey>
     </rule>
     <rule>
         <key>DefaultComesLast</key>
         <name>Default Comes Last</name>
-        <description>Default Comes Last</description>
-        <configKey>Checker/TreeWalker/DefaultComesLast</configKey>
-        <category name="coding"/>
+        <htmlDescription>Default Comes Last</htmlDescription>
+        <internalKey>Checker/TreeWalker/DefaultComesLast</internalKey>
     </rule>
     <rule>
         <key>SimplifyBooleanExpression</key>
         <name>Simplify Boolean Expression</name>
-        <description>Simplify Boolean Expression</description>
-        <configKey>Checker/TreeWalker/SimplifyBooleanExpression</configKey>
-        <category name="coding"/>
+        <htmlDescription>Simplify Boolean Expression</htmlDescription>
+        <internalKey>Checker/TreeWalker/SimplifyBooleanExpression</internalKey>
     </rule>
     <rule>
         <key>SimplifyBooleanReturn</key>
         <name>Simplify Boolean Return</name>
-        <description>Simplify Boolean Return</description>
-        <configKey>Checker/TreeWalker/SimplifyBooleanReturn</configKey>
-        <category name="coding"/>
+        <htmlDescription>Simplify Boolean Return</htmlDescription>
+        <internalKey>Checker/TreeWalker/SimplifyBooleanReturn</internalKey>
     </rule>
     <rule>
         <key>FinalClass</key>
         <name>Final Class</name>
-        <description>Final Class</description>
-        <configKey>Checker/TreeWalker/FinalClass</configKey>
-        <category name="coding"/>
+        <htmlDescription>Final Class</htmlDescription>
+        <internalKey>Checker/TreeWalker/FinalClass</internalKey>
     </rule>
     <rule>
         <key>InterfaceIsType</key>
         <name>Interface Is Type</name>
-        <description>Interface Is Type</description>
-        <configKey>Checker/TreeWalker/InterfaceIsType</configKey>
-        <category name="coding"/>
+        <htmlDescription>Interface Is Type</htmlDescription>
+        <internalKey>Checker/TreeWalker/InterfaceIsType</internalKey>
     </rule>
     <rule>
         <key>VisibilityModifier</key>
         <name>Visibility Modifier</name>
-        <description>Visibility Modifier</description>
-        <configKey>Checker/TreeWalker/VisibilityModifier</configKey>
-        <category name="coding"/>
-        <param key="protectedAllowed" type="STRING">
+        <htmlDescription>Visibility Modifier</htmlDescription>
+        <internalKey>Checker/TreeWalker/VisibilityModifier</internalKey>
+        <param key="protectedAllowed" name="Protected Allowed">
             <defaultValue>true</defaultValue>
             <description>Protected Allowed property with value of 'true'</description>
         </param>
@@ -454,25 +373,23 @@
     <rule>
         <key>OuterTypeFilename</key>
         <name>Outer Type Filename</name>
-        <description>Outer Type Filename</description>
-        <configKey>Checker/TreeWalker/OuterTypeFilename</configKey>
-        <category name="coding"/>
+        <htmlDescription>Outer Type Filename</htmlDescription>
+        <internalKey>Checker/TreeWalker/OuterTypeFilename</internalKey>
     </rule>
     <rule>
         <key>IllegalTokenText</key>
         <name>Illegal Token Text</name>
-        <description>Illegal Token Text</description>
-        <configKey>Checker/TreeWalker/IllegalTokenText</configKey>
-        <category name="coding"/>
-        <param key="tokens" type="STRING">
+        <htmlDescription>Illegal Token Text</htmlDescription>
+        <internalKey>Checker/TreeWalker/IllegalTokenText</internalKey>
+        <param key="tokens" name="Tokens">
             <defaultValue>STRING_LITERAL, CHAR_LITERAL</defaultValue>
             <description>Tokens property with value of 'STRING_LITERAL, CHAR_LITERAL'</description>
         </param>
-        <param key="format" type="STRING">
+        <param key="format" name="Format">
             <defaultValue>\\u00(08|09|0(a|A)|0(c|C)|0(d|D)|22|27|5(C|c))|\\(0(10|11|12|14|15|42|47)|134)</defaultValue>
             <description>Format property with value of '\\u00(08|09|0(a|A)|0(c|C)|0(d|D)|22|27|5(C|c))|\\(0(10|11|12|14|15|42|47)|134)'</description>
         </param>
-        <param key="message" type="STRING">
+        <param key="message" name="Message">
             <defaultValue>Avoid using corresponding octal or Unicode escape.</defaultValue>
             <description>Message property with value of 'Avoid using corresponding octal or Unicode escape.'</description>
         </param>
@@ -480,63 +397,55 @@
     <rule>
         <key>OneTopLevelClass</key>
         <name>One Top Level Class</name>
-        <description>One Top Level Class</description>
-        <configKey>Checker/TreeWalker/OneTopLevelClass</configKey>
-        <category name="coding"/>
+        <htmlDescription>One Top Level Class</htmlDescription>
+        <internalKey>Checker/TreeWalker/OneTopLevelClass</internalKey>
     </rule>
     <rule>
         <key>NoLineWrap</key>
         <name>No Line Wrap</name>
-        <description>No Line Wrap</description>
-        <configKey>Checker/TreeWalker/NoLineWrap</configKey>
-        <category name="coding"/>
+        <htmlDescription>No Line Wrap</htmlDescription>
+        <internalKey>Checker/TreeWalker/NoLineWrap</internalKey>
     </rule>
     <rule>
         <key>OneStatementPerLine</key>
         <name>One Statement Per Line</name>
-        <description>One Statement Per Line</description>
-        <configKey>Checker/TreeWalker/OneStatementPerLine</configKey>
-        <category name="coding"/>
+        <htmlDescription>One Statement Per Line</htmlDescription>
+        <internalKey>Checker/TreeWalker/OneStatementPerLine</internalKey>
     </rule>
     <rule>
         <key>MultipleVariableDeclarations</key>
         <name>Multiple Variable Declarations</name>
-        <description>Multiple Variable Declarations</description>
-        <configKey>Checker/TreeWalker/MultipleVariableDeclarations</configKey>
-        <category name="coding"/>
+        <htmlDescription>Multiple Variable Declarations</htmlDescription>
+        <internalKey>Checker/TreeWalker/MultipleVariableDeclarations</internalKey>
     </rule>
     <rule>
         <key>ArrayTypeStyle</key>
         <name>Array Type Style</name>
-        <description>Array Type Style</description>
-        <configKey>Checker/TreeWalker/ArrayTypeStyle</configKey>
-        <category name="coding"/>
+        <htmlDescription>Array Type Style</htmlDescription>
+        <internalKey>Checker/TreeWalker/ArrayTypeStyle</internalKey>
     </rule>
     <rule>
         <key>FallThrough</key>
         <name>Fall Through</name>
-        <description>Fall Through</description>
-        <configKey>Checker/TreeWalker/FallThrough</configKey>
-        <category name="coding"/>
+        <htmlDescription>Fall Through</htmlDescription>
+        <internalKey>Checker/TreeWalker/FallThrough</internalKey>
     </rule>
     <rule>
         <key>UpperEll</key>
         <name>Upper Ell</name>
-        <description>Upper Ell</description>
-        <configKey>Checker/TreeWalker/UpperEll</configKey>
-        <category name="coding"/>
+        <htmlDescription>Upper Ell</htmlDescription>
+        <internalKey>Checker/TreeWalker/UpperEll</internalKey>
     </rule>
     <rule>
         <key>EmptyLineSeparator</key>
         <name>Empty Line Separator</name>
-        <description>Empty Line Separator</description>
-        <configKey>Checker/TreeWalker/EmptyLineSeparator</configKey>
-        <category name="coding"/>
-        <param key="allowNoEmptyLineBetweenFields" type="STRING">
+        <htmlDescription>Empty Line Separator</htmlDescription>
+        <internalKey>Checker/TreeWalker/EmptyLineSeparator</internalKey>
+        <param key="allowNoEmptyLineBetweenFields" name="Allow No Empty Line Between Fields">
             <defaultValue>true</defaultValue>
             <description>Allow No Empty Line Between Fields property with value of 'true'</description>
         </param>
-        <param key="tokens" type="STRING">
+        <param key="tokens" name="Tokens">
             <defaultValue>IMPORT, CLASS_DEF, INTERFACE_DEF, ENUM_DEF, STATIC_INIT, INSTANCE_INIT, METHOD_DEF, CTOR_DEF, VARIABLE_DEF</defaultValue>
             <description>Tokens property with value of 'IMPORT, CLASS_DEF, INTERFACE_DEF, ENUM_DEF, STATIC_INIT, INSTANCE_INIT, METHOD_DEF, CTOR_DEF, VARIABLE_DEF'</description>
         </param>
@@ -544,51 +453,33 @@
     <rule>
         <key>SeparatorWrap</key>
         <name>Separator Wrap</name>
-        <description>Separator Wrap</description>
-        <configKey>Checker/TreeWalker/SeparatorWrap</configKey>
-        <category name="coding"/>
-        <param key="tokens" type="STRING">
+        <htmlDescription>Separator Wrap</htmlDescription>
+        <internalKey>Checker/TreeWalker/SeparatorWrap</internalKey>
+        <param key="tokens" name="Tokens">
             <defaultValue>DOT</defaultValue>
             <description>Tokens property with value of 'DOT'</description>
         </param>
-        <param key="option" type="STRING">
+        <param key="option" name="Option">
             <defaultValue>nl</defaultValue>
             <description>Option property with value of 'nl'</description>
         </param>
     </rule>
     <rule>
-        <key>SeparatorWrap</key>
-        <name>Separator Wrap</name>
-        <description>Separator Wrap</description>
-        <configKey>Checker/TreeWalker/SeparatorWrap</configKey>
-        <category name="coding"/>
-        <param key="tokens" type="STRING">
-            <defaultValue>COMMA</defaultValue>
-            <description>Tokens property with value of 'COMMA'</description>
-        </param>
-        <param key="option" type="STRING">
-            <defaultValue>EOL</defaultValue>
-            <description>Option property with value of 'EOL'</description>
-        </param>
-    </rule>
-    <rule>
         <key>NoFinalizer</key>
         <name>No Finalizer</name>
-        <description>No Finalizer</description>
-        <configKey>Checker/TreeWalker/NoFinalizer</configKey>
-        <category name="coding"/>
+        <htmlDescription>No Finalizer</htmlDescription>
+        <internalKey>Checker/TreeWalker/NoFinalizer</internalKey>
     </rule>
     <rule>
         <key>AbbreviationAsWordInName</key>
         <name>Abbreviation As Word In Name</name>
-        <description>Abbreviation As Word In Name</description>
-        <configKey>Checker/TreeWalker/AbbreviationAsWordInName</configKey>
-        <category name="coding"/>
-        <param key="ignoreFinal" type="STRING">
+        <htmlDescription>Abbreviation As Word In Name</htmlDescription>
+        <internalKey>Checker/TreeWalker/AbbreviationAsWordInName</internalKey>
+        <param key="ignoreFinal" name="Ignore Final">
             <defaultValue>false</defaultValue>
             <description>Ignore Final property with value of 'false'</description>
         </param>
-        <param key="allowedAbbreviationLength" type="STRING">
+        <param key="allowedAbbreviationLength" name="Allowed Abbreviation Length">
             <defaultValue>1</defaultValue>
             <description>Allowed Abbreviation Length property with value of '1'</description>
         </param>
@@ -596,36 +487,19 @@
     <rule>
         <key>AnnotationLocation</key>
         <name>Annotation Location</name>
-        <description>Annotation Location</description>
-        <configKey>Checker/TreeWalker/AnnotationLocation</configKey>
-        <category name="coding"/>
-        <param key="tokens" type="STRING">
+        <htmlDescription>Annotation Location</htmlDescription>
+        <internalKey>Checker/TreeWalker/AnnotationLocation</internalKey>
+        <param key="tokens" name="Tokens">
             <defaultValue>CLASS_DEF, INTERFACE_DEF, ENUM_DEF, METHOD_DEF, CTOR_DEF</defaultValue>
             <description>Tokens property with value of 'CLASS_DEF, INTERFACE_DEF, ENUM_DEF, METHOD_DEF, CTOR_DEF'</description>
         </param>
     </rule>
     <rule>
-        <key>AnnotationLocation</key>
-        <name>Annotation Location</name>
-        <description>Annotation Location</description>
-        <configKey>Checker/TreeWalker/AnnotationLocation</configKey>
-        <category name="coding"/>
-        <param key="tokens" type="STRING">
-            <defaultValue>VARIABLE_DEF</defaultValue>
-            <description>Tokens property with value of 'VARIABLE_DEF'</description>
-        </param>
-        <param key="allowSamelineMultipleAnnotations" type="STRING">
-            <defaultValue>true</defaultValue>
-            <description>Allow Sameline Multiple Annotations property with value of 'true'</description>
-        </param>
-    </rule>
-    <rule>
         <key>EmptyCatchBlock</key>
         <name>Empty Catch Block</name>
-        <description>Empty Catch Block</description>
-        <configKey>Checker/TreeWalker/EmptyCatchBlock</configKey>
-        <category name="coding"/>
-        <param key="exceptionVariableName" type="STRING">
+        <htmlDescription>Empty Catch Block</htmlDescription>
+        <internalKey>Checker/TreeWalker/EmptyCatchBlock</internalKey>
+        <param key="exceptionVariableName" name="Exception Variable Name">
             <defaultValue>expected|ignored</defaultValue>
             <description>Exception Variable Name property with value of 'expected|ignored'</description>
         </param>
@@ -633,56 +507,49 @@
     <rule>
         <key>CommentsIndentation</key>
         <name>Comments Indentation</name>
-        <description>Comments Indentation</description>
-        <configKey>Checker/TreeWalker/CommentsIndentation</configKey>
-        <category name="coding"/>
+        <htmlDescription>Comments Indentation</htmlDescription>
+        <internalKey>Checker/TreeWalker/CommentsIndentation</internalKey>
     </rule>
     <rule>
         <key>DeclarationOrder</key>
         <name>Declaration Order</name>
-        <description>Declaration Order</description>
-        <configKey>Checker/TreeWalker/DeclarationOrder</configKey>
-        <category name="coding"/>
+        <htmlDescription>Declaration Order</htmlDescription>
+        <internalKey>Checker/TreeWalker/DeclarationOrder</internalKey>
     </rule>
     <rule>
         <key>ExplicitInitialization</key>
         <name>Explicit Initialization</name>
-        <description>Explicit Initialization</description>
-        <configKey>Checker/TreeWalker/ExplicitInitialization</configKey>
-        <category name="coding"/>
+        <htmlDescription>Explicit Initialization</htmlDescription>
+        <internalKey>Checker/TreeWalker/ExplicitInitialization</internalKey>
     </rule>
     <rule>
         <key>PackageDeclaration</key>
         <name>Package Declaration</name>
-        <description>Package Declaration</description>
-        <configKey>Checker/TreeWalker/PackageDeclaration</configKey>
-        <category name="coding"/>
+        <htmlDescription>Package Declaration</htmlDescription>
+        <internalKey>Checker/TreeWalker/PackageDeclaration</internalKey>
     </rule>
     <rule>
         <key>SuppressWarningsHolder</key>
         <name>Suppress Warnings Holder</name>
-        <description>Suppress Warnings Holder</description>
-        <configKey>Checker/TreeWalker/SuppressWarningsHolder</configKey>
-        <category name="coding"/>
+        <htmlDescription>Suppress Warnings Holder</htmlDescription>
+        <internalKey>Checker/TreeWalker/SuppressWarningsHolder</internalKey>
     </rule>
     <rule>
         <key>es.startuphero.checkstyle.checks.LoggerOrderCheck</key>
         <name>Logger Order Check</name>
-        <description>Logger Order Check</description>
-        <configKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.LoggerOrderCheck</configKey>
-        <category name="coding"/>
+        <htmlDescription>Logger Order Check</htmlDescription>
+        <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.LoggerOrderCheck</internalKey>
     </rule>
     <rule>
         <key>es.startuphero.checkstyle.checks.RedundantMultipleAnnotationCheck</key>
         <name>Redundant Multiple Annotation Check</name>
-        <description>Redundant Multiple Annotation Check</description>
-        <configKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.RedundantMultipleAnnotationCheck</configKey>
-        <category name="coding"/>
-        <param key="tokens" type="STRING">
+        <htmlDescription>Redundant Multiple Annotation Check</htmlDescription>
+        <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.RedundantMultipleAnnotationCheck</internalKey>
+        <param key="tokens" name="Tokens">
             <defaultValue>VARIABLE_DEF</defaultValue>
             <description>Tokens property with value of 'VARIABLE_DEF'</description>
         </param>
-        <param key="redundantAnnotationPairs" type="STRING">
+        <param key="redundantAnnotationPairs" name="Redundant Annotation Pairs">
             <defaultValue>javax.persistence.Id:javax.persistence.Column</defaultValue>
             <description>Redundant Annotation Pairs property with value of 'javax.persistence.Id:javax.persistence.Column'</description>
         </param>
@@ -690,10 +557,9 @@
     <rule>
         <key>es.startuphero.checkstyle.checks.BlockedAnnotationKeyCheck</key>
         <name>Blocked Annotation Key Check</name>
-        <description>Blocked Annotation Key Check</description>
-        <configKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.BlockedAnnotationKeyCheck</configKey>
-        <category name="coding"/>
-        <param key="annotationBlockedKeyMap" type="STRING">
+        <htmlDescription>Blocked Annotation Key Check</htmlDescription>
+        <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.BlockedAnnotationKeyCheck</internalKey>
+        <param key="annotationBlockedKeyMap" name="Annotation Blocked Key Map">
             <defaultValue>javax.persistence.Column:unique</defaultValue>
             <description>Annotation Blocked Key Map property with value of 'javax.persistence.Column:unique'</description>
         </param>
@@ -701,18 +567,17 @@
     <rule>
         <key>es.startuphero.checkstyle.checks.EntityEqualsHashCodeCheck</key>
         <name>Entity Equals Hash Code Check</name>
-        <description>Entity Equals Hash Code Check</description>
-        <configKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.EntityEqualsHashCodeCheck</configKey>
-        <category name="coding"/>
-        <param key="entityAnnotation" type="STRING">
+        <htmlDescription>Entity Equals Hash Code Check</htmlDescription>
+        <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.EntityEqualsHashCodeCheck</internalKey>
+        <param key="entityAnnotation" name="Entity Annotation">
             <defaultValue>javax.persistence.Entity</defaultValue>
             <description>Entity Annotation property with value of 'javax.persistence.Entity'</description>
         </param>
-        <param key="abstractEntityAnnotation" type="STRING">
+        <param key="abstractEntityAnnotation" name="Abstract Entity Annotation">
             <defaultValue>javax.persistence.MappedSuperclass</defaultValue>
             <description>Abstract Entity Annotation property with value of 'javax.persistence.MappedSuperclass'</description>
         </param>
-        <param key="idAnnotation" type="STRING">
+        <param key="idAnnotation" name="Id Annotation">
             <defaultValue>javax.persistence.Id</defaultValue>
             <description>Id Annotation property with value of 'javax.persistence.Id'</description>
         </param>
@@ -720,14 +585,13 @@
     <rule>
         <key>es.startuphero.checkstyle.checks.EntityToStringCheck</key>
         <name>Entity To String Check</name>
-        <description>Entity To String Check</description>
-        <configKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.EntityToStringCheck</configKey>
-        <category name="coding"/>
-        <param key="entityAnnotation" type="STRING">
+        <htmlDescription>Entity To String Check</htmlDescription>
+        <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.EntityToStringCheck</internalKey>
+        <param key="entityAnnotation" name="Entity Annotation">
             <defaultValue>javax.persistence.Entity</defaultValue>
             <description>Entity Annotation property with value of 'javax.persistence.Entity'</description>
         </param>
-        <param key="abstractEntityAnnotation" type="STRING">
+        <param key="abstractEntityAnnotation" name="Abstract Entity Annotation">
             <defaultValue>javax.persistence.MappedSuperclass</defaultValue>
             <description>Abstract Entity Annotation property with value of 'javax.persistence.MappedSuperclass'</description>
         </param>
@@ -735,14 +599,13 @@
     <rule>
         <key>es.startuphero.checkstyle.checks.EntityGettersSettersCheck</key>
         <name>Entity Getters Setters Check</name>
-        <description>Entity Getters Setters Check</description>
-        <configKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.EntityGettersSettersCheck</configKey>
-        <category name="coding"/>
-        <param key="entityAnnotation" type="STRING">
+        <htmlDescription>Entity Getters Setters Check</htmlDescription>
+        <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.EntityGettersSettersCheck</internalKey>
+        <param key="entityAnnotation" name="Entity Annotation">
             <defaultValue>javax.persistence.Entity</defaultValue>
             <description>Entity Annotation property with value of 'javax.persistence.Entity'</description>
         </param>
-        <param key="abstractEntityAnnotation" type="STRING">
+        <param key="abstractEntityAnnotation" name="Abstract Entity Annotation">
             <defaultValue>javax.persistence.MappedSuperclass</defaultValue>
             <description>Abstract Entity Annotation property with value of 'javax.persistence.MappedSuperclass'</description>
         </param>
@@ -750,18 +613,17 @@
     <rule>
         <key>es.startuphero.checkstyle.checks.EntityMandatoryVariableCheck</key>
         <name>Entity Mandatory Variable Check</name>
-        <description>Entity Mandatory Variable Check</description>
-        <configKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.EntityMandatoryVariableCheck</configKey>
-        <category name="coding"/>
-        <param key="entityAnnotation" type="STRING">
+        <htmlDescription>Entity Mandatory Variable Check</htmlDescription>
+        <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.EntityMandatoryVariableCheck</internalKey>
+        <param key="entityAnnotation" name="Entity Annotation">
             <defaultValue>javax.persistence.Entity</defaultValue>
             <description>Entity Annotation property with value of 'javax.persistence.Entity'</description>
         </param>
-        <param key="abstractEntityAnnotation" type="STRING">
+        <param key="abstractEntityAnnotation" name="Abstract Entity Annotation">
             <defaultValue>javax.persistence.MappedSuperclass</defaultValue>
             <description>Abstract Entity Annotation property with value of 'javax.persistence.MappedSuperclass'</description>
         </param>
-        <param key="mandatoryVariables" type="STRING">
+        <param key="mandatoryVariables" name="Mandatory Variables">
             <defaultValue>createdAt, lastUpdatedAt</defaultValue>
             <description>Mandatory Variables property with value of 'createdAt, lastUpdatedAt'</description>
         </param>
@@ -769,18 +631,17 @@
     <rule>
         <key>es.startuphero.checkstyle.checks.EntityVariableAnnotationKeyValueCheck</key>
         <name>Entity Variable Annotation Key Value Check</name>
-        <description>Entity Variable Annotation Key Value Check</description>
-        <configKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.EntityVariableAnnotationKeyValueCheck</configKey>
-        <category name="coding"/>
-        <param key="entityAnnotation" type="STRING">
+        <htmlDescription>Entity Variable Annotation Key Value Check</htmlDescription>
+        <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.EntityVariableAnnotationKeyValueCheck</internalKey>
+        <param key="entityAnnotation" name="Entity Annotation">
             <defaultValue>javax.persistence.Entity</defaultValue>
             <description>Entity Annotation property with value of 'javax.persistence.Entity'</description>
         </param>
-        <param key="abstractEntityAnnotation" type="STRING">
+        <param key="abstractEntityAnnotation" name="Abstract Entity Annotation">
             <defaultValue>javax.persistence.MappedSuperclass</defaultValue>
             <description>Abstract Entity Annotation property with value of 'javax.persistence.MappedSuperclass'</description>
         </param>
-        <param key="variableAnnotationKeyValueTable" type="STRING">
+        <param key="variableAnnotationKeyValueTable" name="Variable Annotation Key Value Table">
             <defaultValue>createdAt:javax.persistence.Column:nullable:false, lastUpdatedAt:javax.persistence.Column:nullable:false</defaultValue>
             <description>Variable Annotation Key Value Table property with value of 'createdAt:javax.persistence.Column:nullable:false, lastUpdatedAt:javax.persistence.Column:nullable:false'</description>
         </param>
@@ -788,26 +649,25 @@
     <rule>
         <key>es.startuphero.checkstyle.checks.EntityGeneratedPrimaryKeyNameCheck</key>
         <name>Entity Generated Primary Key Name Check</name>
-        <description>Entity Generated Primary Key Name Check</description>
-        <configKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.EntityGeneratedPrimaryKeyNameCheck</configKey>
-        <category name="coding"/>
-        <param key="entityAnnotation" type="STRING">
+        <htmlDescription>Entity Generated Primary Key Name Check</htmlDescription>
+        <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.EntityGeneratedPrimaryKeyNameCheck</internalKey>
+        <param key="entityAnnotation" name="Entity Annotation">
             <defaultValue>javax.persistence.Entity</defaultValue>
             <description>Entity Annotation property with value of 'javax.persistence.Entity'</description>
         </param>
-        <param key="abstractEntityAnnotation" type="STRING">
+        <param key="abstractEntityAnnotation" name="Abstract Entity Annotation">
             <defaultValue>javax.persistence.MappedSuperclass</defaultValue>
             <description>Abstract Entity Annotation property with value of 'javax.persistence.MappedSuperclass'</description>
         </param>
-        <param key="idAnnotation" type="STRING">
+        <param key="idAnnotation" name="Id Annotation">
             <defaultValue>javax.persistence.Id</defaultValue>
             <description>Id Annotation property with value of 'javax.persistence.Id'</description>
         </param>
-        <param key="generatedValueAnnotation" type="STRING">
+        <param key="generatedValueAnnotation" name="Generated Value Annotation">
             <defaultValue>javax.persistence.GeneratedValue</defaultValue>
             <description>Generated Value Annotation property with value of 'javax.persistence.GeneratedValue'</description>
         </param>
-        <param key="suggestedGeneratedPrimaryKeyName" type="STRING">
+        <param key="suggestedGeneratedPrimaryKeyName" name="Suggested Generated Primary Key Name">
             <defaultValue>id</defaultValue>
             <description>Suggested Generated Primary Key Name property with value of 'id'</description>
         </param>
@@ -815,14 +675,13 @@
     <rule>
         <key>es.startuphero.checkstyle.checks.EntityVariableNameCheck</key>
         <name>Entity Variable Name Check</name>
-        <description>Entity Variable Name Check</description>
-        <configKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.EntityVariableNameCheck</configKey>
-        <category name="coding"/>
-        <param key="entityAnnotation" type="STRING">
+        <htmlDescription>Entity Variable Name Check</htmlDescription>
+        <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.EntityVariableNameCheck</internalKey>
+        <param key="entityAnnotation" name="Entity Annotation">
             <defaultValue>javax.persistence.Entity</defaultValue>
             <description>Entity Annotation property with value of 'javax.persistence.Entity'</description>
         </param>
-        <param key="abstractEntityAnnotation" type="STRING">
+        <param key="abstractEntityAnnotation" name="Abstract Entity Annotation">
             <defaultValue>javax.persistence.MappedSuperclass</defaultValue>
             <description>Abstract Entity Annotation property with value of 'javax.persistence.MappedSuperclass'</description>
         </param>
@@ -830,10 +689,9 @@
     <rule>
         <key>es.startuphero.checkstyle.checks.BlockedClassAnnotationCheck</key>
         <name>Blocked Class Annotation Check</name>
-        <description>Blocked Class Annotation Check</description>
-        <configKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.BlockedClassAnnotationCheck</configKey>
-        <category name="coding"/>
-        <param key="blockedAnnotations" type="STRING">
+        <htmlDescription>Blocked Class Annotation Check</htmlDescription>
+        <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.BlockedClassAnnotationCheck</internalKey>
+        <param key="blockedAnnotations" name="Blocked Annotations">
             <defaultValue>com.clovify.lyso.core.annotation.LysoRepository</defaultValue>
             <description>Blocked Annotations property with value of 'com.clovify.lyso.core.annotation.LysoRepository'</description>
         </param>
@@ -841,46 +699,45 @@
     <rule>
         <key>es.startuphero.checkstyle.checks.EntityIndexNameCheck</key>
         <name>Entity Index Name Check</name>
-        <description>Entity Index Name Check</description>
-        <configKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.EntityIndexNameCheck</configKey>
-        <category name="coding"/>
-        <param key="entityAnnotation" type="STRING">
+        <htmlDescription>Entity Index Name Check</htmlDescription>
+        <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.EntityIndexNameCheck</internalKey>
+        <param key="entityAnnotation" name="Entity Annotation">
             <defaultValue>javax.persistence.Entity</defaultValue>
             <description>Entity Annotation property with value of 'javax.persistence.Entity'</description>
         </param>
-        <param key="abstractEntityAnnotation" type="STRING">
+        <param key="abstractEntityAnnotation" name="Abstract Entity Annotation">
             <defaultValue>javax.persistence.MappedSuperclass</defaultValue>
             <description>Abstract Entity Annotation property with value of 'javax.persistence.MappedSuperclass'</description>
         </param>
-        <param key="tableAnnotation" type="STRING">
+        <param key="tableAnnotation" name="Table Annotation">
             <defaultValue>javax.persistence.Table</defaultValue>
             <description>Table Annotation property with value of 'javax.persistence.Table'</description>
         </param>
-        <param key="indexAnnotation" type="STRING">
+        <param key="indexAnnotation" name="Index Annotation">
             <defaultValue>javax.persistence.Index</defaultValue>
             <description>Index Annotation property with value of 'javax.persistence.Index'</description>
         </param>
-        <param key="key" type="STRING">
+        <param key="key" name="Key">
             <defaultValue>indexes</defaultValue>
             <description>Key property with value of 'indexes'</description>
         </param>
-        <param key="keyName" type="STRING">
+        <param key="keyName" name="Key Name">
             <defaultValue>name</defaultValue>
             <description>Key Name property with value of 'name'</description>
         </param>
-        <param key="keyColumns" type="STRING">
+        <param key="keyColumns" name="Key Columns">
             <defaultValue>columnList</defaultValue>
             <description>Key Columns property with value of 'columnList'</description>
         </param>
-        <param key="suggestedSuffix" type="STRING">
+        <param key="suggestedSuffix" name="Suggested Suffix">
             <defaultValue>index</defaultValue>
             <description>Suggested Suffix property with value of 'index'</description>
         </param>
-        <param key="maxLength" type="STRING">
+        <param key="maxLength" name="Max Length">
             <defaultValue>64</defaultValue>
             <description>Max Length property with value of '64'</description>
         </param>
-        <param key="regex" type="STRING">
+        <param key="regex" name="Regex">
             <defaultValue>^[a-z0-9_]*$</defaultValue>
             <description>Regex property with value of '^[a-z0-9_]*$'</description>
         </param>
@@ -888,46 +745,45 @@
     <rule>
         <key>es.startuphero.checkstyle.checks.EntityUniqueConstraintNameCheck</key>
         <name>Entity Unique Constraint Name Check</name>
-        <description>Entity Unique Constraint Name Check</description>
-        <configKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.EntityUniqueConstraintNameCheck</configKey>
-        <category name="coding"/>
-        <param key="entityAnnotation" type="STRING">
+        <htmlDescription>Entity Unique Constraint Name Check</htmlDescription>
+        <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.EntityUniqueConstraintNameCheck</internalKey>
+        <param key="entityAnnotation" name="Entity Annotation">
             <defaultValue>javax.persistence.Entity</defaultValue>
             <description>Entity Annotation property with value of 'javax.persistence.Entity'</description>
         </param>
-        <param key="abstractEntityAnnotation" type="STRING">
+        <param key="abstractEntityAnnotation" name="Abstract Entity Annotation">
             <defaultValue>javax.persistence.MappedSuperclass</defaultValue>
             <description>Abstract Entity Annotation property with value of 'javax.persistence.MappedSuperclass'</description>
         </param>
-        <param key="tableAnnotation" type="STRING">
+        <param key="tableAnnotation" name="Table Annotation">
             <defaultValue>javax.persistence.Table</defaultValue>
             <description>Table Annotation property with value of 'javax.persistence.Table'</description>
         </param>
-        <param key="uniqueConstraintAnnotation" type="STRING">
+        <param key="uniqueConstraintAnnotation" name="Unique Constraint Annotation">
             <defaultValue>javax.persistence.UniqueConstraint</defaultValue>
             <description>Unique Constraint Annotation property with value of 'javax.persistence.UniqueConstraint'</description>
         </param>
-        <param key="key" type="STRING">
+        <param key="key" name="Key">
             <defaultValue>uniqueConstraints</defaultValue>
             <description>Key property with value of 'uniqueConstraints'</description>
         </param>
-        <param key="keyName" type="STRING">
+        <param key="keyName" name="Key Name">
             <defaultValue>name</defaultValue>
             <description>Key Name property with value of 'name'</description>
         </param>
-        <param key="keyColumns" type="STRING">
+        <param key="keyColumns" name="Key Columns">
             <defaultValue>columnNames</defaultValue>
             <description>Key Columns property with value of 'columnNames'</description>
         </param>
-        <param key="suggestedSuffix" type="STRING">
+        <param key="suggestedSuffix" name="Suggested Suffix">
             <defaultValue>uk</defaultValue>
             <description>Suggested Suffix property with value of 'uk'</description>
         </param>
-        <param key="maxLength" type="STRING">
+        <param key="maxLength" name="Max Length">
             <defaultValue>64</defaultValue>
             <description>Max Length property with value of '64'</description>
         </param>
-        <param key="regex" type="STRING">
+        <param key="regex" name="Regex">
             <defaultValue>^[a-z0-9_]*$</defaultValue>
             <description>Regex property with value of '^[a-z0-9_]*$'</description>
         </param>
@@ -935,22 +791,21 @@
     <rule>
         <key>es.startuphero.checkstyle.checks.EntityLogDataCheck</key>
         <name>Entity Log Data Check</name>
-        <description>Entity Log Data Check</description>
-        <configKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.EntityLogDataCheck</configKey>
-        <category name="coding"/>
-        <param key="entityAnnotation" type="STRING">
+        <htmlDescription>Entity Log Data Check</htmlDescription>
+        <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.EntityLogDataCheck</internalKey>
+        <param key="entityAnnotation" name="Entity Annotation">
             <defaultValue>javax.persistence.Entity</defaultValue>
             <description>Entity Annotation property with value of 'javax.persistence.Entity'</description>
         </param>
-        <param key="abstractEntityAnnotation" type="STRING">
+        <param key="abstractEntityAnnotation" name="Abstract Entity Annotation">
             <defaultValue>javax.persistence.MappedSuperclass</defaultValue>
             <description>Abstract Entity Annotation property with value of 'javax.persistence.MappedSuperclass'</description>
         </param>
-        <param key="columnAnnotation" type="STRING">
+        <param key="columnAnnotation" name="Column Annotation">
             <defaultValue>javax.persistence.Column</defaultValue>
             <description>Column Annotation property with value of 'javax.persistence.Column'</description>
         </param>
-        <param key="limitLength" type="STRING">
+        <param key="limitLength" name="Limit Length">
             <defaultValue>255</defaultValue>
             <description>Limit Length property with value of '255'</description>
         </param>
@@ -958,17 +813,15 @@
     <rule>
         <key>es.startuphero.checkstyle.checks.EmptyLineCheck</key>
         <name>Empty Line Check</name>
-        <description>Empty Line Check</description>
-        <configKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.EmptyLineCheck</configKey>
-        <category name="coding"/>
+        <htmlDescription>Empty Line Check</htmlDescription>
+        <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.EmptyLineCheck</internalKey>
     </rule>
     <rule>
         <key>es.startuphero.checkstyle.checks.AbstractEntityModifierCheck</key>
         <name>Abstract Entity Modifier Check</name>
-        <description>Abstract Entity Modifier Check</description>
-        <configKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.AbstractEntityModifierCheck</configKey>
-        <category name="coding"/>
-        <param key="abstractEntityAnnotation" type="STRING">
+        <htmlDescription>Abstract Entity Modifier Check</htmlDescription>
+        <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.AbstractEntityModifierCheck</internalKey>
+        <param key="abstractEntityAnnotation" name="Abstract Entity Annotation">
             <defaultValue>javax.persistence.MappedSuperclass</defaultValue>
             <description>Abstract Entity Annotation property with value of 'javax.persistence.MappedSuperclass'</description>
         </param>
@@ -976,8 +829,7 @@
     <rule>
         <key>SuppressWarningsFilter</key>
         <name>Suppress Warnings Filter</name>
-        <description>Suppress Warnings Filter</description>
-        <configKey>Checker/SuppressWarningsFilter</configKey>
-        <category name="coding"/>
+        <htmlDescription>Suppress Warnings Filter</htmlDescription>
+        <internalKey>Checker/SuppressWarningsFilter</internalKey>
     </rule>
 </rules>

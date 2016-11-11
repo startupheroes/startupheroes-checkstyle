@@ -16,29 +16,38 @@
 
    <dependencies>
       <dependency>
-         <groupId>org.codehaus.sonar</groupId>
-         <artifactId>sonar-plugin-api</artifactId>
-      </dependency>
-
-      <dependency>
          <groupId>es.startuphero.checkstyle</groupId>
          <artifactId>startupheroes-checks</artifactId>
       </dependency>
 
+      <dependency>
+         <groupId>org.sonarsource.sonarqube</groupId>
+         <artifactId>sonar-plugin-api</artifactId>
+         <scope>provided</scope>
+      </dependency>
+
+      <!-- required by sonar-packaging-maven-plugin in scope of provided-->
+      <dependency>
+         <groupId>commons-logging</groupId>
+         <artifactId>commons-logging</artifactId>
+         <scope>provided</scope>
+      </dependency>
    </dependencies>
 
    <build>
       <plugins>
          <plugin>
-            <groupId>org.codehaus.sonar</groupId>
+            <groupId>org.sonarsource.sonar-packaging-maven-plugin</groupId>
             <artifactId>sonar-packaging-maven-plugin</artifactId>
-            <version>${codehause-sonar-packaging-maven-plugin.version}</version>
+            <version>${sonar-packaging-maven-plugin.version}</version>
             <extensions>true</extensions>
             <configuration>
-               <pluginClass>es.startuphero.checkstyle.sonar.CheckstyleExtensionPlugin</pluginClass>
+               <pluginClass>es.startuphero.checkstyle.sonar.SonarCheckstylePlugin</pluginClass>
                <basePlugin>checkstyle</basePlugin>
             </configuration>
          </plugin>
+
+         <!-- generate rules xml file from checker file -->
          <plugin>
             <groupId>es.startuphero.checkstyle</groupId>
             <artifactId>startupheroes-sonar-file-generator-maven-plugin</artifactId>

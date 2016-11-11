@@ -15,7 +15,7 @@ public class RuleParam {
    private String key;
 
    @XmlAttribute
-   private String type;
+   private String name;
 
    @XmlElement
    private String defaultValue;
@@ -31,12 +31,12 @@ public class RuleParam {
       this.key = key;
    }
 
-   public String getType() {
-      return type;
+   public String getName() {
+      return name;
    }
 
-   public void setType(String type) {
-      this.type = type;
+   public void setName(String name) {
+      this.name = name;
    }
 
    public String getDefaultValue() {
@@ -56,10 +56,25 @@ public class RuleParam {
    }
 
    @Override
+   public boolean equals(Object o) {
+      if (this == o) return true;
+      if (o == null || getClass() != o.getClass()) return false;
+
+      RuleParam ruleParam = (RuleParam) o;
+
+      return key != null ? key.equals(ruleParam.key) : ruleParam.key == null;
+   }
+
+   @Override
+   public int hashCode() {
+      return key != null ? key.hashCode() : 0;
+   }
+
+   @Override
    public String toString() {
       return "RuleParam{" +
              "key='" + key + '\'' +
-             ", type='" + type + '\'' +
+             ", name='" + name + '\'' +
              ", defaultValue='" + defaultValue + '\'' +
              ", description='" + description + '\'' +
              '}';
