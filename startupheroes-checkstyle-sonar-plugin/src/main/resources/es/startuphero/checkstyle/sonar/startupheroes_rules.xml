@@ -15,7 +15,7 @@
         <category name="coding"/>
         <param key="max" type="STRING">
             <defaultValue>1500</defaultValue>
-            <description>max</description>
+            <description>Max property with value of '1500'</description>
         </param>
     </rule>
     <rule>
@@ -26,7 +26,7 @@
         <category name="coding"/>
         <param key="eachLine" type="STRING">
             <defaultValue>true</defaultValue>
-            <description>each Line</description>
+            <description>Each Line property with value of 'true'</description>
         </param>
     </rule>
     <rule>
@@ -37,19 +37,19 @@
         <category name="coding"/>
         <param key="format" type="STRING">
             <defaultValue>\s+$</defaultValue>
-            <description>format</description>
+            <description>Format property with value of '\s+$'</description>
         </param>
         <param key="minimum" type="STRING">
             <defaultValue>0</defaultValue>
-            <description>minimum</description>
+            <description>Minimum property with value of '0'</description>
         </param>
         <param key="maximum" type="STRING">
             <defaultValue>0</defaultValue>
-            <description>maximum</description>
+            <description>Maximum property with value of '0'</description>
         </param>
         <param key="message" type="STRING">
             <defaultValue>Line has trailing spaces.</defaultValue>
-            <description>message</description>
+            <description>Message property with value of 'Line has trailing spaces.'</description>
         </param>
     </rule>
     <rule>
@@ -60,11 +60,11 @@
         <category name="coding"/>
         <param key="format" type="STRING">
             <defaultValue>^\s*(for|if)\b[^ ]</defaultValue>
-            <description>format</description>
+            <description>Format property with value of '^\s*(for|if)\b[^ ]'</description>
         </param>
         <param key="message" type="STRING">
             <defaultValue>Space needed before opening parenthesis.</defaultValue>
-            <description>message</description>
+            <description>Message property with value of 'Space needed before opening parenthesis.'</description>
         </param>
     </rule>
     <rule>
@@ -75,11 +75,11 @@
         <category name="coding"/>
         <param key="format" type="STRING">
             <defaultValue>^\s*for \(.*?([^ ]:|:[^ ])</defaultValue>
-            <description>format</description>
+            <description>Format property with value of '^\s*for \(.*?([^ ]:|:[^ ])'</description>
         </param>
         <param key="message" type="STRING">
             <defaultValue>Space needed around ':' character.</defaultValue>
-            <description>message</description>
+            <description>Message property with value of 'Space needed around ':' character.'</description>
         </param>
     </rule>
     <rule>
@@ -160,7 +160,7 @@
         <category name="coding"/>
         <param key="format" type="STRING">
             <defaultValue>^[A-Z]*$</defaultValue>
-            <description>format</description>
+            <description>Format property with value of '^[A-Z]*$'</description>
         </param>
     </rule>
     <rule>
@@ -171,7 +171,7 @@
         <category name="coding"/>
         <param key="format" type="STRING">
             <defaultValue>^[A-Z]*$</defaultValue>
-            <description>format</description>
+            <description>Format property with value of '^[A-Z]*$'</description>
         </param>
     </rule>
     <rule>
@@ -182,7 +182,7 @@
         <category name="coding"/>
         <param key="format" type="STRING">
             <defaultValue>^[A-Z]*$</defaultValue>
-            <description>format</description>
+            <description>Format property with value of '^[A-Z]*$'</description>
         </param>
     </rule>
     <rule>
@@ -221,11 +221,11 @@
         <category name="coding"/>
         <param key="max" type="STRING">
             <defaultValue>150</defaultValue>
-            <description>max</description>
+            <description>Max property with value of '150'</description>
         </param>
         <param key="ignorePattern" type="STRING">
             <defaultValue>^package.*|^import.*|a href|href|http://|https://|ftp://</defaultValue>
-            <description>ignore Pattern</description>
+            <description>Ignore Pattern property with value of '^package.*|^import.*|a href|href|http://|https://|ftp://'</description>
         </param>
     </rule>
     <rule>
@@ -236,7 +236,7 @@
         <category name="coding"/>
         <param key="max" type="STRING">
             <defaultValue>200</defaultValue>
-            <description>max</description>
+            <description>Max property with value of '200'</description>
         </param>
     </rule>
     <rule>
@@ -387,15 +387,15 @@
         <category name="coding"/>
         <param key="ignoreHashCodeMethod" type="STRING">
             <defaultValue>true</defaultValue>
-            <description>ignore Hash Code Method</description>
+            <description>Ignore Hash Code Method property with value of 'true'</description>
         </param>
         <param key="ignoreAnnotation" type="STRING">
             <defaultValue>true</defaultValue>
-            <description>ignore Annotation</description>
+            <description>Ignore Annotation property with value of 'true'</description>
         </param>
         <param key="ignoreFieldDeclaration" type="STRING">
             <defaultValue>true</defaultValue>
-            <description>ignore Field Declaration</description>
+            <description>Ignore Field Declaration property with value of 'true'</description>
         </param>
     </rule>
     <rule>
@@ -448,7 +448,7 @@
         <category name="coding"/>
         <param key="protectedAllowed" type="STRING">
             <defaultValue>true</defaultValue>
-            <description>protected Allowed</description>
+            <description>Protected Allowed property with value of 'true'</description>
         </param>
     </rule>
     <rule>
@@ -466,15 +466,15 @@
         <category name="coding"/>
         <param key="tokens" type="STRING">
             <defaultValue>STRING_LITERAL, CHAR_LITERAL</defaultValue>
-            <description>tokens</description>
+            <description>Tokens property with value of 'STRING_LITERAL, CHAR_LITERAL'</description>
         </param>
         <param key="format" type="STRING">
             <defaultValue>\\u00(08|09|0(a|A)|0(c|C)|0(d|D)|22|27|5(C|c))|\\(0(10|11|12|14|15|42|47)|134)</defaultValue>
-            <description>format</description>
+            <description>Format property with value of '\\u00(08|09|0(a|A)|0(c|C)|0(d|D)|22|27|5(C|c))|\\(0(10|11|12|14|15|42|47)|134)'</description>
         </param>
         <param key="message" type="STRING">
             <defaultValue>Avoid using corresponding octal or Unicode escape.</defaultValue>
-            <description>message</description>
+            <description>Message property with value of 'Avoid using corresponding octal or Unicode escape.'</description>
         </param>
     </rule>
     <rule>
@@ -534,11 +534,11 @@
         <category name="coding"/>
         <param key="allowNoEmptyLineBetweenFields" type="STRING">
             <defaultValue>true</defaultValue>
-            <description>allow No Empty Line Between Fields</description>
+            <description>Allow No Empty Line Between Fields property with value of 'true'</description>
         </param>
         <param key="tokens" type="STRING">
             <defaultValue>IMPORT, CLASS_DEF, INTERFACE_DEF, ENUM_DEF, STATIC_INIT, INSTANCE_INIT, METHOD_DEF, CTOR_DEF, VARIABLE_DEF</defaultValue>
-            <description>tokens</description>
+            <description>Tokens property with value of 'IMPORT, CLASS_DEF, INTERFACE_DEF, ENUM_DEF, STATIC_INIT, INSTANCE_INIT, METHOD_DEF, CTOR_DEF, VARIABLE_DEF'</description>
         </param>
     </rule>
     <rule>
@@ -549,11 +549,11 @@
         <category name="coding"/>
         <param key="tokens" type="STRING">
             <defaultValue>DOT</defaultValue>
-            <description>tokens</description>
+            <description>Tokens property with value of 'DOT'</description>
         </param>
         <param key="option" type="STRING">
             <defaultValue>nl</defaultValue>
-            <description>option</description>
+            <description>Option property with value of 'nl'</description>
         </param>
     </rule>
     <rule>
@@ -564,11 +564,11 @@
         <category name="coding"/>
         <param key="tokens" type="STRING">
             <defaultValue>COMMA</defaultValue>
-            <description>tokens</description>
+            <description>Tokens property with value of 'COMMA'</description>
         </param>
         <param key="option" type="STRING">
             <defaultValue>EOL</defaultValue>
-            <description>option</description>
+            <description>Option property with value of 'EOL'</description>
         </param>
     </rule>
     <rule>
@@ -586,11 +586,11 @@
         <category name="coding"/>
         <param key="ignoreFinal" type="STRING">
             <defaultValue>false</defaultValue>
-            <description>ignore Final</description>
+            <description>Ignore Final property with value of 'false'</description>
         </param>
         <param key="allowedAbbreviationLength" type="STRING">
             <defaultValue>1</defaultValue>
-            <description>allowed Abbreviation Length</description>
+            <description>Allowed Abbreviation Length property with value of '1'</description>
         </param>
     </rule>
     <rule>
@@ -601,7 +601,7 @@
         <category name="coding"/>
         <param key="tokens" type="STRING">
             <defaultValue>CLASS_DEF, INTERFACE_DEF, ENUM_DEF, METHOD_DEF, CTOR_DEF</defaultValue>
-            <description>tokens</description>
+            <description>Tokens property with value of 'CLASS_DEF, INTERFACE_DEF, ENUM_DEF, METHOD_DEF, CTOR_DEF'</description>
         </param>
     </rule>
     <rule>
@@ -612,11 +612,11 @@
         <category name="coding"/>
         <param key="tokens" type="STRING">
             <defaultValue>VARIABLE_DEF</defaultValue>
-            <description>tokens</description>
+            <description>Tokens property with value of 'VARIABLE_DEF'</description>
         </param>
         <param key="allowSamelineMultipleAnnotations" type="STRING">
             <defaultValue>true</defaultValue>
-            <description>allow Sameline Multiple Annotations</description>
+            <description>Allow Sameline Multiple Annotations property with value of 'true'</description>
         </param>
     </rule>
     <rule>
@@ -627,7 +627,7 @@
         <category name="coding"/>
         <param key="exceptionVariableName" type="STRING">
             <defaultValue>expected|ignored</defaultValue>
-            <description>exception Variable Name</description>
+            <description>Exception Variable Name property with value of 'expected|ignored'</description>
         </param>
     </rule>
     <rule>
@@ -680,11 +680,11 @@
         <category name="coding"/>
         <param key="tokens" type="STRING">
             <defaultValue>VARIABLE_DEF</defaultValue>
-            <description>tokens</description>
+            <description>Tokens property with value of 'VARIABLE_DEF'</description>
         </param>
         <param key="redundantAnnotationPairs" type="STRING">
             <defaultValue>javax.persistence.Id:javax.persistence.Column</defaultValue>
-            <description>redundant Annotation Pairs</description>
+            <description>Redundant Annotation Pairs property with value of 'javax.persistence.Id:javax.persistence.Column'</description>
         </param>
     </rule>
     <rule>
@@ -695,7 +695,7 @@
         <category name="coding"/>
         <param key="annotationBlockedKeyMap" type="STRING">
             <defaultValue>javax.persistence.Column:unique</defaultValue>
-            <description>annotation Blocked Key Map</description>
+            <description>Annotation Blocked Key Map property with value of 'javax.persistence.Column:unique'</description>
         </param>
     </rule>
     <rule>
@@ -706,15 +706,15 @@
         <category name="coding"/>
         <param key="entityAnnotation" type="STRING">
             <defaultValue>javax.persistence.Entity</defaultValue>
-            <description>entity Annotation</description>
+            <description>Entity Annotation property with value of 'javax.persistence.Entity'</description>
         </param>
         <param key="abstractEntityAnnotation" type="STRING">
             <defaultValue>javax.persistence.MappedSuperclass</defaultValue>
-            <description>abstract Entity Annotation</description>
+            <description>Abstract Entity Annotation property with value of 'javax.persistence.MappedSuperclass'</description>
         </param>
         <param key="idAnnotation" type="STRING">
             <defaultValue>javax.persistence.Id</defaultValue>
-            <description>id Annotation</description>
+            <description>Id Annotation property with value of 'javax.persistence.Id'</description>
         </param>
     </rule>
     <rule>
@@ -725,11 +725,11 @@
         <category name="coding"/>
         <param key="entityAnnotation" type="STRING">
             <defaultValue>javax.persistence.Entity</defaultValue>
-            <description>entity Annotation</description>
+            <description>Entity Annotation property with value of 'javax.persistence.Entity'</description>
         </param>
         <param key="abstractEntityAnnotation" type="STRING">
             <defaultValue>javax.persistence.MappedSuperclass</defaultValue>
-            <description>abstract Entity Annotation</description>
+            <description>Abstract Entity Annotation property with value of 'javax.persistence.MappedSuperclass'</description>
         </param>
     </rule>
     <rule>
@@ -740,11 +740,11 @@
         <category name="coding"/>
         <param key="entityAnnotation" type="STRING">
             <defaultValue>javax.persistence.Entity</defaultValue>
-            <description>entity Annotation</description>
+            <description>Entity Annotation property with value of 'javax.persistence.Entity'</description>
         </param>
         <param key="abstractEntityAnnotation" type="STRING">
             <defaultValue>javax.persistence.MappedSuperclass</defaultValue>
-            <description>abstract Entity Annotation</description>
+            <description>Abstract Entity Annotation property with value of 'javax.persistence.MappedSuperclass'</description>
         </param>
     </rule>
     <rule>
@@ -755,15 +755,15 @@
         <category name="coding"/>
         <param key="entityAnnotation" type="STRING">
             <defaultValue>javax.persistence.Entity</defaultValue>
-            <description>entity Annotation</description>
+            <description>Entity Annotation property with value of 'javax.persistence.Entity'</description>
         </param>
         <param key="abstractEntityAnnotation" type="STRING">
             <defaultValue>javax.persistence.MappedSuperclass</defaultValue>
-            <description>abstract Entity Annotation</description>
+            <description>Abstract Entity Annotation property with value of 'javax.persistence.MappedSuperclass'</description>
         </param>
         <param key="mandatoryVariables" type="STRING">
             <defaultValue>createdAt, lastUpdatedAt</defaultValue>
-            <description>mandatory Variables</description>
+            <description>Mandatory Variables property with value of 'createdAt, lastUpdatedAt'</description>
         </param>
     </rule>
     <rule>
@@ -774,15 +774,15 @@
         <category name="coding"/>
         <param key="entityAnnotation" type="STRING">
             <defaultValue>javax.persistence.Entity</defaultValue>
-            <description>entity Annotation</description>
+            <description>Entity Annotation property with value of 'javax.persistence.Entity'</description>
         </param>
         <param key="abstractEntityAnnotation" type="STRING">
             <defaultValue>javax.persistence.MappedSuperclass</defaultValue>
-            <description>abstract Entity Annotation</description>
+            <description>Abstract Entity Annotation property with value of 'javax.persistence.MappedSuperclass'</description>
         </param>
         <param key="variableAnnotationKeyValueTable" type="STRING">
             <defaultValue>createdAt:javax.persistence.Column:nullable:false, lastUpdatedAt:javax.persistence.Column:nullable:false</defaultValue>
-            <description>variable Annotation Key Value Table</description>
+            <description>Variable Annotation Key Value Table property with value of 'createdAt:javax.persistence.Column:nullable:false, lastUpdatedAt:javax.persistence.Column:nullable:false'</description>
         </param>
     </rule>
     <rule>
@@ -793,23 +793,23 @@
         <category name="coding"/>
         <param key="entityAnnotation" type="STRING">
             <defaultValue>javax.persistence.Entity</defaultValue>
-            <description>entity Annotation</description>
+            <description>Entity Annotation property with value of 'javax.persistence.Entity'</description>
         </param>
         <param key="abstractEntityAnnotation" type="STRING">
             <defaultValue>javax.persistence.MappedSuperclass</defaultValue>
-            <description>abstract Entity Annotation</description>
+            <description>Abstract Entity Annotation property with value of 'javax.persistence.MappedSuperclass'</description>
         </param>
         <param key="idAnnotation" type="STRING">
             <defaultValue>javax.persistence.Id</defaultValue>
-            <description>id Annotation</description>
+            <description>Id Annotation property with value of 'javax.persistence.Id'</description>
         </param>
         <param key="generatedValueAnnotation" type="STRING">
             <defaultValue>javax.persistence.GeneratedValue</defaultValue>
-            <description>generated Value Annotation</description>
+            <description>Generated Value Annotation property with value of 'javax.persistence.GeneratedValue'</description>
         </param>
         <param key="suggestedGeneratedPrimaryKeyName" type="STRING">
             <defaultValue>id</defaultValue>
-            <description>suggested Generated Primary Key Name</description>
+            <description>Suggested Generated Primary Key Name property with value of 'id'</description>
         </param>
     </rule>
     <rule>
@@ -820,11 +820,11 @@
         <category name="coding"/>
         <param key="entityAnnotation" type="STRING">
             <defaultValue>javax.persistence.Entity</defaultValue>
-            <description>entity Annotation</description>
+            <description>Entity Annotation property with value of 'javax.persistence.Entity'</description>
         </param>
         <param key="abstractEntityAnnotation" type="STRING">
             <defaultValue>javax.persistence.MappedSuperclass</defaultValue>
-            <description>abstract Entity Annotation</description>
+            <description>Abstract Entity Annotation property with value of 'javax.persistence.MappedSuperclass'</description>
         </param>
     </rule>
     <rule>
@@ -835,7 +835,7 @@
         <category name="coding"/>
         <param key="blockedAnnotations" type="STRING">
             <defaultValue>com.clovify.lyso.core.annotation.LysoRepository</defaultValue>
-            <description>blocked Annotations</description>
+            <description>Blocked Annotations property with value of 'com.clovify.lyso.core.annotation.LysoRepository'</description>
         </param>
     </rule>
     <rule>
@@ -846,43 +846,43 @@
         <category name="coding"/>
         <param key="entityAnnotation" type="STRING">
             <defaultValue>javax.persistence.Entity</defaultValue>
-            <description>entity Annotation</description>
+            <description>Entity Annotation property with value of 'javax.persistence.Entity'</description>
         </param>
         <param key="abstractEntityAnnotation" type="STRING">
             <defaultValue>javax.persistence.MappedSuperclass</defaultValue>
-            <description>abstract Entity Annotation</description>
+            <description>Abstract Entity Annotation property with value of 'javax.persistence.MappedSuperclass'</description>
         </param>
         <param key="tableAnnotation" type="STRING">
             <defaultValue>javax.persistence.Table</defaultValue>
-            <description>table Annotation</description>
+            <description>Table Annotation property with value of 'javax.persistence.Table'</description>
         </param>
         <param key="indexAnnotation" type="STRING">
             <defaultValue>javax.persistence.Index</defaultValue>
-            <description>index Annotation</description>
+            <description>Index Annotation property with value of 'javax.persistence.Index'</description>
         </param>
         <param key="key" type="STRING">
             <defaultValue>indexes</defaultValue>
-            <description>key</description>
+            <description>Key property with value of 'indexes'</description>
         </param>
         <param key="keyName" type="STRING">
             <defaultValue>name</defaultValue>
-            <description>key Name</description>
+            <description>Key Name property with value of 'name'</description>
         </param>
         <param key="keyColumns" type="STRING">
             <defaultValue>columnList</defaultValue>
-            <description>key Columns</description>
+            <description>Key Columns property with value of 'columnList'</description>
         </param>
         <param key="suggestedSuffix" type="STRING">
             <defaultValue>index</defaultValue>
-            <description>suggested Suffix</description>
+            <description>Suggested Suffix property with value of 'index'</description>
         </param>
         <param key="maxLength" type="STRING">
             <defaultValue>64</defaultValue>
-            <description>max Length</description>
+            <description>Max Length property with value of '64'</description>
         </param>
         <param key="regex" type="STRING">
             <defaultValue>^[a-z0-9_]*$</defaultValue>
-            <description>regex</description>
+            <description>Regex property with value of '^[a-z0-9_]*$'</description>
         </param>
     </rule>
     <rule>
@@ -893,43 +893,43 @@
         <category name="coding"/>
         <param key="entityAnnotation" type="STRING">
             <defaultValue>javax.persistence.Entity</defaultValue>
-            <description>entity Annotation</description>
+            <description>Entity Annotation property with value of 'javax.persistence.Entity'</description>
         </param>
         <param key="abstractEntityAnnotation" type="STRING">
             <defaultValue>javax.persistence.MappedSuperclass</defaultValue>
-            <description>abstract Entity Annotation</description>
+            <description>Abstract Entity Annotation property with value of 'javax.persistence.MappedSuperclass'</description>
         </param>
         <param key="tableAnnotation" type="STRING">
             <defaultValue>javax.persistence.Table</defaultValue>
-            <description>table Annotation</description>
+            <description>Table Annotation property with value of 'javax.persistence.Table'</description>
         </param>
         <param key="uniqueConstraintAnnotation" type="STRING">
             <defaultValue>javax.persistence.UniqueConstraint</defaultValue>
-            <description>unique Constraint Annotation</description>
+            <description>Unique Constraint Annotation property with value of 'javax.persistence.UniqueConstraint'</description>
         </param>
         <param key="key" type="STRING">
             <defaultValue>uniqueConstraints</defaultValue>
-            <description>key</description>
+            <description>Key property with value of 'uniqueConstraints'</description>
         </param>
         <param key="keyName" type="STRING">
             <defaultValue>name</defaultValue>
-            <description>key Name</description>
+            <description>Key Name property with value of 'name'</description>
         </param>
         <param key="keyColumns" type="STRING">
             <defaultValue>columnNames</defaultValue>
-            <description>key Columns</description>
+            <description>Key Columns property with value of 'columnNames'</description>
         </param>
         <param key="suggestedSuffix" type="STRING">
             <defaultValue>uk</defaultValue>
-            <description>suggested Suffix</description>
+            <description>Suggested Suffix property with value of 'uk'</description>
         </param>
         <param key="maxLength" type="STRING">
             <defaultValue>64</defaultValue>
-            <description>max Length</description>
+            <description>Max Length property with value of '64'</description>
         </param>
         <param key="regex" type="STRING">
             <defaultValue>^[a-z0-9_]*$</defaultValue>
-            <description>regex</description>
+            <description>Regex property with value of '^[a-z0-9_]*$'</description>
         </param>
     </rule>
     <rule>
@@ -940,19 +940,19 @@
         <category name="coding"/>
         <param key="entityAnnotation" type="STRING">
             <defaultValue>javax.persistence.Entity</defaultValue>
-            <description>entity Annotation</description>
+            <description>Entity Annotation property with value of 'javax.persistence.Entity'</description>
         </param>
         <param key="abstractEntityAnnotation" type="STRING">
             <defaultValue>javax.persistence.MappedSuperclass</defaultValue>
-            <description>abstract Entity Annotation</description>
+            <description>Abstract Entity Annotation property with value of 'javax.persistence.MappedSuperclass'</description>
         </param>
         <param key="columnAnnotation" type="STRING">
             <defaultValue>javax.persistence.Column</defaultValue>
-            <description>column Annotation</description>
+            <description>Column Annotation property with value of 'javax.persistence.Column'</description>
         </param>
         <param key="limitLength" type="STRING">
             <defaultValue>255</defaultValue>
-            <description>limit Length</description>
+            <description>Limit Length property with value of '255'</description>
         </param>
     </rule>
     <rule>
@@ -970,7 +970,7 @@
         <category name="coding"/>
         <param key="abstractEntityAnnotation" type="STRING">
             <defaultValue>javax.persistence.MappedSuperclass</defaultValue>
-            <description>abstract Entity Annotation</description>
+            <description>Abstract Entity Annotation property with value of 'javax.persistence.MappedSuperclass'</description>
         </param>
     </rule>
     <rule>

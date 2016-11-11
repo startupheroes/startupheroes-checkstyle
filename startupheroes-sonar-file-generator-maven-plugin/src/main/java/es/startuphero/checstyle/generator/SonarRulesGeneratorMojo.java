@@ -7,25 +7,32 @@ import es.startuphero.checstyle.generator.beans.RuleCategory;
 import es.startuphero.checstyle.generator.beans.RuleParam;
 import es.startuphero.checstyle.generator.beans.Rules;
 import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.Arrays;
 import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
+import javax.xml.parsers.SAXParserFactory;
+import javax.xml.transform.sax.SAXSource;
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.apache.maven.plugin.MojoFailureException;
-import org.apache.maven.plugins.annotations.LifecyclePhase;
 import org.apache.maven.plugins.annotations.Mojo;
 import org.apache.maven.plugins.annotations.Parameter;
+import org.xml.sax.InputSource;
+import org.xml.sax.XMLReader;
 
 /**
  * Generate sonar rules xml file from checkers modules file.
  */
-@Mojo(name = "sonar-rules", defaultPhase = LifecyclePhase.NONE, requiresProject = true, threadSafe = true)
+@Mojo(name = "sonar-rules", threadSafe = true)
 @SuppressWarnings("unused")
 public class SonarRulesGeneratorMojo extends AbstractMojo {
+
+   private static final String EXTERNAL_DTD_LOADING_FEATURE = "http://apache.org/xml/features/nonvalidating/load-external-dtd";
+
+   private static final String SAX_FEATURES_VALIDATION = "http://xml.org/sax/features/validation";
 
    /** Checkers xml file contains modules for each check **/
    @Parameter(defaultValue = "${basedir}/startupheroes-checks/src/main/resources/es/startuphero/checkstyle/checks/startupheroes_checks.xml")
@@ -49,7 +56,7 @@ public class SonarRulesGeneratorMojo extends AbstractMojo {
    }
 
    private Rules createRules() {
-      Module root = parseXmlToObject(new File(inputFile)); // root : Checker
+      Module root = parseXmlToObject(); // root : Checker
       Rules rules = new Rules();
       addNewRule(rules, root);
       for (Module child : root.getChilds()) {
@@ -77,14 +84,22 @@ public class SonarRulesGeneratorMojo extends AbstractMojo {
       return outputFile;
    }
 
-   private static Module parseXmlToObject(File inputFile) {
+   private Module parseXmlToObject() {
       Module module = null;
       try {
-         JAXBContext jaxbContext = JAXBContext.newInstance(Module.class);
+         JAXBContext jc = JAXBContext.newInstance(Module.class);
 
-         Unmarshaller jaxbUnmarshaller = jaxbContext.createUnmarshaller();
-         module = (Module) jaxbUnmarshaller.unmarshal(inputFile);
-      } catch (JAXBException e) {
+         SAXParserFactory spf = SAXParserFactory.newInstance();
+         spf.setFeature(EXTERNAL_DTD_LOADING_FEATURE, false);
+         spf.setFeature(SAX_FEATURES_VALIDATION, false);
+
+         XMLReader xmlReader = spf.newSAXParser().getXMLReader();
+         InputSource inputSource = new InputSource(new FileReader(new File(inputFile)));
+         SAXSource source = new SAXSource(xmlReader, inputSource);
+
+         Unmarshaller unmarshaller = jc.createUnmarshaller();
+         module = (Module) unmarshaller.unmarshal(source);
+      } catch (Exception e) {
          e.printStackTrace();
       }
       return module;
@@ -100,8 +115,8 @@ public class SonarRulesGeneratorMojo extends AbstractMojo {
    private static Rule convertModuleToRule(Module module) {
       Rule rule = new Rule();
       rule.setKey(module.getName());
-      rule.setName(getSeparatedModuleName(module.getName()));
-      rule.setDescription(getSeparatedModuleName(module.getName()));
+      rule.setName(getSeparatedString(module.getName()));
+      rule.setDescription(getSeparatedString(module.getName()));
       rule.setConfigKey(getConfigKey(module));
       rule.setCategory(new RuleCategory("coding"));
       module.getProperties()
@@ -115,20 +130,8 @@ public class SonarRulesGeneratorMojo extends AbstractMojo {
       param.setKey(property.getName());
       param.setDefaultValue(property.getValue());
       param.setType("STRING");
-      param.setDescription(getSeparatedModuleName(property.getName()));
+      param.setDescription(getSeparatedString(property.getName()) + " property with value of '" + property.getValue() + "'");
       return param;
-   }
-
-   private static String getSeparatedModuleName(String name) {
-      String[] splittedModuleNames = getSimpleName(name).split("(?=[A-Z])");
-      StringBuilder builder = new StringBuilder();
-      Arrays.stream(splittedModuleNames).forEach(s -> builder.append(s).append(" "));
-      return builder.toString().trim();
-   }
-
-   private static String getSimpleName(String fullName) {
-      String[] packageNames = fullName.split("\\.");
-      return packageNames[packageNames.length - 1];
    }
 
    private static String getConfigKey(Module module) {
@@ -139,6 +142,32 @@ public class SonarRulesGeneratorMojo extends AbstractMojo {
          parent = parent.getParent();
       }
       return configKey;
+   }
+
+   private static String getSimpleName(String fullName) {
+      String[] packageNames = fullName.split("\\.");
+      return packageNames[packageNames.length - 1];
+   }
+
+   private static String getSeparatedString(String input) {
+      String[] splittedModuleNames = getSimpleName(input).split("(?=[A-Z])");
+      StringBuilder builder = new StringBuilder();
+      Arrays.stream(splittedModuleNames).forEach(s -> builder.append(s).append(" "));
+      return capitalizeAllString(builder.toString().trim());
+   }
+
+   private static String capitalizeAllString(String input) {
+      StringBuffer res = new StringBuffer();
+
+      String[] strArr = input.split(" ");
+      for (String str : strArr) {
+         char[] stringArray = str.trim().toCharArray();
+         stringArray[0] = Character.toUpperCase(stringArray[0]);
+         str = new String(stringArray);
+
+         res.append(str).append(" ");
+      }
+      return res.toString().trim();
    }
 
 }
