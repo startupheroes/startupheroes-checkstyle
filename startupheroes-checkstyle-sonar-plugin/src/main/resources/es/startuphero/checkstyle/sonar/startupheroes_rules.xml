@@ -3,13 +3,13 @@
     <rule>
         <key>Translation</key>
         <name>Translation</name>
-        <htmlDescription>Translation</htmlDescription>
+        <description>Translation</description>
         <internalKey>Checker/Translation</internalKey>
     </rule>
     <rule>
         <key>FileLength</key>
         <name>File Length</name>
-        <htmlDescription>File Length</htmlDescription>
+        <description>File Length</description>
         <internalKey>Checker/FileLength</internalKey>
         <param key="max" name="Max">
             <defaultValue>1500</defaultValue>
@@ -19,7 +19,7 @@
     <rule>
         <key>FileTabCharacter</key>
         <name>File Tab Character</name>
-        <htmlDescription>File Tab Character</htmlDescription>
+        <description>File Tab Character</description>
         <internalKey>Checker/FileTabCharacter</internalKey>
         <param key="eachLine" name="Each Line">
             <defaultValue>true</defaultValue>
@@ -29,7 +29,7 @@
     <rule>
         <key>RegexpSingleline</key>
         <name>Regexp Singleline</name>
-        <htmlDescription>Regexp Singleline</htmlDescription>
+        <description>Regexp Singleline</description>
         <internalKey>Checker/RegexpSingleline</internalKey>
         <param key="format" name="Format">
             <defaultValue>\s+$</defaultValue>
@@ -51,67 +51,67 @@
     <rule>
         <key>ConstantName</key>
         <name>Constant Name</name>
-        <htmlDescription>Constant Name</htmlDescription>
+        <description>Constant Name</description>
         <internalKey>Checker/TreeWalker/ConstantName</internalKey>
     </rule>
     <rule>
         <key>LocalFinalVariableName</key>
         <name>Local Final Variable Name</name>
-        <htmlDescription>Local Final Variable Name</htmlDescription>
+        <description>Local Final Variable Name</description>
         <internalKey>Checker/TreeWalker/LocalFinalVariableName</internalKey>
     </rule>
     <rule>
         <key>LocalVariableName</key>
         <name>Local Variable Name</name>
-        <htmlDescription>Local Variable Name</htmlDescription>
+        <description>Local Variable Name</description>
         <internalKey>Checker/TreeWalker/LocalVariableName</internalKey>
     </rule>
     <rule>
         <key>CatchParameterName</key>
         <name>Catch Parameter Name</name>
-        <htmlDescription>Catch Parameter Name</htmlDescription>
+        <description>Catch Parameter Name</description>
         <internalKey>Checker/TreeWalker/CatchParameterName</internalKey>
     </rule>
     <rule>
         <key>MemberName</key>
         <name>Member Name</name>
-        <htmlDescription>Member Name</htmlDescription>
+        <description>Member Name</description>
         <internalKey>Checker/TreeWalker/MemberName</internalKey>
     </rule>
     <rule>
         <key>MethodName</key>
         <name>Method Name</name>
-        <htmlDescription>Method Name</htmlDescription>
+        <description>Method Name</description>
         <internalKey>Checker/TreeWalker/MethodName</internalKey>
     </rule>
     <rule>
         <key>PackageName</key>
         <name>Package Name</name>
-        <htmlDescription>Package Name</htmlDescription>
+        <description>Package Name</description>
         <internalKey>Checker/TreeWalker/PackageName</internalKey>
     </rule>
     <rule>
         <key>ParameterName</key>
         <name>Parameter Name</name>
-        <htmlDescription>Parameter Name</htmlDescription>
+        <description>Parameter Name</description>
         <internalKey>Checker/TreeWalker/ParameterName</internalKey>
     </rule>
     <rule>
         <key>StaticVariableName</key>
         <name>Static Variable Name</name>
-        <htmlDescription>Static Variable Name</htmlDescription>
+        <description>Static Variable Name</description>
         <internalKey>Checker/TreeWalker/StaticVariableName</internalKey>
     </rule>
     <rule>
         <key>TypeName</key>
         <name>Type Name</name>
-        <htmlDescription>Type Name</htmlDescription>
+        <description>Type Name</description>
         <internalKey>Checker/TreeWalker/TypeName</internalKey>
     </rule>
     <rule>
         <key>ClassTypeParameterName</key>
         <name>Class Type Parameter Name</name>
-        <htmlDescription>Class Type Parameter Name</htmlDescription>
+        <description>Class Type Parameter Name</description>
         <internalKey>Checker/TreeWalker/ClassTypeParameterName</internalKey>
         <param key="format" name="Format">
             <defaultValue>^[A-Z]*$</defaultValue>
@@ -121,7 +121,7 @@
     <rule>
         <key>MethodTypeParameterName</key>
         <name>Method Type Parameter Name</name>
-        <htmlDescription>Method Type Parameter Name</htmlDescription>
+        <description>Method Type Parameter Name</description>
         <internalKey>Checker/TreeWalker/MethodTypeParameterName</internalKey>
         <param key="format" name="Format">
             <defaultValue>^[A-Z]*$</defaultValue>
@@ -131,7 +131,7 @@
     <rule>
         <key>InterfaceTypeParameterName</key>
         <name>Interface Type Parameter Name</name>
-        <htmlDescription>Interface Type Parameter Name</htmlDescription>
+        <description>Interface Type Parameter Name</description>
         <internalKey>Checker/TreeWalker/InterfaceTypeParameterName</internalKey>
         <param key="format" name="Format">
             <defaultValue>^[A-Z]*$</defaultValue>
@@ -141,31 +141,31 @@
     <rule>
         <key>AvoidStarImport</key>
         <name>Avoid Star Import</name>
-        <htmlDescription>Avoid Star Import</htmlDescription>
+        <description>Avoid Star Import</description>
         <internalKey>Checker/TreeWalker/AvoidStarImport</internalKey>
     </rule>
     <rule>
         <key>IllegalImport</key>
         <name>Illegal Import</name>
-        <htmlDescription>Illegal Import</htmlDescription>
+        <description>Illegal Import</description>
         <internalKey>Checker/TreeWalker/IllegalImport</internalKey>
     </rule>
     <rule>
         <key>RedundantImport</key>
         <name>Redundant Import</name>
-        <htmlDescription>Redundant Import</htmlDescription>
+        <description>Redundant Import</description>
         <internalKey>Checker/TreeWalker/RedundantImport</internalKey>
     </rule>
     <rule>
         <key>UnusedImports</key>
         <name>Unused Imports</name>
-        <htmlDescription>Unused Imports</htmlDescription>
+        <description>Unused Imports</description>
         <internalKey>Checker/TreeWalker/UnusedImports</internalKey>
     </rule>
     <rule>
         <key>LineLength</key>
         <name>Line Length</name>
-        <htmlDescription>Line Length</htmlDescription>
+        <description>Line Length</description>
         <internalKey>Checker/TreeWalker/LineLength</internalKey>
         <param key="max" name="Max">
             <defaultValue>150</defaultValue>
@@ -179,7 +179,7 @@
     <rule>
         <key>MethodLength</key>
         <name>Method Length</name>
-        <htmlDescription>Method Length</htmlDescription>
+        <description>Method Length</description>
         <internalKey>Checker/TreeWalker/MethodLength</internalKey>
         <param key="max" name="Max">
             <defaultValue>200</defaultValue>
@@ -189,127 +189,127 @@
     <rule>
         <key>EmptyForIteratorPad</key>
         <name>Empty For Iterator Pad</name>
-        <htmlDescription>Empty For Iterator Pad</htmlDescription>
+        <description>Empty For Iterator Pad</description>
         <internalKey>Checker/TreeWalker/EmptyForIteratorPad</internalKey>
     </rule>
     <rule>
         <key>GenericWhitespace</key>
         <name>Generic Whitespace</name>
-        <htmlDescription>Generic Whitespace</htmlDescription>
+        <description>Generic Whitespace</description>
         <internalKey>Checker/TreeWalker/GenericWhitespace</internalKey>
     </rule>
     <rule>
         <key>MethodParamPad</key>
         <name>Method Param Pad</name>
-        <htmlDescription>Method Param Pad</htmlDescription>
+        <description>Method Param Pad</description>
         <internalKey>Checker/TreeWalker/MethodParamPad</internalKey>
     </rule>
     <rule>
         <key>NoWhitespaceAfter</key>
         <name>No Whitespace After</name>
-        <htmlDescription>No Whitespace After</htmlDescription>
+        <description>No Whitespace After</description>
         <internalKey>Checker/TreeWalker/NoWhitespaceAfter</internalKey>
     </rule>
     <rule>
         <key>NoWhitespaceBefore</key>
         <name>No Whitespace Before</name>
-        <htmlDescription>No Whitespace Before</htmlDescription>
+        <description>No Whitespace Before</description>
         <internalKey>Checker/TreeWalker/NoWhitespaceBefore</internalKey>
     </rule>
     <rule>
         <key>ParenPad</key>
         <name>Paren Pad</name>
-        <htmlDescription>Paren Pad</htmlDescription>
+        <description>Paren Pad</description>
         <internalKey>Checker/TreeWalker/ParenPad</internalKey>
     </rule>
     <rule>
         <key>TypecastParenPad</key>
         <name>Typecast Paren Pad</name>
-        <htmlDescription>Typecast Paren Pad</htmlDescription>
+        <description>Typecast Paren Pad</description>
         <internalKey>Checker/TreeWalker/TypecastParenPad</internalKey>
     </rule>
     <rule>
         <key>WhitespaceAfter</key>
         <name>Whitespace After</name>
-        <htmlDescription>Whitespace After</htmlDescription>
+        <description>Whitespace After</description>
         <internalKey>Checker/TreeWalker/WhitespaceAfter</internalKey>
     </rule>
     <rule>
         <key>WhitespaceAround</key>
         <name>Whitespace Around</name>
-        <htmlDescription>Whitespace Around</htmlDescription>
+        <description>Whitespace Around</description>
         <internalKey>Checker/TreeWalker/WhitespaceAround</internalKey>
     </rule>
     <rule>
         <key>ModifierOrder</key>
         <name>Modifier Order</name>
-        <htmlDescription>Modifier Order</htmlDescription>
+        <description>Modifier Order</description>
         <internalKey>Checker/TreeWalker/ModifierOrder</internalKey>
     </rule>
     <rule>
         <key>RedundantModifier</key>
         <name>Redundant Modifier</name>
-        <htmlDescription>Redundant Modifier</htmlDescription>
+        <description>Redundant Modifier</description>
         <internalKey>Checker/TreeWalker/RedundantModifier</internalKey>
     </rule>
     <rule>
         <key>AvoidNestedBlocks</key>
         <name>Avoid Nested Blocks</name>
-        <htmlDescription>Avoid Nested Blocks</htmlDescription>
+        <description>Avoid Nested Blocks</description>
         <internalKey>Checker/TreeWalker/AvoidNestedBlocks</internalKey>
     </rule>
     <rule>
         <key>EmptyBlock</key>
         <name>Empty Block</name>
-        <htmlDescription>Empty Block</htmlDescription>
+        <description>Empty Block</description>
         <internalKey>Checker/TreeWalker/EmptyBlock</internalKey>
     </rule>
     <rule>
         <key>LeftCurly</key>
         <name>Left Curly</name>
-        <htmlDescription>Left Curly</htmlDescription>
+        <description>Left Curly</description>
         <internalKey>Checker/TreeWalker/LeftCurly</internalKey>
     </rule>
     <rule>
         <key>NeedBraces</key>
         <name>Need Braces</name>
-        <htmlDescription>Need Braces</htmlDescription>
+        <description>Need Braces</description>
         <internalKey>Checker/TreeWalker/NeedBraces</internalKey>
     </rule>
     <rule>
         <key>RightCurly</key>
         <name>Right Curly</name>
-        <htmlDescription>Right Curly</htmlDescription>
+        <description>Right Curly</description>
         <internalKey>Checker/TreeWalker/RightCurly</internalKey>
     </rule>
     <rule>
         <key>EmptyStatement</key>
         <name>Empty Statement</name>
-        <htmlDescription>Empty Statement</htmlDescription>
+        <description>Empty Statement</description>
         <internalKey>Checker/TreeWalker/EmptyStatement</internalKey>
     </rule>
     <rule>
         <key>EqualsAvoidNull</key>
         <name>Equals Avoid Null</name>
-        <htmlDescription>Equals Avoid Null</htmlDescription>
+        <description>Equals Avoid Null</description>
         <internalKey>Checker/TreeWalker/EqualsAvoidNull</internalKey>
     </rule>
     <rule>
         <key>EqualsHashCode</key>
         <name>Equals Hash Code</name>
-        <htmlDescription>Equals Hash Code</htmlDescription>
+        <description>Equals Hash Code</description>
         <internalKey>Checker/TreeWalker/EqualsHashCode</internalKey>
     </rule>
     <rule>
         <key>IllegalInstantiation</key>
         <name>Illegal Instantiation</name>
-        <htmlDescription>Illegal Instantiation</htmlDescription>
+        <description>Illegal Instantiation</description>
         <internalKey>Checker/TreeWalker/IllegalInstantiation</internalKey>
     </rule>
     <rule>
         <key>MagicNumber</key>
         <name>Magic Number</name>
-        <htmlDescription>Magic Number</htmlDescription>
+        <description>Magic Number</description>
         <internalKey>Checker/TreeWalker/MagicNumber</internalKey>
         <param key="ignoreHashCodeMethod" name="Ignore Hash Code Method">
             <defaultValue>true</defaultValue>
@@ -327,43 +327,43 @@
     <rule>
         <key>MissingSwitchDefault</key>
         <name>Missing Switch Default</name>
-        <htmlDescription>Missing Switch Default</htmlDescription>
+        <description>Missing Switch Default</description>
         <internalKey>Checker/TreeWalker/MissingSwitchDefault</internalKey>
     </rule>
     <rule>
         <key>DefaultComesLast</key>
         <name>Default Comes Last</name>
-        <htmlDescription>Default Comes Last</htmlDescription>
+        <description>Default Comes Last</description>
         <internalKey>Checker/TreeWalker/DefaultComesLast</internalKey>
     </rule>
     <rule>
         <key>SimplifyBooleanExpression</key>
         <name>Simplify Boolean Expression</name>
-        <htmlDescription>Simplify Boolean Expression</htmlDescription>
+        <description>Simplify Boolean Expression</description>
         <internalKey>Checker/TreeWalker/SimplifyBooleanExpression</internalKey>
     </rule>
     <rule>
         <key>SimplifyBooleanReturn</key>
         <name>Simplify Boolean Return</name>
-        <htmlDescription>Simplify Boolean Return</htmlDescription>
+        <description>Simplify Boolean Return</description>
         <internalKey>Checker/TreeWalker/SimplifyBooleanReturn</internalKey>
     </rule>
     <rule>
         <key>FinalClass</key>
         <name>Final Class</name>
-        <htmlDescription>Final Class</htmlDescription>
+        <description>Final Class</description>
         <internalKey>Checker/TreeWalker/FinalClass</internalKey>
     </rule>
     <rule>
         <key>InterfaceIsType</key>
         <name>Interface Is Type</name>
-        <htmlDescription>Interface Is Type</htmlDescription>
+        <description>Interface Is Type</description>
         <internalKey>Checker/TreeWalker/InterfaceIsType</internalKey>
     </rule>
     <rule>
         <key>VisibilityModifier</key>
         <name>Visibility Modifier</name>
-        <htmlDescription>Visibility Modifier</htmlDescription>
+        <description>Visibility Modifier</description>
         <internalKey>Checker/TreeWalker/VisibilityModifier</internalKey>
         <param key="protectedAllowed" name="Protected Allowed">
             <defaultValue>true</defaultValue>
@@ -373,13 +373,13 @@
     <rule>
         <key>OuterTypeFilename</key>
         <name>Outer Type Filename</name>
-        <htmlDescription>Outer Type Filename</htmlDescription>
+        <description>Outer Type Filename</description>
         <internalKey>Checker/TreeWalker/OuterTypeFilename</internalKey>
     </rule>
     <rule>
         <key>IllegalTokenText</key>
         <name>Illegal Token Text</name>
-        <htmlDescription>Illegal Token Text</htmlDescription>
+        <description>Illegal Token Text</description>
         <internalKey>Checker/TreeWalker/IllegalTokenText</internalKey>
         <param key="tokens" name="Tokens">
             <defaultValue>STRING_LITERAL, CHAR_LITERAL</defaultValue>
@@ -397,49 +397,49 @@
     <rule>
         <key>OneTopLevelClass</key>
         <name>One Top Level Class</name>
-        <htmlDescription>One Top Level Class</htmlDescription>
+        <description>One Top Level Class</description>
         <internalKey>Checker/TreeWalker/OneTopLevelClass</internalKey>
     </rule>
     <rule>
         <key>NoLineWrap</key>
         <name>No Line Wrap</name>
-        <htmlDescription>No Line Wrap</htmlDescription>
+        <description>No Line Wrap</description>
         <internalKey>Checker/TreeWalker/NoLineWrap</internalKey>
     </rule>
     <rule>
         <key>OneStatementPerLine</key>
         <name>One Statement Per Line</name>
-        <htmlDescription>One Statement Per Line</htmlDescription>
+        <description>One Statement Per Line</description>
         <internalKey>Checker/TreeWalker/OneStatementPerLine</internalKey>
     </rule>
     <rule>
         <key>MultipleVariableDeclarations</key>
         <name>Multiple Variable Declarations</name>
-        <htmlDescription>Multiple Variable Declarations</htmlDescription>
+        <description>Multiple Variable Declarations</description>
         <internalKey>Checker/TreeWalker/MultipleVariableDeclarations</internalKey>
     </rule>
     <rule>
         <key>ArrayTypeStyle</key>
         <name>Array Type Style</name>
-        <htmlDescription>Array Type Style</htmlDescription>
+        <description>Array Type Style</description>
         <internalKey>Checker/TreeWalker/ArrayTypeStyle</internalKey>
     </rule>
     <rule>
         <key>FallThrough</key>
         <name>Fall Through</name>
-        <htmlDescription>Fall Through</htmlDescription>
+        <description>Fall Through</description>
         <internalKey>Checker/TreeWalker/FallThrough</internalKey>
     </rule>
     <rule>
         <key>UpperEll</key>
         <name>Upper Ell</name>
-        <htmlDescription>Upper Ell</htmlDescription>
+        <description>Upper Ell</description>
         <internalKey>Checker/TreeWalker/UpperEll</internalKey>
     </rule>
     <rule>
         <key>EmptyLineSeparator</key>
         <name>Empty Line Separator</name>
-        <htmlDescription>Empty Line Separator</htmlDescription>
+        <description>Empty Line Separator</description>
         <internalKey>Checker/TreeWalker/EmptyLineSeparator</internalKey>
         <param key="allowNoEmptyLineBetweenFields" name="Allow No Empty Line Between Fields">
             <defaultValue>true</defaultValue>
@@ -453,7 +453,7 @@
     <rule>
         <key>SeparatorWrap</key>
         <name>Separator Wrap</name>
-        <htmlDescription>Separator Wrap</htmlDescription>
+        <description>Separator Wrap</description>
         <internalKey>Checker/TreeWalker/SeparatorWrap</internalKey>
         <param key="tokens" name="Tokens">
             <defaultValue>DOT</defaultValue>
@@ -467,13 +467,13 @@
     <rule>
         <key>NoFinalizer</key>
         <name>No Finalizer</name>
-        <htmlDescription>No Finalizer</htmlDescription>
+        <description>No Finalizer</description>
         <internalKey>Checker/TreeWalker/NoFinalizer</internalKey>
     </rule>
     <rule>
         <key>AbbreviationAsWordInName</key>
         <name>Abbreviation As Word In Name</name>
-        <htmlDescription>Abbreviation As Word In Name</htmlDescription>
+        <description>Abbreviation As Word In Name</description>
         <internalKey>Checker/TreeWalker/AbbreviationAsWordInName</internalKey>
         <param key="ignoreFinal" name="Ignore Final">
             <defaultValue>false</defaultValue>
@@ -487,7 +487,7 @@
     <rule>
         <key>AnnotationLocation</key>
         <name>Annotation Location</name>
-        <htmlDescription>Annotation Location</htmlDescription>
+        <description>Annotation Location</description>
         <internalKey>Checker/TreeWalker/AnnotationLocation</internalKey>
         <param key="tokens" name="Tokens">
             <defaultValue>CLASS_DEF, INTERFACE_DEF, ENUM_DEF, METHOD_DEF, CTOR_DEF</defaultValue>
@@ -497,7 +497,7 @@
     <rule>
         <key>EmptyCatchBlock</key>
         <name>Empty Catch Block</name>
-        <htmlDescription>Empty Catch Block</htmlDescription>
+        <description>Empty Catch Block</description>
         <internalKey>Checker/TreeWalker/EmptyCatchBlock</internalKey>
         <param key="exceptionVariableName" name="Exception Variable Name">
             <defaultValue>expected|ignored</defaultValue>
@@ -507,43 +507,43 @@
     <rule>
         <key>CommentsIndentation</key>
         <name>Comments Indentation</name>
-        <htmlDescription>Comments Indentation</htmlDescription>
+        <description>Comments Indentation</description>
         <internalKey>Checker/TreeWalker/CommentsIndentation</internalKey>
     </rule>
     <rule>
         <key>DeclarationOrder</key>
         <name>Declaration Order</name>
-        <htmlDescription>Declaration Order</htmlDescription>
+        <description>Declaration Order</description>
         <internalKey>Checker/TreeWalker/DeclarationOrder</internalKey>
     </rule>
     <rule>
         <key>ExplicitInitialization</key>
         <name>Explicit Initialization</name>
-        <htmlDescription>Explicit Initialization</htmlDescription>
+        <description>Explicit Initialization</description>
         <internalKey>Checker/TreeWalker/ExplicitInitialization</internalKey>
     </rule>
     <rule>
         <key>PackageDeclaration</key>
         <name>Package Declaration</name>
-        <htmlDescription>Package Declaration</htmlDescription>
+        <description>Package Declaration</description>
         <internalKey>Checker/TreeWalker/PackageDeclaration</internalKey>
     </rule>
     <rule>
         <key>SuppressWarningsHolder</key>
         <name>Suppress Warnings Holder</name>
-        <htmlDescription>Suppress Warnings Holder</htmlDescription>
+        <description>Suppress Warnings Holder</description>
         <internalKey>Checker/TreeWalker/SuppressWarningsHolder</internalKey>
     </rule>
     <rule>
         <key>es.startuphero.checkstyle.checks.LoggerOrderCheck</key>
         <name>Logger Order Check</name>
-        <htmlDescription>Logger Order Check</htmlDescription>
+        <description>Logger Order Check</description>
         <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.LoggerOrderCheck</internalKey>
     </rule>
     <rule>
         <key>es.startuphero.checkstyle.checks.RedundantMultipleAnnotationCheck</key>
         <name>Redundant Multiple Annotation Check</name>
-        <htmlDescription>Redundant Multiple Annotation Check</htmlDescription>
+        <description>Redundant Multiple Annotation Check</description>
         <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.RedundantMultipleAnnotationCheck</internalKey>
         <param key="tokens" name="Tokens">
             <defaultValue>VARIABLE_DEF</defaultValue>
@@ -557,7 +557,7 @@
     <rule>
         <key>es.startuphero.checkstyle.checks.BlockedAnnotationKeyCheck</key>
         <name>Blocked Annotation Key Check</name>
-        <htmlDescription>Blocked Annotation Key Check</htmlDescription>
+        <description>Blocked Annotation Key Check</description>
         <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.BlockedAnnotationKeyCheck</internalKey>
         <param key="annotationBlockedKeyMap" name="Annotation Blocked Key Map">
             <defaultValue>javax.persistence.Column:unique</defaultValue>
@@ -567,7 +567,7 @@
     <rule>
         <key>es.startuphero.checkstyle.checks.EntityEqualsHashCodeCheck</key>
         <name>Entity Equals Hash Code Check</name>
-        <htmlDescription>Entity Equals Hash Code Check</htmlDescription>
+        <description>Entity Equals Hash Code Check</description>
         <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.EntityEqualsHashCodeCheck</internalKey>
         <param key="entityAnnotation" name="Entity Annotation">
             <defaultValue>javax.persistence.Entity</defaultValue>
@@ -585,7 +585,7 @@
     <rule>
         <key>es.startuphero.checkstyle.checks.EntityToStringCheck</key>
         <name>Entity To String Check</name>
-        <htmlDescription>Entity To String Check</htmlDescription>
+        <description>Entity To String Check</description>
         <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.EntityToStringCheck</internalKey>
         <param key="entityAnnotation" name="Entity Annotation">
             <defaultValue>javax.persistence.Entity</defaultValue>
@@ -599,7 +599,7 @@
     <rule>
         <key>es.startuphero.checkstyle.checks.EntityGettersSettersCheck</key>
         <name>Entity Getters Setters Check</name>
-        <htmlDescription>Entity Getters Setters Check</htmlDescription>
+        <description>Entity Getters Setters Check</description>
         <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.EntityGettersSettersCheck</internalKey>
         <param key="entityAnnotation" name="Entity Annotation">
             <defaultValue>javax.persistence.Entity</defaultValue>
@@ -613,7 +613,7 @@
     <rule>
         <key>es.startuphero.checkstyle.checks.EntityMandatoryVariableCheck</key>
         <name>Entity Mandatory Variable Check</name>
-        <htmlDescription>Entity Mandatory Variable Check</htmlDescription>
+        <description>Entity Mandatory Variable Check</description>
         <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.EntityMandatoryVariableCheck</internalKey>
         <param key="entityAnnotation" name="Entity Annotation">
             <defaultValue>javax.persistence.Entity</defaultValue>
@@ -631,7 +631,7 @@
     <rule>
         <key>es.startuphero.checkstyle.checks.EntityVariableAnnotationKeyValueCheck</key>
         <name>Entity Variable Annotation Key Value Check</name>
-        <htmlDescription>Entity Variable Annotation Key Value Check</htmlDescription>
+        <description>Entity Variable Annotation Key Value Check</description>
         <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.EntityVariableAnnotationKeyValueCheck</internalKey>
         <param key="entityAnnotation" name="Entity Annotation">
             <defaultValue>javax.persistence.Entity</defaultValue>
@@ -649,7 +649,7 @@
     <rule>
         <key>es.startuphero.checkstyle.checks.EntityGeneratedPrimaryKeyNameCheck</key>
         <name>Entity Generated Primary Key Name Check</name>
-        <htmlDescription>Entity Generated Primary Key Name Check</htmlDescription>
+        <description>Entity Generated Primary Key Name Check</description>
         <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.EntityGeneratedPrimaryKeyNameCheck</internalKey>
         <param key="entityAnnotation" name="Entity Annotation">
             <defaultValue>javax.persistence.Entity</defaultValue>
@@ -675,7 +675,7 @@
     <rule>
         <key>es.startuphero.checkstyle.checks.EntityVariableNameCheck</key>
         <name>Entity Variable Name Check</name>
-        <htmlDescription>Entity Variable Name Check</htmlDescription>
+        <description>Entity Variable Name Check</description>
         <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.EntityVariableNameCheck</internalKey>
         <param key="entityAnnotation" name="Entity Annotation">
             <defaultValue>javax.persistence.Entity</defaultValue>
@@ -689,7 +689,7 @@
     <rule>
         <key>es.startuphero.checkstyle.checks.BlockedClassAnnotationCheck</key>
         <name>Blocked Class Annotation Check</name>
-        <htmlDescription>Blocked Class Annotation Check</htmlDescription>
+        <description>Blocked Class Annotation Check</description>
         <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.BlockedClassAnnotationCheck</internalKey>
         <param key="blockedAnnotations" name="Blocked Annotations">
             <defaultValue>com.clovify.lyso.core.annotation.LysoRepository</defaultValue>
@@ -699,7 +699,7 @@
     <rule>
         <key>es.startuphero.checkstyle.checks.EntityIndexNameCheck</key>
         <name>Entity Index Name Check</name>
-        <htmlDescription>Entity Index Name Check</htmlDescription>
+        <description>Entity Index Name Check</description>
         <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.EntityIndexNameCheck</internalKey>
         <param key="entityAnnotation" name="Entity Annotation">
             <defaultValue>javax.persistence.Entity</defaultValue>
@@ -745,7 +745,7 @@
     <rule>
         <key>es.startuphero.checkstyle.checks.EntityUniqueConstraintNameCheck</key>
         <name>Entity Unique Constraint Name Check</name>
-        <htmlDescription>Entity Unique Constraint Name Check</htmlDescription>
+        <description>Entity Unique Constraint Name Check</description>
         <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.EntityUniqueConstraintNameCheck</internalKey>
         <param key="entityAnnotation" name="Entity Annotation">
             <defaultValue>javax.persistence.Entity</defaultValue>
@@ -791,7 +791,7 @@
     <rule>
         <key>es.startuphero.checkstyle.checks.EntityLogDataCheck</key>
         <name>Entity Log Data Check</name>
-        <htmlDescription>Entity Log Data Check</htmlDescription>
+        <description>Entity Log Data Check</description>
         <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.EntityLogDataCheck</internalKey>
         <param key="entityAnnotation" name="Entity Annotation">
             <defaultValue>javax.persistence.Entity</defaultValue>
@@ -813,13 +813,13 @@
     <rule>
         <key>es.startuphero.checkstyle.checks.EmptyLineCheck</key>
         <name>Empty Line Check</name>
-        <htmlDescription>Empty Line Check</htmlDescription>
+        <description>Empty Line Check</description>
         <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.EmptyLineCheck</internalKey>
     </rule>
     <rule>
         <key>es.startuphero.checkstyle.checks.AbstractEntityModifierCheck</key>
         <name>Abstract Entity Modifier Check</name>
-        <htmlDescription>Abstract Entity Modifier Check</htmlDescription>
+        <description>Abstract Entity Modifier Check</description>
         <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.AbstractEntityModifierCheck</internalKey>
         <param key="abstractEntityAnnotation" name="Abstract Entity Annotation">
             <defaultValue>javax.persistence.MappedSuperclass</defaultValue>
@@ -829,7 +829,7 @@
     <rule>
         <key>SuppressWarningsFilter</key>
         <name>Suppress Warnings Filter</name>
-        <htmlDescription>Suppress Warnings Filter</htmlDescription>
+        <description>Suppress Warnings Filter</description>
         <internalKey>Checker/SuppressWarningsFilter</internalKey>
     </rule>
 </rules>

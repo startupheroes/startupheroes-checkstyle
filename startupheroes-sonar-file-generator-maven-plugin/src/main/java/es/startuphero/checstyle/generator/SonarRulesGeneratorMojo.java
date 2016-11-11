@@ -116,7 +116,7 @@ public class SonarRulesGeneratorMojo extends AbstractMojo {
       Rule rule = new Rule();
       rule.setKey(module.getName());
       rule.setName(getSeparatedString(module.getName()));
-      rule.setHtmlDescription(getSeparatedString(module.getName()));
+      rule.setDescription(getSeparatedString(module.getName()));
       rule.setInternalKey(getConfigKey(module));
       module.getProperties()
             .forEach(property -> rule.getParams()

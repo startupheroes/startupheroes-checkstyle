@@ -16,7 +16,7 @@ public class Rule {
    private String name;
 
    @XmlElement
-   private String htmlDescription;
+   private String description;
 
    @XmlElement
    private String internalKey;
@@ -40,12 +40,12 @@ public class Rule {
       this.name = name;
    }
 
-   public String getHtmlDescription() {
-      return htmlDescription;
+   public String getDescription() {
+      return description;
    }
 
-   public void setHtmlDescription(String htmlDescription) {
-      this.htmlDescription = htmlDescription;
+   public void setDescription(String description) {
+      this.description = description;
    }
 
    public String getInternalKey() {
@@ -84,7 +84,7 @@ public class Rule {
       return "Rule{" +
              "key='" + key + '\'' +
              ", name='" + name + '\'' +
-             ", htmlDescription='" + htmlDescription + '\'' +
+             ", description='" + description + '\'' +
              ", internalKey='" + internalKey + '\'' +
              ", params=" + params +
              '}';
