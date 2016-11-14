@@ -12,7 +12,7 @@ import org.sonar.api.server.rule.RulesDefinitionXmlLoader;
  */
 public final class SonarRulesDefinition implements RulesDefinition {
 
-   private static final String REPOSITORY_KEY = "sh-checkstyle";
+   public static final String REPOSITORY_KEY = "sh-checkstyle";
 
    private static final String REPOSITORY_NAME = "SH-Checkstyle";
 

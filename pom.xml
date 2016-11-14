@@ -21,12 +21,15 @@
       <maven-plugin-annotations.version>3.4</maven-plugin-annotations.version>
       <sonar-plugin-api.version>5.6</sonar-plugin-api.version>
       <sonar-packaging-maven-plugin.version>1.16</sonar-packaging-maven-plugin.version>
+      <sonar-required-guava.version>15.0</sonar-required-guava.version>
       <commons-logging.version>1.2</commons-logging.version>
       <codehause-plexus-utils.version>3.0.22</codehause-plexus-utils.version>
       <junit.version>4.11</junit.version>
       <slf4j.version>1.7.21</slf4j.version>
       <javax-persistence.version>2.1.0</javax-persistence.version>
       <spring.version>4.3.2.RELEASE</spring.version>
+      <sonar-java.version>4.2.1.6971</sonar-java.version>
+      <fest-assert.version>1.4</fest-assert.version>
    </properties>
 
    <scm>
@@ -146,6 +149,17 @@
             <version>${javax-persistence.version}</version>
          </dependency>
 
+         <dependency>
+            <groupId>org.sonarsource.java</groupId>
+            <artifactId>java-checks-testkit</artifactId>
+            <version>${sonar-java.version}</version>
+         </dependency>
+
+         <dependency>
+            <groupId>org.easytesting</groupId>
+            <artifactId>fest-assert</artifactId>
+            <version>${fest-assert.version}</version>
+         </dependency>
       </dependencies>
    </dependencyManagement>
 

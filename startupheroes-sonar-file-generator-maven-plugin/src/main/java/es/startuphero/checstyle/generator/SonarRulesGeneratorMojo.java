@@ -9,6 +9,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.Optional;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
@@ -108,8 +109,25 @@ public class SonarRulesGeneratorMojo extends AbstractMojo {
    private static void addNewRule(Rules rules, Module module) {
       if (module.getChilds().isEmpty()) {
          Rule newRule = convertModuleToRule(module);
+         Boolean alreadyExistRule = isAlreadyExistRule(rules, newRule);
+         Optional<Rule> existedRule = rules.getRules()
+                                           .stream()
+                                           .filter(rule -> rule.getKey().equals(newRule.getKey()))
+                                           .findFirst();
+         int uniqueCounter = 2;
+         while (alreadyExistRule) {
+            newRule.setKey(existedRule.get().getKey() + "-" + uniqueCounter);
+            uniqueCounter++;
+            alreadyExistRule = isAlreadyExistRule(rules, newRule);
+         }
          rules.getRules().add(newRule);
       }
+   }
+
+   private static Boolean isAlreadyExistRule(Rules rules, Rule newRule) {
+      return rules.getRules()
+                  .stream()
+                  .anyMatch(rule -> rule.getKey().equals(newRule.getKey()));
    }
 
    private static Rule convertModuleToRule(Module module) {
@@ -156,8 +174,7 @@ public class SonarRulesGeneratorMojo extends AbstractMojo {
    }
 
    private static String capitalizeAllString(String input) {
-      StringBuffer res = new StringBuffer();
-
+      StringBuilder res = new StringBuilder();
       String[] strArr = input.split(" ");
       for (String str : strArr) {
          char[] stringArray = str.trim().toCharArray();

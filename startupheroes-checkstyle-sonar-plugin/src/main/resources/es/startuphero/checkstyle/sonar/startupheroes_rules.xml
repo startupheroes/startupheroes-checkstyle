@@ -49,6 +49,34 @@
         </param>
     </rule>
     <rule>
+        <key>RegexpSingleline-2</key>
+        <name>Regexp Singleline</name>
+        <description>Regexp Singleline</description>
+        <internalKey>Checker/RegexpSingleline</internalKey>
+        <param key="format" name="Format">
+            <defaultValue>^\s*(for|if)\b[^ ]</defaultValue>
+            <description>Format property with value of '^\s*(for|if)\b[^ ]'</description>
+        </param>
+        <param key="message" name="Message">
+            <defaultValue>Space needed before opening parenthesis.</defaultValue>
+            <description>Message property with value of 'Space needed before opening parenthesis.'</description>
+        </param>
+    </rule>
+    <rule>
+        <key>RegexpSingleline-3</key>
+        <name>Regexp Singleline</name>
+        <description>Regexp Singleline</description>
+        <internalKey>Checker/RegexpSingleline</internalKey>
+        <param key="format" name="Format">
+            <defaultValue>^\s*for \(.*?([^ ]:|:[^ ])</defaultValue>
+            <description>Format property with value of '^\s*for \(.*?([^ ]:|:[^ ])'</description>
+        </param>
+        <param key="message" name="Message">
+            <defaultValue>Space needed around ':' character.</defaultValue>
+            <description>Message property with value of 'Space needed around ':' character.'</description>
+        </param>
+    </rule>
+    <rule>
         <key>ConstantName</key>
         <name>Constant Name</name>
         <description>Constant Name</description>
@@ -465,6 +493,20 @@
         </param>
     </rule>
     <rule>
+        <key>SeparatorWrap-2</key>
+        <name>Separator Wrap</name>
+        <description>Separator Wrap</description>
+        <internalKey>Checker/TreeWalker/SeparatorWrap</internalKey>
+        <param key="tokens" name="Tokens">
+            <defaultValue>COMMA</defaultValue>
+            <description>Tokens property with value of 'COMMA'</description>
+        </param>
+        <param key="option" name="Option">
+            <defaultValue>EOL</defaultValue>
+            <description>Option property with value of 'EOL'</description>
+        </param>
+    </rule>
+    <rule>
         <key>NoFinalizer</key>
         <name>No Finalizer</name>
         <description>No Finalizer</description>
@@ -492,6 +534,20 @@
         <param key="tokens" name="Tokens">
             <defaultValue>CLASS_DEF, INTERFACE_DEF, ENUM_DEF, METHOD_DEF, CTOR_DEF</defaultValue>
             <description>Tokens property with value of 'CLASS_DEF, INTERFACE_DEF, ENUM_DEF, METHOD_DEF, CTOR_DEF'</description>
+        </param>
+    </rule>
+    <rule>
+        <key>AnnotationLocation-2</key>
+        <name>Annotation Location</name>
+        <description>Annotation Location</description>
+        <internalKey>Checker/TreeWalker/AnnotationLocation</internalKey>
+        <param key="tokens" name="Tokens">
+            <defaultValue>VARIABLE_DEF</defaultValue>
+            <description>Tokens property with value of 'VARIABLE_DEF'</description>
+        </param>
+        <param key="allowSamelineMultipleAnnotations" name="Allow Sameline Multiple Annotations">
+            <defaultValue>true</defaultValue>
+            <description>Allow Sameline Multiple Annotations property with value of 'true'</description>
         </param>
     </rule>
     <rule>
