@@ -14,22 +14,21 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Rules {
 
-   @XmlElement(name = "rule")
-   private Set<Rule> rules = new LinkedHashSet<>();
+  @XmlElement(name = "rule")
+  private Set<Rule> rules = new LinkedHashSet<>();
 
-   public Set<Rule> getRules() {
-      return rules;
-   }
+  public Set<Rule> getRules() {
+    return rules;
+  }
 
-   public void setRules(Set<Rule> rules) {
-      this.rules = rules;
-   }
+  public void setRules(Set<Rule> rules) {
+    this.rules = rules;
+  }
 
-   @Override
-   public String toString() {
-      return "Rules{" +
-             "rules=" + rules +
-             '}';
-   }
-
+  @Override
+  public String toString() {
+    return "Rules{" +
+        "rules=" + rules +
+        '}';
+  }
 }

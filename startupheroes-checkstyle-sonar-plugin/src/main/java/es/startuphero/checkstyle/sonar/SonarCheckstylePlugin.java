@@ -8,9 +8,8 @@ import org.sonar.api.Plugin;
 
 public final class SonarCheckstylePlugin implements Plugin {
 
-   @Override
-   public void define(Context context) {
-      context.addExtension(SonarRulesDefinition.class);
-   }
-
+  @Override
+  public void define(Context context) {
+    context.addExtension(SonarRulesDefinition.class);
+  }
 }

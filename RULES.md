@@ -169,29 +169,32 @@ Comments are indented at the same level as the surrounding code.
 (null for object references, zero for numeric types and char and false for boolean.)
 21. PackageDeclaration: Ensures that a class has a package declaration, and (optionally)
 whether the package name matches the directory name for the source file.
-
+22.EqualsHashCodeCheck: Checks that classes that either override {@code equals()} or {@code hashCode()} also overrides the other.
+23. AbstractClassNameCheck: Ensures that the names of abstract classes conforming to some regular expression and check that
+"abstract" modifier exists.
 
 # Custom checks:
 
-1. LoggerOrderCheck: Checks for LOGGER definitions should be at the top of the class.
+1. VariableDeclarationOrderCheck: Checks for variable definitions should be at the given order of the class.
 2. RedundantMultipleAnnotationCheck: Checks for together usage of given set of annotations redundantly.
-3. BlockedAnnotationKeyCheck: Checks to block of usage the given key inside given annotation.
-4. EntityEqualsHashCodeCheck: Checks whether there is or not a default equals and hashCode methods in entity class.
-5. EntityToStringCheck: Checks whether there is or not toString method in entity class.
-6. EntityGettersSettersCheck: Checks if there is no getter or setter any variable of entity class.
-7. EntityMandatoryVariableCheck: Checks that mandatory to declare some variables in entity class.
-8. EntityVariableAnnotationKeyValueCheck: Checks that an entity variable has given key and value pair in given annotation.
-9. RedundantDefaultAnnotationParameterAssignCheck: Checks for redundant default parameter value assign of annotation.
-10. EntityGeneratedPrimaryKeyNameCheck: Checks for generated primary key name of the entity, it should be 'id'.
-11. EntityVariableNameCheck: Checks for variable's names of the entity, names should not be in context of the entity name.
-12. MissingOverrideAnnotationCheck: Checks for missing override annotations for overriden methods.
-13. BlockedClassAnnotationCheck: Checks for prevent to use blocked annotations on class or interface.
-14. EntityIndexNameCheck: Checks the index name format of the entity, it should be like table_name_field1_name_field2_name_index.
-15. EntityUniqueConstraintNameCheck: Checks the unique constraint name format of the entity, it should be like table_name_field1_name_field2_name_uk.
-16. EntityLogDataCheck: Checks the variables in log entity and show variables to move to the log data table.
-17. EmptyLineCheck: Checks the empty line from the last right curly bracket at the end of each class, interface and enum.
-18. AbstractEntityModifierCheck: Checks 'abstract' modifier for entity mapped super classes.
-19. AbstractEntityNameCheck: Checks 'Abstract' keyword in name of entity mapped super classes.
+3. ForbiddenAnnotationKeyCheck: Checks to forbidden usage the given key inside given annotation.
+4. MissingEqualsHashCodeCheck: Checks whether there is or not a default equals and hashCode methods in typed class.
+5. MissingToStringCheck: Checks whether there is or not toString method in typed class.
+6. MissingGetterCheck: Checks if there is no getter for a variable of typed class.
+7. MissingSetterCheck: Checks if there is no setter for a variable of typed class.
+8. MissingVariableCheck: Checks that mandatory to declare some variables in typed class.
+9. VariableAnnotationKeyValueCheck: Checks that a variable has given key and value pair in given annotation.
+10. RedundantDefaultAnnotationParameterAssignCheck: Checks for redundant default parameter value assign of annotation.
+11. GeneratedPrimaryKeyNameCheck: Checks for generated primary key name of the typed class, it should be 'id'.
+12. VariableNameCheck: Checks for variable's names of the class, names should not be in context of the class name.
+13. MissingOverrideCheck: Checks for missing override annotations for overriden methods.
+14. ForbiddenAnnotationCheck: Checks for prevent to use blocked annotations on class or interface.
+15. TableIdentifierNameCheck: Checks the index name format of the class, it should be like table_name_field1_name_field2_name_index 
+and checks the unique constraint name format of the class, it should be like table_name_field1_name_field2_name_uk.
+17. LogDataTableCheck: Checks the variables in log table and show variables to move to the log data table.
+18. MissingEmptyLineCheck: Checks the empty line from the last right curly bracket at the end of each class, interface and enum. (Not used for now)
+19. MissingAbstractModifierCheck: Checks 'abstract' modifier for entity mapped super classes.
+20. AbstractEntityNameCheck: Checks 'Abstract' keyword in name of entity mapped super classes.
 
 # Suppress warnings checks:
 1. SuppressWarningsHolder: Make the @SuppressWarnings annotations available to Checkstyle.

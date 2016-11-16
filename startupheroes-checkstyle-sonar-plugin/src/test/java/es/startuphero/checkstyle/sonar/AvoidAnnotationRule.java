@@ -14,45 +14,42 @@ import org.sonar.plugins.java.api.tree.Tree;
 @Rule(key = "AvoidAnnotation")
 public class AvoidAnnotationRule extends BaseTreeVisitor implements JavaFileScanner {
 
-   private static final String DEFAULT_VALUE = "Inject";
+  private static final String DEFAULT_VALUE = "Inject";
+  /**
+   * Name of the annotation to avoid. Value can be set by users in Quality profiles.
+   * The key
+   */
+  @RuleProperty(
+      defaultValue = DEFAULT_VALUE,
+      description = "Name of the annotation to avoid, without the prefix @, for instance 'Override'")
+  protected String name;
+  private JavaFileScannerContext context;
 
-   private JavaFileScannerContext context;
+  @Override
+  public void scanFile(JavaFileScannerContext context) {
+    this.context = context;
 
-   /**
-    * Name of the annotation to avoid. Value can be set by users in Quality profiles.
-    * The key
-    */
-   @RuleProperty(
-       defaultValue = DEFAULT_VALUE,
-       description = "Name of the annotation to avoid, without the prefix @, for instance 'Override'")
-   protected String name;
+    scan(context.getTree());
 
-   @Override
-   public void scanFile(JavaFileScannerContext context) {
-      this.context = context;
+    System.out.println(context.getTree());
+  }
 
-      scan(context.getTree());
+  @Override
+  public void visitMethod(MethodTree tree) {
+    List<AnnotationTree> annotations = tree.modifiers().annotations();
+    for (AnnotationTree annotationTree : annotations) {
+      if (annotationTree.annotationType().is(Tree.Kind.IDENTIFIER)) {
+        IdentifierTree idf = (IdentifierTree) annotationTree.annotationType();
+        System.out.println(idf.name());
 
-      System.out.println(context.getTree());
-   }
-
-   @Override
-   public void visitMethod(MethodTree tree) {
-      List<AnnotationTree> annotations = tree.modifiers().annotations();
-      for (AnnotationTree annotationTree : annotations) {
-         if (annotationTree.annotationType().is(Tree.Kind.IDENTIFIER)) {
-            IdentifierTree idf = (IdentifierTree) annotationTree.annotationType();
-            System.out.println(idf.name());
-
-            if (idf.name().equals(name)) {
-               context.reportIssue(this, idf, String.format("Avoid using annotation @%s", name));
-            }
-         }
+        if (idf.name().equals(name)) {
+          context.reportIssue(this, idf, String.format("Avoid using annotation @%s", name));
+        }
       }
+    }
 
-      // The call to the super implementation allows to continue the visit of the AST.
-      // Be careful to always call this method to visit every node of the tree.
-      super.visitMethod(tree);
-   }
-
+    // The call to the super implementation allows to continue the visit of the AST.
+    // Be careful to always call this method to visit every node of the tree.
+    super.visitMethod(tree);
+  }
 }

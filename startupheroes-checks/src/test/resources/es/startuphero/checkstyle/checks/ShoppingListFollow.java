@@ -9,12 +9,11 @@ import javax.persistence.Entity;
 @Entity
 public class ShoppingListFollow extends AbstractUserListItem {
 
-   public static ShoppingListFollow newInstance(Integer userId, Integer shoppingListId) {
-      ShoppingListFollow shoppingListFollow = new ShoppingListFollow();
-      shoppingListFollow.setUserId(userId);
-      shoppingListFollow.setObjectId(shoppingListId);
-      shoppingListFollow.setCreatedAt(new Date());
-      return shoppingListFollow;
-   }
-
+  public static ShoppingListFollow newInstance(Integer userId, Integer shoppingListId) {
+    ShoppingListFollow shoppingListFollow = new ShoppingListFollow();
+    shoppingListFollow.setUserId(userId);
+    shoppingListFollow.setObjectId(shoppingListId);
+    shoppingListFollow.setCreatedAt(new Date());
+    return shoppingListFollow;
+  }
 }

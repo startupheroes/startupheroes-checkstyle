@@ -196,8 +196,8 @@
         <description>Line Length</description>
         <internalKey>Checker/TreeWalker/LineLength</internalKey>
         <param key="max" name="Max">
-            <defaultValue>150</defaultValue>
-            <description>Max property with value of '150'</description>
+            <defaultValue>100</defaultValue>
+            <description>Max property with value of '100'</description>
         </param>
         <param key="ignorePattern" name="Ignore Pattern">
             <defaultValue>^package.*|^import.*|a href|href|http://|https://|ftp://</defaultValue>
@@ -210,8 +210,38 @@
         <description>Method Length</description>
         <internalKey>Checker/TreeWalker/MethodLength</internalKey>
         <param key="max" name="Max">
-            <defaultValue>200</defaultValue>
-            <description>Max property with value of '200'</description>
+            <defaultValue>30</defaultValue>
+            <description>Max property with value of '30'</description>
+        </param>
+    </rule>
+    <rule>
+        <key>Indentation</key>
+        <name>Indentation</name>
+        <description>Indentation</description>
+        <internalKey>Checker/TreeWalker/Indentation</internalKey>
+        <param key="basicOffset" name="Basic Offset">
+            <defaultValue>2</defaultValue>
+            <description>Basic Offset property with value of '2'</description>
+        </param>
+        <param key="braceAdjustment" name="Brace Adjustment">
+            <defaultValue>0</defaultValue>
+            <description>Brace Adjustment property with value of '0'</description>
+        </param>
+        <param key="caseIndent" name="Case Indent">
+            <defaultValue>2</defaultValue>
+            <description>Case Indent property with value of '2'</description>
+        </param>
+        <param key="throwsIndent" name="Throws Indent">
+            <defaultValue>4</defaultValue>
+            <description>Throws Indent property with value of '4'</description>
+        </param>
+        <param key="lineWrappingIndentation" name="Line Wrapping Indentation">
+            <defaultValue>4</defaultValue>
+            <description>Line Wrapping Indentation property with value of '4'</description>
+        </param>
+        <param key="arrayInitIndent" name="Array Init Indent">
+            <defaultValue>2</defaultValue>
+            <description>Array Init Indent property with value of '2'</description>
         </param>
     </rule>
     <rule>
@@ -585,16 +615,40 @@
         <internalKey>Checker/TreeWalker/PackageDeclaration</internalKey>
     </rule>
     <rule>
+        <key>EqualsHashCodeCheck</key>
+        <name>Equals Hash Code Check</name>
+        <description>Equals Hash Code Check</description>
+        <internalKey>Checker/TreeWalker/EqualsHashCodeCheck</internalKey>
+    </rule>
+    <rule>
+        <key>AbstractClassNameCheck</key>
+        <name>Abstract Class Name Check</name>
+        <description>Abstract Class Name Check</description>
+        <internalKey>Checker/TreeWalker/AbstractClassNameCheck</internalKey>
+        <param key="ignoreName" name="Ignore Name">
+            <defaultValue>true</defaultValue>
+            <description>Ignore Name property with value of 'true'</description>
+        </param>
+    </rule>
+    <rule>
         <key>SuppressWarningsHolder</key>
         <name>Suppress Warnings Holder</name>
         <description>Suppress Warnings Holder</description>
         <internalKey>Checker/TreeWalker/SuppressWarningsHolder</internalKey>
     </rule>
     <rule>
-        <key>es.startuphero.checkstyle.checks.LoggerOrderCheck</key>
-        <name>Logger Order Check</name>
-        <description>Logger Order Check</description>
-        <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.LoggerOrderCheck</internalKey>
+        <key>es.startuphero.checkstyle.checks.VariableDeclarationOrderCheck</key>
+        <name>Variable Declaration Order Check</name>
+        <description>Variable Declaration Order Check</description>
+        <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.VariableDeclarationOrderCheck</internalKey>
+        <param key="variableName" name="Variable Name">
+            <defaultValue>LOGGER</defaultValue>
+            <description>Variable Name property with value of 'LOGGER'</description>
+        </param>
+        <param key="declarationOrder" name="Declaration Order">
+            <defaultValue>1</defaultValue>
+            <description>Declaration Order property with value of '1'</description>
+        </param>
     </rule>
     <rule>
         <key>es.startuphero.checkstyle.checks.RedundantMultipleAnnotationCheck</key>
@@ -611,27 +665,37 @@
         </param>
     </rule>
     <rule>
-        <key>es.startuphero.checkstyle.checks.BlockedAnnotationKeyCheck</key>
-        <name>Blocked Annotation Key Check</name>
-        <description>Blocked Annotation Key Check</description>
-        <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.BlockedAnnotationKeyCheck</internalKey>
-        <param key="annotationBlockedKeyMap" name="Annotation Blocked Key Map">
-            <defaultValue>javax.persistence.Column:unique</defaultValue>
-            <description>Annotation Blocked Key Map property with value of 'javax.persistence.Column:unique'</description>
+        <key>es.startuphero.checkstyle.checks.ForbiddenAnnotationCheck</key>
+        <name>Forbidden Annotation Check</name>
+        <description>Forbidden Annotation Check</description>
+        <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.ForbiddenAnnotationCheck</internalKey>
+        <param key="forbiddenAnnotations" name="Forbidden Annotations">
+            <defaultValue>com.clovify.lyso.core.annotation.LysoRepository</defaultValue>
+            <description>Forbidden Annotations property with value of 'com.clovify.lyso.core.annotation.LysoRepository'</description>
         </param>
     </rule>
     <rule>
-        <key>es.startuphero.checkstyle.checks.EntityEqualsHashCodeCheck</key>
-        <name>Entity Equals Hash Code Check</name>
-        <description>Entity Equals Hash Code Check</description>
-        <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.EntityEqualsHashCodeCheck</internalKey>
-        <param key="entityAnnotation" name="Entity Annotation">
-            <defaultValue>javax.persistence.Entity</defaultValue>
-            <description>Entity Annotation property with value of 'javax.persistence.Entity'</description>
+        <key>es.startuphero.checkstyle.checks.ForbiddenAnnotationKeyCheck</key>
+        <name>Forbidden Annotation Key Check</name>
+        <description>Forbidden Annotation Key Check</description>
+        <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.ForbiddenAnnotationKeyCheck</internalKey>
+        <param key="annotationForbiddenKeysMap" name="Annotation Forbidden Keys Map">
+            <defaultValue>javax.persistence.Column:unique</defaultValue>
+            <description>Annotation Forbidden Keys Map property with value of 'javax.persistence.Column:unique'</description>
         </param>
-        <param key="abstractEntityAnnotation" name="Abstract Entity Annotation">
+    </rule>
+    <rule>
+        <key>es.startuphero.checkstyle.checks.MissingEqualsHashCodeCheck</key>
+        <name>Missing Equals Hash Code Check</name>
+        <description>Missing Equals Hash Code Check</description>
+        <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.MissingEqualsHashCodeCheck</internalKey>
+        <param key="typeAnnotation" name="Type Annotation">
+            <defaultValue>javax.persistence.Entity</defaultValue>
+            <description>Type Annotation property with value of 'javax.persistence.Entity'</description>
+        </param>
+        <param key="abstractTypeAnnotation" name="Abstract Type Annotation">
             <defaultValue>javax.persistence.MappedSuperclass</defaultValue>
-            <description>Abstract Entity Annotation property with value of 'javax.persistence.MappedSuperclass'</description>
+            <description>Abstract Type Annotation property with value of 'javax.persistence.MappedSuperclass'</description>
         </param>
         <param key="idAnnotation" name="Id Annotation">
             <defaultValue>javax.persistence.Id</defaultValue>
@@ -639,45 +703,59 @@
         </param>
     </rule>
     <rule>
-        <key>es.startuphero.checkstyle.checks.EntityToStringCheck</key>
-        <name>Entity To String Check</name>
-        <description>Entity To String Check</description>
-        <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.EntityToStringCheck</internalKey>
-        <param key="entityAnnotation" name="Entity Annotation">
+        <key>es.startuphero.checkstyle.checks.MissingToStringCheck</key>
+        <name>Missing To String Check</name>
+        <description>Missing To String Check</description>
+        <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.MissingToStringCheck</internalKey>
+        <param key="typeAnnotation" name="Type Annotation">
             <defaultValue>javax.persistence.Entity</defaultValue>
-            <description>Entity Annotation property with value of 'javax.persistence.Entity'</description>
+            <description>Type Annotation property with value of 'javax.persistence.Entity'</description>
         </param>
-        <param key="abstractEntityAnnotation" name="Abstract Entity Annotation">
+        <param key="abstractTypeAnnotation" name="Abstract Type Annotation">
             <defaultValue>javax.persistence.MappedSuperclass</defaultValue>
-            <description>Abstract Entity Annotation property with value of 'javax.persistence.MappedSuperclass'</description>
+            <description>Abstract Type Annotation property with value of 'javax.persistence.MappedSuperclass'</description>
         </param>
     </rule>
     <rule>
-        <key>es.startuphero.checkstyle.checks.EntityGettersSettersCheck</key>
-        <name>Entity Getters Setters Check</name>
-        <description>Entity Getters Setters Check</description>
-        <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.EntityGettersSettersCheck</internalKey>
-        <param key="entityAnnotation" name="Entity Annotation">
+        <key>es.startuphero.checkstyle.checks.MissingGetterCheck</key>
+        <name>Missing Getter Check</name>
+        <description>Missing Getter Check</description>
+        <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.MissingGetterCheck</internalKey>
+        <param key="typeAnnotation" name="Type Annotation">
             <defaultValue>javax.persistence.Entity</defaultValue>
-            <description>Entity Annotation property with value of 'javax.persistence.Entity'</description>
+            <description>Type Annotation property with value of 'javax.persistence.Entity'</description>
         </param>
-        <param key="abstractEntityAnnotation" name="Abstract Entity Annotation">
+        <param key="abstractTypeAnnotation" name="Abstract Type Annotation">
             <defaultValue>javax.persistence.MappedSuperclass</defaultValue>
-            <description>Abstract Entity Annotation property with value of 'javax.persistence.MappedSuperclass'</description>
+            <description>Abstract Type Annotation property with value of 'javax.persistence.MappedSuperclass'</description>
         </param>
     </rule>
     <rule>
-        <key>es.startuphero.checkstyle.checks.EntityMandatoryVariableCheck</key>
-        <name>Entity Mandatory Variable Check</name>
-        <description>Entity Mandatory Variable Check</description>
-        <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.EntityMandatoryVariableCheck</internalKey>
-        <param key="entityAnnotation" name="Entity Annotation">
+        <key>es.startuphero.checkstyle.checks.MissingSetterCheck</key>
+        <name>Missing Setter Check</name>
+        <description>Missing Setter Check</description>
+        <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.MissingSetterCheck</internalKey>
+        <param key="typeAnnotation" name="Type Annotation">
             <defaultValue>javax.persistence.Entity</defaultValue>
-            <description>Entity Annotation property with value of 'javax.persistence.Entity'</description>
+            <description>Type Annotation property with value of 'javax.persistence.Entity'</description>
         </param>
-        <param key="abstractEntityAnnotation" name="Abstract Entity Annotation">
+        <param key="abstractTypeAnnotation" name="Abstract Type Annotation">
             <defaultValue>javax.persistence.MappedSuperclass</defaultValue>
-            <description>Abstract Entity Annotation property with value of 'javax.persistence.MappedSuperclass'</description>
+            <description>Abstract Type Annotation property with value of 'javax.persistence.MappedSuperclass'</description>
+        </param>
+    </rule>
+    <rule>
+        <key>es.startuphero.checkstyle.checks.MissingVariableCheck</key>
+        <name>Missing Variable Check</name>
+        <description>Missing Variable Check</description>
+        <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.MissingVariableCheck</internalKey>
+        <param key="typeAnnotation" name="Type Annotation">
+            <defaultValue>javax.persistence.Entity</defaultValue>
+            <description>Type Annotation property with value of 'javax.persistence.Entity'</description>
+        </param>
+        <param key="abstractTypeAnnotation" name="Abstract Type Annotation">
+            <defaultValue>javax.persistence.MappedSuperclass</defaultValue>
+            <description>Abstract Type Annotation property with value of 'javax.persistence.MappedSuperclass'</description>
         </param>
         <param key="mandatoryVariables" name="Mandatory Variables">
             <defaultValue>createdAt, lastUpdatedAt</defaultValue>
@@ -685,17 +763,17 @@
         </param>
     </rule>
     <rule>
-        <key>es.startuphero.checkstyle.checks.EntityVariableAnnotationKeyValueCheck</key>
-        <name>Entity Variable Annotation Key Value Check</name>
-        <description>Entity Variable Annotation Key Value Check</description>
-        <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.EntityVariableAnnotationKeyValueCheck</internalKey>
-        <param key="entityAnnotation" name="Entity Annotation">
+        <key>es.startuphero.checkstyle.checks.VariableAnnotationKeyValueCheck</key>
+        <name>Variable Annotation Key Value Check</name>
+        <description>Variable Annotation Key Value Check</description>
+        <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.VariableAnnotationKeyValueCheck</internalKey>
+        <param key="typeAnnotation" name="Type Annotation">
             <defaultValue>javax.persistence.Entity</defaultValue>
-            <description>Entity Annotation property with value of 'javax.persistence.Entity'</description>
+            <description>Type Annotation property with value of 'javax.persistence.Entity'</description>
         </param>
-        <param key="abstractEntityAnnotation" name="Abstract Entity Annotation">
+        <param key="abstractTypeAnnotation" name="Abstract Type Annotation">
             <defaultValue>javax.persistence.MappedSuperclass</defaultValue>
-            <description>Abstract Entity Annotation property with value of 'javax.persistence.MappedSuperclass'</description>
+            <description>Abstract Type Annotation property with value of 'javax.persistence.MappedSuperclass'</description>
         </param>
         <param key="variableAnnotationKeyValueTable" name="Variable Annotation Key Value Table">
             <defaultValue>createdAt:javax.persistence.Column:nullable:false, lastUpdatedAt:javax.persistence.Column:nullable:false</defaultValue>
@@ -703,17 +781,17 @@
         </param>
     </rule>
     <rule>
-        <key>es.startuphero.checkstyle.checks.EntityGeneratedPrimaryKeyNameCheck</key>
-        <name>Entity Generated Primary Key Name Check</name>
-        <description>Entity Generated Primary Key Name Check</description>
-        <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.EntityGeneratedPrimaryKeyNameCheck</internalKey>
-        <param key="entityAnnotation" name="Entity Annotation">
+        <key>es.startuphero.checkstyle.checks.GeneratedPrimaryKeyNameCheck</key>
+        <name>Generated Primary Key Name Check</name>
+        <description>Generated Primary Key Name Check</description>
+        <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.GeneratedPrimaryKeyNameCheck</internalKey>
+        <param key="typeAnnotation" name="Type Annotation">
             <defaultValue>javax.persistence.Entity</defaultValue>
-            <description>Entity Annotation property with value of 'javax.persistence.Entity'</description>
+            <description>Type Annotation property with value of 'javax.persistence.Entity'</description>
         </param>
-        <param key="abstractEntityAnnotation" name="Abstract Entity Annotation">
+        <param key="abstractTypeAnnotation" name="Abstract Type Annotation">
             <defaultValue>javax.persistence.MappedSuperclass</defaultValue>
-            <description>Abstract Entity Annotation property with value of 'javax.persistence.MappedSuperclass'</description>
+            <description>Abstract Type Annotation property with value of 'javax.persistence.MappedSuperclass'</description>
         </param>
         <param key="idAnnotation" name="Id Annotation">
             <defaultValue>javax.persistence.Id</defaultValue>
@@ -729,49 +807,31 @@
         </param>
     </rule>
     <rule>
-        <key>es.startuphero.checkstyle.checks.EntityVariableNameCheck</key>
-        <name>Entity Variable Name Check</name>
-        <description>Entity Variable Name Check</description>
-        <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.EntityVariableNameCheck</internalKey>
-        <param key="entityAnnotation" name="Entity Annotation">
+        <key>es.startuphero.checkstyle.checks.VariableNameCheck</key>
+        <name>Variable Name Check</name>
+        <description>Variable Name Check</description>
+        <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.VariableNameCheck</internalKey>
+        <param key="typeAnnotation" name="Type Annotation">
             <defaultValue>javax.persistence.Entity</defaultValue>
-            <description>Entity Annotation property with value of 'javax.persistence.Entity'</description>
+            <description>Type Annotation property with value of 'javax.persistence.Entity'</description>
         </param>
-        <param key="abstractEntityAnnotation" name="Abstract Entity Annotation">
+        <param key="abstractTypeAnnotation" name="Abstract Type Annotation">
             <defaultValue>javax.persistence.MappedSuperclass</defaultValue>
-            <description>Abstract Entity Annotation property with value of 'javax.persistence.MappedSuperclass'</description>
+            <description>Abstract Type Annotation property with value of 'javax.persistence.MappedSuperclass'</description>
         </param>
     </rule>
     <rule>
-        <key>es.startuphero.checkstyle.checks.BlockedClassAnnotationCheck</key>
-        <name>Blocked Class Annotation Check</name>
-        <description>Blocked Class Annotation Check</description>
-        <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.BlockedClassAnnotationCheck</internalKey>
-        <param key="blockedAnnotations" name="Blocked Annotations">
-            <defaultValue>com.clovify.lyso.core.annotation.LysoRepository</defaultValue>
-            <description>Blocked Annotations property with value of 'com.clovify.lyso.core.annotation.LysoRepository'</description>
-        </param>
-    </rule>
-    <rule>
-        <key>es.startuphero.checkstyle.checks.EntityIndexNameCheck</key>
-        <name>Entity Index Name Check</name>
-        <description>Entity Index Name Check</description>
-        <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.EntityIndexNameCheck</internalKey>
-        <param key="entityAnnotation" name="Entity Annotation">
-            <defaultValue>javax.persistence.Entity</defaultValue>
-            <description>Entity Annotation property with value of 'javax.persistence.Entity'</description>
-        </param>
-        <param key="abstractEntityAnnotation" name="Abstract Entity Annotation">
-            <defaultValue>javax.persistence.MappedSuperclass</defaultValue>
-            <description>Abstract Entity Annotation property with value of 'javax.persistence.MappedSuperclass'</description>
-        </param>
+        <key>es.startuphero.checkstyle.checks.TableIdentifierNameCheck</key>
+        <name>Table Identifier Name Check</name>
+        <description>Table Identifier Name Check</description>
+        <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.TableIdentifierNameCheck</internalKey>
         <param key="tableAnnotation" name="Table Annotation">
             <defaultValue>javax.persistence.Table</defaultValue>
             <description>Table Annotation property with value of 'javax.persistence.Table'</description>
         </param>
-        <param key="indexAnnotation" name="Index Annotation">
+        <param key="identifierAnnotation" name="Identifier Annotation">
             <defaultValue>javax.persistence.Index</defaultValue>
-            <description>Index Annotation property with value of 'javax.persistence.Index'</description>
+            <description>Identifier Annotation property with value of 'javax.persistence.Index'</description>
         </param>
         <param key="key" name="Key">
             <defaultValue>indexes</defaultValue>
@@ -799,25 +859,17 @@
         </param>
     </rule>
     <rule>
-        <key>es.startuphero.checkstyle.checks.EntityUniqueConstraintNameCheck</key>
-        <name>Entity Unique Constraint Name Check</name>
-        <description>Entity Unique Constraint Name Check</description>
-        <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.EntityUniqueConstraintNameCheck</internalKey>
-        <param key="entityAnnotation" name="Entity Annotation">
-            <defaultValue>javax.persistence.Entity</defaultValue>
-            <description>Entity Annotation property with value of 'javax.persistence.Entity'</description>
-        </param>
-        <param key="abstractEntityAnnotation" name="Abstract Entity Annotation">
-            <defaultValue>javax.persistence.MappedSuperclass</defaultValue>
-            <description>Abstract Entity Annotation property with value of 'javax.persistence.MappedSuperclass'</description>
-        </param>
+        <key>es.startuphero.checkstyle.checks.TableIdentifierNameCheck-2</key>
+        <name>Table Identifier Name Check</name>
+        <description>Table Identifier Name Check</description>
+        <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.TableIdentifierNameCheck</internalKey>
         <param key="tableAnnotation" name="Table Annotation">
             <defaultValue>javax.persistence.Table</defaultValue>
             <description>Table Annotation property with value of 'javax.persistence.Table'</description>
         </param>
-        <param key="uniqueConstraintAnnotation" name="Unique Constraint Annotation">
+        <param key="identifierAnnotation" name="Identifier Annotation">
             <defaultValue>javax.persistence.UniqueConstraint</defaultValue>
-            <description>Unique Constraint Annotation property with value of 'javax.persistence.UniqueConstraint'</description>
+            <description>Identifier Annotation property with value of 'javax.persistence.UniqueConstraint'</description>
         </param>
         <param key="key" name="Key">
             <defaultValue>uniqueConstraints</defaultValue>
@@ -845,17 +897,17 @@
         </param>
     </rule>
     <rule>
-        <key>es.startuphero.checkstyle.checks.EntityLogDataCheck</key>
-        <name>Entity Log Data Check</name>
-        <description>Entity Log Data Check</description>
-        <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.EntityLogDataCheck</internalKey>
-        <param key="entityAnnotation" name="Entity Annotation">
+        <key>es.startuphero.checkstyle.checks.LogDataTableCheck</key>
+        <name>Log Data Table Check</name>
+        <description>Log Data Table Check</description>
+        <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.LogDataTableCheck</internalKey>
+        <param key="typeAnnotation" name="Type Annotation">
             <defaultValue>javax.persistence.Entity</defaultValue>
-            <description>Entity Annotation property with value of 'javax.persistence.Entity'</description>
+            <description>Type Annotation property with value of 'javax.persistence.Entity'</description>
         </param>
-        <param key="abstractEntityAnnotation" name="Abstract Entity Annotation">
+        <param key="abstractTypeAnnotation" name="Abstract Type Annotation">
             <defaultValue>javax.persistence.MappedSuperclass</defaultValue>
-            <description>Abstract Entity Annotation property with value of 'javax.persistence.MappedSuperclass'</description>
+            <description>Abstract Type Annotation property with value of 'javax.persistence.MappedSuperclass'</description>
         </param>
         <param key="columnAnnotation" name="Column Annotation">
             <defaultValue>javax.persistence.Column</defaultValue>
@@ -867,19 +919,13 @@
         </param>
     </rule>
     <rule>
-        <key>es.startuphero.checkstyle.checks.EmptyLineCheck</key>
-        <name>Empty Line Check</name>
-        <description>Empty Line Check</description>
-        <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.EmptyLineCheck</internalKey>
-    </rule>
-    <rule>
-        <key>es.startuphero.checkstyle.checks.AbstractEntityModifierCheck</key>
-        <name>Abstract Entity Modifier Check</name>
-        <description>Abstract Entity Modifier Check</description>
-        <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.AbstractEntityModifierCheck</internalKey>
-        <param key="abstractEntityAnnotation" name="Abstract Entity Annotation">
+        <key>es.startuphero.checkstyle.checks.MissingAbstractModifierCheck</key>
+        <name>Missing Abstract Modifier Check</name>
+        <description>Missing Abstract Modifier Check</description>
+        <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.MissingAbstractModifierCheck</internalKey>
+        <param key="abstractTypeAnnotation" name="Abstract Type Annotation">
             <defaultValue>javax.persistence.MappedSuperclass</defaultValue>
-            <description>Abstract Entity Annotation property with value of 'javax.persistence.MappedSuperclass'</description>
+            <description>Abstract Type Annotation property with value of 'javax.persistence.MappedSuperclass'</description>
         </param>
     </rule>
     <rule>

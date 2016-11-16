@@ -9,17 +9,16 @@ import org.junit.Test;
  */
 public class EmptyCatchBlockTest extends BaseCheckTestSupport {
 
-   @Test
-   public void testByCatchBlock() throws Exception {
-      String[] expectedMessages = {"28: " + "Empty catch block."};
-      test("TestService.java", expectedMessages);
-   }
+  @Test
+  public void testByCatchBlock() throws Exception {
+    String[] expectedMessages = {"27: " + "Empty catch block."};
+    test("TestService.java", expectedMessages);
+  }
 
-   private void test(String fileName, String[] expectedMessages) throws Exception {
-      verify(createCheckConfig(EmptyCatchBlockCheck.class,
-                               ImmutableMap.of("exceptionVariableName", "expected|ignored")),
-             getPath(fileName),
-             expectedMessages);
-   }
-
+  private void test(String fileName, String[] expectedMessages) throws Exception {
+    verify(createCheckConfig(EmptyCatchBlockCheck.class,
+        ImmutableMap.of("exceptionVariableName", "expected|ignored")),
+        getPath(fileName),
+        expectedMessages);
+  }
 }

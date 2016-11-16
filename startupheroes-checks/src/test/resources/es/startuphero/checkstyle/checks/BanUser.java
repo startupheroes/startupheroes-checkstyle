@@ -9,17 +9,18 @@ import javax.persistence.UniqueConstraint;
  * @author onurozcan
  */
 @Entity
-@Table(uniqueConstraints = {@UniqueConstraint(name = "ban_user_user_id_object_id_uk", columnNames = {"userId", "objectId"})})
+@Table(uniqueConstraints = {
+    @UniqueConstraint(name = "ban_user_user_id_object_id_uk", columnNames = {"userId",
+        "objectId"})})
 public class BanUser extends AbstractUserListItem {
 
-   private String reason;
+  private String reason;
 
-   public String getReason() {
-      return reason;
-   }
+  public String getReason() {
+    return reason;
+  }
 
-   public void setReason(String reason) {
-      this.reason = reason;
-   }
-
+  public void setReason(String reason) {
+    this.reason = reason;
+  }
 }

@@ -1,200 +1,205 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-   <modelVersion>4.0.0</modelVersion>
-   <groupId>es.startuphero.checkstyle</groupId>
-   <artifactId>startupheroes-checkstyle</artifactId>
-   <packaging>pom</packaging>
-   <version>1.0.8-SNAPSHOT</version>
-   <name>StartupHeroes Checkstyle</name>
-   <description>Checkstyle corresponding to StartupHeroes's coding conventions.</description>
-   <url>https://github.com/cemo/startupheroes-checkstyle</url>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="http://maven.apache.org/POM/4.0.0"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>es.startuphero.checkstyle</groupId>
+  <artifactId>startupheroes-checkstyle</artifactId>
+  <packaging>pom</packaging>
+  <version>1.0.8-SNAPSHOT</version>
+  <name>StartupHeroes Checkstyle</name>
+  <description>Checkstyle corresponding to StartupHeroes's coding conventions.</description>
+  <url>https://github.com/cemo/startupheroes-checkstyle</url>
 
-   <properties>
-      <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-      <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-      <checkstyle.version>7.1.2</checkstyle.version>
-      <maven-compiler-plugin.version>3.6.0</maven-compiler-plugin.version>
-      <jdk.min.version>1.8</jdk.min.version>
-      <maven-plugin.api.version>2.2.1</maven-plugin.api.version>
-      <maven-plugin.version>3.5</maven-plugin.version>
-      <maven-plugin-annotations.version>3.4</maven-plugin-annotations.version>
-      <sonar-plugin-api.version>5.6</sonar-plugin-api.version>
-      <sonar-packaging-maven-plugin.version>1.16</sonar-packaging-maven-plugin.version>
-      <sonar-required-guava.version>15.0</sonar-required-guava.version>
-      <commons-logging.version>1.2</commons-logging.version>
-      <codehause-plexus-utils.version>3.0.22</codehause-plexus-utils.version>
-      <junit.version>4.11</junit.version>
-      <slf4j.version>1.7.21</slf4j.version>
-      <javax-persistence.version>2.1.0</javax-persistence.version>
-      <spring.version>4.3.2.RELEASE</spring.version>
-      <sonar-java.version>4.2.1.6971</sonar-java.version>
-      <fest-assert.version>1.4</fest-assert.version>
-   </properties>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <checkstyle.version>7.1.2</checkstyle.version>
+    <maven-compiler-plugin.version>3.6.0</maven-compiler-plugin.version>
+    <maven-release-plugin.version>2.5.2</maven-release-plugin.version>
+    <jdk.min.version>1.8</jdk.min.version>
+    <maven-plugin.api.version>2.2.1</maven-plugin.api.version>
+    <maven-plugin.version>3.5</maven-plugin.version>
+    <maven-plugin-annotations.version>3.4</maven-plugin-annotations.version>
+    <sonar-plugin-api.version>5.6</sonar-plugin-api.version>
+    <sonar-packaging-maven-plugin.version>1.16</sonar-packaging-maven-plugin.version>
+    <sonar-required-guava.version>15.0</sonar-required-guava.version>
+    <commons-logging.version>1.2</commons-logging.version>
+    <codehause-plexus-utils.version>3.0.22</codehause-plexus-utils.version>
+    <junit.version>4.11</junit.version>
+    <slf4j.version>1.7.21</slf4j.version>
+    <javax-persistence.version>2.1.0</javax-persistence.version>
+    <spring.version>4.3.2.RELEASE</spring.version>
+    <sonar-java.version>4.2.1.6971</sonar-java.version>
+    <fest-assert.version>1.4</fest-assert.version>
+  </properties>
 
-   <scm>
-      <url>https://github.com/cemo/startupheroes-checkstyle</url>
-      <connection>scm:git:git@github.com:cemo/startupheroes-checkstyle.git</connection>
-      <developerConnection>scm:git:git@github.com:cemo/startupheroes-checkstyle.git</developerConnection>
-      <tag>HEAD</tag>
-   </scm>
+  <scm>
+    <url>https://github.com/cemo/startupheroes-checkstyle</url>
+    <connection>scm:git:git@github.com:cemo/startupheroes-checkstyle.git</connection>
+    <developerConnection>scm:git:git@github.com:cemo/startupheroes-checkstyle.git
+    </developerConnection>
+    <tag>HEAD</tag>
+  </scm>
 
-   <developers>
-      <developer>
-         <id>ozlmulg</id>
-         <name>Özlem Ulağ</name>
-         <email>ozlmulg@gmail.com</email>
-      </developer>
-   </developers>
+  <developers>
+    <developer>
+      <id>ozlmulg</id>
+      <name>Özlem Ulağ</name>
+      <email>ozlmulg@gmail.com</email>
+    </developer>
+  </developers>
 
-   <organization>
-      <name>StartupHeroes</name>
-      <url>http://www.startuphero.es</url>
-   </organization>
+  <organization>
+    <name>StartupHeroes</name>
+    <url>http://www.startuphero.es</url>
+  </organization>
 
-   <distributionManagement>
-      <repository>
-         <id>bintray-startupheroes-maven</id>
-         <name>startupheroes-maven</name>
-         <url>https://api.bintray.com/maven/startupheroes/maven/startupheroes-checkstyle/;publish=1</url>
-      </repository>
-   </distributionManagement>
+  <distributionManagement>
+    <repository>
+      <id>bintray-startupheroes-maven</id>
+      <name>startupheroes-maven</name>
+      <url>https://api.bintray.com/maven/startupheroes/maven/startupheroes-checkstyle/;publish=1
+      </url>
+    </repository>
+  </distributionManagement>
 
-   <dependencyManagement>
-      <dependencies>
-         <dependency>
-            <groupId>com.puppycrawl.tools</groupId>
-            <artifactId>checkstyle</artifactId>
-            <version>${checkstyle.version}</version>
-         </dependency>
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>com.puppycrawl.tools</groupId>
+        <artifactId>checkstyle</artifactId>
+        <version>${checkstyle.version}</version>
+      </dependency>
 
-         <dependency>
-            <groupId>es.startuphero.checkstyle</groupId>
-            <artifactId>startupheroes-checks</artifactId>
-            <version>${project.version}</version>
-         </dependency>
+      <dependency>
+        <groupId>es.startuphero.checkstyle</groupId>
+        <artifactId>startupheroes-checks</artifactId>
+        <version>${project.version}</version>
+      </dependency>
 
-         <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-core</artifactId>
-            <version>${spring.version}</version>
-         </dependency>
+      <dependency>
+        <groupId>org.springframework</groupId>
+        <artifactId>spring-core</artifactId>
+        <version>${spring.version}</version>
+      </dependency>
 
-         <dependency>
-            <groupId>org.sonarsource.sonarqube</groupId>
-            <artifactId>sonar-plugin-api</artifactId>
-            <version>${sonar-plugin-api.version}</version>
-         </dependency>
+      <dependency>
+        <groupId>org.sonarsource.sonarqube</groupId>
+        <artifactId>sonar-plugin-api</artifactId>
+        <version>${sonar-plugin-api.version}</version>
+      </dependency>
 
-         <dependency>
-            <groupId>commons-logging</groupId>
-            <artifactId>commons-logging</artifactId>
-            <version>${commons-logging.version}</version>
-         </dependency>
+      <dependency>
+        <groupId>commons-logging</groupId>
+        <artifactId>commons-logging</artifactId>
+        <version>${commons-logging.version}</version>
+      </dependency>
 
-         <dependency>
-            <groupId>org.apache.maven</groupId>
-            <artifactId>maven-plugin-api</artifactId>
-            <version>${maven-plugin.api.version}</version>
-         </dependency>
+      <dependency>
+        <groupId>org.apache.maven</groupId>
+        <artifactId>maven-plugin-api</artifactId>
+        <version>${maven-plugin.api.version}</version>
+      </dependency>
 
-         <dependency>
-            <groupId>org.apache.maven.plugin-tools</groupId>
-            <artifactId>maven-plugin-annotations</artifactId>
-            <version>${maven-plugin-annotations.version}</version>
-         </dependency>
+      <dependency>
+        <groupId>org.apache.maven.plugin-tools</groupId>
+        <artifactId>maven-plugin-annotations</artifactId>
+        <version>${maven-plugin-annotations.version}</version>
+      </dependency>
 
-         <dependency>
-            <groupId>org.apache.maven</groupId>
-            <artifactId>maven-model</artifactId>
-            <version>${maven-plugin.api.version}</version>
-         </dependency>
+      <dependency>
+        <groupId>org.apache.maven</groupId>
+        <artifactId>maven-model</artifactId>
+        <version>${maven-plugin.api.version}</version>
+      </dependency>
 
-         <dependency>
-            <groupId>org.apache.maven</groupId>
-            <artifactId>maven-project</artifactId>
-            <version>${maven-plugin.api.version}</version>
-         </dependency>
+      <dependency>
+        <groupId>org.apache.maven</groupId>
+        <artifactId>maven-project</artifactId>
+        <version>${maven-plugin.api.version}</version>
+      </dependency>
 
-         <dependency>
-            <groupId>org.codehaus.plexus</groupId>
-            <artifactId>plexus-utils</artifactId>
-            <version>${codehause-plexus-utils.version}</version>
-         </dependency>
+      <dependency>
+        <groupId>org.codehaus.plexus</groupId>
+        <artifactId>plexus-utils</artifactId>
+        <version>${codehause-plexus-utils.version}</version>
+      </dependency>
 
-         <!-- Test -->
+      <!-- Test -->
 
-         <dependency>
-            <groupId>com.puppycrawl.tools</groupId>
-            <artifactId>checkstyle</artifactId>
-            <type>test-jar</type>
-            <version>${checkstyle.version}</version>
-         </dependency>
+      <dependency>
+        <groupId>com.puppycrawl.tools</groupId>
+        <artifactId>checkstyle</artifactId>
+        <type>test-jar</type>
+        <version>${checkstyle.version}</version>
+      </dependency>
 
-         <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>${junit.version}</version>
-         </dependency>
+      <dependency>
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>${junit.version}</version>
+      </dependency>
 
-         <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
-            <version>${slf4j.version}</version>
-         </dependency>
+      <dependency>
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-api</artifactId>
+        <version>${slf4j.version}</version>
+      </dependency>
 
-         <dependency>
-            <groupId>org.eclipse.persistence</groupId>
-            <artifactId>javax.persistence</artifactId>
-            <version>${javax-persistence.version}</version>
-         </dependency>
+      <dependency>
+        <groupId>org.eclipse.persistence</groupId>
+        <artifactId>javax.persistence</artifactId>
+        <version>${javax-persistence.version}</version>
+      </dependency>
 
-         <dependency>
-            <groupId>org.sonarsource.java</groupId>
-            <artifactId>java-checks-testkit</artifactId>
-            <version>${sonar-java.version}</version>
-         </dependency>
+      <dependency>
+        <groupId>org.sonarsource.java</groupId>
+        <artifactId>java-checks-testkit</artifactId>
+        <version>${sonar-java.version}</version>
+      </dependency>
 
-         <dependency>
-            <groupId>org.easytesting</groupId>
-            <artifactId>fest-assert</artifactId>
-            <version>${fest-assert.version}</version>
-         </dependency>
-      </dependencies>
-   </dependencyManagement>
+      <dependency>
+        <groupId>org.easytesting</groupId>
+        <artifactId>fest-assert</artifactId>
+        <version>${fest-assert.version}</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
 
-   <build>
-      <plugins>
-         <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-compiler-plugin</artifactId>
-            <version>${maven-compiler-plugin.version}</version>
-            <configuration>
-               <source>${jdk.min.version}</source>
-               <target>${jdk.min.version}</target>
-            </configuration>
-         </plugin>
-          <plugin>
-            <artifactId>maven-release-plugin</artifactId>
-            <version>2.5.2</version>
-            <configuration>
-               <tagNameFormat>v@{project.version}</tagNameFormat>
-               <allowTimestampedSnapshots>true</allowTimestampedSnapshots>
-            </configuration>
-            <dependencies>
-               <dependency>
-                  <groupId>org.apache.maven.scm</groupId>
-                  <artifactId>maven-scm-provider-gitexe</artifactId>
-                  <version>1.9</version>
-               </dependency>
-            </dependencies>
-         </plugin>
-      </plugins>
-   </build>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>${maven-compiler-plugin.version}</version>
+        <configuration>
+          <source>${jdk.min.version}</source>
+          <target>${jdk.min.version}</target>
+        </configuration>
+      </plugin>
+      <plugin>
+        <artifactId>maven-release-plugin</artifactId>
+        <version>${maven-release-plugin.version}</version>
+        <configuration>
+          <tagNameFormat>v@{project.version}</tagNameFormat>
+          <allowTimestampedSnapshots>true</allowTimestampedSnapshots>
+        </configuration>
+        <dependencies>
+          <dependency>
+            <groupId>org.apache.maven.scm</groupId>
+            <artifactId>maven-scm-provider-gitexe</artifactId>
+            <version>1.9</version>
+          </dependency>
+        </dependencies>
+      </plugin>
+    </plugins>
+  </build>
 
-   <modules>
-      <module>startupheroes-sonar-file-generator-maven-plugin</module>
-      <module>startupheroes-checks</module>
-      <module>startupheroes-checkstyle-sonar-plugin</module>
-   </modules>
+  <modules>
+    <module>startupheroes-sonar-file-generator-maven-plugin</module>
+    <module>startupheroes-checks</module>
+    <module>startupheroes-checkstyle-sonar-plugin</module>
+  </modules>
 
 </project>

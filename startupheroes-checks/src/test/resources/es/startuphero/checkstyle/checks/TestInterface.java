@@ -2,24 +2,24 @@ package es.startuphero.checkstyle.checks;
 
 public interface TestInterface {
 
-   public static final String REDUNDANT_FIELD_PUBLIC = "Redundant public used!";
+  public static final String REDUNDANT_FIELD_PUBLIC = "Redundant public used!";
 
-   static final String REDUNDANT_FIELD_STATIC = "Redundant static used!";
+  static final String REDUNDANT_FIELD_STATIC = "Redundant static used!";
 
-   final String REDUNDANT_FIELD_FINAL = "Redundant final used!";
+  final String REDUNDANT_FIELD_FINAL = "Redundant final used!";
 
-   public Boolean redundantPublic();
+  public Boolean redundantPublic();
 
-   abstract Boolean redundantAbstract();
+  abstract Boolean redundantAbstract();
 
-   void overrideMe();
+  void overrideMe();
 
-   OtherInterface otherOperations() throws RuntimeException;
+  OtherInterface otherOperations() throws RuntimeException;
 
-   interface OtherInterface {
+  interface OtherInterface {
 
-      void sample();
+    void sample();
 
-      void sample2();
-   }
+    void sample2();
+  }
 }

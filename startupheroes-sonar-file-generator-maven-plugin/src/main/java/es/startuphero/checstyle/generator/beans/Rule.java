@@ -9,85 +9,84 @@ import javax.xml.bind.annotation.XmlElement;
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Rule {
 
-   @XmlElement
-   private String key;
+  @XmlElement
+  private String key;
 
-   @XmlElement
-   private String name;
+  @XmlElement
+  private String name;
 
-   @XmlElement
-   private String description;
+  @XmlElement
+  private String description;
 
-   @XmlElement
-   private String internalKey;
+  @XmlElement
+  private String internalKey;
 
-   @XmlElement(name = "param")
-   private Set<RuleParam> params = new LinkedHashSet<>();
+  @XmlElement(name = "param")
+  private Set<RuleParam> params = new LinkedHashSet<>();
 
-   public String getKey() {
-      return key;
-   }
+  public String getKey() {
+    return key;
+  }
 
-   public void setKey(String key) {
-      this.key = key;
-   }
+  public void setKey(String key) {
+    this.key = key;
+  }
 
-   public String getName() {
-      return name;
-   }
+  public String getName() {
+    return name;
+  }
 
-   public void setName(String name) {
-      this.name = name;
-   }
+  public void setName(String name) {
+    this.name = name;
+  }
 
-   public String getDescription() {
-      return description;
-   }
+  public String getDescription() {
+    return description;
+  }
 
-   public void setDescription(String description) {
-      this.description = description;
-   }
+  public void setDescription(String description) {
+    this.description = description;
+  }
 
-   public String getInternalKey() {
-      return internalKey;
-   }
+  public String getInternalKey() {
+    return internalKey;
+  }
 
-   public void setInternalKey(String internalKey) {
-      this.internalKey = internalKey;
-   }
+  public void setInternalKey(String internalKey) {
+    this.internalKey = internalKey;
+  }
 
-   public Set<RuleParam> getParams() {
-      return params;
-   }
+  public Set<RuleParam> getParams() {
+    return params;
+  }
 
-   public void setParams(Set<RuleParam> params) {
-      this.params = params;
-   }
+  public void setParams(Set<RuleParam> params) {
+    this.params = params;
+  }
 
-   @Override
-   public boolean equals(Object o) {
-      if (this == o) return true;
-      if (o == null || getClass() != o.getClass()) return false;
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
 
-      Rule rule = (Rule) o;
+    Rule rule = (Rule) o;
 
-      return key != null ? key.equals(rule.key) : rule.key == null;
-   }
+    return key != null ? key.equals(rule.key) : rule.key == null;
+  }
 
-   @Override
-   public int hashCode() {
-      return key != null ? key.hashCode() : 0;
-   }
+  @Override
+  public int hashCode() {
+    return key != null ? key.hashCode() : 0;
+  }
 
-   @Override
-   public String toString() {
-      return "Rule{" +
-             "key='" + key + '\'' +
-             ", name='" + name + '\'' +
-             ", description='" + description + '\'' +
-             ", internalKey='" + internalKey + '\'' +
-             ", params=" + params +
-             '}';
-   }
-
+  @Override
+  public String toString() {
+    return "Rule{" +
+        "key='" + key + '\'' +
+        ", name='" + name + '\'' +
+        ", description='" + description + '\'' +
+        ", internalKey='" + internalKey + '\'' +
+        ", params=" + params +
+        '}';
+  }
 }
