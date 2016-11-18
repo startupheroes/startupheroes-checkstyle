@@ -79,10 +79,9 @@ non public class constructors and enum constructors, nested enum definitions tha
 
 # Checks for Class design:
 
-1. FinalClass: Checks that class which has only private ctors is declared as final.
-2. InterfaceIsType: Use Interfaces only to define types. An interface should describe a type,
+1. InterfaceIsType: Use Interfaces only to define types. An interface should describe a type,
 it is therefore inappropriate to define an interface that does not contain any methods but only constants.
-3. VisibilityModifier: Checks visibility of class members. Only static final, immutable or annotated by specified annotation members
+2. VisibilityModifier: Checks visibility of class members. Only static final, immutable or annotated by specified annotation members
 may be public, other class members must be private unless allowProtected/Package is set.
 
 # Miscellaneous other checks:

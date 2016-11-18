@@ -219,8 +219,8 @@
         <description>Line Length</description>
         <internalKey>Checker/TreeWalker/LineLength</internalKey>
         <param key="max" name="Max">
-            <defaultValue>100</defaultValue>
-            <description>Max property with value of '100'</description>
+            <defaultValue>120</defaultValue>
+            <description>Max property with value of '120'</description>
         </param>
         <param key="ignorePattern" name="Ignore Pattern">
             <defaultValue>^package.*|^import.*|a href|href|http://|https://|ftp://</defaultValue>
@@ -236,37 +236,6 @@
         <param key="max" name="Max">
             <defaultValue>30</defaultValue>
             <description>Max property with value of '30'</description>
-        </param>
-        <tag>sh-rule</tag>
-    </rule>
-    <rule>
-        <key>Indentation</key>
-        <name>Indentation</name>
-        <description>Indentation</description>
-        <internalKey>Checker/TreeWalker/Indentation</internalKey>
-        <param key="basicOffset" name="Basic Offset">
-            <defaultValue>2</defaultValue>
-            <description>Basic Offset property with value of '2'</description>
-        </param>
-        <param key="braceAdjustment" name="Brace Adjustment">
-            <defaultValue>0</defaultValue>
-            <description>Brace Adjustment property with value of '0'</description>
-        </param>
-        <param key="caseIndent" name="Case Indent">
-            <defaultValue>2</defaultValue>
-            <description>Case Indent property with value of '2'</description>
-        </param>
-        <param key="throwsIndent" name="Throws Indent">
-            <defaultValue>4</defaultValue>
-            <description>Throws Indent property with value of '4'</description>
-        </param>
-        <param key="lineWrappingIndentation" name="Line Wrapping Indentation">
-            <defaultValue>4</defaultValue>
-            <description>Line Wrapping Indentation property with value of '4'</description>
-        </param>
-        <param key="arrayInitIndent" name="Array Init Indent">
-            <defaultValue>2</defaultValue>
-            <description>Array Init Indent property with value of '2'</description>
         </param>
         <tag>sh-rule</tag>
     </rule>
@@ -455,13 +424,6 @@
         <name>Simplify Boolean Return</name>
         <description>Simplify Boolean Return</description>
         <internalKey>Checker/TreeWalker/SimplifyBooleanReturn</internalKey>
-        <tag>sh-rule</tag>
-    </rule>
-    <rule>
-        <key>FinalClass</key>
-        <name>Final Class</name>
-        <description>Final Class</description>
-        <internalKey>Checker/TreeWalker/FinalClass</internalKey>
         <tag>sh-rule</tag>
     </rule>
     <rule>
