@@ -204,7 +204,9 @@
     <!-- Suppress checks.-->
     <!-- Required by SuppressWarningsFilter below -->
     <!-- Make the @SuppressWarnings annotations available to Checkstyle -->
-    <module name="SuppressWarningsHolder"/>
+    <module name="SuppressWarningsHolder">
+      <metadata name="skip" value="true"/>
+    </module>
 
     <!-- Custom Checks-->
     <module name="es.startuphero.checkstyle.checks.VariableDeclarationOrderCheck">
@@ -299,6 +301,8 @@
   <!-- Allow turning checks off in the code using @SuppressWarnings annotation -->
   <!-- See http://checkstyle.sourceforge.net/config_filters.html#SuppressWarningsFilter -->
   <!-- Filter out Checkstyle warnings that have been suppressed with the @SuppressWarnings annotation -->
-  <module name="SuppressWarningsFilter"/>
+  <module name="SuppressWarningsFilter">
+    <metadata name="skip" value="true"/>
+  </module>
 
 </module>

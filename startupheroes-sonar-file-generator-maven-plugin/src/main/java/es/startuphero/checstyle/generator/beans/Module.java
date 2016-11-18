@@ -1,7 +1,9 @@
 package es.startuphero.checstyle.generator.beans;
 
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -23,6 +25,9 @@ public class Module {
 
   @XmlElement(name = "module")
   private List<Module> childs = new ArrayList<>();
+
+  @XmlElement(name = "metadata")
+  private Set<ModuleMetadata> metadatas = new LinkedHashSet<>();
 
   private Module parent;
 
@@ -58,13 +63,23 @@ public class Module {
     this.parent = parent;
   }
 
+  public Set<ModuleMetadata> getMetadatas() {
+    return metadatas;
+  }
+
+  public void setMetadatas(Set<ModuleMetadata> metadatas) {
+    this.metadatas = metadatas;
+  }
+
   @Override
   public String toString() {
     return "Module{" +
-        "name='" + name + '\'' +
-        ", properties=" + properties +
-        ", childs=" + childs +
-        ", parent=" + parent +
-        '}';
+           "name='" + name + '\'' +
+           ", properties=" + properties +
+           ", childs=" + childs +
+           ", metadatas=" + metadatas +
+           ", parent=" + parent +
+           '}';
   }
+
 }

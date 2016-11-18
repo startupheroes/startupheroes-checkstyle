@@ -1,6 +1,7 @@
 package es.startuphero.checstyle.generator;
 
 import es.startuphero.checstyle.generator.beans.Module;
+import es.startuphero.checstyle.generator.beans.ModuleMetadata;
 import es.startuphero.checstyle.generator.beans.ModuleProperty;
 import es.startuphero.checstyle.generator.beans.Rule;
 import es.startuphero.checstyle.generator.beans.RuleParam;
@@ -10,6 +11,7 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.Optional;
+import java.util.stream.Collectors;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
@@ -37,6 +39,8 @@ public class SonarRulesGeneratorMojo extends AbstractMojo {
 
   private static final String DEFAULT_RULE_TAG = "sh-rule";
 
+  private static final String SKIPPED_MODULE_METADATA_NAME = "skip";
+
   /** Checkers xml file contains modules for each check **/
   @Parameter(defaultValue = "${basedir}/startupheroes-checks/src/main/resources/es/startuphero/checkstyle/checks/startupheroes_checks.xml")
   private String inputFile;
@@ -47,11 +51,19 @@ public class SonarRulesGeneratorMojo extends AbstractMojo {
 
   /** skip Checker and TreeWalker modules **/
   private static void addNewRule(Rules rules, Module module) {
-    if (module.getChilds().isEmpty()) {
+    if (module.getChilds().isEmpty() && acceptableRule(module)) {
       Rule newRule = convertModuleToRule(module);
       checkAlreadyExistingRule(rules, newRule);
       rules.getRules().add(newRule);
     }
+  }
+
+  private static Boolean acceptableRule(Module module) {
+    return !module.getMetadatas()
+                  .stream()
+                  .map(ModuleMetadata::getName)
+                  .collect(Collectors.toList())
+                  .contains(SKIPPED_MODULE_METADATA_NAME);
   }
 
   private static void checkAlreadyExistingRule(Rules rules, Rule newRule) {
@@ -70,8 +82,8 @@ public class SonarRulesGeneratorMojo extends AbstractMojo {
 
   private static Boolean isAlreadyExistRule(Rules rules, Rule newRule) {
     return rules.getRules()
-        .stream()
-        .anyMatch(rule -> rule.getKey().equals(newRule.getKey()));
+                .stream()
+                .anyMatch(rule -> rule.getKey().equals(newRule.getKey()));
   }
 
   private static Rule convertModuleToRule(Module module) {
@@ -82,8 +94,8 @@ public class SonarRulesGeneratorMojo extends AbstractMojo {
     rule.setInternalKey(getConfigKey(module));
     rule.getTags().add(DEFAULT_RULE_TAG);
     module.getProperties()
-        .forEach(property -> rule.getParams()
-            .add(convertModulePropertyToRuleParam(property)));
+          .forEach(property -> rule.getParams()
+                                   .add(convertModulePropertyToRuleParam(property)));
     return rule;
   }
 
@@ -93,9 +105,9 @@ public class SonarRulesGeneratorMojo extends AbstractMojo {
     param.setName(getSeparatedString(property.getName()));
     param.setDefaultValue(property.getValue());
     param.setDescription(getSeparatedString(property.getName())
-        + " property with value of '"
-        + property.getValue()
-        + "'");
+                         + " property with value of '"
+                         + property.getValue()
+                         + "'");
     return param;
   }
 

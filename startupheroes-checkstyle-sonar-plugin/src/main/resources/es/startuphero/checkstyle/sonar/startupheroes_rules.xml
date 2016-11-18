@@ -708,13 +708,6 @@
         <tag>sh-rule</tag>
     </rule>
     <rule>
-        <key>SuppressWarningsHolder</key>
-        <name>Suppress Warnings Holder</name>
-        <description>Suppress Warnings Holder</description>
-        <internalKey>Checker/TreeWalker/SuppressWarningsHolder</internalKey>
-        <tag>sh-rule</tag>
-    </rule>
-    <rule>
         <key>es.startuphero.checkstyle.checks.VariableDeclarationOrderCheck</key>
         <name>Variable Declaration Order Check</name>
         <description>Variable Declaration Order Check</description>
@@ -1020,13 +1013,6 @@
             <defaultValue>javax.persistence.MappedSuperclass</defaultValue>
             <description>Abstract Type Annotation property with value of 'javax.persistence.MappedSuperclass'</description>
         </param>
-        <tag>sh-rule</tag>
-    </rule>
-    <rule>
-        <key>SuppressWarningsFilter</key>
-        <name>Suppress Warnings Filter</name>
-        <description>Suppress Warnings Filter</description>
-        <internalKey>Checker/SuppressWarningsFilter</internalKey>
         <tag>sh-rule</tag>
     </rule>
 </rules>

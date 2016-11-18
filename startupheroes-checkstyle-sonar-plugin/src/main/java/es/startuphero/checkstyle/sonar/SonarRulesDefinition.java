@@ -33,8 +33,7 @@ public final class SonarRulesDefinition implements RulesDefinition {
 
     try (Reader reader = new InputStreamReader(
         getClass().getResourceAsStream(RULES_RELATIVE_FILE_PATH), StandardCharsets.UTF_8)) {
-      NewRepository repository =
-          context.createRepository(REPOSITORY_KEY, REPOSITORY_LANGUAGE).setName(REPOSITORY_NAME);
+      NewRepository repository = context.createRepository(REPOSITORY_KEY, REPOSITORY_LANGUAGE).setName(REPOSITORY_NAME);
       xmlLoader.load(repository, reader);
       repository.done();
     } catch (IOException e) {
