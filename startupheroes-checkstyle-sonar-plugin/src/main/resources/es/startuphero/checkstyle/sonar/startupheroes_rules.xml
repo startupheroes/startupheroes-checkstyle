@@ -5,6 +5,7 @@
         <name>Translation</name>
         <description>Translation</description>
         <internalKey>Checker/Translation</internalKey>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>FileLength</key>
@@ -15,6 +16,7 @@
             <defaultValue>1500</defaultValue>
             <description>Max property with value of '1500'</description>
         </param>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>FileTabCharacter</key>
@@ -25,6 +27,7 @@
             <defaultValue>true</defaultValue>
             <description>Each Line property with value of 'true'</description>
         </param>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>RegexpSingleline</key>
@@ -47,6 +50,7 @@
             <defaultValue>Line has trailing spaces.</defaultValue>
             <description>Message property with value of 'Line has trailing spaces.'</description>
         </param>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>RegexpSingleline-2</key>
@@ -61,6 +65,7 @@
             <defaultValue>Space needed before opening parenthesis.</defaultValue>
             <description>Message property with value of 'Space needed before opening parenthesis.'</description>
         </param>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>RegexpSingleline-3</key>
@@ -75,66 +80,77 @@
             <defaultValue>Space needed around ':' character.</defaultValue>
             <description>Message property with value of 'Space needed around ':' character.'</description>
         </param>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>ConstantName</key>
         <name>Constant Name</name>
         <description>Constant Name</description>
         <internalKey>Checker/TreeWalker/ConstantName</internalKey>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>LocalFinalVariableName</key>
         <name>Local Final Variable Name</name>
         <description>Local Final Variable Name</description>
         <internalKey>Checker/TreeWalker/LocalFinalVariableName</internalKey>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>LocalVariableName</key>
         <name>Local Variable Name</name>
         <description>Local Variable Name</description>
         <internalKey>Checker/TreeWalker/LocalVariableName</internalKey>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>CatchParameterName</key>
         <name>Catch Parameter Name</name>
         <description>Catch Parameter Name</description>
         <internalKey>Checker/TreeWalker/CatchParameterName</internalKey>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>MemberName</key>
         <name>Member Name</name>
         <description>Member Name</description>
         <internalKey>Checker/TreeWalker/MemberName</internalKey>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>MethodName</key>
         <name>Method Name</name>
         <description>Method Name</description>
         <internalKey>Checker/TreeWalker/MethodName</internalKey>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>PackageName</key>
         <name>Package Name</name>
         <description>Package Name</description>
         <internalKey>Checker/TreeWalker/PackageName</internalKey>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>ParameterName</key>
         <name>Parameter Name</name>
         <description>Parameter Name</description>
         <internalKey>Checker/TreeWalker/ParameterName</internalKey>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>StaticVariableName</key>
         <name>Static Variable Name</name>
         <description>Static Variable Name</description>
         <internalKey>Checker/TreeWalker/StaticVariableName</internalKey>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>TypeName</key>
         <name>Type Name</name>
         <description>Type Name</description>
         <internalKey>Checker/TreeWalker/TypeName</internalKey>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>ClassTypeParameterName</key>
@@ -145,6 +161,7 @@
             <defaultValue>^[A-Z]*$</defaultValue>
             <description>Format property with value of '^[A-Z]*$'</description>
         </param>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>MethodTypeParameterName</key>
@@ -155,6 +172,7 @@
             <defaultValue>^[A-Z]*$</defaultValue>
             <description>Format property with value of '^[A-Z]*$'</description>
         </param>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>InterfaceTypeParameterName</key>
@@ -165,30 +183,35 @@
             <defaultValue>^[A-Z]*$</defaultValue>
             <description>Format property with value of '^[A-Z]*$'</description>
         </param>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>AvoidStarImport</key>
         <name>Avoid Star Import</name>
         <description>Avoid Star Import</description>
         <internalKey>Checker/TreeWalker/AvoidStarImport</internalKey>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>IllegalImport</key>
         <name>Illegal Import</name>
         <description>Illegal Import</description>
         <internalKey>Checker/TreeWalker/IllegalImport</internalKey>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>RedundantImport</key>
         <name>Redundant Import</name>
         <description>Redundant Import</description>
         <internalKey>Checker/TreeWalker/RedundantImport</internalKey>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>UnusedImports</key>
         <name>Unused Imports</name>
         <description>Unused Imports</description>
         <internalKey>Checker/TreeWalker/UnusedImports</internalKey>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>LineLength</key>
@@ -203,6 +226,7 @@
             <defaultValue>^package.*|^import.*|a href|href|http://|https://|ftp://</defaultValue>
             <description>Ignore Pattern property with value of '^package.*|^import.*|a href|href|http://|https://|ftp://'</description>
         </param>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>MethodLength</key>
@@ -213,6 +237,7 @@
             <defaultValue>30</defaultValue>
             <description>Max property with value of '30'</description>
         </param>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>Indentation</key>
@@ -243,126 +268,147 @@
             <defaultValue>2</defaultValue>
             <description>Array Init Indent property with value of '2'</description>
         </param>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>EmptyForIteratorPad</key>
         <name>Empty For Iterator Pad</name>
         <description>Empty For Iterator Pad</description>
         <internalKey>Checker/TreeWalker/EmptyForIteratorPad</internalKey>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>GenericWhitespace</key>
         <name>Generic Whitespace</name>
         <description>Generic Whitespace</description>
         <internalKey>Checker/TreeWalker/GenericWhitespace</internalKey>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>MethodParamPad</key>
         <name>Method Param Pad</name>
         <description>Method Param Pad</description>
         <internalKey>Checker/TreeWalker/MethodParamPad</internalKey>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>NoWhitespaceAfter</key>
         <name>No Whitespace After</name>
         <description>No Whitespace After</description>
         <internalKey>Checker/TreeWalker/NoWhitespaceAfter</internalKey>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>NoWhitespaceBefore</key>
         <name>No Whitespace Before</name>
         <description>No Whitespace Before</description>
         <internalKey>Checker/TreeWalker/NoWhitespaceBefore</internalKey>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>ParenPad</key>
         <name>Paren Pad</name>
         <description>Paren Pad</description>
         <internalKey>Checker/TreeWalker/ParenPad</internalKey>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>TypecastParenPad</key>
         <name>Typecast Paren Pad</name>
         <description>Typecast Paren Pad</description>
         <internalKey>Checker/TreeWalker/TypecastParenPad</internalKey>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>WhitespaceAfter</key>
         <name>Whitespace After</name>
         <description>Whitespace After</description>
         <internalKey>Checker/TreeWalker/WhitespaceAfter</internalKey>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>WhitespaceAround</key>
         <name>Whitespace Around</name>
         <description>Whitespace Around</description>
         <internalKey>Checker/TreeWalker/WhitespaceAround</internalKey>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>ModifierOrder</key>
         <name>Modifier Order</name>
         <description>Modifier Order</description>
         <internalKey>Checker/TreeWalker/ModifierOrder</internalKey>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>RedundantModifier</key>
         <name>Redundant Modifier</name>
         <description>Redundant Modifier</description>
         <internalKey>Checker/TreeWalker/RedundantModifier</internalKey>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>AvoidNestedBlocks</key>
         <name>Avoid Nested Blocks</name>
         <description>Avoid Nested Blocks</description>
         <internalKey>Checker/TreeWalker/AvoidNestedBlocks</internalKey>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>EmptyBlock</key>
         <name>Empty Block</name>
         <description>Empty Block</description>
         <internalKey>Checker/TreeWalker/EmptyBlock</internalKey>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>LeftCurly</key>
         <name>Left Curly</name>
         <description>Left Curly</description>
         <internalKey>Checker/TreeWalker/LeftCurly</internalKey>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>NeedBraces</key>
         <name>Need Braces</name>
         <description>Need Braces</description>
         <internalKey>Checker/TreeWalker/NeedBraces</internalKey>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>RightCurly</key>
         <name>Right Curly</name>
         <description>Right Curly</description>
         <internalKey>Checker/TreeWalker/RightCurly</internalKey>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>EmptyStatement</key>
         <name>Empty Statement</name>
         <description>Empty Statement</description>
         <internalKey>Checker/TreeWalker/EmptyStatement</internalKey>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>EqualsAvoidNull</key>
         <name>Equals Avoid Null</name>
         <description>Equals Avoid Null</description>
         <internalKey>Checker/TreeWalker/EqualsAvoidNull</internalKey>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>EqualsHashCode</key>
         <name>Equals Hash Code</name>
         <description>Equals Hash Code</description>
         <internalKey>Checker/TreeWalker/EqualsHashCode</internalKey>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>IllegalInstantiation</key>
         <name>Illegal Instantiation</name>
         <description>Illegal Instantiation</description>
         <internalKey>Checker/TreeWalker/IllegalInstantiation</internalKey>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>MagicNumber</key>
@@ -381,42 +427,49 @@
             <defaultValue>true</defaultValue>
             <description>Ignore Field Declaration property with value of 'true'</description>
         </param>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>MissingSwitchDefault</key>
         <name>Missing Switch Default</name>
         <description>Missing Switch Default</description>
         <internalKey>Checker/TreeWalker/MissingSwitchDefault</internalKey>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>DefaultComesLast</key>
         <name>Default Comes Last</name>
         <description>Default Comes Last</description>
         <internalKey>Checker/TreeWalker/DefaultComesLast</internalKey>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>SimplifyBooleanExpression</key>
         <name>Simplify Boolean Expression</name>
         <description>Simplify Boolean Expression</description>
         <internalKey>Checker/TreeWalker/SimplifyBooleanExpression</internalKey>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>SimplifyBooleanReturn</key>
         <name>Simplify Boolean Return</name>
         <description>Simplify Boolean Return</description>
         <internalKey>Checker/TreeWalker/SimplifyBooleanReturn</internalKey>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>FinalClass</key>
         <name>Final Class</name>
         <description>Final Class</description>
         <internalKey>Checker/TreeWalker/FinalClass</internalKey>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>InterfaceIsType</key>
         <name>Interface Is Type</name>
         <description>Interface Is Type</description>
         <internalKey>Checker/TreeWalker/InterfaceIsType</internalKey>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>VisibilityModifier</key>
@@ -427,12 +480,14 @@
             <defaultValue>true</defaultValue>
             <description>Protected Allowed property with value of 'true'</description>
         </param>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>OuterTypeFilename</key>
         <name>Outer Type Filename</name>
         <description>Outer Type Filename</description>
         <internalKey>Checker/TreeWalker/OuterTypeFilename</internalKey>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>IllegalTokenText</key>
@@ -451,48 +506,56 @@
             <defaultValue>Avoid using corresponding octal or Unicode escape.</defaultValue>
             <description>Message property with value of 'Avoid using corresponding octal or Unicode escape.'</description>
         </param>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>OneTopLevelClass</key>
         <name>One Top Level Class</name>
         <description>One Top Level Class</description>
         <internalKey>Checker/TreeWalker/OneTopLevelClass</internalKey>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>NoLineWrap</key>
         <name>No Line Wrap</name>
         <description>No Line Wrap</description>
         <internalKey>Checker/TreeWalker/NoLineWrap</internalKey>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>OneStatementPerLine</key>
         <name>One Statement Per Line</name>
         <description>One Statement Per Line</description>
         <internalKey>Checker/TreeWalker/OneStatementPerLine</internalKey>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>MultipleVariableDeclarations</key>
         <name>Multiple Variable Declarations</name>
         <description>Multiple Variable Declarations</description>
         <internalKey>Checker/TreeWalker/MultipleVariableDeclarations</internalKey>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>ArrayTypeStyle</key>
         <name>Array Type Style</name>
         <description>Array Type Style</description>
         <internalKey>Checker/TreeWalker/ArrayTypeStyle</internalKey>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>FallThrough</key>
         <name>Fall Through</name>
         <description>Fall Through</description>
         <internalKey>Checker/TreeWalker/FallThrough</internalKey>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>UpperEll</key>
         <name>Upper Ell</name>
         <description>Upper Ell</description>
         <internalKey>Checker/TreeWalker/UpperEll</internalKey>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>EmptyLineSeparator</key>
@@ -507,6 +570,7 @@
             <defaultValue>IMPORT, CLASS_DEF, INTERFACE_DEF, ENUM_DEF, STATIC_INIT, INSTANCE_INIT, METHOD_DEF, CTOR_DEF, VARIABLE_DEF</defaultValue>
             <description>Tokens property with value of 'IMPORT, CLASS_DEF, INTERFACE_DEF, ENUM_DEF, STATIC_INIT, INSTANCE_INIT, METHOD_DEF, CTOR_DEF, VARIABLE_DEF'</description>
         </param>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>SeparatorWrap</key>
@@ -521,6 +585,7 @@
             <defaultValue>nl</defaultValue>
             <description>Option property with value of 'nl'</description>
         </param>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>SeparatorWrap-2</key>
@@ -535,12 +600,14 @@
             <defaultValue>EOL</defaultValue>
             <description>Option property with value of 'EOL'</description>
         </param>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>NoFinalizer</key>
         <name>No Finalizer</name>
         <description>No Finalizer</description>
         <internalKey>Checker/TreeWalker/NoFinalizer</internalKey>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>AbbreviationAsWordInName</key>
@@ -555,6 +622,7 @@
             <defaultValue>1</defaultValue>
             <description>Allowed Abbreviation Length property with value of '1'</description>
         </param>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>AnnotationLocation</key>
@@ -565,6 +633,7 @@
             <defaultValue>CLASS_DEF, INTERFACE_DEF, ENUM_DEF, METHOD_DEF, CTOR_DEF</defaultValue>
             <description>Tokens property with value of 'CLASS_DEF, INTERFACE_DEF, ENUM_DEF, METHOD_DEF, CTOR_DEF'</description>
         </param>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>AnnotationLocation-2</key>
@@ -579,6 +648,7 @@
             <defaultValue>true</defaultValue>
             <description>Allow Sameline Multiple Annotations property with value of 'true'</description>
         </param>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>EmptyCatchBlock</key>
@@ -589,36 +659,42 @@
             <defaultValue>expected|ignored</defaultValue>
             <description>Exception Variable Name property with value of 'expected|ignored'</description>
         </param>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>CommentsIndentation</key>
         <name>Comments Indentation</name>
         <description>Comments Indentation</description>
         <internalKey>Checker/TreeWalker/CommentsIndentation</internalKey>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>DeclarationOrder</key>
         <name>Declaration Order</name>
         <description>Declaration Order</description>
         <internalKey>Checker/TreeWalker/DeclarationOrder</internalKey>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>ExplicitInitialization</key>
         <name>Explicit Initialization</name>
         <description>Explicit Initialization</description>
         <internalKey>Checker/TreeWalker/ExplicitInitialization</internalKey>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>PackageDeclaration</key>
         <name>Package Declaration</name>
         <description>Package Declaration</description>
         <internalKey>Checker/TreeWalker/PackageDeclaration</internalKey>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>EqualsHashCodeCheck</key>
         <name>Equals Hash Code Check</name>
         <description>Equals Hash Code Check</description>
         <internalKey>Checker/TreeWalker/EqualsHashCodeCheck</internalKey>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>AbstractClassNameCheck</key>
@@ -629,12 +705,14 @@
             <defaultValue>true</defaultValue>
             <description>Ignore Name property with value of 'true'</description>
         </param>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>SuppressWarningsHolder</key>
         <name>Suppress Warnings Holder</name>
         <description>Suppress Warnings Holder</description>
         <internalKey>Checker/TreeWalker/SuppressWarningsHolder</internalKey>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>es.startuphero.checkstyle.checks.VariableDeclarationOrderCheck</key>
@@ -649,6 +727,7 @@
             <defaultValue>1</defaultValue>
             <description>Declaration Order property with value of '1'</description>
         </param>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>es.startuphero.checkstyle.checks.RedundantMultipleAnnotationCheck</key>
@@ -663,6 +742,7 @@
             <defaultValue>javax.persistence.Id:javax.persistence.Column</defaultValue>
             <description>Redundant Annotation Pairs property with value of 'javax.persistence.Id:javax.persistence.Column'</description>
         </param>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>es.startuphero.checkstyle.checks.ForbiddenAnnotationCheck</key>
@@ -673,6 +753,7 @@
             <defaultValue>com.clovify.lyso.core.annotation.LysoRepository</defaultValue>
             <description>Forbidden Annotations property with value of 'com.clovify.lyso.core.annotation.LysoRepository'</description>
         </param>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>es.startuphero.checkstyle.checks.ForbiddenAnnotationKeyCheck</key>
@@ -683,6 +764,7 @@
             <defaultValue>javax.persistence.Column:unique</defaultValue>
             <description>Annotation Forbidden Keys Map property with value of 'javax.persistence.Column:unique'</description>
         </param>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>es.startuphero.checkstyle.checks.MissingEqualsHashCodeCheck</key>
@@ -701,6 +783,7 @@
             <defaultValue>javax.persistence.Id</defaultValue>
             <description>Id Annotation property with value of 'javax.persistence.Id'</description>
         </param>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>es.startuphero.checkstyle.checks.MissingToStringCheck</key>
@@ -715,6 +798,7 @@
             <defaultValue>javax.persistence.MappedSuperclass</defaultValue>
             <description>Abstract Type Annotation property with value of 'javax.persistence.MappedSuperclass'</description>
         </param>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>es.startuphero.checkstyle.checks.MissingGetterCheck</key>
@@ -729,6 +813,7 @@
             <defaultValue>javax.persistence.MappedSuperclass</defaultValue>
             <description>Abstract Type Annotation property with value of 'javax.persistence.MappedSuperclass'</description>
         </param>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>es.startuphero.checkstyle.checks.MissingSetterCheck</key>
@@ -743,6 +828,7 @@
             <defaultValue>javax.persistence.MappedSuperclass</defaultValue>
             <description>Abstract Type Annotation property with value of 'javax.persistence.MappedSuperclass'</description>
         </param>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>es.startuphero.checkstyle.checks.MissingVariableCheck</key>
@@ -761,6 +847,7 @@
             <defaultValue>createdAt, lastUpdatedAt</defaultValue>
             <description>Mandatory Variables property with value of 'createdAt, lastUpdatedAt'</description>
         </param>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>es.startuphero.checkstyle.checks.VariableAnnotationKeyValueCheck</key>
@@ -779,6 +866,7 @@
             <defaultValue>createdAt:javax.persistence.Column:nullable:false, lastUpdatedAt:javax.persistence.Column:nullable:false</defaultValue>
             <description>Variable Annotation Key Value Table property with value of 'createdAt:javax.persistence.Column:nullable:false, lastUpdatedAt:javax.persistence.Column:nullable:false'</description>
         </param>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>es.startuphero.checkstyle.checks.GeneratedPrimaryKeyNameCheck</key>
@@ -805,6 +893,7 @@
             <defaultValue>id</defaultValue>
             <description>Suggested Generated Primary Key Name property with value of 'id'</description>
         </param>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>es.startuphero.checkstyle.checks.VariableNameCheck</key>
@@ -819,6 +908,7 @@
             <defaultValue>javax.persistence.MappedSuperclass</defaultValue>
             <description>Abstract Type Annotation property with value of 'javax.persistence.MappedSuperclass'</description>
         </param>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>es.startuphero.checkstyle.checks.TableIdentifierNameCheck</key>
@@ -857,6 +947,7 @@
             <defaultValue>^[a-z0-9_]*$</defaultValue>
             <description>Regex property with value of '^[a-z0-9_]*$'</description>
         </param>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>es.startuphero.checkstyle.checks.TableIdentifierNameCheck-2</key>
@@ -895,6 +986,7 @@
             <defaultValue>^[a-z0-9_]*$</defaultValue>
             <description>Regex property with value of '^[a-z0-9_]*$'</description>
         </param>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>es.startuphero.checkstyle.checks.LogDataTableCheck</key>
@@ -917,6 +1009,7 @@
             <defaultValue>255</defaultValue>
             <description>Limit Length property with value of '255'</description>
         </param>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>es.startuphero.checkstyle.checks.MissingAbstractModifierCheck</key>
@@ -927,11 +1020,13 @@
             <defaultValue>javax.persistence.MappedSuperclass</defaultValue>
             <description>Abstract Type Annotation property with value of 'javax.persistence.MappedSuperclass'</description>
         </param>
+        <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>SuppressWarningsFilter</key>
         <name>Suppress Warnings Filter</name>
         <description>Suppress Warnings Filter</description>
         <internalKey>Checker/SuppressWarningsFilter</internalKey>
+        <tag>sh-rule</tag>
     </rule>
 </rules>

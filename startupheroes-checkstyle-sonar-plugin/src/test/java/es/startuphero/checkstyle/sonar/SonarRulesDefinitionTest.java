@@ -18,7 +18,8 @@ public class SonarRulesDefinitionTest {
   public void test() {
     Repository repository = getRepositoryOfRules();
 
-    assertEquals(repository.name(), "SH-Checkstyle");
+    assertEquals(repository.key(), "checkstyle");
+    assertEquals(repository.name(), "Checkstyle");
     assertEquals(repository.language(), "java");
     assertEquals(repository.rules().isEmpty(), false);
 

@@ -24,6 +24,9 @@ public class Rule {
   @XmlElement(name = "param")
   private Set<RuleParam> params = new LinkedHashSet<>();
 
+  @XmlElement(name = "tag")
+  private Set<String> tags = new LinkedHashSet<>();
+
   public String getKey() {
     return key;
   }
@@ -64,6 +67,14 @@ public class Rule {
     this.params = params;
   }
 
+  public Set<String> getTags() {
+    return tags;
+  }
+
+  public void setTags(Set<String> tags) {
+    this.tags = tags;
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) return true;
@@ -79,14 +90,15 @@ public class Rule {
     return key != null ? key.hashCode() : 0;
   }
 
-  @Override
-  public String toString() {
+  @Override public String toString() {
     return "Rule{" +
-        "key='" + key + '\'' +
-        ", name='" + name + '\'' +
-        ", description='" + description + '\'' +
-        ", internalKey='" + internalKey + '\'' +
-        ", params=" + params +
-        '}';
+           "key='" + key + '\'' +
+           ", name='" + name + '\'' +
+           ", description='" + description + '\'' +
+           ", internalKey='" + internalKey + '\'' +
+           ", params=" + params +
+           ", tags=" + tags +
+           '}';
   }
+
 }

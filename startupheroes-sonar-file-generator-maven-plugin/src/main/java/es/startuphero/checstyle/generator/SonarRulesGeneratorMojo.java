@@ -35,6 +35,8 @@ public class SonarRulesGeneratorMojo extends AbstractMojo {
 
   private static final String SAX_FEATURES_VALIDATION = "http://xml.org/sax/features/validation";
 
+  private static final String DEFAULT_RULE_TAG = "sh-rule";
+
   /** Checkers xml file contains modules for each check **/
   @Parameter(defaultValue = "${basedir}/startupheroes-checks/src/main/resources/es/startuphero/checkstyle/checks/startupheroes_checks.xml")
   private String inputFile;
@@ -47,18 +49,22 @@ public class SonarRulesGeneratorMojo extends AbstractMojo {
   private static void addNewRule(Rules rules, Module module) {
     if (module.getChilds().isEmpty()) {
       Rule newRule = convertModuleToRule(module);
-      Boolean alreadyExistRule = isAlreadyExistRule(rules, newRule);
-      Optional<Rule> existedRule = rules.getRules()
-          .stream()
-          .filter(rule -> rule.getKey().equals(newRule.getKey()))
-          .findFirst();
-      int uniqueCounter = 2;
-      while (alreadyExistRule) {
-        newRule.setKey(existedRule.get().getKey() + "-" + uniqueCounter);
-        uniqueCounter++;
-        alreadyExistRule = isAlreadyExistRule(rules, newRule);
-      }
+      checkAlreadyExistingRule(rules, newRule);
       rules.getRules().add(newRule);
+    }
+  }
+
+  private static void checkAlreadyExistingRule(Rules rules, Rule newRule) {
+    Boolean alreadyExistRule = isAlreadyExistRule(rules, newRule);
+    Optional<Rule> existedRule = rules.getRules()
+                                      .stream()
+                                      .filter(rule -> rule.getKey().equals(newRule.getKey()))
+                                      .findFirst();
+    int uniqueCounter = 2;
+    while (alreadyExistRule) {
+      newRule.setKey(existedRule.get().getKey() + "-" + uniqueCounter);
+      uniqueCounter++;
+      alreadyExistRule = isAlreadyExistRule(rules, newRule);
     }
   }
 
@@ -74,6 +80,7 @@ public class SonarRulesGeneratorMojo extends AbstractMojo {
     rule.setName(getSeparatedString(module.getName()));
     rule.setDescription(getSeparatedString(module.getName()));
     rule.setInternalKey(getConfigKey(module));
+    rule.getTags().add(DEFAULT_RULE_TAG);
     module.getProperties()
         .forEach(property -> rule.getParams()
             .add(convertModulePropertyToRuleParam(property)));
