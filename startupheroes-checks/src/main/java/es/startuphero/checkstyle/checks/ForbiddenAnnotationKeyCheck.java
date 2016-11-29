@@ -68,15 +68,15 @@ public class ForbiddenAnnotationKeyCheck extends AbstractCheck {
     Set<String> checkedAnnotations = annotationForbiddenKeysMap.keySet();
     String annotationSimpleName = getSimpleName(ast);
     checkedAnnotations.stream()
-        .filter(checkedAnnotation -> getSimpleName(checkedAnnotation).equals(annotationSimpleName))
-        .forEach(checkedAnnotation -> {
-          List<String> annotationKeys = getKeys(ast);
-          Set<String> forbiddenKeys = annotationForbiddenKeysMap.get(checkedAnnotation);
-          for (String forbiddenKey : forbiddenKeys) {
-            if (annotationKeys.contains(forbiddenKey)) {
-              log(ast.getLineNo(), MSG_KEY, forbiddenKey, annotationSimpleName);
-            }
-          }
-        });
+                      .filter(checkedAnnotation -> getSimpleName(checkedAnnotation).equals(annotationSimpleName))
+                      .forEach(checkedAnnotation -> {
+                        List<String> annotationKeys = getKeys(ast);
+                        Set<String> forbiddenKeys = annotationForbiddenKeysMap.get(checkedAnnotation);
+                        for (String forbiddenKey : forbiddenKeys) {
+                          if (annotationKeys.contains(forbiddenKey)) {
+                            log(ast.getLineNo(), MSG_KEY, forbiddenKey, annotationSimpleName);
+                          }
+                        }
+                      });
   }
 }

@@ -43,7 +43,7 @@ public class ForbiddenAnnotationCheck extends AbstractCheck {
         TokenTypes.METHOD_DEF,
         TokenTypes.CTOR_DEF,
         TokenTypes.VARIABLE_DEF,
-    };
+        };
   }
 
   @Override
@@ -64,7 +64,7 @@ public class ForbiddenAnnotationCheck extends AbstractCheck {
         TokenTypes.LITERAL_NEW,
         TokenTypes.DOT,
         TokenTypes.ANNOTATION_FIELD_DEF,
-    };
+        };
   }
 
   @Override
@@ -75,10 +75,10 @@ public class ForbiddenAnnotationCheck extends AbstractCheck {
   @Override
   public void visitToken(DetailAST ast) {
     forbiddenAnnotations.stream()
-        .filter(forbiddenAnnotation -> hasAnnotation(ast, forbiddenAnnotation))
-        .forEach(forbiddenAnnotation -> log(
-            getAnnotation(ast, forbiddenAnnotation).getLineNo(),
-            MSG_KEY,
-            getSimpleName(forbiddenAnnotation)));
+                        .filter(forbiddenAnnotation -> hasAnnotation(ast, forbiddenAnnotation))
+                        .forEach(forbiddenAnnotation -> log(
+                            getAnnotation(ast, forbiddenAnnotation).getLineNo(),
+                            MSG_KEY,
+                            getSimpleName(forbiddenAnnotation)));
   }
 }

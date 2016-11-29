@@ -36,10 +36,10 @@ public class MissingVariableCheckTest extends BaseCheckTestSupport {
 
   private void test(String fileName, String[] expectedMessages) throws Exception {
     verify(createCheckConfig(MissingVariableCheck.class,
-        ImmutableMap.of("typeAnnotation", "javax.persistence.Entity",
-            "abstractTypeAnnotation", "javax.persistence.MappedSuperclass",
-            "mandatoryVariables", "createdAt, lastUpdatedAt")),
-        getPath(fileName),
-        expectedMessages);
+                             ImmutableMap.of("typeAnnotation", "javax.persistence.Entity",
+                                             "abstractTypeAnnotation", "javax.persistence.MappedSuperclass",
+                                             "mandatoryVariables", "createdAt, lastUpdatedAt")),
+           getPath(fileName),
+           expectedMessages);
   }
 }

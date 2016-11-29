@@ -90,12 +90,12 @@
       <property name="max" value="30"/>
     </module>
     <!--<module name="Indentation">-->
-      <!--<property name="basicOffset" value="2"/>-->
-      <!--<property name="braceAdjustment" value="0"/>-->
-      <!--<property name="caseIndent" value="2"/>-->
-      <!--<property name="throwsIndent" value="4"/>-->
-      <!--<property name="lineWrappingIndentation" value="4"/>-->
-      <!--<property name="arrayInitIndent" value="2"/>-->
+    <!--<property name="basicOffset" value="2"/>-->
+    <!--<property name="braceAdjustment" value="0"/>-->
+    <!--<property name="caseIndent" value="2"/>-->
+    <!--<property name="throwsIndent" value="4"/>-->
+    <!--<property name="lineWrappingIndentation" value="4"/>-->
+    <!--<property name="arrayInitIndent" value="2"/>-->
     <!--</module>-->
 
     <!-- Checks for whitespace                               -->
@@ -195,8 +195,7 @@
     <module name="DeclarationOrder"/>
     <module name="ExplicitInitialization"/>
     <module name="PackageDeclaration"/>
-    <module name="EqualsHashCodeCheck"/>
-    <module name="AbstractClassNameCheck">
+    <module name="AbstractClassName">
       <property name="ignoreName" value="true"/>
     </module>
 
@@ -208,15 +207,6 @@
     </module>
 
     <!-- Custom Checks-->
-    <module name="es.startuphero.checkstyle.checks.VariableDeclarationOrderCheck">
-      <property name="variableName" value="LOGGER"/>
-      <property name="declarationOrder" value="1"/>
-    </module>
-    <module name="es.startuphero.checkstyle.checks.RedundantMultipleAnnotationCheck">
-      <property name="tokens" value="VARIABLE_DEF"/>
-      <property name="redundantAnnotationPairs"
-          value="javax.persistence.Id:javax.persistence.Column"/>
-    </module>
     <module name="es.startuphero.checkstyle.checks.ForbiddenAnnotationCheck">
       <property name="forbiddenAnnotations"
           value="com.clovify.lyso.core.annotation.LysoRepository"/>
@@ -224,14 +214,26 @@
     <module name="es.startuphero.checkstyle.checks.ForbiddenAnnotationKeyCheck">
       <property name="annotationForbiddenKeysMap" value="javax.persistence.Column:unique"/>
     </module>
+    <module name="es.startuphero.checkstyle.checks.GeneratedPrimaryKeyNameCheck">
+      <property name="typeAnnotation" value="javax.persistence.Entity"/>
+      <property name="abstractTypeAnnotation" value="javax.persistence.MappedSuperclass"/>
+      <property name="idAnnotation" value="javax.persistence.Id"/>
+      <property name="generatedValueAnnotation" value="javax.persistence.GeneratedValue"/>
+      <property name="suggestedGeneratedPrimaryKeyName" value="id"/>
+    </module>
+    <module name="es.startuphero.checkstyle.checks.LogDataTableCheck">
+      <property name="typeAnnotation" value="javax.persistence.Entity"/>
+      <property name="abstractTypeAnnotation" value="javax.persistence.MappedSuperclass"/>
+      <property name="columnAnnotation" value="javax.persistence.Column"/>
+      <property name="limitLength" value="255"/>
+    </module>
+    <module name="es.startuphero.checkstyle.checks.MissingAbstractModifierCheck">
+      <property name="abstractTypeAnnotation" value="javax.persistence.MappedSuperclass"/>
+    </module>
     <module name="es.startuphero.checkstyle.checks.MissingEqualsHashCodeCheck">
       <property name="typeAnnotation" value="javax.persistence.Entity"/>
       <property name="abstractTypeAnnotation" value="javax.persistence.MappedSuperclass"/>
       <property name="idAnnotation" value="javax.persistence.Id"/>
-    </module>
-    <module name="es.startuphero.checkstyle.checks.MissingToStringCheck">
-      <property name="typeAnnotation" value="javax.persistence.Entity"/>
-      <property name="abstractTypeAnnotation" value="javax.persistence.MappedSuperclass"/>
     </module>
     <module name="es.startuphero.checkstyle.checks.MissingGetterCheck">
       <property name="typeAnnotation" value="javax.persistence.Entity"/>
@@ -241,27 +243,19 @@
       <property name="typeAnnotation" value="javax.persistence.Entity"/>
       <property name="abstractTypeAnnotation" value="javax.persistence.MappedSuperclass"/>
     </module>
+    <module name="es.startuphero.checkstyle.checks.MissingToStringCheck">
+      <property name="typeAnnotation" value="javax.persistence.Entity"/>
+      <property name="abstractTypeAnnotation" value="javax.persistence.MappedSuperclass"/>
+    </module>
     <module name="es.startuphero.checkstyle.checks.MissingVariableCheck">
       <property name="typeAnnotation" value="javax.persistence.Entity"/>
       <property name="abstractTypeAnnotation" value="javax.persistence.MappedSuperclass"/>
       <property name="mandatoryVariables" value="createdAt, lastUpdatedAt"/>
     </module>
-    <module name="es.startuphero.checkstyle.checks.VariableAnnotationKeyValueCheck">
-      <property name="typeAnnotation" value="javax.persistence.Entity"/>
-      <property name="abstractTypeAnnotation" value="javax.persistence.MappedSuperclass"/>
-      <property name="variableAnnotationKeyValueTable"
-          value="createdAt:javax.persistence.Column:nullable:false, lastUpdatedAt:javax.persistence.Column:nullable:false"/>
-    </module>
-    <module name="es.startuphero.checkstyle.checks.GeneratedPrimaryKeyNameCheck">
-      <property name="typeAnnotation" value="javax.persistence.Entity"/>
-      <property name="abstractTypeAnnotation" value="javax.persistence.MappedSuperclass"/>
-      <property name="idAnnotation" value="javax.persistence.Id"/>
-      <property name="generatedValueAnnotation" value="javax.persistence.GeneratedValue"/>
-      <property name="suggestedGeneratedPrimaryKeyName" value="id"/>
-    </module>
-    <module name="es.startuphero.checkstyle.checks.VariableNameCheck">
-      <property name="typeAnnotation" value="javax.persistence.Entity"/>
-      <property name="abstractTypeAnnotation" value="javax.persistence.MappedSuperclass"/>
+    <module name="es.startuphero.checkstyle.checks.RedundantMultipleAnnotationCheck">
+      <property name="tokens" value="VARIABLE_DEF"/>
+      <property name="redundantAnnotationPairs"
+          value="javax.persistence.Id:javax.persistence.Column"/>
     </module>
     <module name="es.startuphero.checkstyle.checks.TableIdentifierNameCheck">
       <property name="tableAnnotation" value="javax.persistence.Table"/>
@@ -283,14 +277,18 @@
       <property name="maxLength" value="64"/>
       <property name="regex" value="^[a-z0-9_]*$"/>
     </module>
-    <module name="es.startuphero.checkstyle.checks.LogDataTableCheck">
+    <module name="es.startuphero.checkstyle.checks.VariableAnnotationKeyValueCheck">
       <property name="typeAnnotation" value="javax.persistence.Entity"/>
       <property name="abstractTypeAnnotation" value="javax.persistence.MappedSuperclass"/>
-      <property name="columnAnnotation" value="javax.persistence.Column"/>
-      <property name="limitLength" value="255"/>
+      <property name="variableAnnotationKeyValueTable"
+          value="createdAt:javax.persistence.Column:nullable:false, lastUpdatedAt:javax.persistence.Column:nullable:false"/>
     </module>
-    <!--module name="es.startuphero.checkstyle.checks.MissingEmptyLineCheck"/-->
-    <module name="es.startuphero.checkstyle.checks.MissingAbstractModifierCheck">
+    <module name="es.startuphero.checkstyle.checks.VariableDeclarationOrderCheck">
+      <property name="variableName" value="LOGGER"/>
+      <property name="declarationOrder" value="1"/>
+    </module>
+    <module name="es.startuphero.checkstyle.checks.VariableNameCheck">
+      <property name="typeAnnotation" value="javax.persistence.Entity"/>
       <property name="abstractTypeAnnotation" value="javax.persistence.MappedSuperclass"/>
     </module>
 

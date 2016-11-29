@@ -30,12 +30,12 @@ public class GeneratedPrimaryKeyNameCheckTest extends BaseCheckTestSupport {
 
   private void test(String fileName, String[] expectedMessages) throws Exception {
     verify(createCheckConfig(GeneratedPrimaryKeyNameCheck.class,
-        ImmutableMap.of("typeAnnotation", "javax.persistence.Entity",
-            "abstractTypeAnnotation", "javax.persistence.MappedSuperclass",
-            "idAnnotation", "javax.persistence.Id",
-            "generatedValueAnnotation", "javax.persistence.GeneratedValue",
-            "suggestedGeneratedPrimaryKeyName", "id")),
-        getPath(fileName),
-        expectedMessages);
+                             ImmutableMap.of("typeAnnotation", "javax.persistence.Entity",
+                                             "abstractTypeAnnotation", "javax.persistence.MappedSuperclass",
+                                             "idAnnotation", "javax.persistence.Id",
+                                             "generatedValueAnnotation", "javax.persistence.GeneratedValue",
+                                             "suggestedGeneratedPrimaryKeyName", "id")),
+           getPath(fileName),
+           expectedMessages);
   }
 }

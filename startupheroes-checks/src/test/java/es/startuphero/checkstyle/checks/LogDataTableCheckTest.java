@@ -10,11 +10,13 @@ public class LogDataTableCheckTest extends BaseCheckTestSupport {
 
   private static final String MSG_KEY = "keep.log.data.table";
 
+  private static final int COLUMN_LENGTH_LIMIT = 255;
+
   @Test
   public void testLogEntity() throws Exception {
-    String[] expectedMessages = {"31: " + getCheckMessage(MSG_KEY, "request", 255),
-        "34: " + getCheckMessage(MSG_KEY, "response", 255),
-        "43: " + getCheckMessage(MSG_KEY, "uri", 255)
+    String[] expectedMessages = {"31: " + getCheckMessage(MSG_KEY, "request", COLUMN_LENGTH_LIMIT),
+                                 "34: " + getCheckMessage(MSG_KEY, "response", COLUMN_LENGTH_LIMIT),
+                                 "43: " + getCheckMessage(MSG_KEY, "uri", COLUMN_LENGTH_LIMIT)
     };
     test("SmsProviderLog.java", expectedMessages);
   }
@@ -27,11 +29,11 @@ public class LogDataTableCheckTest extends BaseCheckTestSupport {
 
   private void test(String fileName, String[] expectedMessages) throws Exception {
     verify(createCheckConfig(LogDataTableCheck.class,
-        ImmutableMap.of("typeAnnotation", "javax.persistence.Entity",
-            "abstractTypeAnnotation", "javax.persistence.MappedSuperclass",
-            "columnAnnotation", "javax.persistence.Column",
-            "limitLength", "255")),
-        getPath(fileName),
-        expectedMessages);
+                             ImmutableMap.of("typeAnnotation", "javax.persistence.Entity",
+                                             "abstractTypeAnnotation", "javax.persistence.MappedSuperclass",
+                                             "columnAnnotation", "javax.persistence.Column",
+                                             "limitLength", "255")),
+           getPath(fileName),
+           expectedMessages);
   }
 }

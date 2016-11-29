@@ -17,10 +17,9 @@ public class UniqueConstraintNameCheckTest extends BaseCheckTestSupport {
 
   @Test
   public void testByWrongInput() throws Exception {
-    String[] expectedMessages = {"14: " + getCheckMessage(MSG_IDENTIFIER_NAME_TOO_LONG,
-        "test_wrong_entity_model_id_attributeValue_1_attributeValue_1_attributeValue_1_uk",
-        MAX_LENGTH),
-        "18: " + getCheckMessage(MSG_KEY, "test_wrong_entity_relative_url_uk")};
+    String suggestedUcName = "test_wrong_entity_model_id_attributeValue_1_attributeValue_1_attributeValue_1_uk";
+    String[] expectedMessages = {"14: " + getCheckMessage(MSG_IDENTIFIER_NAME_TOO_LONG, suggestedUcName, MAX_LENGTH),
+                                 "18: " + getCheckMessage(MSG_KEY, "test_wrong_entity_relative_url_uk")};
     test("TestWrongEntity.java", expectedMessages);
   }
 
@@ -40,8 +39,8 @@ public class UniqueConstraintNameCheckTest extends BaseCheckTestSupport {
   private void test(String fileName, String[] expectedMessages) throws Exception {
     Map<String, String> propertyMap = getPropertyMap();
     verify(createCheckConfig(TableIdentifierNameCheck.class, propertyMap),
-        getPath(fileName),
-        expectedMessages);
+           getPath(fileName),
+           expectedMessages);
   }
 
   private Map<String, String> getPropertyMap() {

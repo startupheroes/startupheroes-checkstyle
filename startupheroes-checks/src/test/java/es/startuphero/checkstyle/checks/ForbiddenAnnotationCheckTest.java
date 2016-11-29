@@ -24,9 +24,9 @@ public class ForbiddenAnnotationCheckTest extends BaseCheckTestSupport {
 
   private void test(String fileName, String[] expectedMessages) throws Exception {
     verify(createCheckConfig(ForbiddenAnnotationCheck.class,
-        ImmutableMap.of("forbiddenAnnotations",
-            "es.startuphero.checkstyle.checks.ForbiddenAnnotation")),
-        getPath(fileName),
-        expectedMessages);
+                             ImmutableMap.of("forbiddenAnnotations",
+                                             "es.startuphero.checkstyle.checks.ForbiddenAnnotation")),
+           getPath(fileName),
+           expectedMessages);
   }
 }

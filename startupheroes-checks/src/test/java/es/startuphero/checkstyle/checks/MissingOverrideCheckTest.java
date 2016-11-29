@@ -16,7 +16,7 @@ public class MissingOverrideCheckTest extends BaseCheckTestSupport {
     String[] expectedMessages = {"15: " + getCheckMessage(MSG_KEY)
     };
     verify(createCheckConfig(MissingOverrideCheck.class),
-        getPath("TestService.java"),
-        expectedMessages);
+           getPath("TestService.java"),
+           expectedMessages);
   }
 }

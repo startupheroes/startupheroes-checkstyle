@@ -30,6 +30,7 @@ import static java.text.MessageFormat.format;
 public abstract class BaseCheckTestSupport extends Assert {
 
   private final ByteArrayOutputStream baos = new ByteArrayOutputStream();
+
   private final PrintStream printStream = new PrintStream(baos);
 
   protected static DefaultConfiguration createCheckConfig(Class<?> clazz) {
@@ -37,7 +38,7 @@ public abstract class BaseCheckTestSupport extends Assert {
   }
 
   protected static DefaultConfiguration createCheckConfig(Class<?> clazz,
-      Map<String, String> attributeMap) {
+                                                          Map<String, String> attributeMap) {
     DefaultConfiguration checkConfig = createCheckConfig(clazz);
     for (String attributeName : attributeMap.keySet()) {
       String value = attributeMap.get(attributeName);
@@ -56,12 +57,12 @@ public abstract class BaseCheckTestSupport extends Assert {
   }
 
   private void verify(Checker c, String processedFilename, String messageFileName,
-      String[] aExpected) throws Exception {
+                      String[] aExpected) throws Exception {
     verify(c, new File[] {new File(processedFilename)}, messageFileName, aExpected);
   }
 
   private void verify(Checker checker, File[] processedFiles, String messageFileName,
-      String[] expected) throws Exception {
+                      String[] expected) throws Exception {
     printStream.flush();
     List<File> testInputFiles = Lists.newArrayList(processedFiles);
     int foundErrorsCount = checker.process(testInputFiles);
@@ -78,7 +79,7 @@ public abstract class BaseCheckTestSupport extends Assert {
       }
 
       assertEquals("Check generated unexpected warning: " + br.readLine(), expected.length,
-          foundErrorsCount);
+                   foundErrorsCount);
       checker.destroy();
     } finally {
       br.close();
@@ -118,8 +119,8 @@ public abstract class BaseCheckTestSupport extends Assert {
       URL resource = getClass().getResource(filename);
       if (resource == null) {
         throw new RuntimeException(String.format("Resource '%s' can NOT be found "
-                + "(does not exist or just not visible for current classloader)",
-            filename));
+                                                 + "(does not exist or just not visible for current classloader)",
+                                                 filename));
       } else {
         result = new File(resource.getPath()).getCanonicalPath();
       }

@@ -31,7 +31,9 @@ import java.util.logging.Logger;
  */
 @Beta
 public final class Closeables {
-  @VisibleForTesting static final Logger logger = Logger.getLogger(Closeables.class.getName());
+
+  @VisibleForTesting
+  static final Logger LOGGER = Logger.getLogger(Closeables.class.getName());
 
   private Closeables() {
   }
@@ -41,7 +43,7 @@ public final class Closeables {
    * This is primarily useful in a finally block, where a thrown exception needs to be logged but
    * not propagated (otherwise the original exception will be lost).
    *
-   * <p>If {@code swallowIOException} is true then we never throw {@code IOException} but merely log
+   * <p>If {@code swallowIoException} is true then we never throw {@code IOException} but merely log
    * it.
    *
    * <p>Example: <pre>   {@code
@@ -58,14 +60,11 @@ public final class Closeables {
    *     }
    *   }}</pre>
    *
-   * @param closeable the {@code Closeable} object to be closed, or null, in which case this method
-   * does nothing
-   * @param swallowIOException if true, don't propagate IO exceptions thrown by the {@code close}
-   * methods
-   * @throws IOException if {@code swallowIOException} is false and {@code close} throws an {@code
-   * IOException}.
+   * @param closeable the {@code Closeable} object to be closed, or null, in which case this method does nothing
+   * @param swallowIoException if true, don't propagate IO exceptions thrown by the {@code close} methods
+   * @throws IOException if {@code swallowIoException} is false and {@code close} throws an {@code IOException}.
    */
-  public static void close(Closeable closeable, boolean swallowIOException)
+  public static void close(Closeable closeable, boolean swallowIoException)
       throws IOException {
     if (closeable == null) {
       return;
@@ -73,8 +72,8 @@ public final class Closeables {
     try {
       closeable.close();
     } catch (IOException e) {
-      if (swallowIOException) {
-        logger.log(Level.WARNING, "IOException thrown while closing Closeable.", e);
+      if (swallowIoException) {
+        LOGGER.log(Level.WARNING, "IOException thrown while closing Closeable.", e);
       } else {
         throw e;
       }
@@ -91,8 +90,7 @@ public final class Closeables {
    * a failure that occurs when closing the stream indicates a meaningful problem such as a failure
    * to flush all bytes to the underlying resource.
    *
-   * @param inputStream the input stream to be closed, or {@code null} in which case this method
-   * does nothing
+   * @param inputStream the input stream to be closed, or {@code null} in which case this method does nothing
    * @since 17.0
    */
   public static void closeQuietly(InputStream inputStream) {
@@ -113,8 +111,7 @@ public final class Closeables {
    * a failure that occurs when closing the stream indicates a meaningful problem such as a failure
    * to flush all bytes to the underlying resource.
    *
-   * @param inputStream the input stream to be closed, or {@code null} in which case this method
-   * does nothing
+   * @param inputStream the input stream to be closed, or {@code null} in which case this method does nothing
    * @since 17.0
    */
   public static void closeQuietly(Closeable inputStream) {

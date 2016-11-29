@@ -35,8 +35,8 @@ public class ModuleProperty {
   @Override
   public String toString() {
     return "ModuleProperty{" +
-        "name='" + name + '\'' +
-        ", value='" + value + '\'' +
-        '}';
+           "name='" + name + '\'' +
+           ", value='" + value + '\'' +
+           '}';
   }
 }

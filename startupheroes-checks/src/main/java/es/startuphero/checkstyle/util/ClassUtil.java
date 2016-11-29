@@ -65,7 +65,7 @@ public final class ClassUtil {
     for (DetailAST sibling = rootAst; sibling != null; sibling = sibling.getNextSibling()) {
       if (sibling.getType() == TokenTypes.IMPORT) {
         simpleFullNameMapOfImports.put(CommonUtil.getSimpleName(sibling),
-            CommonUtil.getFullName(sibling));
+                                       CommonUtil.getFullName(sibling));
       }
     }
     return simpleFullNameMapOfImports;
@@ -91,6 +91,6 @@ public final class ClassUtil {
    */
   public static Boolean isAbstract(DetailAST classAst) {
     return classAst.findFirstToken(TokenTypes.MODIFIERS)
-        .branchContains(TokenTypes.ABSTRACT);
+                   .branchContains(TokenTypes.ABSTRACT);
   }
 }

@@ -30,9 +30,9 @@ public class MissingGetterCheckTest extends BaseCheckTestSupport {
 
   private void test(String fileName, String[] expectedMessages) throws Exception {
     verify(createCheckConfig(MissingGetterCheck.class,
-        ImmutableMap.of("typeAnnotation", "javax.persistence.Entity",
-            "abstractTypeAnnotation", "javax.persistence.MappedSuperclass")),
-        getPath(fileName),
-        expectedMessages);
+                             ImmutableMap.of("typeAnnotation", "javax.persistence.Entity",
+                                             "abstractTypeAnnotation", "javax.persistence.MappedSuperclass")),
+           getPath(fileName),
+           expectedMessages);
   }
 }

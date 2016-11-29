@@ -57,8 +57,12 @@ public class RuleParam {
 
   @Override
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
 
     RuleParam ruleParam = (RuleParam) o;
 
@@ -73,10 +77,10 @@ public class RuleParam {
   @Override
   public String toString() {
     return "RuleParam{" +
-        "key='" + key + '\'' +
-        ", name='" + name + '\'' +
-        ", defaultValue='" + defaultValue + '\'' +
-        ", description='" + description + '\'' +
-        '}';
+           "key='" + key + '\'' +
+           ", name='" + name + '\'' +
+           ", defaultValue='" + defaultValue + '\'' +
+           ", description='" + description + '\'' +
+           '}';
   }
 }

@@ -24,8 +24,8 @@ public class ForbiddenAnnotationKeyCheckTest extends BaseCheckTestSupport {
 
   private void test(String fileName, String[] expectedMessages) throws Exception {
     verify(createCheckConfig(ForbiddenAnnotationKeyCheck.class,
-        ImmutableMap.of("annotationForbiddenKeysMap", "javax.persistence.Column:unique")),
-        getPath(fileName),
-        expectedMessages);
+                             ImmutableMap.of("annotationForbiddenKeysMap", "javax.persistence.Column:unique")),
+           getPath(fileName),
+           expectedMessages);
   }
 }

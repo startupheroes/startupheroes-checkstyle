@@ -43,8 +43,8 @@ public class RedundantDefaultAnnotationParameterAssignCheck extends AbstractChec
   }
 
   @Override
-  public void beginTree(DetailAST rootAST) {
-    importSimpleFullNameMap = getImportSimpleFullNameMap(rootAST);
+  public void beginTree(DetailAST rootAst) {
+    importSimpleFullNameMap = getImportSimpleFullNameMap(rootAst);
   }
 
   @Override

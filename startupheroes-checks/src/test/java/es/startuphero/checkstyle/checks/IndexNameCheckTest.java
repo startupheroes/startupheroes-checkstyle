@@ -38,8 +38,8 @@ public class IndexNameCheckTest extends BaseCheckTestSupport {
   private void test(String fileName, String[] expectedMessages) throws Exception {
     Map<String, String> propertyMap = getPropertyMap();
     verify(createCheckConfig(TableIdentifierNameCheck.class, propertyMap),
-        getPath(fileName),
-        expectedMessages);
+           getPath(fileName),
+           expectedMessages);
   }
 
   private Map<String, String> getPropertyMap() {

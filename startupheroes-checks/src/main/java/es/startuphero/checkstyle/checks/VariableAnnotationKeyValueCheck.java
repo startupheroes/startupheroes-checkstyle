@@ -74,13 +74,13 @@ public class VariableAnnotationKeyValueCheck extends AbstractCheck {
       Set<String> checkedVariables = variableAnnotationKeyValueTable.rowKeySet();
       Set<String> checkedAnnotations = variableAnnotationKeyValueTable.columnKeySet();
       checkedVariables.stream()
-          .filter(checkedVariable -> variableNameAstMap.keySet().contains(checkedVariable))
-          .forEach(checkedVariable -> {
-            DetailAST variableAst = variableNameAstMap.get(checkedVariable);
-            checkedAnnotations.forEach(checkedAnnotation -> checkAnnotation(checkedVariable,
-                variableAst,
-                checkedAnnotation));
-          });
+                      .filter(checkedVariable -> variableNameAstMap.keySet().contains(checkedVariable))
+                      .forEach(checkedVariable -> {
+                        DetailAST variableAst = variableNameAstMap.get(checkedVariable);
+                        checkedAnnotations.forEach(checkedAnnotation -> checkAnnotation(checkedVariable,
+                                                                                        variableAst,
+                                                                                        checkedAnnotation));
+                      });
     }
   }
 
@@ -90,29 +90,30 @@ public class VariableAnnotationKeyValueCheck extends AbstractCheck {
   }
 
   private void checkAnnotation(String checkedVariable, DetailAST variableAst,
-      String checkedAnnotation) {
+                               String checkedAnnotation) {
     DetailAST annotationAst = getAnnotation(variableAst, checkedAnnotation);
     if (nonNull(annotationAst)) {
       Map<String, DetailAST> annotationKeyPairAstMap = getKeyValueAstMap(annotationAst);
       Map<String, String> checkedKeyValueMap =
           variableAnnotationKeyValueTable.get(checkedVariable, checkedAnnotation);
       checkedKeyValueMap.keySet().forEach(checkedKey -> checkKeyValuePair(checkedVariable,
-          checkedAnnotation,
-          annotationAst,
-          annotationKeyPairAstMap,
-          checkedKeyValueMap,
-          checkedKey));
+                                                                          checkedAnnotation,
+                                                                          annotationAst,
+                                                                          annotationKeyPairAstMap,
+                                                                          checkedKeyValueMap,
+                                                                          checkedKey));
     }
   }
 
   private void checkKeyValuePair(String checkedVariable, String checkedAnnotation, DetailAST annotationAst,
-      Map<String, DetailAST> annotationKeyPairAstMap, Map<String, String> checkedKeyValueMap, String checkedKey) {
+                                 Map<String, DetailAST> annotationKeyPairAstMap, Map<String, String> checkedKeyValueMap,
+                                 String checkedKey) {
     String checkedValue = checkedKeyValueMap.get(checkedKey);
     DetailAST annotationKeyValueAst = annotationKeyPairAstMap.get(checkedKey);
     if (nonNull(annotationKeyValueAst)) {
       Optional<String> annotationValueAsString = getValueAsString(annotationKeyValueAst);
       if (annotationValueAsString.isPresent() && !annotationValueAsString.get()
-          .equals(checkedValue)) {
+                                                                         .equals(checkedValue)) {
         log(annotationAst.getLineNo(), MSG_KEY, checkedVariable, getSimpleName(checkedAnnotation),
             checkedKey, checkedValue);
       }
@@ -122,6 +123,7 @@ public class VariableAnnotationKeyValueCheck extends AbstractCheck {
     }
   }
 
+  @SuppressWarnings("checkstyle:MagicNumber")
   public void setVariableAnnotationKeyValueTable(String... variableAnnotationKeyValues) {
     for (String variableAnnotationKeyValue : variableAnnotationKeyValues) {
       String[] separated = variableAnnotationKeyValue.split(":");

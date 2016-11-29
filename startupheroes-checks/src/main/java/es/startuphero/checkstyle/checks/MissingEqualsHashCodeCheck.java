@@ -67,7 +67,7 @@ public class MissingEqualsHashCodeCheck extends AbstractCheck {
     assertions();
     if (isEntity(ast, typeAnnotation) || isEntity(ast, abstractTypeAnnotation)) {
       Boolean entityHasAnyId = getNonStaticVariables(ast).stream()
-          .anyMatch(variable -> hasAnnotation(variable, idAnnotation));
+                                                         .anyMatch(variable -> hasAnnotation(variable, idAnnotation));
       if (entityHasAnyId) {
         List<DetailAST> methods = getMethods(ast);
         Boolean hasEquals = methods.stream().anyMatch(MethodUtil::isEqualsMethod);

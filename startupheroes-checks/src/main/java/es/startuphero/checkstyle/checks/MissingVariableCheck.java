@@ -73,8 +73,8 @@ public class MissingVariableCheck extends AbstractCheck {
         && !isExtendsAnotherClass(ast)) {
       List<String> variableNames = getVariableNames(ast);
       mandatoryVariables.stream()
-          .filter(mandatoryVariable -> !variableNames.contains(mandatoryVariable))
-          .forEach(mandatoryVariable -> log(ast.getLineNo(), MSG_KEY, mandatoryVariable));
+                        .filter(mandatoryVariable -> !variableNames.contains(mandatoryVariable))
+                        .forEach(mandatoryVariable -> log(ast.getLineNo(), MSG_KEY, mandatoryVariable));
     }
   }
 

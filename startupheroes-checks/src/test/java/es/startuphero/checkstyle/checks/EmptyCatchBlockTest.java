@@ -17,8 +17,8 @@ public class EmptyCatchBlockTest extends BaseCheckTestSupport {
 
   private void test(String fileName, String[] expectedMessages) throws Exception {
     verify(createCheckConfig(EmptyCatchBlockCheck.class,
-        ImmutableMap.of("exceptionVariableName", "expected|ignored")),
-        getPath(fileName),
-        expectedMessages);
+                             ImmutableMap.of("exceptionVariableName", "expected|ignored")),
+           getPath(fileName),
+           expectedMessages);
   }
 }

@@ -27,7 +27,7 @@ public class RedundantDefaultAnnotationParameterAssignCheckTest extends BaseChec
 
   private void test(String fileName, String[] expectedMessages) throws Exception {
     verify(createCheckConfig(RedundantDefaultAnnotationParameterAssignCheck.class),
-        getPath(fileName),
-        expectedMessages);
+           getPath(fileName),
+           expectedMessages);
   }
 }

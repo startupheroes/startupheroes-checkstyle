@@ -64,8 +64,9 @@ public class MissingSetterCheck extends AbstractCheck {
     if (isEntity(ast, typeAnnotation) || isEntity(ast, abstractTypeAnnotation)) {
       Map<String, DetailAST> variableNameAstMap = getVariableNameAstMap(ast, false);
       List<String> setterVariableNames = getSetters(ast).stream()
-          .map(setter -> getMethodName(setter).split(MethodUtil.SETTER_PREFIX_REGEX)[1])
-          .collect(Collectors.toList());
+                                                        .map(setter -> getMethodName(setter).split(
+                                                            MethodUtil.SETTER_PREFIX_REGEX)[1])
+                                                        .collect(Collectors.toList());
 
       for (String variableName : variableNameAstMap.keySet()) {
         String nameInGettersAndSetters =

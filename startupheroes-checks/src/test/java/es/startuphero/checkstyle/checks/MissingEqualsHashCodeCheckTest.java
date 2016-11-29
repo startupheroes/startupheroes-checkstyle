@@ -30,10 +30,10 @@ public class MissingEqualsHashCodeCheckTest extends BaseCheckTestSupport {
 
   private void test(String fileName, String[] expectedMessages) throws Exception {
     verify(createCheckConfig(MissingEqualsHashCodeCheck.class,
-        ImmutableMap.of("typeAnnotation", "javax.persistence.Entity",
-            "abstractTypeAnnotation", "javax.persistence.MappedSuperclass",
-            "idAnnotation", "javax.persistence.Id")),
-        getPath(fileName),
-        expectedMessages);
+                             ImmutableMap.of("typeAnnotation", "javax.persistence.Entity",
+                                             "abstractTypeAnnotation", "javax.persistence.MappedSuperclass",
+                                             "idAnnotation", "javax.persistence.Id")),
+           getPath(fileName),
+           expectedMessages);
   }
 }

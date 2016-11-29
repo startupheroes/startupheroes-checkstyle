@@ -47,9 +47,9 @@ public class MissingOverrideCheck extends AbstractCheck {
   }
 
   @Override
-  public void beginTree(DetailAST rootAST) {
-    packageName = getPackageName(rootAST);
-    importSimpleFullNameMap = getImportSimpleFullNameMap(rootAST);
+  public void beginTree(DetailAST rootAst) {
+    packageName = getPackageName(rootAst);
+    importSimpleFullNameMap = getImportSimpleFullNameMap(rootAst);
   }
 
   @Override
@@ -61,7 +61,7 @@ public class MissingOverrideCheck extends AbstractCheck {
         String methodName = getMethodName(ast);
         Class<?> classOfMethod = Class.forName(packageName + "." + className);
         Method method = classOfMethod.getDeclaredMethod(methodName,
-            getParameterTypes(ast, importSimpleFullNameMap));
+                                                        getParameterTypes(ast, importSimpleFullNameMap));
         if (isMethodOverriden(method) && !hasAnnotation(ast, OVERRIDE_ANNOTATION_NAME_BY_PACKAGE)) {
           log(ast.getLineNo(), MSG_KEY);
         }

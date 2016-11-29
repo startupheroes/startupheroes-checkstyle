@@ -13,7 +13,7 @@ public class VariableDeclarationOrderCheckTest extends BaseCheckTestSupport {
   @Test
   public void testByWrongInput() throws Exception {
     String[] expectedMessages = {"12: " + getCheckMessage(MSG_KEY,
-        "LOGGER", "1")};
+                                                          "LOGGER", "1")};
     test("TestWrongInputForLoggerOrderCheck.java", expectedMessages);
   }
 
@@ -25,8 +25,8 @@ public class VariableDeclarationOrderCheckTest extends BaseCheckTestSupport {
 
   private void test(String fileName, String[] expectedMessages) throws Exception {
     verify(createCheckConfig(VariableDeclarationOrderCheck.class,
-        ImmutableMap.of("variableName", "LOGGER", "declarationOrder", "1")),
-        getPath(fileName),
-        expectedMessages);
+                             ImmutableMap.of("variableName", "LOGGER", "declarationOrder", "1")),
+           getPath(fileName),
+           expectedMessages);
   }
 }

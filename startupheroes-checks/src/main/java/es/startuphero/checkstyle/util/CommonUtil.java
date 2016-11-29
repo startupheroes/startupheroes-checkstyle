@@ -41,7 +41,7 @@ public final class CommonUtil {
    */
   public static Boolean isStatic(DetailAST ast) {
     return ast.findFirstToken(TokenTypes.MODIFIERS)
-        .branchContains(TokenTypes.LITERAL_STATIC);
+              .branchContains(TokenTypes.LITERAL_STATIC);
   }
 
   public static Map<String, String> splitProperty(String property) {
@@ -78,7 +78,7 @@ public final class CommonUtil {
   }
 
   public static String getFullName(DetailAST ast, Map<String, String> importSimpleFullNameMap,
-      String simpleName) {
+                                   String simpleName) {
     String result;
     if (importSimpleFullNameMap.containsKey(simpleName)) {
       result = importSimpleFullNameMap.get(simpleName);
@@ -95,8 +95,8 @@ public final class CommonUtil {
   }
 
   /**
-   * @param fullName Full package qualifier of any type of object like annotation, class, interface
-   * like java.lang.Object
+   * @param fullName Full package qualifier of any type of object like annotation, class, interface like
+   * java.lang.Object
    * @return list of simple name and full qualifier {Object, java.lang.Object}
    */
   public static List<String> getSimpleAndFullNames(String fullName) {
@@ -115,7 +115,7 @@ public final class CommonUtil {
   }
 
   public static String convertToDatabaseForm(String tableName, String suffix,
-      Iterable<String> columns) {
+                                             Iterable<String> columns) {
     String result = tableName;
     for (String column : columns) {
       result = result + "_" + column;

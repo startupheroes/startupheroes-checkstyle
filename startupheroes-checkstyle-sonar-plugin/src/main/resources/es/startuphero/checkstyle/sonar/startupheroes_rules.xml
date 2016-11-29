@@ -652,50 +652,13 @@
         <tag>sh-rule</tag>
     </rule>
     <rule>
-        <key>EqualsHashCodeCheck</key>
-        <name>Equals Hash Code Check</name>
-        <description>Equals Hash Code Check</description>
-        <internalKey>Checker/TreeWalker/EqualsHashCodeCheck</internalKey>
-        <tag>sh-rule</tag>
-    </rule>
-    <rule>
-        <key>AbstractClassNameCheck</key>
-        <name>Abstract Class Name Check</name>
-        <description>Abstract Class Name Check</description>
-        <internalKey>Checker/TreeWalker/AbstractClassNameCheck</internalKey>
+        <key>AbstractClassName</key>
+        <name>Abstract Class Name</name>
+        <description>Abstract Class Name</description>
+        <internalKey>Checker/TreeWalker/AbstractClassName</internalKey>
         <param key="ignoreName" name="Ignore Name">
             <defaultValue>true</defaultValue>
             <description>Ignore Name property with value of 'true'</description>
-        </param>
-        <tag>sh-rule</tag>
-    </rule>
-    <rule>
-        <key>es.startuphero.checkstyle.checks.VariableDeclarationOrderCheck</key>
-        <name>Variable Declaration Order Check</name>
-        <description>Variable Declaration Order Check</description>
-        <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.VariableDeclarationOrderCheck</internalKey>
-        <param key="variableName" name="Variable Name">
-            <defaultValue>LOGGER</defaultValue>
-            <description>Variable Name property with value of 'LOGGER'</description>
-        </param>
-        <param key="declarationOrder" name="Declaration Order">
-            <defaultValue>1</defaultValue>
-            <description>Declaration Order property with value of '1'</description>
-        </param>
-        <tag>sh-rule</tag>
-    </rule>
-    <rule>
-        <key>es.startuphero.checkstyle.checks.RedundantMultipleAnnotationCheck</key>
-        <name>Redundant Multiple Annotation Check</name>
-        <description>Redundant Multiple Annotation Check</description>
-        <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.RedundantMultipleAnnotationCheck</internalKey>
-        <param key="tokens" name="Tokens">
-            <defaultValue>VARIABLE_DEF</defaultValue>
-            <description>Tokens property with value of 'VARIABLE_DEF'</description>
-        </param>
-        <param key="redundantAnnotationPairs" name="Redundant Annotation Pairs">
-            <defaultValue>javax.persistence.Id:javax.persistence.Column</defaultValue>
-            <description>Redundant Annotation Pairs property with value of 'javax.persistence.Id:javax.persistence.Column'</description>
         </param>
         <tag>sh-rule</tag>
     </rule>
@@ -722,6 +685,67 @@
         <tag>sh-rule</tag>
     </rule>
     <rule>
+        <key>es.startuphero.checkstyle.checks.GeneratedPrimaryKeyNameCheck</key>
+        <name>Generated Primary Key Name Check</name>
+        <description>Generated Primary Key Name Check</description>
+        <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.GeneratedPrimaryKeyNameCheck</internalKey>
+        <param key="typeAnnotation" name="Type Annotation">
+            <defaultValue>javax.persistence.Entity</defaultValue>
+            <description>Type Annotation property with value of 'javax.persistence.Entity'</description>
+        </param>
+        <param key="abstractTypeAnnotation" name="Abstract Type Annotation">
+            <defaultValue>javax.persistence.MappedSuperclass</defaultValue>
+            <description>Abstract Type Annotation property with value of 'javax.persistence.MappedSuperclass'</description>
+        </param>
+        <param key="idAnnotation" name="Id Annotation">
+            <defaultValue>javax.persistence.Id</defaultValue>
+            <description>Id Annotation property with value of 'javax.persistence.Id'</description>
+        </param>
+        <param key="generatedValueAnnotation" name="Generated Value Annotation">
+            <defaultValue>javax.persistence.GeneratedValue</defaultValue>
+            <description>Generated Value Annotation property with value of 'javax.persistence.GeneratedValue'</description>
+        </param>
+        <param key="suggestedGeneratedPrimaryKeyName" name="Suggested Generated Primary Key Name">
+            <defaultValue>id</defaultValue>
+            <description>Suggested Generated Primary Key Name property with value of 'id'</description>
+        </param>
+        <tag>sh-rule</tag>
+    </rule>
+    <rule>
+        <key>es.startuphero.checkstyle.checks.LogDataTableCheck</key>
+        <name>Log Data Table Check</name>
+        <description>Log Data Table Check</description>
+        <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.LogDataTableCheck</internalKey>
+        <param key="typeAnnotation" name="Type Annotation">
+            <defaultValue>javax.persistence.Entity</defaultValue>
+            <description>Type Annotation property with value of 'javax.persistence.Entity'</description>
+        </param>
+        <param key="abstractTypeAnnotation" name="Abstract Type Annotation">
+            <defaultValue>javax.persistence.MappedSuperclass</defaultValue>
+            <description>Abstract Type Annotation property with value of 'javax.persistence.MappedSuperclass'</description>
+        </param>
+        <param key="columnAnnotation" name="Column Annotation">
+            <defaultValue>javax.persistence.Column</defaultValue>
+            <description>Column Annotation property with value of 'javax.persistence.Column'</description>
+        </param>
+        <param key="limitLength" name="Limit Length">
+            <defaultValue>255</defaultValue>
+            <description>Limit Length property with value of '255'</description>
+        </param>
+        <tag>sh-rule</tag>
+    </rule>
+    <rule>
+        <key>es.startuphero.checkstyle.checks.MissingAbstractModifierCheck</key>
+        <name>Missing Abstract Modifier Check</name>
+        <description>Missing Abstract Modifier Check</description>
+        <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.MissingAbstractModifierCheck</internalKey>
+        <param key="abstractTypeAnnotation" name="Abstract Type Annotation">
+            <defaultValue>javax.persistence.MappedSuperclass</defaultValue>
+            <description>Abstract Type Annotation property with value of 'javax.persistence.MappedSuperclass'</description>
+        </param>
+        <tag>sh-rule</tag>
+    </rule>
+    <rule>
         <key>es.startuphero.checkstyle.checks.MissingEqualsHashCodeCheck</key>
         <name>Missing Equals Hash Code Check</name>
         <description>Missing Equals Hash Code Check</description>
@@ -737,21 +761,6 @@
         <param key="idAnnotation" name="Id Annotation">
             <defaultValue>javax.persistence.Id</defaultValue>
             <description>Id Annotation property with value of 'javax.persistence.Id'</description>
-        </param>
-        <tag>sh-rule</tag>
-    </rule>
-    <rule>
-        <key>es.startuphero.checkstyle.checks.MissingToStringCheck</key>
-        <name>Missing To String Check</name>
-        <description>Missing To String Check</description>
-        <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.MissingToStringCheck</internalKey>
-        <param key="typeAnnotation" name="Type Annotation">
-            <defaultValue>javax.persistence.Entity</defaultValue>
-            <description>Type Annotation property with value of 'javax.persistence.Entity'</description>
-        </param>
-        <param key="abstractTypeAnnotation" name="Abstract Type Annotation">
-            <defaultValue>javax.persistence.MappedSuperclass</defaultValue>
-            <description>Abstract Type Annotation property with value of 'javax.persistence.MappedSuperclass'</description>
         </param>
         <tag>sh-rule</tag>
     </rule>
@@ -786,6 +795,21 @@
         <tag>sh-rule</tag>
     </rule>
     <rule>
+        <key>es.startuphero.checkstyle.checks.MissingToStringCheck</key>
+        <name>Missing To String Check</name>
+        <description>Missing To String Check</description>
+        <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.MissingToStringCheck</internalKey>
+        <param key="typeAnnotation" name="Type Annotation">
+            <defaultValue>javax.persistence.Entity</defaultValue>
+            <description>Type Annotation property with value of 'javax.persistence.Entity'</description>
+        </param>
+        <param key="abstractTypeAnnotation" name="Abstract Type Annotation">
+            <defaultValue>javax.persistence.MappedSuperclass</defaultValue>
+            <description>Abstract Type Annotation property with value of 'javax.persistence.MappedSuperclass'</description>
+        </param>
+        <tag>sh-rule</tag>
+    </rule>
+    <rule>
         <key>es.startuphero.checkstyle.checks.MissingVariableCheck</key>
         <name>Missing Variable Check</name>
         <description>Missing Variable Check</description>
@@ -805,63 +829,17 @@
         <tag>sh-rule</tag>
     </rule>
     <rule>
-        <key>es.startuphero.checkstyle.checks.VariableAnnotationKeyValueCheck</key>
-        <name>Variable Annotation Key Value Check</name>
-        <description>Variable Annotation Key Value Check</description>
-        <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.VariableAnnotationKeyValueCheck</internalKey>
-        <param key="typeAnnotation" name="Type Annotation">
-            <defaultValue>javax.persistence.Entity</defaultValue>
-            <description>Type Annotation property with value of 'javax.persistence.Entity'</description>
+        <key>es.startuphero.checkstyle.checks.RedundantMultipleAnnotationCheck</key>
+        <name>Redundant Multiple Annotation Check</name>
+        <description>Redundant Multiple Annotation Check</description>
+        <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.RedundantMultipleAnnotationCheck</internalKey>
+        <param key="tokens" name="Tokens">
+            <defaultValue>VARIABLE_DEF</defaultValue>
+            <description>Tokens property with value of 'VARIABLE_DEF'</description>
         </param>
-        <param key="abstractTypeAnnotation" name="Abstract Type Annotation">
-            <defaultValue>javax.persistence.MappedSuperclass</defaultValue>
-            <description>Abstract Type Annotation property with value of 'javax.persistence.MappedSuperclass'</description>
-        </param>
-        <param key="variableAnnotationKeyValueTable" name="Variable Annotation Key Value Table">
-            <defaultValue>createdAt:javax.persistence.Column:nullable:false, lastUpdatedAt:javax.persistence.Column:nullable:false</defaultValue>
-            <description>Variable Annotation Key Value Table property with value of 'createdAt:javax.persistence.Column:nullable:false, lastUpdatedAt:javax.persistence.Column:nullable:false'</description>
-        </param>
-        <tag>sh-rule</tag>
-    </rule>
-    <rule>
-        <key>es.startuphero.checkstyle.checks.GeneratedPrimaryKeyNameCheck</key>
-        <name>Generated Primary Key Name Check</name>
-        <description>Generated Primary Key Name Check</description>
-        <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.GeneratedPrimaryKeyNameCheck</internalKey>
-        <param key="typeAnnotation" name="Type Annotation">
-            <defaultValue>javax.persistence.Entity</defaultValue>
-            <description>Type Annotation property with value of 'javax.persistence.Entity'</description>
-        </param>
-        <param key="abstractTypeAnnotation" name="Abstract Type Annotation">
-            <defaultValue>javax.persistence.MappedSuperclass</defaultValue>
-            <description>Abstract Type Annotation property with value of 'javax.persistence.MappedSuperclass'</description>
-        </param>
-        <param key="idAnnotation" name="Id Annotation">
-            <defaultValue>javax.persistence.Id</defaultValue>
-            <description>Id Annotation property with value of 'javax.persistence.Id'</description>
-        </param>
-        <param key="generatedValueAnnotation" name="Generated Value Annotation">
-            <defaultValue>javax.persistence.GeneratedValue</defaultValue>
-            <description>Generated Value Annotation property with value of 'javax.persistence.GeneratedValue'</description>
-        </param>
-        <param key="suggestedGeneratedPrimaryKeyName" name="Suggested Generated Primary Key Name">
-            <defaultValue>id</defaultValue>
-            <description>Suggested Generated Primary Key Name property with value of 'id'</description>
-        </param>
-        <tag>sh-rule</tag>
-    </rule>
-    <rule>
-        <key>es.startuphero.checkstyle.checks.VariableNameCheck</key>
-        <name>Variable Name Check</name>
-        <description>Variable Name Check</description>
-        <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.VariableNameCheck</internalKey>
-        <param key="typeAnnotation" name="Type Annotation">
-            <defaultValue>javax.persistence.Entity</defaultValue>
-            <description>Type Annotation property with value of 'javax.persistence.Entity'</description>
-        </param>
-        <param key="abstractTypeAnnotation" name="Abstract Type Annotation">
-            <defaultValue>javax.persistence.MappedSuperclass</defaultValue>
-            <description>Abstract Type Annotation property with value of 'javax.persistence.MappedSuperclass'</description>
+        <param key="redundantAnnotationPairs" name="Redundant Annotation Pairs">
+            <defaultValue>javax.persistence.Id:javax.persistence.Column</defaultValue>
+            <description>Redundant Annotation Pairs property with value of 'javax.persistence.Id:javax.persistence.Column'</description>
         </param>
         <tag>sh-rule</tag>
     </rule>
@@ -944,10 +922,10 @@
         <tag>sh-rule</tag>
     </rule>
     <rule>
-        <key>es.startuphero.checkstyle.checks.LogDataTableCheck</key>
-        <name>Log Data Table Check</name>
-        <description>Log Data Table Check</description>
-        <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.LogDataTableCheck</internalKey>
+        <key>es.startuphero.checkstyle.checks.VariableAnnotationKeyValueCheck</key>
+        <name>Variable Annotation Key Value Check</name>
+        <description>Variable Annotation Key Value Check</description>
+        <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.VariableAnnotationKeyValueCheck</internalKey>
         <param key="typeAnnotation" name="Type Annotation">
             <defaultValue>javax.persistence.Entity</defaultValue>
             <description>Type Annotation property with value of 'javax.persistence.Entity'</description>
@@ -956,21 +934,36 @@
             <defaultValue>javax.persistence.MappedSuperclass</defaultValue>
             <description>Abstract Type Annotation property with value of 'javax.persistence.MappedSuperclass'</description>
         </param>
-        <param key="columnAnnotation" name="Column Annotation">
-            <defaultValue>javax.persistence.Column</defaultValue>
-            <description>Column Annotation property with value of 'javax.persistence.Column'</description>
-        </param>
-        <param key="limitLength" name="Limit Length">
-            <defaultValue>255</defaultValue>
-            <description>Limit Length property with value of '255'</description>
+        <param key="variableAnnotationKeyValueTable" name="Variable Annotation Key Value Table">
+            <defaultValue>createdAt:javax.persistence.Column:nullable:false, lastUpdatedAt:javax.persistence.Column:nullable:false</defaultValue>
+            <description>Variable Annotation Key Value Table property with value of 'createdAt:javax.persistence.Column:nullable:false, lastUpdatedAt:javax.persistence.Column:nullable:false'</description>
         </param>
         <tag>sh-rule</tag>
     </rule>
     <rule>
-        <key>es.startuphero.checkstyle.checks.MissingAbstractModifierCheck</key>
-        <name>Missing Abstract Modifier Check</name>
-        <description>Missing Abstract Modifier Check</description>
-        <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.MissingAbstractModifierCheck</internalKey>
+        <key>es.startuphero.checkstyle.checks.VariableDeclarationOrderCheck</key>
+        <name>Variable Declaration Order Check</name>
+        <description>Variable Declaration Order Check</description>
+        <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.VariableDeclarationOrderCheck</internalKey>
+        <param key="variableName" name="Variable Name">
+            <defaultValue>LOGGER</defaultValue>
+            <description>Variable Name property with value of 'LOGGER'</description>
+        </param>
+        <param key="declarationOrder" name="Declaration Order">
+            <defaultValue>1</defaultValue>
+            <description>Declaration Order property with value of '1'</description>
+        </param>
+        <tag>sh-rule</tag>
+    </rule>
+    <rule>
+        <key>es.startuphero.checkstyle.checks.VariableNameCheck</key>
+        <name>Variable Name Check</name>
+        <description>Variable Name Check</description>
+        <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.VariableNameCheck</internalKey>
+        <param key="typeAnnotation" name="Type Annotation">
+            <defaultValue>javax.persistence.Entity</defaultValue>
+            <description>Type Annotation property with value of 'javax.persistence.Entity'</description>
+        </param>
         <param key="abstractTypeAnnotation" name="Abstract Type Annotation">
             <defaultValue>javax.persistence.MappedSuperclass</defaultValue>
             <description>Abstract Type Annotation property with value of 'javax.persistence.MappedSuperclass'</description>

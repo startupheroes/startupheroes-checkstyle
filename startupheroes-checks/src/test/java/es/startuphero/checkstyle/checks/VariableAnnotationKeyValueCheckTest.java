@@ -31,11 +31,12 @@ public class VariableAnnotationKeyValueCheckTest extends BaseCheckTestSupport {
 
   private void test(String fileName, String[] expectedMessages) throws Exception {
     verify(createCheckConfig(VariableAnnotationKeyValueCheck.class,
-        ImmutableMap.of("typeAnnotation", "javax.persistence.Entity",
-            "abstractTypeAnnotation", "javax.persistence.MappedSuperclass",
-            "variableAnnotationKeyValueTable",
-            "createdAt:javax.persistence.Column:nullable:false, lastUpdatedAt:javax.persistence.Column:nullable:false")),
-        getPath(fileName),
-        expectedMessages);
+                             ImmutableMap.of("typeAnnotation", "javax.persistence.Entity",
+                                             "abstractTypeAnnotation", "javax.persistence.MappedSuperclass",
+                                             "variableAnnotationKeyValueTable",
+                                             "createdAt:javax.persistence.Column:nullable:false, "
+                                             + "lastUpdatedAt:javax.persistence.Column:nullable:false")),
+           getPath(fileName),
+           expectedMessages);
   }
 }

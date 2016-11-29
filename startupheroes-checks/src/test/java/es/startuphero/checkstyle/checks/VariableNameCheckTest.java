@@ -13,10 +13,10 @@ public class VariableNameCheckTest extends BaseCheckTestSupport {
   @Test
   public void testByWrongInput() throws Exception {
     String[] expectedMessages = {"27: " + getCheckMessage(MSG_KEY, "id"),
-        "38: " + getCheckMessage(MSG_KEY, "modelId"),
-        "53: " + getCheckMessage(MSG_KEY, "name"),
-        "77: " + getCheckMessage(MSG_KEY, "parentId"),
-        "79: " + getCheckMessage(MSG_KEY, "externalId")};
+                                 "38: " + getCheckMessage(MSG_KEY, "modelId"),
+                                 "53: " + getCheckMessage(MSG_KEY, "name"),
+                                 "77: " + getCheckMessage(MSG_KEY, "parentId"),
+                                 "79: " + getCheckMessage(MSG_KEY, "externalId")};
     test("TestWrongEntity.java", expectedMessages);
   }
 
@@ -34,9 +34,9 @@ public class VariableNameCheckTest extends BaseCheckTestSupport {
 
   private void test(String fileName, String[] expectedMessages) throws Exception {
     verify(createCheckConfig(VariableNameCheck.class,
-        ImmutableMap.of("typeAnnotation", "javax.persistence.Entity",
-            "abstractTypeAnnotation", "javax.persistence.MappedSuperclass")),
-        getPath(fileName),
-        expectedMessages);
+                             ImmutableMap.of("typeAnnotation", "javax.persistence.Entity",
+                                             "abstractTypeAnnotation", "javax.persistence.MappedSuperclass")),
+           getPath(fileName),
+           expectedMessages);
   }
 }

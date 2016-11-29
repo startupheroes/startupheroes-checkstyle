@@ -134,7 +134,7 @@ public class TableIdentifierNameCheck extends AbstractCheck {
   }
 
   private void checkBySuggestedName(String className, DetailAST identifierAnnotationNode,
-      Map<String, DetailAST> identifierKeyValueAstMap, String identifierName) {
+                                    Map<String, DetailAST> identifierKeyValueAstMap, String identifierName) {
     DetailAST columnsKeyValueAst = identifierKeyValueAstMap.get(keyColumns);
     if (nonNull(columnsKeyValueAst)) {
       List<String> columnNames = AnnotationUtil.getValueAsStringList(columnsKeyValueAst);
@@ -143,7 +143,7 @@ public class TableIdentifierNameCheck extends AbstractCheck {
         if (identifierName.length() > maxLength) {
           log(identifierAnnotationNode.getLineNo(), MSG_IDENTIFIER_NAME_TOO_LONG, identifierName, maxLength);
         } else if (suggestedIdentifierName.length() <= maxLength &&
-            !suggestedIdentifierName.equals(identifierName)) {
+                   !suggestedIdentifierName.equals(identifierName)) {
           log(identifierAnnotationNode.getLineNo(), MSG_KEY, suggestedIdentifierName);
         } else if (!acceptableIdentifierName(className, identifierName)) {
           log(identifierAnnotationNode.getLineNo(), MSG_KEY,
@@ -155,13 +155,14 @@ public class TableIdentifierNameCheck extends AbstractCheck {
 
   private String getSuggestedIdentifierName(String className, List<String> columnNames) {
     return CommonUtil.convertToDatabaseForm(className, suggestedSuffix,
-        columnNames.size() == 1 ? getSplitterOnComma().split(columnNames.get(0)) : columnNames);
+                                            columnNames.size() == 1 ? getSplitterOnComma().split(columnNames.get(0))
+                                                : columnNames);
   }
 
   private Boolean acceptableIdentifierName(String tableName, String identifierName) {
     return identifierName.startsWith(CommonUtil.getDatabaseIdentifierName(tableName + "_")) &&
-        Pattern.compile(regex).matcher(identifierName).matches() &&
-        identifierName.endsWith(CommonUtil.getDatabaseIdentifierName("_" + suggestedSuffix));
+           Pattern.compile(regex).matcher(identifierName).matches() &&
+           identifierName.endsWith(CommonUtil.getDatabaseIdentifierName("_" + suggestedSuffix));
   }
 
   private void assertions() {

@@ -56,7 +56,7 @@ public final class MethodUtil {
    * @return list of class types of each parameters of method.
    */
   public static Class<?>[] getParameterTypes(DetailAST methodAst,
-      Map<String, String> importSimpleFullNameMap) {
+                                             Map<String, String> importSimpleFullNameMap) {
     DetailAST parameters = methodAst.findFirstToken(TokenTypes.PARAMETERS);
     List<DetailAST> parameterNodes =
         CommonUtil.getChildsByType(parameters, TokenTypes.PARAMETER_DEF);
@@ -86,7 +86,7 @@ public final class MethodUtil {
     }
     try {
       declaringClass.getSuperclass()
-          .getDeclaredMethod(method.getName(), method.getParameterTypes());
+                    .getDeclaredMethod(method.getName(), method.getParameterTypes());
       return true;
     } catch (NoSuchMethodException ex) {
       for (Class<?> implementedInterface : declaringClass.getInterfaces()) {
@@ -102,16 +102,16 @@ public final class MethodUtil {
 
   public static List<DetailAST> getGetters(DetailAST classAst) {
     return getMethods(classAst).stream()
-        .filter(
-            getter -> CheckUtils.isGetterMethod(getter) && getMethodName(getter).startsWith(GET))
-        .collect(Collectors.toList());
+                               .filter(
+                                   getter -> CheckUtils.isGetterMethod(getter) && getMethodName(getter).startsWith(GET))
+                               .collect(Collectors.toList());
   }
 
   public static List<DetailAST> getSetters(DetailAST classAst) {
     return getMethods(classAst).stream()
-        .filter(
-            setter -> CheckUtils.isSetterMethod(setter) && getMethodName(setter).startsWith(SET))
-        .collect(Collectors.toList());
+                               .filter(
+                                   setter -> CheckUtils.isSetterMethod(setter) && getMethodName(setter).startsWith(SET))
+                               .collect(Collectors.toList());
   }
 
   /**
@@ -125,10 +125,10 @@ public final class MethodUtil {
     DetailAST parameters = ast.findFirstToken(TokenTypes.PARAMETERS);
 
     return CheckUtils.isEqualsMethod(ast)
-        && modifiers.branchContains(TokenTypes.LITERAL_PUBLIC)
-        && isObjectParam(parameters.getFirstChild())
-        && (ast.branchContains(TokenTypes.SLIST)
-        || modifiers.branchContains(TokenTypes.LITERAL_NATIVE));
+           && modifiers.branchContains(TokenTypes.LITERAL_PUBLIC)
+           && isObjectParam(parameters.getFirstChild())
+           && (ast.branchContains(TokenTypes.SLIST)
+               || modifiers.branchContains(TokenTypes.LITERAL_NATIVE));
   }
 
   /**
@@ -144,12 +144,12 @@ public final class MethodUtil {
     DetailAST parameters = ast.findFirstToken(TokenTypes.PARAMETERS);
 
     return type.getFirstChild().getType() == TokenTypes.LITERAL_INT
-        && HASH_CODE_METHOD_NAME.equals(methodName.getText())
-        && modifiers.branchContains(TokenTypes.LITERAL_PUBLIC)
-        && !modifiers.branchContains(TokenTypes.LITERAL_STATIC)
-        && parameters.getFirstChild() == null
-        && (ast.branchContains(TokenTypes.SLIST)
-        || modifiers.branchContains(TokenTypes.LITERAL_NATIVE));
+           && HASH_CODE_METHOD_NAME.equals(methodName.getText())
+           && modifiers.branchContains(TokenTypes.LITERAL_PUBLIC)
+           && !modifiers.branchContains(TokenTypes.LITERAL_STATIC)
+           && parameters.getFirstChild() == null
+           && (ast.branchContains(TokenTypes.SLIST)
+               || modifiers.branchContains(TokenTypes.LITERAL_NATIVE));
   }
 
   /**
@@ -165,13 +165,13 @@ public final class MethodUtil {
     DetailAST parameters = ast.findFirstToken(TokenTypes.PARAMETERS);
 
     return CommonUtil.getSimpleAndFullNames(ClassUtil.STRING_CLASS_NAME_BY_PACKAGE)
-        .contains(type.getFirstChild().getText())
-        && TO_STRING_METHOD_NAME.equals(methodName.getText())
-        && modifiers.branchContains(TokenTypes.LITERAL_PUBLIC)
-        && !modifiers.branchContains(TokenTypes.LITERAL_STATIC)
-        && parameters.getFirstChild() == null
-        && (ast.branchContains(TokenTypes.SLIST)
-        || modifiers.branchContains(TokenTypes.LITERAL_NATIVE));
+                     .contains(type.getFirstChild().getText())
+           && TO_STRING_METHOD_NAME.equals(methodName.getText())
+           && modifiers.branchContains(TokenTypes.LITERAL_PUBLIC)
+           && !modifiers.branchContains(TokenTypes.LITERAL_STATIC)
+           && parameters.getFirstChild() == null
+           && (ast.branchContains(TokenTypes.SLIST)
+               || modifiers.branchContains(TokenTypes.LITERAL_NATIVE));
   }
 
   /**
@@ -182,6 +182,6 @@ public final class MethodUtil {
    */
   private static Boolean isObjectParam(DetailAST paramNode) {
     return CommonUtil.getSimpleAndFullNames(ClassUtil.OBJECT_CLASS_NAME_BY_PACKAGE)
-        .contains(getParamTypeSimpleName(paramNode));
+                     .contains(getParamTypeSimpleName(paramNode));
   }
 }

@@ -42,12 +42,66 @@ public class SonarRulesGeneratorMojo extends AbstractMojo {
   private static final String SKIPPED_MODULE_METADATA_NAME = "skip";
 
   /** Checkers xml file contains modules for each check **/
-  @Parameter(defaultValue = "${basedir}/startupheroes-checks/src/main/resources/es/startuphero/checkstyle/checks/startupheroes_checks.xml")
+  @Parameter(
+      defaultValue = "${basedir}/startupheroes-checks/src/main/resources/es/startuphero/checkstyle/checks"
+                     + "/startupheroes_checks.xml")
   private String inputFile;
 
   /** Output file to generate Sonar rules xml file from Checker file **/
-  @Parameter(defaultValue = "${basedir}/startupheroes-checkstyle-sonar-plugin/src/main/resources/es/startuphero/checkstyle/sonar/startupheroes_rules.xml")
+  @Parameter(
+      defaultValue = "${basedir}/startupheroes-checkstyle-sonar-plugin/src/main/resources/es/startuphero/checkstyle"
+                     + "/sonar/startupheroes_rules.xml")
   private String outputFile;
+
+  @Override
+  public void execute() throws MojoExecutionException, MojoFailureException {
+    try {
+      JAXBContext jaxbContext = JAXBContext.newInstance(Rules.class);
+      Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
+      // output pretty printed
+      jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+      jaxbMarshaller.marshal(createRules(), getOutputFile());
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+  }
+
+  private Rules createRules() {
+    Module root = parseXmlToObject(); // root : Checker
+    Rules rules = new Rules();
+    addNewRule(rules, root);
+    for (Module child : root.getChilds()) {
+      child.setParent(root);
+      addNewRule(rules, child);
+      // suppose maximum 2 level modules (childs of TreeWalker)!
+      for (Module secondLevelChild : child.getChilds()) {
+        secondLevelChild.setParent(child);
+        addNewRule(rules, secondLevelChild);
+      }
+    }
+    return rules;
+  }
+
+  private Module parseXmlToObject() {
+    Module module = null;
+    try {
+      JAXBContext jc = JAXBContext.newInstance(Module.class);
+
+      SAXParserFactory spf = SAXParserFactory.newInstance();
+      spf.setFeature(EXTERNAL_DTD_LOADING_FEATURE, false);
+      spf.setFeature(SAX_FEATURES_VALIDATION, false);
+
+      XMLReader xmlReader = spf.newSAXParser().getXMLReader();
+      InputSource inputSource = new InputSource(new FileReader(new File(inputFile)));
+      SAXSource source = new SAXSource(xmlReader, inputSource);
+
+      Unmarshaller unmarshaller = jc.createUnmarshaller();
+      module = (Module) unmarshaller.unmarshal(source);
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
+    return module;
+  }
 
   /** skip Checker and TreeWalker modules **/
   private static void addNewRule(Rules rules, Module module) {
@@ -64,26 +118,6 @@ public class SonarRulesGeneratorMojo extends AbstractMojo {
                   .map(ModuleMetadata::getName)
                   .collect(Collectors.toList())
                   .contains(SKIPPED_MODULE_METADATA_NAME);
-  }
-
-  private static void checkAlreadyExistingRule(Rules rules, Rule newRule) {
-    Boolean alreadyExistRule = isAlreadyExistRule(rules, newRule);
-    Optional<Rule> existedRule = rules.getRules()
-                                      .stream()
-                                      .filter(rule -> rule.getKey().equals(newRule.getKey()))
-                                      .findFirst();
-    int uniqueCounter = 2;
-    while (alreadyExistRule) {
-      newRule.setKey(existedRule.get().getKey() + "-" + uniqueCounter);
-      uniqueCounter++;
-      alreadyExistRule = isAlreadyExistRule(rules, newRule);
-    }
-  }
-
-  private static Boolean isAlreadyExistRule(Rules rules, Rule newRule) {
-    return rules.getRules()
-                .stream()
-                .anyMatch(rule -> rule.getKey().equals(newRule.getKey()));
   }
 
   private static Rule convertModuleToRule(Module module) {
@@ -146,33 +180,24 @@ public class SonarRulesGeneratorMojo extends AbstractMojo {
     return res.toString().trim();
   }
 
-  @Override
-  public void execute() throws MojoExecutionException, MojoFailureException {
-    try {
-      JAXBContext jaxbContext = JAXBContext.newInstance(Rules.class);
-      Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
-      // output pretty printed
-      jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-      jaxbMarshaller.marshal(createRules(), getOutputFile());
-    } catch (Exception e) {
-      e.printStackTrace();
+  private static void checkAlreadyExistingRule(Rules rules, Rule newRule) {
+    Boolean alreadyExistRule = isAlreadyExistRule(rules, newRule);
+    Optional<Rule> existedRule = rules.getRules()
+                                      .stream()
+                                      .filter(rule -> rule.getKey().equals(newRule.getKey()))
+                                      .findFirst();
+    int uniqueCounter = 2;
+    while (alreadyExistRule) {
+      newRule.setKey(existedRule.get().getKey() + "-" + uniqueCounter);
+      uniqueCounter++;
+      alreadyExistRule = isAlreadyExistRule(rules, newRule);
     }
   }
 
-  private Rules createRules() {
-    Module root = parseXmlToObject(); // root : Checker
-    Rules rules = new Rules();
-    addNewRule(rules, root);
-    for (Module child : root.getChilds()) {
-      child.setParent(root);
-      addNewRule(rules, child);
-      // suppose maximum 2 level modules (childs of TreeWalker)!
-      for (Module secondLevelChild : child.getChilds()) {
-        secondLevelChild.setParent(child);
-        addNewRule(rules, secondLevelChild);
-      }
-    }
-    return rules;
+  private static Boolean isAlreadyExistRule(Rules rules, Rule newRule) {
+    return rules.getRules()
+                .stream()
+                .anyMatch(rule -> rule.getKey().equals(newRule.getKey()));
   }
 
   private File getOutputFile() {
@@ -186,26 +211,5 @@ public class SonarRulesGeneratorMojo extends AbstractMojo {
       }
     }
     return outputFile;
-  }
-
-  private Module parseXmlToObject() {
-    Module module = null;
-    try {
-      JAXBContext jc = JAXBContext.newInstance(Module.class);
-
-      SAXParserFactory spf = SAXParserFactory.newInstance();
-      spf.setFeature(EXTERNAL_DTD_LOADING_FEATURE, false);
-      spf.setFeature(SAX_FEATURES_VALIDATION, false);
-
-      XMLReader xmlReader = spf.newSAXParser().getXMLReader();
-      InputSource inputSource = new InputSource(new FileReader(new File(inputFile)));
-      SAXSource source = new SAXSource(xmlReader, inputSource);
-
-      Unmarshaller unmarshaller = jc.createUnmarshaller();
-      module = (Module) unmarshaller.unmarshal(source);
-    } catch (Exception e) {
-      e.printStackTrace();
-    }
-    return module;
   }
 }

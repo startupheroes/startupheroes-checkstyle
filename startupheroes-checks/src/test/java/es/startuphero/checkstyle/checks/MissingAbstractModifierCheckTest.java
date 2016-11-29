@@ -25,8 +25,8 @@ public class MissingAbstractModifierCheckTest extends BaseCheckTestSupport {
 
   private void test(String fileName, String[] expectedMessages) throws Exception {
     verify(createCheckConfig(MissingAbstractModifierCheck.class,
-        ImmutableMap.of("abstractTypeAnnotation", "javax.persistence.MappedSuperclass")),
-        getPath(fileName),
-        expectedMessages);
+                             ImmutableMap.of("abstractTypeAnnotation", "javax.persistence.MappedSuperclass")),
+           getPath(fileName),
+           expectedMessages);
   }
 }

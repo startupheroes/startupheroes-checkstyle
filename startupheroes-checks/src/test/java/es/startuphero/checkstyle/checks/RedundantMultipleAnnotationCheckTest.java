@@ -24,9 +24,10 @@ public class RedundantMultipleAnnotationCheckTest extends BaseCheckTestSupport {
 
   private void test(String fileName, String[] expectedMessages) throws Exception {
     verify(createCheckConfig(RedundantMultipleAnnotationCheck.class,
-        ImmutableMap.of("tokens", "VARIABLE_DEF",
-            "redundantAnnotationPairs", "javax.persistence.Id:javax.persistence.Column")),
-        getPath(fileName),
-        expectedMessages);
+                             ImmutableMap.of("tokens", "VARIABLE_DEF",
+                                             "redundantAnnotationPairs",
+                                             "javax.persistence.Id:javax.persistence.Column")),
+           getPath(fileName),
+           expectedMessages);
   }
 }

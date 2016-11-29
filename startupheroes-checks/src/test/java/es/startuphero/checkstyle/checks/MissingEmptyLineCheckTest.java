@@ -18,7 +18,7 @@ public class MissingEmptyLineCheckTest extends BaseCheckTestSupport {
   @Test
   public void testByWrongInterface() throws Exception {
     String[] expectedMessages = {"23: " + getCheckMessage(MSG_KEY),
-        "24: " + getCheckMessage(MSG_KEY)};
+                                 "24: " + getCheckMessage(MSG_KEY)};
     test("TestInterface.java", expectedMessages);
   }
 
@@ -30,7 +30,7 @@ public class MissingEmptyLineCheckTest extends BaseCheckTestSupport {
 
   private void test(String fileName, String[] expectedMessages) throws Exception {
     verify(createCheckConfig(MissingEmptyLineCheck.class),
-        getPath(fileName),
-        expectedMessages);
+           getPath(fileName),
+           expectedMessages);
   }
 }

@@ -77,8 +77,12 @@ public class Rule {
 
   @Override
   public boolean equals(Object o) {
-    if (this == o) return true;
-    if (o == null || getClass() != o.getClass()) return false;
+    if (this == o) {
+      return true;
+    }
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
 
     Rule rule = (Rule) o;
 
@@ -90,7 +94,8 @@ public class Rule {
     return key != null ? key.hashCode() : 0;
   }
 
-  @Override public String toString() {
+  @Override
+  public String toString() {
     return "Rule{" +
            "key='" + key + '\'' +
            ", name='" + name + '\'' +
@@ -100,5 +105,4 @@ public class Rule {
            ", tags=" + tags +
            '}';
   }
-
 }

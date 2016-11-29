@@ -15,6 +15,7 @@ import org.sonar.plugins.java.api.tree.Tree;
 public class AvoidAnnotationRule extends BaseTreeVisitor implements JavaFileScanner {
 
   private static final String DEFAULT_VALUE = "Inject";
+
   /**
    * Name of the annotation to avoid. Value can be set by users in Quality profiles.
    * The key
@@ -23,6 +24,7 @@ public class AvoidAnnotationRule extends BaseTreeVisitor implements JavaFileScan
       defaultValue = DEFAULT_VALUE,
       description = "Name of the annotation to avoid, without the prefix @, for instance 'Override'")
   protected String name;
+
   private JavaFileScannerContext context;
 
   @Override

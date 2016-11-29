@@ -28,7 +28,7 @@ public class Rules {
   @Override
   public String toString() {
     return "Rules{" +
-        "rules=" + rules +
-        '}';
+           "rules=" + rules +
+           '}';
   }
 }
