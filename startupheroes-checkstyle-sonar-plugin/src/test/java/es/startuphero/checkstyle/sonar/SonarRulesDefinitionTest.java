@@ -29,19 +29,20 @@ public class SonarRulesDefinitionTest {
   }
 
   private void assertRuleProperties(Repository repository) {
-    Rule rule = repository.rule("es.startuphero.checkstyle.checks.MissingAbstractModifierCheck");
+    Rule rule = repository.rule("es.startuphero.checkstyle.checks.modifier.MissingAbstractModifierCheck");
     assertNotNull(rule);
     assertEquals(rule.name(), "Missing Abstract Modifier Check");
     assertEquals(rule.htmlDescription(), "Missing Abstract Modifier Check");
     assertEquals(rule.internalKey(),
-                 "Checker/TreeWalker/es.startuphero.checkstyle.checks.MissingAbstractModifierCheck");
+                 "com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.TreeWalker/"
+                 + "es.startuphero.checkstyle.checks.modifier.MissingAbstractModifierCheck");
     assertEquals(rule.type(), RuleType.CODE_SMELL);
     assertEquals(rule.severity(), Severity.MAJOR);
   }
 
   private void assertParameterProperties(Repository repository) {
     Param abstractTypeAnnotation =
-        repository.rule("es.startuphero.checkstyle.checks.MissingAbstractModifierCheck")
+        repository.rule("es.startuphero.checkstyle.checks.modifier.MissingAbstractModifierCheck")
                   .param("abstractTypeAnnotation");
     assertNotNull(abstractTypeAnnotation);
     assertEquals(abstractTypeAnnotation.name(), "abstractTypeAnnotation");

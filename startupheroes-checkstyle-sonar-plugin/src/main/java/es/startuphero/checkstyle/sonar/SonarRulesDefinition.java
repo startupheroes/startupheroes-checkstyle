@@ -19,8 +19,7 @@ public final class SonarRulesDefinition implements RulesDefinition {
 
   private static final String REPOSITORY_LANGUAGE = "java";
 
-  private static final String RULES_RELATIVE_FILE_PATH =
-      "/es/startuphero/checkstyle/sonar/startupheroes_rules.xml";
+  private static final String RULES_RELATIVE_FILE_PATH = "/es/startuphero/checkstyle/sonar/startupheroes_rules.xml";
 
   private RulesDefinitionXmlLoader xmlLoader;
 
@@ -30,7 +29,6 @@ public final class SonarRulesDefinition implements RulesDefinition {
 
   @Override
   public void define(Context context) {
-
     try (Reader reader = new InputStreamReader(
         getClass().getResourceAsStream(RULES_RELATIVE_FILE_PATH), StandardCharsets.UTF_8)) {
       NewRepository repository = context.createRepository(REPOSITORY_KEY, REPOSITORY_LANGUAGE).setName(REPOSITORY_NAME);

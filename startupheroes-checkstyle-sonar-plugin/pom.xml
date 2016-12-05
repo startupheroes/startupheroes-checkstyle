@@ -85,7 +85,7 @@
             </goals>
             <configuration>
               <inputFile>
-                ${basedir}/../startupheroes-checks/src/main/resources/es/startuphero/checkstyle/checks/startupheroes_checks.xml
+                ${basedir}/../startupheroes-checks/src/main/resources/es/startuphero/checkstyle/startupheroes_checks.xml
               </inputFile>
               <outputFile>
                 ${basedir}/src/main/resources/es/startuphero/checkstyle/sonar/startupheroes_rules.xml

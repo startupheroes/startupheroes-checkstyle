@@ -199,4 +199,3 @@ and checks the unique constraint name format of the class, it should be like tab
 # Suppress warnings checks:
 1. SuppressWarningsHolder: Make the @SuppressWarnings annotations available to Checkstyle.
 2. SuppressWarningsFilter: Filter out Checkstyle warnings that have been suppressed with the @SuppressWarnings annotation.
-
