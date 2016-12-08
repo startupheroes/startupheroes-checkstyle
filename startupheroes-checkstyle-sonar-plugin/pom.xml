@@ -32,11 +32,11 @@
       <scope>provided</scope>
     </dependency>
 
-    <!-- required by sonarqube, dont change the version-->
+    <!-- required by sonarqube, don't change the version-->
     <dependency>
       <groupId>com.google.guava</groupId>
       <artifactId>guava</artifactId>
-      <version>${sonar-required-guava.version}</version>
+      <version>15.0</version>
     </dependency>
 
     <!-- Test -->
