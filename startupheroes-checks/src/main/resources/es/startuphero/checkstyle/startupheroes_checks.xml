@@ -3,7 +3,7 @@
     "-//Puppy Crawl//DTD Check Configuration 1.2//EN"
     "http://www.puppycrawl.com/dtds/configuration_1_2.dtd">
 
-<module name="com.puppycrawl.tools.checkstyle.Checker">
+<module name="Checker">
 
   <property name="charset" value="UTF-8"/>
 
@@ -48,7 +48,7 @@
     <property name="message" value="Space needed around ':' character."/>
   </module>
 
-  <module name="com.puppycrawl.tools.checkstyle.TreeWalker">
+  <module name="TreeWalker">
 
     <!-- Checks for Naming Conventions.                  -->
     <!-- See http://checkstyle.sf.net/config_naming.html -->
@@ -89,6 +89,7 @@
     <module name="com.puppycrawl.tools.checkstyle.checks.sizes.MethodLengthCheck">
       <property name="max" value="30"/>
     </module>
+
     <!--<module name="Indentation">-->
     <!--<property name="basicOffset" value="2"/>-->
     <!--<property name="braceAdjustment" value="0"/>-->
@@ -135,14 +136,14 @@
       <property name="ignoreFieldDeclaration" value="true"/>
     </module>
     <module name="com.puppycrawl.tools.checkstyle.checks.coding.MissingSwitchDefaultCheck"/>
-    <module name="DefaultComesLast"/>
-    <module name="SimplifyBooleanExpression"/>
-    <module name="SimplifyBooleanReturn"/>
+    <module name="com.puppycrawl.tools.checkstyle.checks.coding.DefaultComesLastCheck"/>
+    <module name="com.puppycrawl.tools.checkstyle.checks.coding.SimplifyBooleanExpressionCheck"/>
+    <module name="com.puppycrawl.tools.checkstyle.checks.coding.SimplifyBooleanReturnCheck"/>
 
     <!-- Checks for class design                         -->
     <!-- See http://checkstyle.sf.net/config_design.html -->
     <module name="com.puppycrawl.tools.checkstyle.checks.design.InterfaceIsTypeCheck"/>
-    <module name="VisibilityModifier">
+    <module name="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck">
       <property name="protectedAllowed" value="true"/>
     </module>
 
@@ -162,11 +163,7 @@
     <module name="com.puppycrawl.tools.checkstyle.checks.ArrayTypeStyleCheck"/>
     <module name="com.puppycrawl.tools.checkstyle.checks.coding.FallThroughCheck"/>
     <module name="com.puppycrawl.tools.checkstyle.checks.UpperEllCheck"/>
-    <module name="com.puppycrawl.tools.checkstyle.checks.whitespace.EmptyLineSeparatorCheck">
-      <property name="allowNoEmptyLineBetweenFields" value="true"/>
-      <property name="tokens"
-          value="IMPORT, CLASS_DEF, INTERFACE_DEF, ENUM_DEF, STATIC_INIT, INSTANCE_INIT, METHOD_DEF, CTOR_DEF, VARIABLE_DEF"/>
-    </module>
+    <module name="com.puppycrawl.tools.checkstyle.checks.whitespace.EmptyLineSeparatorCheck"/>
     <module name="com.puppycrawl.tools.checkstyle.checks.whitespace.SeparatorWrapCheck">
       <property name="tokens" value="DOT"/>
       <property name="option" value="nl"/>
@@ -181,13 +178,7 @@
       <property name="ignoreFinal" value="false"/>
       <property name="allowedAbbreviationLength" value="1"/>
     </module>
-    <module name="com.puppycrawl.tools.checkstyle.checks.annotation.AnnotationLocationCheck">
-      <property name="tokens" value="CLASS_DEF, INTERFACE_DEF, ENUM_DEF, METHOD_DEF, CTOR_DEF"/>
-    </module>
-    <module name="com.puppycrawl.tools.checkstyle.checks.annotation.AnnotationLocationCheck">
-      <property name="tokens" value="VARIABLE_DEF"/>
-      <property name="allowSamelineMultipleAnnotations" value="true"/>
-    </module>
+    <module name="com.puppycrawl.tools.checkstyle.checks.annotation.AnnotationLocationCheck"/>
     <module name="com.puppycrawl.tools.checkstyle.checks.blocks.EmptyCatchBlockCheck">
       <property name="exceptionVariableName" value="expected|ignored"/>
     </module>

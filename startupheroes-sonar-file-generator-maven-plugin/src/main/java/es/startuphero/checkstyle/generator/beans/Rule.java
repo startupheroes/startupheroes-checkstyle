@@ -24,6 +24,10 @@ public class Rule {
   @XmlElement
   private Boolean template;
 
+  @Deprecated
+  @XmlElement
+  private String cardinality;
+
   @XmlElement(name = "param")
   private Set<RuleParam> params = new LinkedHashSet<>();
 
@@ -70,6 +74,14 @@ public class Rule {
     this.template = template;
   }
 
+  public String getCardinality() {
+    return cardinality;
+  }
+
+  public void setCardinality(String cardinality) {
+    this.cardinality = cardinality;
+  }
+
   public Set<RuleParam> getParams() {
     return params;
   }
@@ -113,6 +125,7 @@ public class Rule {
            ", description='" + description + '\'' +
            ", internalKey='" + internalKey + '\'' +
            ", template=" + template +
+           ", cardinality='" + cardinality + '\'' +
            ", params=" + params +
            ", tags=" + tags +
            '}';

@@ -41,6 +41,8 @@ public class SonarRulesGeneratorMojo extends AbstractMojo {
 
   private static final String SKIPPED_MODULE_METADATA_NAME = "skip";
 
+  private static final String TEMPLATE_CARDINALITY = "MULTIPLE";
+
   /** Checkers xml file contains modules for each check **/
   @Parameter(
       defaultValue = "${basedir}/../startupheroes-checks/src/main/resources/es/startuphero/checkstyle/"
@@ -71,11 +73,16 @@ public class SonarRulesGeneratorMojo extends AbstractMojo {
 
   private static Rule convertModuleToRule(Module module) {
     Rule rule = new Rule();
-    rule.setKey(module.getName());
-    rule.setName(getSeparatedString(module.getName()));
-    rule.setDescription(getSeparatedString(module.getName()));
+    String moduleName = module.getName();
+    rule.setKey(moduleName);
+    rule.setName(getSeparatedString(moduleName));
+    rule.setDescription(getSeparatedString(moduleName));
     rule.setInternalKey(getConfigKey(module));
     rule.getTags().add(DEFAULT_RULE_TAG);
+    Optional<String> categoryPackageName = getCategoryPackageName(moduleName);
+    if (categoryPackageName.isPresent()) {
+      rule.getTags().add(categoryPackageName.get());
+    }
     module.getProperties()
           .forEach(property -> rule.getParams()
                                    .add(convertModulePropertyToRuleParam(property)));
@@ -109,6 +116,18 @@ public class SonarRulesGeneratorMojo extends AbstractMojo {
     return packageNames[packageNames.length - 1];
   }
 
+  private static Optional<String> getCategoryPackageName(String fullName) {
+    Optional<String> result = Optional.empty();
+    String[] packageNames = fullName.split("\\.");
+    int indexOfCategoryPackageName = packageNames.length - 2;
+    int indexOfCheckerPackageName = indexOfCategoryPackageName - 1;
+    if (indexOfCheckerPackageName >= 0 &&
+        packageNames[indexOfCheckerPackageName].equals("checks")) {
+      result = Optional.of(packageNames[indexOfCategoryPackageName]);
+    }
+    return result;
+  }
+
   private static String getSeparatedString(String input) {
     String[] splittedModuleNames = getSimpleName(input).split("(?=[A-Z])");
     StringBuilder builder = new StringBuilder();
@@ -131,15 +150,18 @@ public class SonarRulesGeneratorMojo extends AbstractMojo {
 
   private static void checkAlreadyExistingRule(Rules rules, Rule newRule) {
     Boolean alreadyExistRule = isAlreadyExistRule(rules, newRule);
-    Optional<Rule> existedRule = rules.getRules()
-                                      .stream()
-                                      .filter(rule -> rule.getKey().equals(newRule.getKey()))
-                                      .findFirst();
-    int uniqueCounter = 2;
-    while (alreadyExistRule) {
-      newRule.setKey(existedRule.get().getKey() + "-" + uniqueCounter);
-      uniqueCounter++;
-      alreadyExistRule = isAlreadyExistRule(rules, newRule);
+    if (alreadyExistRule) {
+      Rule existedRule = rules.getRules()
+                              .stream()
+                              .filter(rule -> rule.getKey().equals(newRule.getKey()))
+                              .findFirst().get();
+      existedRule.setCardinality(TEMPLATE_CARDINALITY);
+      //int uniqueCounter = 2;
+      //while (alreadyExistRule) {
+      //  newRule.setKey(existedRule.getKey() + "-" + uniqueCounter);
+      //  uniqueCounter++;
+      //  alreadyExistRule = isAlreadyExistRule(rules, newRule);
+      //}
     }
   }
 

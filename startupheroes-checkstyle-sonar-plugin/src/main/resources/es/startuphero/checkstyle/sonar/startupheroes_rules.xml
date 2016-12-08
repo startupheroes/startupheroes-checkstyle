@@ -4,36 +4,39 @@
         <key>com.puppycrawl.tools.checkstyle.checks.TranslationCheck</key>
         <name>Translation Check</name>
         <description>Translation Check</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.checks.TranslationCheck</internalKey>
+        <internalKey>Checker/com.puppycrawl.tools.checkstyle.checks.TranslationCheck</internalKey>
         <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>com.puppycrawl.tools.checkstyle.checks.sizes.FileLengthCheck</key>
         <name>File Length Check</name>
         <description>File Length Check</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.checks.sizes.FileLengthCheck</internalKey>
+        <internalKey>Checker/com.puppycrawl.tools.checkstyle.checks.sizes.FileLengthCheck</internalKey>
         <param key="max" name="Max">
             <defaultValue>1500</defaultValue>
             <description>Max property with value of '1500'</description>
         </param>
         <tag>sh-rule</tag>
+        <tag>sizes</tag>
     </rule>
     <rule>
         <key>com.puppycrawl.tools.checkstyle.checks.whitespace.FileTabCharacterCheck</key>
         <name>File Tab Character Check</name>
         <description>File Tab Character Check</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.checks.whitespace.FileTabCharacterCheck</internalKey>
+        <internalKey>Checker/com.puppycrawl.tools.checkstyle.checks.whitespace.FileTabCharacterCheck</internalKey>
         <param key="eachLine" name="Each Line">
             <defaultValue>true</defaultValue>
             <description>Each Line property with value of 'true'</description>
         </param>
         <tag>sh-rule</tag>
+        <tag>whitespace</tag>
     </rule>
     <rule>
         <key>com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck</key>
         <name>Regexp Singleline Check</name>
         <description>Regexp Singleline Check</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck</internalKey>
+        <internalKey>Checker/com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck</internalKey>
+        <cardinality>MULTIPLE</cardinality>
         <param key="format" name="Format">
             <defaultValue>\s+$</defaultValue>
             <description>Format property with value of '\s+$'</description>
@@ -51,173 +54,161 @@
             <description>Message property with value of 'Line has trailing spaces.'</description>
         </param>
         <tag>sh-rule</tag>
-    </rule>
-    <rule>
-        <key>com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck-2</key>
-        <name>Regexp Singleline Check</name>
-        <description>Regexp Singleline Check</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck</internalKey>
-        <param key="format" name="Format">
-            <defaultValue>^\s*(for|if)\b[^ ]</defaultValue>
-            <description>Format property with value of '^\s*(for|if)\b[^ ]'</description>
-        </param>
-        <param key="message" name="Message">
-            <defaultValue>Space needed before opening parenthesis.</defaultValue>
-            <description>Message property with value of 'Space needed before opening parenthesis.'</description>
-        </param>
-        <tag>sh-rule</tag>
-    </rule>
-    <rule>
-        <key>com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck-3</key>
-        <name>Regexp Singleline Check</name>
-        <description>Regexp Singleline Check</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck</internalKey>
-        <param key="format" name="Format">
-            <defaultValue>^\s*for \(.*?([^ ]:|:[^ ])</defaultValue>
-            <description>Format property with value of '^\s*for \(.*?([^ ]:|:[^ ])'</description>
-        </param>
-        <param key="message" name="Message">
-            <defaultValue>Space needed around ':' character.</defaultValue>
-            <description>Message property with value of 'Space needed around ':' character.'</description>
-        </param>
-        <tag>sh-rule</tag>
+        <tag>regexp</tag>
     </rule>
     <rule>
         <key>com.puppycrawl.tools.checkstyle.checks.naming.ConstantNameCheck</key>
         <name>Constant Name Check</name>
         <description>Constant Name Check</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.TreeWalker/com.puppycrawl.tools.checkstyle.checks.naming.ConstantNameCheck</internalKey>
+        <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.naming.ConstantNameCheck</internalKey>
         <tag>sh-rule</tag>
+        <tag>naming</tag>
     </rule>
     <rule>
         <key>com.puppycrawl.tools.checkstyle.checks.naming.LocalFinalVariableNameCheck</key>
         <name>Local Final Variable Name Check</name>
         <description>Local Final Variable Name Check</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.TreeWalker/com.puppycrawl.tools.checkstyle.checks.naming.LocalFinalVariableNameCheck</internalKey>
+        <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.naming.LocalFinalVariableNameCheck</internalKey>
         <tag>sh-rule</tag>
+        <tag>naming</tag>
     </rule>
     <rule>
         <key>com.puppycrawl.tools.checkstyle.checks.naming.LocalVariableNameCheck</key>
         <name>Local Variable Name Check</name>
         <description>Local Variable Name Check</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.TreeWalker/com.puppycrawl.tools.checkstyle.checks.naming.LocalVariableNameCheck</internalKey>
+        <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.naming.LocalVariableNameCheck</internalKey>
         <tag>sh-rule</tag>
+        <tag>naming</tag>
     </rule>
     <rule>
         <key>com.puppycrawl.tools.checkstyle.checks.naming.CatchParameterNameCheck</key>
         <name>Catch Parameter Name Check</name>
         <description>Catch Parameter Name Check</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.TreeWalker/com.puppycrawl.tools.checkstyle.checks.naming.CatchParameterNameCheck</internalKey>
+        <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.naming.CatchParameterNameCheck</internalKey>
         <tag>sh-rule</tag>
+        <tag>naming</tag>
     </rule>
     <rule>
         <key>com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheck</key>
         <name>Member Name Check</name>
         <description>Member Name Check</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.TreeWalker/com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheck</internalKey>
+        <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheck</internalKey>
         <tag>sh-rule</tag>
+        <tag>naming</tag>
     </rule>
     <rule>
         <key>com.puppycrawl.tools.checkstyle.checks.naming.MethodNameCheck</key>
         <name>Method Name Check</name>
         <description>Method Name Check</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.TreeWalker/com.puppycrawl.tools.checkstyle.checks.naming.MethodNameCheck</internalKey>
+        <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.naming.MethodNameCheck</internalKey>
         <tag>sh-rule</tag>
+        <tag>naming</tag>
     </rule>
     <rule>
         <key>com.puppycrawl.tools.checkstyle.checks.naming.PackageNameCheck</key>
         <name>Package Name Check</name>
         <description>Package Name Check</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.TreeWalker/com.puppycrawl.tools.checkstyle.checks.naming.PackageNameCheck</internalKey>
+        <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.naming.PackageNameCheck</internalKey>
         <tag>sh-rule</tag>
+        <tag>naming</tag>
     </rule>
     <rule>
         <key>com.puppycrawl.tools.checkstyle.checks.naming.ParameterNameCheck</key>
         <name>Parameter Name Check</name>
         <description>Parameter Name Check</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.TreeWalker/com.puppycrawl.tools.checkstyle.checks.naming.ParameterNameCheck</internalKey>
+        <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.naming.ParameterNameCheck</internalKey>
         <tag>sh-rule</tag>
+        <tag>naming</tag>
     </rule>
     <rule>
         <key>com.puppycrawl.tools.checkstyle.checks.naming.StaticVariableNameCheck</key>
         <name>Static Variable Name Check</name>
         <description>Static Variable Name Check</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.TreeWalker/com.puppycrawl.tools.checkstyle.checks.naming.StaticVariableNameCheck</internalKey>
+        <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.naming.StaticVariableNameCheck</internalKey>
         <tag>sh-rule</tag>
+        <tag>naming</tag>
     </rule>
     <rule>
         <key>com.puppycrawl.tools.checkstyle.checks.naming.TypeNameCheck</key>
         <name>Type Name Check</name>
         <description>Type Name Check</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.TreeWalker/com.puppycrawl.tools.checkstyle.checks.naming.TypeNameCheck</internalKey>
+        <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.naming.TypeNameCheck</internalKey>
         <tag>sh-rule</tag>
+        <tag>naming</tag>
     </rule>
     <rule>
         <key>com.puppycrawl.tools.checkstyle.checks.naming.ClassTypeParameterNameCheck</key>
         <name>Class Type Parameter Name Check</name>
         <description>Class Type Parameter Name Check</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.TreeWalker/com.puppycrawl.tools.checkstyle.checks.naming.ClassTypeParameterNameCheck</internalKey>
+        <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.naming.ClassTypeParameterNameCheck</internalKey>
         <param key="format" name="Format">
             <defaultValue>^[A-Z]*$</defaultValue>
             <description>Format property with value of '^[A-Z]*$'</description>
         </param>
         <tag>sh-rule</tag>
+        <tag>naming</tag>
     </rule>
     <rule>
         <key>com.puppycrawl.tools.checkstyle.checks.naming.MethodTypeParameterNameCheck</key>
         <name>Method Type Parameter Name Check</name>
         <description>Method Type Parameter Name Check</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.TreeWalker/com.puppycrawl.tools.checkstyle.checks.naming.MethodTypeParameterNameCheck</internalKey>
+        <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.naming.MethodTypeParameterNameCheck</internalKey>
         <param key="format" name="Format">
             <defaultValue>^[A-Z]*$</defaultValue>
             <description>Format property with value of '^[A-Z]*$'</description>
         </param>
         <tag>sh-rule</tag>
+        <tag>naming</tag>
     </rule>
     <rule>
         <key>com.puppycrawl.tools.checkstyle.checks.naming.InterfaceTypeParameterNameCheck</key>
         <name>Interface Type Parameter Name Check</name>
         <description>Interface Type Parameter Name Check</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.TreeWalker/com.puppycrawl.tools.checkstyle.checks.naming.InterfaceTypeParameterNameCheck</internalKey>
+        <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.naming.InterfaceTypeParameterNameCheck</internalKey>
         <param key="format" name="Format">
             <defaultValue>^[A-Z]*$</defaultValue>
             <description>Format property with value of '^[A-Z]*$'</description>
         </param>
         <tag>sh-rule</tag>
+        <tag>naming</tag>
     </rule>
     <rule>
         <key>com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheck</key>
         <name>Avoid Star Import Check</name>
         <description>Avoid Star Import Check</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.TreeWalker/com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheck</internalKey>
+        <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheck</internalKey>
         <tag>sh-rule</tag>
+        <tag>imports</tag>
     </rule>
     <rule>
         <key>com.puppycrawl.tools.checkstyle.checks.imports.IllegalImportCheck</key>
         <name>Illegal Import Check</name>
         <description>Illegal Import Check</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.TreeWalker/com.puppycrawl.tools.checkstyle.checks.imports.IllegalImportCheck</internalKey>
+        <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.imports.IllegalImportCheck</internalKey>
         <tag>sh-rule</tag>
+        <tag>imports</tag>
     </rule>
     <rule>
         <key>com.puppycrawl.tools.checkstyle.checks.imports.RedundantImportCheck</key>
         <name>Redundant Import Check</name>
         <description>Redundant Import Check</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.TreeWalker/com.puppycrawl.tools.checkstyle.checks.imports.RedundantImportCheck</internalKey>
+        <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.imports.RedundantImportCheck</internalKey>
         <tag>sh-rule</tag>
+        <tag>imports</tag>
     </rule>
     <rule>
         <key>com.puppycrawl.tools.checkstyle.checks.imports.UnusedImportsCheck</key>
         <name>Unused Imports Check</name>
         <description>Unused Imports Check</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.TreeWalker/com.puppycrawl.tools.checkstyle.checks.imports.UnusedImportsCheck</internalKey>
+        <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.imports.UnusedImportsCheck</internalKey>
         <tag>sh-rule</tag>
+        <tag>imports</tag>
     </rule>
     <rule>
         <key>com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck</key>
         <name>Line Length Check</name>
         <description>Line Length Check</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.TreeWalker/com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck</internalKey>
+        <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck</internalKey>
         <param key="max" name="Max">
             <defaultValue>120</defaultValue>
             <description>Max property with value of '120'</description>
@@ -227,163 +218,185 @@
             <description>Ignore Pattern property with value of '^package.*|^import.*|a href|href|http://|https://|ftp://'</description>
         </param>
         <tag>sh-rule</tag>
+        <tag>sizes</tag>
     </rule>
     <rule>
         <key>com.puppycrawl.tools.checkstyle.checks.sizes.MethodLengthCheck</key>
         <name>Method Length Check</name>
         <description>Method Length Check</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.TreeWalker/com.puppycrawl.tools.checkstyle.checks.sizes.MethodLengthCheck</internalKey>
+        <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.sizes.MethodLengthCheck</internalKey>
         <param key="max" name="Max">
             <defaultValue>30</defaultValue>
             <description>Max property with value of '30'</description>
         </param>
         <tag>sh-rule</tag>
+        <tag>sizes</tag>
     </rule>
     <rule>
         <key>com.puppycrawl.tools.checkstyle.checks.whitespace.EmptyForIteratorPadCheck</key>
         <name>Empty For Iterator Pad Check</name>
         <description>Empty For Iterator Pad Check</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.TreeWalker/com.puppycrawl.tools.checkstyle.checks.whitespace.EmptyForIteratorPadCheck</internalKey>
+        <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.whitespace.EmptyForIteratorPadCheck</internalKey>
         <tag>sh-rule</tag>
+        <tag>whitespace</tag>
     </rule>
     <rule>
         <key>com.puppycrawl.tools.checkstyle.checks.whitespace.GenericWhitespaceCheck</key>
         <name>Generic Whitespace Check</name>
         <description>Generic Whitespace Check</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.TreeWalker/com.puppycrawl.tools.checkstyle.checks.whitespace.GenericWhitespaceCheck</internalKey>
+        <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.whitespace.GenericWhitespaceCheck</internalKey>
         <tag>sh-rule</tag>
+        <tag>whitespace</tag>
     </rule>
     <rule>
         <key>com.puppycrawl.tools.checkstyle.checks.whitespace.MethodParamPadCheck</key>
         <name>Method Param Pad Check</name>
         <description>Method Param Pad Check</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.TreeWalker/com.puppycrawl.tools.checkstyle.checks.whitespace.MethodParamPadCheck</internalKey>
+        <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.whitespace.MethodParamPadCheck</internalKey>
         <tag>sh-rule</tag>
+        <tag>whitespace</tag>
     </rule>
     <rule>
         <key>com.puppycrawl.tools.checkstyle.checks.whitespace.NoWhitespaceAfterCheck</key>
         <name>No Whitespace After Check</name>
         <description>No Whitespace After Check</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.TreeWalker/com.puppycrawl.tools.checkstyle.checks.whitespace.NoWhitespaceAfterCheck</internalKey>
+        <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.whitespace.NoWhitespaceAfterCheck</internalKey>
         <tag>sh-rule</tag>
+        <tag>whitespace</tag>
     </rule>
     <rule>
         <key>com.puppycrawl.tools.checkstyle.checks.whitespace.NoWhitespaceBeforeCheck</key>
         <name>No Whitespace Before Check</name>
         <description>No Whitespace Before Check</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.TreeWalker/com.puppycrawl.tools.checkstyle.checks.whitespace.NoWhitespaceBeforeCheck</internalKey>
+        <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.whitespace.NoWhitespaceBeforeCheck</internalKey>
         <tag>sh-rule</tag>
+        <tag>whitespace</tag>
     </rule>
     <rule>
         <key>com.puppycrawl.tools.checkstyle.checks.whitespace.ParenPadCheck</key>
         <name>Paren Pad Check</name>
         <description>Paren Pad Check</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.TreeWalker/com.puppycrawl.tools.checkstyle.checks.whitespace.ParenPadCheck</internalKey>
+        <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.whitespace.ParenPadCheck</internalKey>
         <tag>sh-rule</tag>
+        <tag>whitespace</tag>
     </rule>
     <rule>
         <key>com.puppycrawl.tools.checkstyle.checks.whitespace.TypecastParenPadCheck</key>
         <name>Typecast Paren Pad Check</name>
         <description>Typecast Paren Pad Check</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.TreeWalker/com.puppycrawl.tools.checkstyle.checks.whitespace.TypecastParenPadCheck</internalKey>
+        <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.whitespace.TypecastParenPadCheck</internalKey>
         <tag>sh-rule</tag>
+        <tag>whitespace</tag>
     </rule>
     <rule>
         <key>com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAfterCheck</key>
         <name>Whitespace After Check</name>
         <description>Whitespace After Check</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.TreeWalker/com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAfterCheck</internalKey>
+        <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAfterCheck</internalKey>
         <tag>sh-rule</tag>
+        <tag>whitespace</tag>
     </rule>
     <rule>
         <key>com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck</key>
         <name>Whitespace Around Check</name>
         <description>Whitespace Around Check</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.TreeWalker/com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck</internalKey>
+        <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck</internalKey>
         <tag>sh-rule</tag>
+        <tag>whitespace</tag>
     </rule>
     <rule>
         <key>com.puppycrawl.tools.checkstyle.checks.modifier.ModifierOrderCheck</key>
         <name>Modifier Order Check</name>
         <description>Modifier Order Check</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.TreeWalker/com.puppycrawl.tools.checkstyle.checks.modifier.ModifierOrderCheck</internalKey>
+        <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.modifier.ModifierOrderCheck</internalKey>
         <tag>sh-rule</tag>
+        <tag>modifier</tag>
     </rule>
     <rule>
         <key>com.puppycrawl.tools.checkstyle.checks.modifier.RedundantModifierCheck</key>
         <name>Redundant Modifier Check</name>
         <description>Redundant Modifier Check</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.TreeWalker/com.puppycrawl.tools.checkstyle.checks.modifier.RedundantModifierCheck</internalKey>
+        <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.modifier.RedundantModifierCheck</internalKey>
         <tag>sh-rule</tag>
+        <tag>modifier</tag>
     </rule>
     <rule>
         <key>com.puppycrawl.tools.checkstyle.checks.blocks.AvoidNestedBlocksCheck</key>
         <name>Avoid Nested Blocks Check</name>
         <description>Avoid Nested Blocks Check</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.TreeWalker/com.puppycrawl.tools.checkstyle.checks.blocks.AvoidNestedBlocksCheck</internalKey>
+        <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.blocks.AvoidNestedBlocksCheck</internalKey>
         <tag>sh-rule</tag>
+        <tag>blocks</tag>
     </rule>
     <rule>
         <key>com.puppycrawl.tools.checkstyle.checks.blocks.EmptyBlockCheck</key>
         <name>Empty Block Check</name>
         <description>Empty Block Check</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.TreeWalker/com.puppycrawl.tools.checkstyle.checks.blocks.EmptyBlockCheck</internalKey>
+        <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.blocks.EmptyBlockCheck</internalKey>
         <tag>sh-rule</tag>
+        <tag>blocks</tag>
     </rule>
     <rule>
         <key>com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck</key>
         <name>Left Curly Check</name>
         <description>Left Curly Check</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.TreeWalker/com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck</internalKey>
+        <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck</internalKey>
         <tag>sh-rule</tag>
+        <tag>blocks</tag>
     </rule>
     <rule>
         <key>com.puppycrawl.tools.checkstyle.checks.blocks.NeedBracesCheck</key>
         <name>Need Braces Check</name>
         <description>Need Braces Check</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.TreeWalker/com.puppycrawl.tools.checkstyle.checks.blocks.NeedBracesCheck</internalKey>
+        <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.blocks.NeedBracesCheck</internalKey>
         <tag>sh-rule</tag>
+        <tag>blocks</tag>
     </rule>
     <rule>
         <key>com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheck</key>
         <name>Right Curly Check</name>
         <description>Right Curly Check</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.TreeWalker/com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheck</internalKey>
+        <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheck</internalKey>
         <tag>sh-rule</tag>
+        <tag>blocks</tag>
     </rule>
     <rule>
         <key>com.puppycrawl.tools.checkstyle.checks.coding.EmptyStatementCheck</key>
         <name>Empty Statement Check</name>
         <description>Empty Statement Check</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.TreeWalker/com.puppycrawl.tools.checkstyle.checks.coding.EmptyStatementCheck</internalKey>
+        <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.coding.EmptyStatementCheck</internalKey>
         <tag>sh-rule</tag>
+        <tag>coding</tag>
     </rule>
     <rule>
         <key>com.puppycrawl.tools.checkstyle.checks.coding.EqualsAvoidNullCheck</key>
         <name>Equals Avoid Null Check</name>
         <description>Equals Avoid Null Check</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.TreeWalker/com.puppycrawl.tools.checkstyle.checks.coding.EqualsAvoidNullCheck</internalKey>
+        <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.coding.EqualsAvoidNullCheck</internalKey>
         <tag>sh-rule</tag>
+        <tag>coding</tag>
     </rule>
     <rule>
         <key>com.puppycrawl.tools.checkstyle.checks.coding.EqualsHashCodeCheck</key>
         <name>Equals Hash Code Check</name>
         <description>Equals Hash Code Check</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.TreeWalker/com.puppycrawl.tools.checkstyle.checks.coding.EqualsHashCodeCheck</internalKey>
+        <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.coding.EqualsHashCodeCheck</internalKey>
         <tag>sh-rule</tag>
+        <tag>coding</tag>
     </rule>
     <rule>
         <key>com.puppycrawl.tools.checkstyle.checks.coding.IllegalInstantiationCheck</key>
         <name>Illegal Instantiation Check</name>
         <description>Illegal Instantiation Check</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.TreeWalker/com.puppycrawl.tools.checkstyle.checks.coding.IllegalInstantiationCheck</internalKey>
+        <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.coding.IllegalInstantiationCheck</internalKey>
         <tag>sh-rule</tag>
+        <tag>coding</tag>
     </rule>
     <rule>
         <key>com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck</key>
         <name>Magic Number Check</name>
         <description>Magic Number Check</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.TreeWalker/com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck</internalKey>
+        <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck</internalKey>
         <param key="ignoreHashCodeMethod" name="Ignore Hash Code Method">
             <defaultValue>true</defaultValue>
             <description>Ignore Hash Code Method property with value of 'true'</description>
@@ -397,65 +410,72 @@
             <description>Ignore Field Declaration property with value of 'true'</description>
         </param>
         <tag>sh-rule</tag>
+        <tag>coding</tag>
     </rule>
     <rule>
         <key>com.puppycrawl.tools.checkstyle.checks.coding.MissingSwitchDefaultCheck</key>
         <name>Missing Switch Default Check</name>
         <description>Missing Switch Default Check</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.TreeWalker/com.puppycrawl.tools.checkstyle.checks.coding.MissingSwitchDefaultCheck</internalKey>
+        <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.coding.MissingSwitchDefaultCheck</internalKey>
         <tag>sh-rule</tag>
+        <tag>coding</tag>
     </rule>
     <rule>
-        <key>DefaultComesLast</key>
-        <name>Default Comes Last</name>
-        <description>Default Comes Last</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.TreeWalker/DefaultComesLast</internalKey>
+        <key>com.puppycrawl.tools.checkstyle.checks.coding.DefaultComesLastCheck</key>
+        <name>Default Comes Last Check</name>
+        <description>Default Comes Last Check</description>
+        <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.coding.DefaultComesLastCheck</internalKey>
         <tag>sh-rule</tag>
+        <tag>coding</tag>
     </rule>
     <rule>
-        <key>SimplifyBooleanExpression</key>
-        <name>Simplify Boolean Expression</name>
-        <description>Simplify Boolean Expression</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.TreeWalker/SimplifyBooleanExpression</internalKey>
+        <key>com.puppycrawl.tools.checkstyle.checks.coding.SimplifyBooleanExpressionCheck</key>
+        <name>Simplify Boolean Expression Check</name>
+        <description>Simplify Boolean Expression Check</description>
+        <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.coding.SimplifyBooleanExpressionCheck</internalKey>
         <tag>sh-rule</tag>
+        <tag>coding</tag>
     </rule>
     <rule>
-        <key>SimplifyBooleanReturn</key>
-        <name>Simplify Boolean Return</name>
-        <description>Simplify Boolean Return</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.TreeWalker/SimplifyBooleanReturn</internalKey>
+        <key>com.puppycrawl.tools.checkstyle.checks.coding.SimplifyBooleanReturnCheck</key>
+        <name>Simplify Boolean Return Check</name>
+        <description>Simplify Boolean Return Check</description>
+        <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.coding.SimplifyBooleanReturnCheck</internalKey>
         <tag>sh-rule</tag>
+        <tag>coding</tag>
     </rule>
     <rule>
         <key>com.puppycrawl.tools.checkstyle.checks.design.InterfaceIsTypeCheck</key>
         <name>Interface Is Type Check</name>
         <description>Interface Is Type Check</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.TreeWalker/com.puppycrawl.tools.checkstyle.checks.design.InterfaceIsTypeCheck</internalKey>
+        <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.design.InterfaceIsTypeCheck</internalKey>
         <tag>sh-rule</tag>
+        <tag>design</tag>
     </rule>
     <rule>
-        <key>VisibilityModifier</key>
-        <name>Visibility Modifier</name>
-        <description>Visibility Modifier</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.TreeWalker/VisibilityModifier</internalKey>
+        <key>com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck</key>
+        <name>Visibility Modifier Check</name>
+        <description>Visibility Modifier Check</description>
+        <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck</internalKey>
         <param key="protectedAllowed" name="Protected Allowed">
             <defaultValue>true</defaultValue>
             <description>Protected Allowed property with value of 'true'</description>
         </param>
         <tag>sh-rule</tag>
+        <tag>design</tag>
     </rule>
     <rule>
         <key>com.puppycrawl.tools.checkstyle.checks.OuterTypeFilenameCheck</key>
         <name>Outer Type Filename Check</name>
         <description>Outer Type Filename Check</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.TreeWalker/com.puppycrawl.tools.checkstyle.checks.OuterTypeFilenameCheck</internalKey>
+        <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.OuterTypeFilenameCheck</internalKey>
         <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>com.puppycrawl.tools.checkstyle.checks.coding.IllegalTokenTextCheck</key>
         <name>Illegal Token Text Check</name>
         <description>Illegal Token Text Check</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.TreeWalker/com.puppycrawl.tools.checkstyle.checks.coding.IllegalTokenTextCheck</internalKey>
+        <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.coding.IllegalTokenTextCheck</internalKey>
         <param key="tokens" name="Tokens">
             <defaultValue>STRING_LITERAL, CHAR_LITERAL</defaultValue>
             <description>Tokens property with value of 'STRING_LITERAL, CHAR_LITERAL'</description>
@@ -469,76 +489,76 @@
             <description>Message property with value of 'Avoid using corresponding octal or Unicode escape.'</description>
         </param>
         <tag>sh-rule</tag>
+        <tag>coding</tag>
     </rule>
     <rule>
         <key>com.puppycrawl.tools.checkstyle.checks.design.OneTopLevelClassCheck</key>
         <name>One Top Level Class Check</name>
         <description>One Top Level Class Check</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.TreeWalker/com.puppycrawl.tools.checkstyle.checks.design.OneTopLevelClassCheck</internalKey>
+        <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.design.OneTopLevelClassCheck</internalKey>
         <tag>sh-rule</tag>
+        <tag>design</tag>
     </rule>
     <rule>
         <key>com.puppycrawl.tools.checkstyle.checks.whitespace.NoLineWrapCheck</key>
         <name>No Line Wrap Check</name>
         <description>No Line Wrap Check</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.TreeWalker/com.puppycrawl.tools.checkstyle.checks.whitespace.NoLineWrapCheck</internalKey>
+        <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.whitespace.NoLineWrapCheck</internalKey>
         <tag>sh-rule</tag>
+        <tag>whitespace</tag>
     </rule>
     <rule>
         <key>com.puppycrawl.tools.checkstyle.checks.coding.OneStatementPerLineCheck</key>
         <name>One Statement Per Line Check</name>
         <description>One Statement Per Line Check</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.TreeWalker/com.puppycrawl.tools.checkstyle.checks.coding.OneStatementPerLineCheck</internalKey>
+        <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.coding.OneStatementPerLineCheck</internalKey>
         <tag>sh-rule</tag>
+        <tag>coding</tag>
     </rule>
     <rule>
         <key>com.puppycrawl.tools.checkstyle.checks.coding.MultipleVariableDeclarationsCheck</key>
         <name>Multiple Variable Declarations Check</name>
         <description>Multiple Variable Declarations Check</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.TreeWalker/com.puppycrawl.tools.checkstyle.checks.coding.MultipleVariableDeclarationsCheck</internalKey>
+        <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.coding.MultipleVariableDeclarationsCheck</internalKey>
         <tag>sh-rule</tag>
+        <tag>coding</tag>
     </rule>
     <rule>
         <key>com.puppycrawl.tools.checkstyle.checks.ArrayTypeStyleCheck</key>
         <name>Array Type Style Check</name>
         <description>Array Type Style Check</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.TreeWalker/com.puppycrawl.tools.checkstyle.checks.ArrayTypeStyleCheck</internalKey>
+        <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.ArrayTypeStyleCheck</internalKey>
         <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>com.puppycrawl.tools.checkstyle.checks.coding.FallThroughCheck</key>
         <name>Fall Through Check</name>
         <description>Fall Through Check</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.TreeWalker/com.puppycrawl.tools.checkstyle.checks.coding.FallThroughCheck</internalKey>
+        <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.coding.FallThroughCheck</internalKey>
         <tag>sh-rule</tag>
+        <tag>coding</tag>
     </rule>
     <rule>
         <key>com.puppycrawl.tools.checkstyle.checks.UpperEllCheck</key>
         <name>Upper Ell Check</name>
         <description>Upper Ell Check</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.TreeWalker/com.puppycrawl.tools.checkstyle.checks.UpperEllCheck</internalKey>
+        <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.UpperEllCheck</internalKey>
         <tag>sh-rule</tag>
     </rule>
     <rule>
         <key>com.puppycrawl.tools.checkstyle.checks.whitespace.EmptyLineSeparatorCheck</key>
         <name>Empty Line Separator Check</name>
         <description>Empty Line Separator Check</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.TreeWalker/com.puppycrawl.tools.checkstyle.checks.whitespace.EmptyLineSeparatorCheck</internalKey>
-        <param key="allowNoEmptyLineBetweenFields" name="Allow No Empty Line Between Fields">
-            <defaultValue>true</defaultValue>
-            <description>Allow No Empty Line Between Fields property with value of 'true'</description>
-        </param>
-        <param key="tokens" name="Tokens">
-            <defaultValue>IMPORT, CLASS_DEF, INTERFACE_DEF, ENUM_DEF, STATIC_INIT, INSTANCE_INIT, METHOD_DEF, CTOR_DEF, VARIABLE_DEF</defaultValue>
-            <description>Tokens property with value of 'IMPORT, CLASS_DEF, INTERFACE_DEF, ENUM_DEF, STATIC_INIT, INSTANCE_INIT, METHOD_DEF, CTOR_DEF, VARIABLE_DEF'</description>
-        </param>
+        <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.whitespace.EmptyLineSeparatorCheck</internalKey>
         <tag>sh-rule</tag>
+        <tag>whitespace</tag>
     </rule>
     <rule>
         <key>com.puppycrawl.tools.checkstyle.checks.whitespace.SeparatorWrapCheck</key>
         <name>Separator Wrap Check</name>
         <description>Separator Wrap Check</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.TreeWalker/com.puppycrawl.tools.checkstyle.checks.whitespace.SeparatorWrapCheck</internalKey>
+        <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.whitespace.SeparatorWrapCheck</internalKey>
+        <cardinality>MULTIPLE</cardinality>
         <param key="tokens" name="Tokens">
             <defaultValue>DOT</defaultValue>
             <description>Tokens property with value of 'DOT'</description>
@@ -548,34 +568,21 @@
             <description>Option property with value of 'nl'</description>
         </param>
         <tag>sh-rule</tag>
-    </rule>
-    <rule>
-        <key>com.puppycrawl.tools.checkstyle.checks.whitespace.SeparatorWrapCheck-2</key>
-        <name>Separator Wrap Check</name>
-        <description>Separator Wrap Check</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.TreeWalker/com.puppycrawl.tools.checkstyle.checks.whitespace.SeparatorWrapCheck</internalKey>
-        <param key="tokens" name="Tokens">
-            <defaultValue>COMMA</defaultValue>
-            <description>Tokens property with value of 'COMMA'</description>
-        </param>
-        <param key="option" name="Option">
-            <defaultValue>EOL</defaultValue>
-            <description>Option property with value of 'EOL'</description>
-        </param>
-        <tag>sh-rule</tag>
+        <tag>whitespace</tag>
     </rule>
     <rule>
         <key>com.puppycrawl.tools.checkstyle.checks.coding.NoFinalizerCheck</key>
         <name>No Finalizer Check</name>
         <description>No Finalizer Check</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.TreeWalker/com.puppycrawl.tools.checkstyle.checks.coding.NoFinalizerCheck</internalKey>
+        <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.coding.NoFinalizerCheck</internalKey>
         <tag>sh-rule</tag>
+        <tag>coding</tag>
     </rule>
     <rule>
         <key>com.puppycrawl.tools.checkstyle.checks.naming.AbbreviationAsWordInNameCheck</key>
         <name>Abbreviation As Word In Name Check</name>
         <description>Abbreviation As Word In Name Check</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.TreeWalker/com.puppycrawl.tools.checkstyle.checks.naming.AbbreviationAsWordInNameCheck</internalKey>
+        <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.naming.AbbreviationAsWordInNameCheck</internalKey>
         <param key="ignoreFinal" name="Ignore Final">
             <defaultValue>false</defaultValue>
             <description>Ignore Final property with value of 'false'</description>
@@ -585,110 +592,101 @@
             <description>Allowed Abbreviation Length property with value of '1'</description>
         </param>
         <tag>sh-rule</tag>
+        <tag>naming</tag>
     </rule>
     <rule>
         <key>com.puppycrawl.tools.checkstyle.checks.annotation.AnnotationLocationCheck</key>
         <name>Annotation Location Check</name>
         <description>Annotation Location Check</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.TreeWalker/com.puppycrawl.tools.checkstyle.checks.annotation.AnnotationLocationCheck</internalKey>
-        <param key="tokens" name="Tokens">
-            <defaultValue>CLASS_DEF, INTERFACE_DEF, ENUM_DEF, METHOD_DEF, CTOR_DEF</defaultValue>
-            <description>Tokens property with value of 'CLASS_DEF, INTERFACE_DEF, ENUM_DEF, METHOD_DEF, CTOR_DEF'</description>
-        </param>
+        <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.annotation.AnnotationLocationCheck</internalKey>
         <tag>sh-rule</tag>
-    </rule>
-    <rule>
-        <key>com.puppycrawl.tools.checkstyle.checks.annotation.AnnotationLocationCheck-2</key>
-        <name>Annotation Location Check</name>
-        <description>Annotation Location Check</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.TreeWalker/com.puppycrawl.tools.checkstyle.checks.annotation.AnnotationLocationCheck</internalKey>
-        <param key="tokens" name="Tokens">
-            <defaultValue>VARIABLE_DEF</defaultValue>
-            <description>Tokens property with value of 'VARIABLE_DEF'</description>
-        </param>
-        <param key="allowSamelineMultipleAnnotations" name="Allow Sameline Multiple Annotations">
-            <defaultValue>true</defaultValue>
-            <description>Allow Sameline Multiple Annotations property with value of 'true'</description>
-        </param>
-        <tag>sh-rule</tag>
+        <tag>annotation</tag>
     </rule>
     <rule>
         <key>com.puppycrawl.tools.checkstyle.checks.blocks.EmptyCatchBlockCheck</key>
         <name>Empty Catch Block Check</name>
         <description>Empty Catch Block Check</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.TreeWalker/com.puppycrawl.tools.checkstyle.checks.blocks.EmptyCatchBlockCheck</internalKey>
+        <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.blocks.EmptyCatchBlockCheck</internalKey>
         <param key="exceptionVariableName" name="Exception Variable Name">
             <defaultValue>expected|ignored</defaultValue>
             <description>Exception Variable Name property with value of 'expected|ignored'</description>
         </param>
         <tag>sh-rule</tag>
+        <tag>blocks</tag>
     </rule>
     <rule>
         <key>com.puppycrawl.tools.checkstyle.checks.indentation.CommentsIndentationCheck</key>
         <name>Comments Indentation Check</name>
         <description>Comments Indentation Check</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.TreeWalker/com.puppycrawl.tools.checkstyle.checks.indentation.CommentsIndentationCheck</internalKey>
+        <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.indentation.CommentsIndentationCheck</internalKey>
         <tag>sh-rule</tag>
+        <tag>indentation</tag>
     </rule>
     <rule>
         <key>com.puppycrawl.tools.checkstyle.checks.coding.DeclarationOrderCheck</key>
         <name>Declaration Order Check</name>
         <description>Declaration Order Check</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.TreeWalker/com.puppycrawl.tools.checkstyle.checks.coding.DeclarationOrderCheck</internalKey>
+        <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.coding.DeclarationOrderCheck</internalKey>
         <tag>sh-rule</tag>
+        <tag>coding</tag>
     </rule>
     <rule>
         <key>com.puppycrawl.tools.checkstyle.checks.coding.ExplicitInitializationCheck</key>
         <name>Explicit Initialization Check</name>
         <description>Explicit Initialization Check</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.TreeWalker/com.puppycrawl.tools.checkstyle.checks.coding.ExplicitInitializationCheck</internalKey>
+        <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.coding.ExplicitInitializationCheck</internalKey>
         <tag>sh-rule</tag>
+        <tag>coding</tag>
     </rule>
     <rule>
         <key>com.puppycrawl.tools.checkstyle.checks.coding.PackageDeclarationCheck</key>
         <name>Package Declaration Check</name>
         <description>Package Declaration Check</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.TreeWalker/com.puppycrawl.tools.checkstyle.checks.coding.PackageDeclarationCheck</internalKey>
+        <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.coding.PackageDeclarationCheck</internalKey>
         <tag>sh-rule</tag>
+        <tag>coding</tag>
     </rule>
     <rule>
         <key>com.puppycrawl.tools.checkstyle.checks.naming.AbstractClassNameCheck</key>
         <name>Abstract Class Name Check</name>
         <description>Abstract Class Name Check</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.TreeWalker/com.puppycrawl.tools.checkstyle.checks.naming.AbstractClassNameCheck</internalKey>
+        <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.naming.AbstractClassNameCheck</internalKey>
         <param key="ignoreName" name="Ignore Name">
             <defaultValue>true</defaultValue>
             <description>Ignore Name property with value of 'true'</description>
         </param>
         <tag>sh-rule</tag>
+        <tag>naming</tag>
     </rule>
     <rule>
         <key>es.startuphero.checkstyle.checks.annotation.ForbiddenAnnotationCheck</key>
         <name>Forbidden Annotation Check</name>
         <description>Forbidden Annotation Check</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.TreeWalker/es.startuphero.checkstyle.checks.annotation.ForbiddenAnnotationCheck</internalKey>
+        <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.annotation.ForbiddenAnnotationCheck</internalKey>
         <param key="forbiddenAnnotations" name="Forbidden Annotations">
             <defaultValue>com.clovify.lyso.core.annotation.LysoRepository</defaultValue>
             <description>Forbidden Annotations property with value of 'com.clovify.lyso.core.annotation.LysoRepository'</description>
         </param>
         <tag>sh-rule</tag>
+        <tag>annotation</tag>
     </rule>
     <rule>
         <key>es.startuphero.checkstyle.checks.annotation.ForbiddenAnnotationKeyCheck</key>
         <name>Forbidden Annotation Key Check</name>
         <description>Forbidden Annotation Key Check</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.TreeWalker/es.startuphero.checkstyle.checks.annotation.ForbiddenAnnotationKeyCheck</internalKey>
+        <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.annotation.ForbiddenAnnotationKeyCheck</internalKey>
         <param key="annotationForbiddenKeysMap" name="Annotation Forbidden Keys Map">
             <defaultValue>javax.persistence.Column:unique</defaultValue>
             <description>Annotation Forbidden Keys Map property with value of 'javax.persistence.Column:unique'</description>
         </param>
         <tag>sh-rule</tag>
+        <tag>annotation</tag>
     </rule>
     <rule>
         <key>es.startuphero.checkstyle.checks.naming.GeneratedPrimaryKeyNameCheck</key>
         <name>Generated Primary Key Name Check</name>
         <description>Generated Primary Key Name Check</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.TreeWalker/es.startuphero.checkstyle.checks.naming.GeneratedPrimaryKeyNameCheck</internalKey>
+        <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.naming.GeneratedPrimaryKeyNameCheck</internalKey>
         <param key="typeAnnotation" name="Type Annotation">
             <defaultValue>javax.persistence.Entity</defaultValue>
             <description>Type Annotation property with value of 'javax.persistence.Entity'</description>
@@ -710,12 +708,13 @@
             <description>Suggested Generated Primary Key Name property with value of 'id'</description>
         </param>
         <tag>sh-rule</tag>
+        <tag>naming</tag>
     </rule>
     <rule>
         <key>es.startuphero.checkstyle.checks.design.LogDataTableCheck</key>
         <name>Log Data Table Check</name>
         <description>Log Data Table Check</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.TreeWalker/es.startuphero.checkstyle.checks.design.LogDataTableCheck</internalKey>
+        <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.design.LogDataTableCheck</internalKey>
         <param key="typeAnnotation" name="Type Annotation">
             <defaultValue>javax.persistence.Entity</defaultValue>
             <description>Type Annotation property with value of 'javax.persistence.Entity'</description>
@@ -733,23 +732,25 @@
             <description>Limit Length property with value of '255'</description>
         </param>
         <tag>sh-rule</tag>
+        <tag>design</tag>
     </rule>
     <rule>
         <key>es.startuphero.checkstyle.checks.modifier.MissingAbstractModifierCheck</key>
         <name>Missing Abstract Modifier Check</name>
         <description>Missing Abstract Modifier Check</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.TreeWalker/es.startuphero.checkstyle.checks.modifier.MissingAbstractModifierCheck</internalKey>
+        <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.modifier.MissingAbstractModifierCheck</internalKey>
         <param key="abstractTypeAnnotation" name="Abstract Type Annotation">
             <defaultValue>javax.persistence.MappedSuperclass</defaultValue>
             <description>Abstract Type Annotation property with value of 'javax.persistence.MappedSuperclass'</description>
         </param>
         <tag>sh-rule</tag>
+        <tag>modifier</tag>
     </rule>
     <rule>
         <key>es.startuphero.checkstyle.checks.method.MissingEqualsHashCodeCheck</key>
         <name>Missing Equals Hash Code Check</name>
         <description>Missing Equals Hash Code Check</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.TreeWalker/es.startuphero.checkstyle.checks.method.MissingEqualsHashCodeCheck</internalKey>
+        <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.method.MissingEqualsHashCodeCheck</internalKey>
         <param key="typeAnnotation" name="Type Annotation">
             <defaultValue>javax.persistence.Entity</defaultValue>
             <description>Type Annotation property with value of 'javax.persistence.Entity'</description>
@@ -763,12 +764,13 @@
             <description>Id Annotation property with value of 'javax.persistence.Id'</description>
         </param>
         <tag>sh-rule</tag>
+        <tag>method</tag>
     </rule>
     <rule>
         <key>es.startuphero.checkstyle.checks.method.MissingGetterCheck</key>
         <name>Missing Getter Check</name>
         <description>Missing Getter Check</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.TreeWalker/es.startuphero.checkstyle.checks.method.MissingGetterCheck</internalKey>
+        <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.method.MissingGetterCheck</internalKey>
         <param key="typeAnnotation" name="Type Annotation">
             <defaultValue>javax.persistence.Entity</defaultValue>
             <description>Type Annotation property with value of 'javax.persistence.Entity'</description>
@@ -778,12 +780,13 @@
             <description>Abstract Type Annotation property with value of 'javax.persistence.MappedSuperclass'</description>
         </param>
         <tag>sh-rule</tag>
+        <tag>method</tag>
     </rule>
     <rule>
         <key>es.startuphero.checkstyle.checks.method.MissingSetterCheck</key>
         <name>Missing Setter Check</name>
         <description>Missing Setter Check</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.TreeWalker/es.startuphero.checkstyle.checks.method.MissingSetterCheck</internalKey>
+        <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.method.MissingSetterCheck</internalKey>
         <param key="typeAnnotation" name="Type Annotation">
             <defaultValue>javax.persistence.Entity</defaultValue>
             <description>Type Annotation property with value of 'javax.persistence.Entity'</description>
@@ -793,12 +796,13 @@
             <description>Abstract Type Annotation property with value of 'javax.persistence.MappedSuperclass'</description>
         </param>
         <tag>sh-rule</tag>
+        <tag>method</tag>
     </rule>
     <rule>
         <key>es.startuphero.checkstyle.checks.method.MissingToStringCheck</key>
         <name>Missing To String Check</name>
         <description>Missing To String Check</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.TreeWalker/es.startuphero.checkstyle.checks.method.MissingToStringCheck</internalKey>
+        <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.method.MissingToStringCheck</internalKey>
         <param key="typeAnnotation" name="Type Annotation">
             <defaultValue>javax.persistence.Entity</defaultValue>
             <description>Type Annotation property with value of 'javax.persistence.Entity'</description>
@@ -808,12 +812,13 @@
             <description>Abstract Type Annotation property with value of 'javax.persistence.MappedSuperclass'</description>
         </param>
         <tag>sh-rule</tag>
+        <tag>method</tag>
     </rule>
     <rule>
         <key>es.startuphero.checkstyle.checks.variable.MissingVariableCheck</key>
         <name>Missing Variable Check</name>
         <description>Missing Variable Check</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.TreeWalker/es.startuphero.checkstyle.checks.variable.MissingVariableCheck</internalKey>
+        <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.variable.MissingVariableCheck</internalKey>
         <param key="typeAnnotation" name="Type Annotation">
             <defaultValue>javax.persistence.Entity</defaultValue>
             <description>Type Annotation property with value of 'javax.persistence.Entity'</description>
@@ -827,12 +832,13 @@
             <description>Mandatory Variables property with value of 'createdAt, lastUpdatedAt'</description>
         </param>
         <tag>sh-rule</tag>
+        <tag>variable</tag>
     </rule>
     <rule>
         <key>es.startuphero.checkstyle.checks.annotation.RedundantMultipleAnnotationCheck</key>
         <name>Redundant Multiple Annotation Check</name>
         <description>Redundant Multiple Annotation Check</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.TreeWalker/es.startuphero.checkstyle.checks.annotation.RedundantMultipleAnnotationCheck</internalKey>
+        <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.annotation.RedundantMultipleAnnotationCheck</internalKey>
         <param key="tokens" name="Tokens">
             <defaultValue>VARIABLE_DEF</defaultValue>
             <description>Tokens property with value of 'VARIABLE_DEF'</description>
@@ -842,12 +848,14 @@
             <description>Redundant Annotation Pairs property with value of 'javax.persistence.Id:javax.persistence.Column'</description>
         </param>
         <tag>sh-rule</tag>
+        <tag>annotation</tag>
     </rule>
     <rule>
         <key>es.startuphero.checkstyle.checks.naming.TableIdentifierNameCheck</key>
         <name>Table Identifier Name Check</name>
         <description>Table Identifier Name Check</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.TreeWalker/es.startuphero.checkstyle.checks.naming.TableIdentifierNameCheck</internalKey>
+        <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.naming.TableIdentifierNameCheck</internalKey>
+        <cardinality>MULTIPLE</cardinality>
         <param key="tableAnnotation" name="Table Annotation">
             <defaultValue>javax.persistence.Table</defaultValue>
             <description>Table Annotation property with value of 'javax.persistence.Table'</description>
@@ -881,51 +889,13 @@
             <description>Regex property with value of '^[a-z0-9_]*$'</description>
         </param>
         <tag>sh-rule</tag>
-    </rule>
-    <rule>
-        <key>es.startuphero.checkstyle.checks.naming.TableIdentifierNameCheck-2</key>
-        <name>Table Identifier Name Check</name>
-        <description>Table Identifier Name Check</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.TreeWalker/es.startuphero.checkstyle.checks.naming.TableIdentifierNameCheck</internalKey>
-        <param key="tableAnnotation" name="Table Annotation">
-            <defaultValue>javax.persistence.Table</defaultValue>
-            <description>Table Annotation property with value of 'javax.persistence.Table'</description>
-        </param>
-        <param key="identifierAnnotation" name="Identifier Annotation">
-            <defaultValue>javax.persistence.UniqueConstraint</defaultValue>
-            <description>Identifier Annotation property with value of 'javax.persistence.UniqueConstraint'</description>
-        </param>
-        <param key="key" name="Key">
-            <defaultValue>uniqueConstraints</defaultValue>
-            <description>Key property with value of 'uniqueConstraints'</description>
-        </param>
-        <param key="keyName" name="Key Name">
-            <defaultValue>name</defaultValue>
-            <description>Key Name property with value of 'name'</description>
-        </param>
-        <param key="keyColumns" name="Key Columns">
-            <defaultValue>columnNames</defaultValue>
-            <description>Key Columns property with value of 'columnNames'</description>
-        </param>
-        <param key="suggestedSuffix" name="Suggested Suffix">
-            <defaultValue>uk</defaultValue>
-            <description>Suggested Suffix property with value of 'uk'</description>
-        </param>
-        <param key="maxLength" name="Max Length">
-            <defaultValue>64</defaultValue>
-            <description>Max Length property with value of '64'</description>
-        </param>
-        <param key="regex" name="Regex">
-            <defaultValue>^[a-z0-9_]*$</defaultValue>
-            <description>Regex property with value of '^[a-z0-9_]*$'</description>
-        </param>
-        <tag>sh-rule</tag>
+        <tag>naming</tag>
     </rule>
     <rule>
         <key>es.startuphero.checkstyle.checks.annotation.VariableAnnotationKeyValueCheck</key>
         <name>Variable Annotation Key Value Check</name>
         <description>Variable Annotation Key Value Check</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.TreeWalker/es.startuphero.checkstyle.checks.annotation.VariableAnnotationKeyValueCheck</internalKey>
+        <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.annotation.VariableAnnotationKeyValueCheck</internalKey>
         <param key="typeAnnotation" name="Type Annotation">
             <defaultValue>javax.persistence.Entity</defaultValue>
             <description>Type Annotation property with value of 'javax.persistence.Entity'</description>
@@ -939,12 +909,13 @@
             <description>Variable Annotation Key Value Table property with value of 'createdAt:javax.persistence.Column:nullable:false, lastUpdatedAt:javax.persistence.Column:nullable:false'</description>
         </param>
         <tag>sh-rule</tag>
+        <tag>annotation</tag>
     </rule>
     <rule>
         <key>es.startuphero.checkstyle.checks.coding.VariableDeclarationOrderCheck</key>
         <name>Variable Declaration Order Check</name>
         <description>Variable Declaration Order Check</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.TreeWalker/es.startuphero.checkstyle.checks.coding.VariableDeclarationOrderCheck</internalKey>
+        <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.coding.VariableDeclarationOrderCheck</internalKey>
         <param key="variableName" name="Variable Name">
             <defaultValue>LOGGER</defaultValue>
             <description>Variable Name property with value of 'LOGGER'</description>
@@ -954,12 +925,13 @@
             <description>Declaration Order property with value of '1'</description>
         </param>
         <tag>sh-rule</tag>
+        <tag>coding</tag>
     </rule>
     <rule>
         <key>es.startuphero.checkstyle.checks.naming.VariableNameCheck</key>
         <name>Variable Name Check</name>
         <description>Variable Name Check</description>
-        <internalKey>com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.TreeWalker/es.startuphero.checkstyle.checks.naming.VariableNameCheck</internalKey>
+        <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.naming.VariableNameCheck</internalKey>
         <param key="typeAnnotation" name="Type Annotation">
             <defaultValue>javax.persistence.Entity</defaultValue>
             <description>Type Annotation property with value of 'javax.persistence.Entity'</description>
@@ -969,5 +941,6 @@
             <description>Abstract Type Annotation property with value of 'javax.persistence.MappedSuperclass'</description>
         </param>
         <tag>sh-rule</tag>
+        <tag>naming</tag>
     </rule>
 </rules>

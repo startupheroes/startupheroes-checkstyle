@@ -34,7 +34,7 @@ public class SonarRulesDefinitionTest {
     assertEquals(rule.name(), "Missing Abstract Modifier Check");
     assertEquals(rule.htmlDescription(), "Missing Abstract Modifier Check");
     assertEquals(rule.internalKey(),
-                 "com.puppycrawl.tools.checkstyle.Checker/com.puppycrawl.tools.checkstyle.TreeWalker/"
+                 "Checker/TreeWalker/"
                  + "es.startuphero.checkstyle.checks.modifier.MissingAbstractModifierCheck");
     assertEquals(rule.type(), RuleType.CODE_SMELL);
     assertEquals(rule.severity(), Severity.MAJOR);
