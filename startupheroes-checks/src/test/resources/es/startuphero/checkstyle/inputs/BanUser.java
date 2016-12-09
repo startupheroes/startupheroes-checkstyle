@@ -5,8 +5,7 @@ import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 
 /**
- * @author obasar
- * @author onurozcan
+ * @author ozlem.ulag
  */
 @Entity
 @Table(uniqueConstraints = {
