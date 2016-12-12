@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>es.startuphero.checkstyle</groupId>
   <artifactId>startupheroes-checkstyle</artifactId>
@@ -7,7 +8,7 @@
   <version>1.0.10-SNAPSHOT</version>
   <name>StartupHeroes Checkstyle</name>
   <description>Checkstyle corresponding to StartupHeroes's coding conventions.</description>
-  <url>https://github.com/cemo/startupheroes-checkstyle</url>
+  <url>https://github.com/startupheroes/startupheroes-checkstyle</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -32,10 +33,9 @@
   </properties>
 
   <scm>
-    <url>https://github.com/cemo/startupheroes-checkstyle</url>
-    <connection>scm:git:git@github.com:cemo/startupheroes-checkstyle.git</connection>
-    <developerConnection>scm:git:git@github.com:cemo/startupheroes-checkstyle.git
-    </developerConnection>
+    <url>https://github.com/startupheroes/startupheroes-checkstyle</url>
+    <connection>scm:git:git@github.com:startupheroes/startupheroes-checkstyle.git</connection>
+    <developerConnection>scm:git:git@github.com:startupheroes/startupheroes-checkstyle.git</developerConnection>
     <tag>HEAD</tag>
   </scm>
 
