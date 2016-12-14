@@ -11,12 +11,12 @@
   <url>https://github.com/startupheroes/startupheroes-checkstyle</url>
 
   <properties>
+    <java.version>1.8</java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <checkstyle.version>7.3</checkstyle.version>
     <maven-compiler-plugin.version>3.6.0</maven-compiler-plugin.version>
     <maven-release-plugin.version>2.5.3</maven-release-plugin.version>
-    <jdk.min.version>1.8</jdk.min.version>
     <maven-plugin.api.version>2.2.1</maven-plugin.api.version>
     <maven-plugin.version>3.5</maven-plugin.version>
     <maven-plugin-annotations.version>3.5</maven-plugin-annotations.version>
@@ -171,8 +171,8 @@
         <artifactId>maven-compiler-plugin</artifactId>
         <version>${maven-compiler-plugin.version}</version>
         <configuration>
-          <source>${jdk.min.version}</source>
-          <target>${jdk.min.version}</target>
+          <source>${java.version}</source>
+          <target>${java.version}</target>
         </configuration>
       </plugin>
       <plugin>
