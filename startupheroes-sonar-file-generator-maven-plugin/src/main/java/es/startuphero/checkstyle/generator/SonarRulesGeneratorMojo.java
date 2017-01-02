@@ -56,33 +56,32 @@ public class SonarRulesGeneratorMojo extends AbstractMojo {
 
   /** skip Checker and TreeWalker modules **/
   private static void addNewRule(Rules rules, Module module) {
-    if (module.getChilds().isEmpty() && acceptableRule(module)) {
+    if (module.getChilds().isEmpty() && !skippedRule(module)) {
       Rule newRule = convertModuleToRule(module);
-      checkAlreadyExistingRule(rules, newRule);
-      rules.getRules().add(newRule);
+      if (!checkAlreadyExistRule(rules, newRule)) {
+        rules.getRules().add(newRule);
+      }
     }
   }
 
-  private static Boolean acceptableRule(Module module) {
-    return !module.getMetadatas()
-                  .stream()
-                  .map(ModuleMetadata::getName)
-                  .collect(Collectors.toList())
-                  .contains(SKIPPED_MODULE_METADATA_NAME);
+  private static Boolean skippedRule(Module module) {
+    return module.getMetadatas()
+                 .stream()
+                 .map(ModuleMetadata::getName)
+                 .collect(Collectors.toList())
+                 .contains(SKIPPED_MODULE_METADATA_NAME);
   }
 
   private static Rule convertModuleToRule(Module module) {
     Rule rule = new Rule();
     String moduleName = module.getName();
     rule.setKey(moduleName);
-    rule.setName(getSeparatedString(moduleName));
-    rule.setDescription(getSeparatedString(moduleName));
-    rule.setInternalKey(getConfigKey(module));
+    rule.setInternalKey(getInternalKey(module));
+    rule.setName(getSeparatedString(rule.getKey()));
+    rule.setDescription(getSeparatedString(rule.getKey()));
     rule.getTags().add(DEFAULT_RULE_TAG);
     Optional<String> categoryPackageName = getCategoryPackageName(moduleName);
-    if (categoryPackageName.isPresent()) {
-      rule.getTags().add(categoryPackageName.get());
-    }
+    categoryPackageName.ifPresent(s -> rule.getTags().add(s));
     module.getProperties()
           .forEach(property -> rule.getParams()
                                    .add(convertModulePropertyToRuleParam(property)));
@@ -101,14 +100,14 @@ public class SonarRulesGeneratorMojo extends AbstractMojo {
     return param;
   }
 
-  private static String getConfigKey(Module module) {
-    String configKey = module.getName();
+  private static String getInternalKey(Module module) {
+    String internalKey = module.getName();
     Module parent = module.getParent();
     while (parent != null) {
-      configKey = parent.getName() + "/" + configKey;
+      internalKey = parent.getName() + "/" + internalKey;
       parent = parent.getParent();
     }
-    return configKey;
+    return internalKey;
   }
 
   private static String getSimpleName(String fullName) {
@@ -148,7 +147,7 @@ public class SonarRulesGeneratorMojo extends AbstractMojo {
     return res.toString().trim();
   }
 
-  private static void checkAlreadyExistingRule(Rules rules, Rule newRule) {
+  private static Boolean checkAlreadyExistRule(Rules rules, Rule newRule) {
     Boolean alreadyExistRule = isAlreadyExistRule(rules, newRule);
     if (alreadyExistRule) {
       Rule existedRule = rules.getRules()
@@ -156,13 +155,8 @@ public class SonarRulesGeneratorMojo extends AbstractMojo {
                               .filter(rule -> rule.getKey().equals(newRule.getKey()))
                               .findFirst().get();
       existedRule.setCardinality(TEMPLATE_CARDINALITY);
-      //int uniqueCounter = 2;
-      //while (alreadyExistRule) {
-      //  newRule.setKey(existedRule.getKey() + "-" + uniqueCounter);
-      //  uniqueCounter++;
-      //  alreadyExistRule = isAlreadyExistRule(rules, newRule);
-      //}
     }
+    return alreadyExistRule;
   }
 
   private static Boolean isAlreadyExistRule(Rules rules, Rule newRule) {
@@ -176,7 +170,6 @@ public class SonarRulesGeneratorMojo extends AbstractMojo {
     try {
       JAXBContext jaxbContext = JAXBContext.newInstance(Rules.class);
       Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
-      // output pretty printed
       jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
       jaxbMarshaller.marshal(createRules(), getOutputFile());
     } catch (Exception e) {
