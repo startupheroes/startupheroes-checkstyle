@@ -30,6 +30,7 @@
   <!-- Miscellaneous other checks.                   -->
   <!-- See http://checkstyle.sf.net/config_misc.html -->
   <module name="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck">
+    <property name="id" value="RegexpSinglelineTrailingSpaceCheck"/>
     <property name="format" value="\s+$"/>
     <property name="minimum" value="0"/>
     <property name="maximum" value="0"/>
@@ -38,12 +39,14 @@
 
   <!-- Space after 'for' and 'if' -->
   <module name="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck">
+    <property name="id" value="RegexpSinglelineParenthesisCheck"/>
     <property name="format" value="^\s*(for|if)\b[^ ]"/>
     <property name="message" value="Space needed before opening parenthesis."/>
   </module>
 
   <!-- For each spacing -->
   <module name="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck">
+    <property name="id" value="RegexpSinglelineEnhancedForLoopCheck"/>
     <property name="format" value="^\s*for \(.*?([^ ]:|:[^ ])"/>
     <property name="message" value="Space needed around ':' character."/>
   </module>
@@ -165,10 +168,12 @@
     <module name="com.puppycrawl.tools.checkstyle.checks.UpperEllCheck"/>
     <module name="com.puppycrawl.tools.checkstyle.checks.whitespace.EmptyLineSeparatorCheck"/>
     <module name="com.puppycrawl.tools.checkstyle.checks.whitespace.SeparatorWrapCheck">
+      <property name="id" value="SeparatorWrapDotCheck"/>
       <property name="tokens" value="DOT"/>
       <property name="option" value="nl"/>
     </module>
     <module name="com.puppycrawl.tools.checkstyle.checks.whitespace.SeparatorWrapCheck">
+      <property name="id" value="SeparatorWrapCommaCheck"/>
       <property name="tokens" value="COMMA"/>
       <property name="option" value="EOL"/>
     </module>
@@ -249,6 +254,7 @@
           value="javax.persistence.Id:javax.persistence.Column"/>
     </module>
     <module name="es.startuphero.checkstyle.checks.naming.TableIdentifierNameCheck">
+      <property name="id" value="IndexNameCheck"/>
       <property name="tableAnnotation" value="javax.persistence.Table"/>
       <property name="identifierAnnotation" value="javax.persistence.Index"/>
       <property name="key" value="indexes"/>
@@ -259,6 +265,7 @@
       <property name="regex" value="^[a-z0-9_]*$"/>
     </module>
     <module name="es.startuphero.checkstyle.checks.naming.TableIdentifierNameCheck">
+      <property name="id" value="UniqueConstraintNameCheck"/>
       <property name="tableAnnotation" value="javax.persistence.Table"/>
       <property name="identifierAnnotation" value="javax.persistence.UniqueConstraint"/>
       <property name="key" value="uniqueConstraints"/>
