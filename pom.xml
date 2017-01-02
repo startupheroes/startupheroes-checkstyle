@@ -14,7 +14,7 @@
     <java.version>1.8</java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-    <checkstyle.version>7.3</checkstyle.version>
+    <checkstyle.version>7.4</checkstyle.version>
     <maven-compiler-plugin.version>3.6.0</maven-compiler-plugin.version>
     <maven-release-plugin.version>2.5.3</maven-release-plugin.version>
     <maven-plugin.api.version>2.2.1</maven-plugin.api.version>
