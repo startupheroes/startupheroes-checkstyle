@@ -37,6 +37,10 @@
         <description>Regexp Singleline Check</description>
         <internalKey>Checker/com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck</internalKey>
         <cardinality>MULTIPLE</cardinality>
+        <param key="id" name="Id">
+            <defaultValue>RegexpSinglelineTrailingSpaceCheck</defaultValue>
+            <description>Id property with value of 'RegexpSinglelineTrailingSpaceCheck'</description>
+        </param>
         <param key="format" name="Format">
             <defaultValue>\s+$</defaultValue>
             <description>Format property with value of '\s+$'</description>
@@ -559,6 +563,10 @@
         <description>Separator Wrap Check</description>
         <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.whitespace.SeparatorWrapCheck</internalKey>
         <cardinality>MULTIPLE</cardinality>
+        <param key="id" name="Id">
+            <defaultValue>SeparatorWrapDotCheck</defaultValue>
+            <description>Id property with value of 'SeparatorWrapDotCheck'</description>
+        </param>
         <param key="tokens" name="Tokens">
             <defaultValue>DOT</defaultValue>
             <description>Tokens property with value of 'DOT'</description>
@@ -856,6 +864,10 @@
         <description>Table Identifier Name Check</description>
         <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.naming.TableIdentifierNameCheck</internalKey>
         <cardinality>MULTIPLE</cardinality>
+        <param key="id" name="Id">
+            <defaultValue>IndexNameCheck</defaultValue>
+            <description>Id property with value of 'IndexNameCheck'</description>
+        </param>
         <param key="tableAnnotation" name="Table Annotation">
             <defaultValue>javax.persistence.Table</defaultValue>
             <description>Table Annotation property with value of 'javax.persistence.Table'</description>
