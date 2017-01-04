@@ -1,14 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>es.startuphero.checkstyle</groupId>
   <artifactId>startupheroes-checkstyle</artifactId>
   <packaging>pom</packaging>
   <version>1.0.10-SNAPSHOT</version>
+
   <name>StartupHeroes Checkstyle</name>
   <description>Checkstyle corresponding to StartupHeroes's coding conventions.</description>
   <url>https://github.com/startupheroes/startupheroes-checkstyle</url>
+  <inceptionYear>2016</inceptionYear>
+  <licenses>
+    <license>
+      <name>Apache-2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0</url>
+    </license>
+  </licenses>
+
+  <organization>
+    <name>StartupHeroes</name>
+    <url>http://www.startuphero.es</url>
+  </organization>
+
+  <developers>
+    <developer>
+      <id>ozlmulg</id>
+      <name>Özlem Ulağ</name>
+      <email>ozlmulg@gmail.com</email>
+    </developer>
+  </developers>
 
   <properties>
     <java.version>1.8</java.version>
@@ -38,19 +59,6 @@
     <developerConnection>scm:git:git@github.com:startupheroes/startupheroes-checkstyle.git</developerConnection>
     <tag>HEAD</tag>
   </scm>
-
-  <developers>
-    <developer>
-      <id>ozlmulg</id>
-      <name>Özlem Ulağ</name>
-      <email>ozlmulg@gmail.com</email>
-    </developer>
-  </developers>
-
-  <organization>
-    <name>StartupHeroes</name>
-    <url>http://www.startuphero.es</url>
-  </organization>
 
   <distributionManagement>
     <repository>
