@@ -26,7 +26,9 @@ import org.xml.sax.InputSource;
 import org.xml.sax.XMLReader;
 
 /**
- * Generate sonar rules xml file from checkers modules file.
+ * @author ozlem.ulag
+ *
+ *         Generate sonar rules xml file from checkers modules file.
  */
 @Mojo(name = "generate-rules", threadSafe = true)
 @SuppressWarnings("unused")
