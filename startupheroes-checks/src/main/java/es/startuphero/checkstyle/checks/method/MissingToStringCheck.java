@@ -6,11 +6,10 @@ import com.puppycrawl.tools.checkstyle.api.TokenTypes;
 import es.startuphero.checkstyle.util.MethodUtil;
 import es.startuphero.checkstyle.util.VariableUtil;
 import java.util.List;
-import org.springframework.util.Assert;
-import org.springframework.util.StringUtils;
 
 import static es.startuphero.checkstyle.util.ClassUtil.isEntity;
 import static es.startuphero.checkstyle.util.MethodUtil.getMethods;
+import static es.startuphero.checkstyle.util.StringUtil.isEmpty;
 
 /**
  * @author ozlem.ulag
@@ -70,7 +69,7 @@ public class MissingToStringCheck extends AbstractCheck {
   }
 
   private void assertions() {
-    Assert.isTrue(!StringUtils.isEmpty(typeAnnotation));
-    Assert.isTrue(!StringUtils.isEmpty(abstractTypeAnnotation));
+    assert !isEmpty(typeAnnotation);
+    assert !isEmpty(abstractTypeAnnotation);
   }
 }

@@ -3,12 +3,11 @@ package es.startuphero.checkstyle.checks.naming;
 import com.puppycrawl.tools.checkstyle.api.AbstractCheck;
 import com.puppycrawl.tools.checkstyle.api.DetailAST;
 import com.puppycrawl.tools.checkstyle.api.TokenTypes;
-import org.springframework.util.Assert;
-import org.springframework.util.StringUtils;
 
 import static es.startuphero.checkstyle.util.ClassUtil.ABSTRACT_CLASS_PREFIX;
 import static es.startuphero.checkstyle.util.ClassUtil.getClassName;
 import static es.startuphero.checkstyle.util.ClassUtil.isEntity;
+import static es.startuphero.checkstyle.util.StringUtil.isEmpty;
 
 /**
  * @author ozlem.ulag
@@ -56,6 +55,6 @@ public class MissingAbstractNameCheck extends AbstractCheck {
   }
 
   private void assertions() {
-    Assert.isTrue(!StringUtils.isEmpty(abstractTypeAnnotation));
+    assert !isEmpty(abstractTypeAnnotation);
   }
 }
