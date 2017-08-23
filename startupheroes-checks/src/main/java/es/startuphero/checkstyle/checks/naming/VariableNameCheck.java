@@ -4,14 +4,13 @@ import com.puppycrawl.tools.checkstyle.api.AbstractCheck;
 import com.puppycrawl.tools.checkstyle.api.DetailAST;
 import com.puppycrawl.tools.checkstyle.api.TokenTypes;
 import java.util.Map;
-import org.springframework.util.Assert;
 
 import static es.startuphero.checkstyle.util.ClassUtil.ABSTRACT_CLASS_PREFIX;
 import static es.startuphero.checkstyle.util.ClassUtil.getClassName;
 import static es.startuphero.checkstyle.util.ClassUtil.isEntity;
 import static es.startuphero.checkstyle.util.CommonUtil.getNameWithoutContext;
+import static es.startuphero.checkstyle.util.StringUtil.isEmpty;
 import static es.startuphero.checkstyle.util.VariableUtil.getVariableNameAstMap;
-import static org.springframework.util.StringUtils.isEmpty;
 
 /**
  * @author ozlem.ulag
@@ -69,8 +68,8 @@ public class VariableNameCheck extends AbstractCheck {
   }
 
   private void assertions() {
-    Assert.isTrue(!isEmpty(typeAnnotation));
-    Assert.isTrue(!isEmpty(abstractTypeAnnotation));
+    assert !isEmpty(typeAnnotation);
+    assert !isEmpty(abstractTypeAnnotation);
   }
 
   private void checkVariablesName(DetailAST ast, String className) {

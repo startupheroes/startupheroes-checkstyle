@@ -10,8 +10,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.regex.Pattern;
-import org.springframework.util.Assert;
-import org.springframework.util.StringUtils;
 
 import static es.startuphero.checkstyle.util.AnnotationUtil.getKeyValueAstMap;
 import static es.startuphero.checkstyle.util.AnnotationUtil.getValueAsAnnotations;
@@ -19,6 +17,7 @@ import static es.startuphero.checkstyle.util.AnnotationUtil.getValueAsString;
 import static es.startuphero.checkstyle.util.AnnotationUtil.hasAnnotation;
 import static es.startuphero.checkstyle.util.ClassUtil.getClassName;
 import static es.startuphero.checkstyle.util.CommonUtil.getSplitterOnComma;
+import static es.startuphero.checkstyle.util.StringUtil.isEmpty;
 import static java.util.Objects.nonNull;
 
 /**
@@ -166,13 +165,13 @@ public class TableIdentifierNameCheck extends AbstractCheck {
   }
 
   private void assertions() {
-    Assert.isTrue(!StringUtils.isEmpty(tableAnnotation));
-    Assert.isTrue(!StringUtils.isEmpty(identifierAnnotation));
-    Assert.isTrue(!StringUtils.isEmpty(key));
-    Assert.isTrue(!StringUtils.isEmpty(keyName));
-    Assert.isTrue(!StringUtils.isEmpty(keyColumns));
-    Assert.isTrue(!StringUtils.isEmpty(suggestedSuffix));
-    Assert.isTrue(!StringUtils.isEmpty(maxLength));
-    Assert.isTrue(!StringUtils.isEmpty(regex));
+    assert !isEmpty(tableAnnotation);
+    assert !isEmpty(identifierAnnotation);
+    assert !isEmpty(key);
+    assert !isEmpty(keyName);
+    assert !isEmpty(keyColumns);
+    assert !isEmpty(suggestedSuffix);
+    assert !isEmpty(maxLength);
+    assert !isEmpty(regex);
   }
 }

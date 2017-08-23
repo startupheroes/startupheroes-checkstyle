@@ -7,12 +7,11 @@ import es.startuphero.checkstyle.util.MethodUtil;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
-import org.springframework.util.Assert;
-import org.springframework.util.StringUtils;
 
 import static es.startuphero.checkstyle.util.ClassUtil.isEntity;
 import static es.startuphero.checkstyle.util.MethodUtil.getGetters;
 import static es.startuphero.checkstyle.util.MethodUtil.getMethodName;
+import static es.startuphero.checkstyle.util.StringUtil.isEmpty;
 import static es.startuphero.checkstyle.util.VariableUtil.getVariableNameAstMap;
 
 /**
@@ -79,7 +78,7 @@ public class MissingGetterCheck extends AbstractCheck {
   }
 
   private void assertions() {
-    Assert.isTrue(!StringUtils.isEmpty(typeAnnotation));
-    Assert.isTrue(!StringUtils.isEmpty(abstractTypeAnnotation));
+    assert !isEmpty(typeAnnotation);
+    assert !isEmpty(abstractTypeAnnotation);
   }
 }

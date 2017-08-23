@@ -9,8 +9,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
+import static es.startuphero.checkstyle.util.StringUtil.isEmpty;
 import static java.util.Objects.isNull;
-import static org.springframework.util.StringUtils.isEmpty;
 
 /**
  * @author ozlem.ulag

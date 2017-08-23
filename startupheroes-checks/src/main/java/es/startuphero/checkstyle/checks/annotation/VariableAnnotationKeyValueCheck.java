@@ -9,14 +9,13 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
-import org.springframework.util.Assert;
-import org.springframework.util.StringUtils;
 
 import static es.startuphero.checkstyle.util.AnnotationUtil.getAnnotation;
 import static es.startuphero.checkstyle.util.AnnotationUtil.getKeyValueAstMap;
 import static es.startuphero.checkstyle.util.AnnotationUtil.getValueAsString;
 import static es.startuphero.checkstyle.util.ClassUtil.isEntity;
 import static es.startuphero.checkstyle.util.CommonUtil.getSimpleName;
+import static es.startuphero.checkstyle.util.StringUtil.isEmpty;
 import static es.startuphero.checkstyle.util.VariableUtil.getVariableNameAstMap;
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
@@ -85,8 +84,8 @@ public class VariableAnnotationKeyValueCheck extends AbstractCheck {
   }
 
   private void assertions() {
-    Assert.isTrue(!StringUtils.isEmpty(typeAnnotation));
-    Assert.isTrue(!StringUtils.isEmpty(abstractTypeAnnotation));
+    assert !isEmpty(typeAnnotation);
+    assert !isEmpty(abstractTypeAnnotation);
   }
 
   private void checkAnnotation(String checkedVariable, DetailAST variableAst,

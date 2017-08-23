@@ -7,11 +7,10 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import org.springframework.util.Assert;
-import org.springframework.util.StringUtils;
 
 import static es.startuphero.checkstyle.util.ClassUtil.isEntity;
 import static es.startuphero.checkstyle.util.ClassUtil.isExtendsAnotherClass;
+import static es.startuphero.checkstyle.util.StringUtil.isEmpty;
 import static es.startuphero.checkstyle.util.VariableUtil.getVariableNames;
 
 /**
@@ -79,7 +78,7 @@ public class MissingVariableCheck extends AbstractCheck {
   }
 
   private void assertions() {
-    Assert.isTrue(!StringUtils.isEmpty(typeAnnotation));
-    Assert.isTrue(!StringUtils.isEmpty(abstractTypeAnnotation));
+    assert !isEmpty(typeAnnotation);
+    assert !isEmpty(abstractTypeAnnotation);
   }
 }

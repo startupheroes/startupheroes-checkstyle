@@ -4,11 +4,10 @@ import com.puppycrawl.tools.checkstyle.api.AbstractCheck;
 import com.puppycrawl.tools.checkstyle.api.DetailAST;
 import com.puppycrawl.tools.checkstyle.api.TokenTypes;
 import java.util.List;
-import org.springframework.util.Assert;
-import org.springframework.util.StringUtils;
 
 import static es.startuphero.checkstyle.util.AnnotationUtil.hasAnnotation;
 import static es.startuphero.checkstyle.util.ClassUtil.isEntity;
+import static es.startuphero.checkstyle.util.StringUtil.isEmpty;
 import static es.startuphero.checkstyle.util.VariableUtil.getNonStaticVariables;
 import static es.startuphero.checkstyle.util.VariableUtil.getVariableName;
 
@@ -101,10 +100,10 @@ public class GeneratedPrimaryKeyNameCheck extends AbstractCheck {
   }
 
   private void assertions() {
-    Assert.isTrue(!StringUtils.isEmpty(typeAnnotation));
-    Assert.isTrue(!StringUtils.isEmpty(abstractTypeAnnotation));
-    Assert.isTrue(!StringUtils.isEmpty(idAnnotation));
-    Assert.isTrue(!StringUtils.isEmpty(generatedValueAnnotation));
-    Assert.isTrue(!StringUtils.isEmpty(suggestedGeneratedPrimaryKeyName));
+    assert !isEmpty(typeAnnotation);
+    assert !isEmpty(abstractTypeAnnotation);
+    assert !isEmpty(idAnnotation);
+    assert !isEmpty(generatedValueAnnotation);
+    assert !isEmpty(suggestedGeneratedPrimaryKeyName);
   }
 }

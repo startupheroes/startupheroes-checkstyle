@@ -8,14 +8,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.regex.Pattern;
-import org.springframework.util.Assert;
-import org.springframework.util.StringUtils;
 
 import static es.startuphero.checkstyle.util.AnnotationUtil.getAnnotation;
 import static es.startuphero.checkstyle.util.AnnotationUtil.getKeyValueAstMap;
 import static es.startuphero.checkstyle.util.AnnotationUtil.getValueAsString;
 import static es.startuphero.checkstyle.util.ClassUtil.getClassName;
 import static es.startuphero.checkstyle.util.ClassUtil.isEntity;
+import static es.startuphero.checkstyle.util.StringUtil.isEmpty;
 import static es.startuphero.checkstyle.util.VariableUtil.getNonStaticVariables;
 import static es.startuphero.checkstyle.util.VariableUtil.getVariableName;
 import static java.util.Objects.nonNull;
@@ -101,10 +100,10 @@ public class LogDataTableCheck extends AbstractCheck {
   }
 
   private void assertions() {
-    Assert.isTrue(!StringUtils.isEmpty(typeAnnotation));
-    Assert.isTrue(!StringUtils.isEmpty(abstractTypeAnnotation));
-    Assert.isTrue(!StringUtils.isEmpty(columnAnnotation));
-    Assert.isTrue(!StringUtils.isEmpty(limitLength));
+    assert !isEmpty(typeAnnotation);
+    assert !isEmpty(abstractTypeAnnotation);
+    assert !isEmpty(columnAnnotation);
+    assert !isEmpty(limitLength);
   }
 
   /**
