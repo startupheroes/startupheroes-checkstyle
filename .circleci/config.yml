@@ -9,16 +9,16 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker
-      - restore_cache:
-          key: m2-{{ checksum "pom.xml" }}
-      - run: curl -o ~/.m2/settings.xml https://gist.githubusercontent.com/pasali/e5c82be741a5fda7f2b9c76b71a86e5f/raw
-      - run: ./mvnw clean install
       - run: git clone git@github.com:startupheroes/startupheroes-scripts.git
-      - save_cache:
-          key: m2-{{ checksum "pom.xml" }}-{{ epoch }}
-          paths:
-            - ~/.m2
       - run: |
              if [ -n "${CI_PULL_REQUEST}" ] ; then
                  bash ./startupheroes-scripts/bin/trigger_sonarqube.sh
              fi
+      - restore_cache:
+          key: m2-{{ checksum "pom.xml" }}
+      - run: curl -o ~/.m2/settings.xml https://gist.githubusercontent.com/pasali/e5c82be741a5fda7f2b9c76b71a86e5f/raw
+      - run: ./mvnw clean install
+      - save_cache:
+          key: m2-{{ checksum "pom.xml" }}-{{ epoch }}
+          paths:
+            - ~/.m2
