@@ -6,6 +6,7 @@
 *.jar
 *.war
 *.ear
+!maven-wrapper.jar
 
 ################## maven
 target/
