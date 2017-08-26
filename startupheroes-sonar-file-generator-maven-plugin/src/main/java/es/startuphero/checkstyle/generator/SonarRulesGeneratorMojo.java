@@ -10,7 +10,10 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.Comparator;
+import java.util.LinkedHashSet;
 import java.util.Optional;
+import java.util.Set;
 import java.util.stream.Collectors;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.Marshaller;
@@ -25,10 +28,12 @@ import org.apache.maven.plugins.annotations.Parameter;
 import org.xml.sax.InputSource;
 import org.xml.sax.XMLReader;
 
+import static java.util.stream.Collectors.toCollection;
+
 /**
  * @author ozlem.ulag
  *
- *         Generate sonar rules xml file from checkers modules file.
+ * Generate sonar rules xml file from checkers modules file.
  */
 @Mojo(name = "generate-rules", threadSafe = true)
 @SuppressWarnings("unused")
@@ -173,7 +178,9 @@ public class SonarRulesGeneratorMojo extends AbstractMojo {
       JAXBContext jaxbContext = JAXBContext.newInstance(Rules.class);
       Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
       jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-      jaxbMarshaller.marshal(createRules(), getOutputFile());
+      Rules rules = createRules();
+      sortRulesByAlphabetically(rules);
+      jaxbMarshaller.marshal(rules, getOutputFile());
     } catch (Exception e) {
       e.printStackTrace();
     }
@@ -214,6 +221,14 @@ public class SonarRulesGeneratorMojo extends AbstractMojo {
       e.printStackTrace();
     }
     return module;
+  }
+
+  private void sortRulesByAlphabetically(Rules rules) {
+    Set<Rule> sortedRules = rules.getRules()
+                                 .stream()
+                                 .sorted(Comparator.comparing(Rule::getKey))
+                                 .collect(toCollection(LinkedHashSet::new));
+    rules.setRules(sortedRules);
   }
 
   private File getOutputFile() {
