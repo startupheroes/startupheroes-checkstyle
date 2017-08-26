@@ -26,8 +26,6 @@ public class VariableNameCheck extends AbstractCheck {
    */
   private String typeAnnotation;
 
-  private String abstractTypeAnnotation;
-
   @Override
   public int[] getDefaultTokens() {
     return getAcceptableTokens();
@@ -48,7 +46,7 @@ public class VariableNameCheck extends AbstractCheck {
 
   @Override
   public void visitToken(DetailAST ast) {
-    if (isEntity(ast, typeAnnotation) || isEntity(ast, abstractTypeAnnotation)) {
+    if (isEntity(ast, typeAnnotation)) {
       String className = getClassName(ast);
       if (className.startsWith(ABSTRACT_CLASS_PREFIX)) {
         className = getNameWithoutContext(className, ABSTRACT_CLASS_PREFIX);
@@ -71,9 +69,5 @@ public class VariableNameCheck extends AbstractCheck {
 
   public void setTypeAnnotation(String typeAnnotation) {
     this.typeAnnotation = typeAnnotation;
-  }
-
-  public void setAbstractTypeAnnotation(String abstractTypeAnnotation) {
-    this.abstractTypeAnnotation = abstractTypeAnnotation;
   }
 }

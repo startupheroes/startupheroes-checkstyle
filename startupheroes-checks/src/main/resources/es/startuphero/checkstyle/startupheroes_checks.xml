@@ -287,7 +287,6 @@
     </module>
     <module name="es.startuphero.checkstyle.checks.naming.VariableNameCheck">
       <property name="typeAnnotation" value="javax.persistence.Entity"/>
-      <property name="abstractTypeAnnotation" value="javax.persistence.MappedSuperclass"/>
     </module>
 
   </module>

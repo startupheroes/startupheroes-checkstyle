@@ -24,12 +24,6 @@ public class VariableNameCheckTest extends BaseCheckTestSupport {
   }
 
   @Test
-  public void testByAbstractEntity() throws Exception {
-    String[] expectedMessages = {"18: " + getCheckMessage(MSG_KEY, "id")};
-    test("AbstractUserListItem.java", expectedMessages);
-  }
-
-  @Test
   public void testByCorrectInput() throws Exception {
     String[] expectedMessages = {};
     test("TestCorrectEntity.java", expectedMessages);
@@ -37,8 +31,7 @@ public class VariableNameCheckTest extends BaseCheckTestSupport {
 
   private void test(String fileName, String[] expectedMessages) throws Exception {
     verify(createCheckConfig(VariableNameCheck.class,
-                             ImmutableMap.of("typeAnnotation", "javax.persistence.Entity",
-                                             "abstractTypeAnnotation", "javax.persistence.MappedSuperclass")),
+                             ImmutableMap.of("typeAnnotation", "javax.persistence.Entity")),
            getPath(fileName),
            expectedMessages);
   }
