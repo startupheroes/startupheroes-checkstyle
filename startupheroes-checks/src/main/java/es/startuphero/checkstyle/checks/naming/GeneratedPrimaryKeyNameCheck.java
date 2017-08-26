@@ -7,7 +7,6 @@ import java.util.List;
 
 import static es.startuphero.checkstyle.util.AnnotationUtil.hasAnnotation;
 import static es.startuphero.checkstyle.util.ClassUtil.isEntity;
-import static es.startuphero.checkstyle.util.StringUtil.isEmpty;
 import static es.startuphero.checkstyle.util.VariableUtil.getNonStaticVariables;
 import static es.startuphero.checkstyle.util.VariableUtil.getVariableName;
 
@@ -46,6 +45,38 @@ public class GeneratedPrimaryKeyNameCheck extends AbstractCheck {
    */
   private String suggestedGeneratedPrimaryKeyName;
 
+  @Override
+  public int[] getDefaultTokens() {
+    return getAcceptableTokens();
+  }
+
+  @Override
+  public int[] getAcceptableTokens() {
+    return new int[] {TokenTypes.CLASS_DEF};
+  }
+
+  @Override
+  public int[] getRequiredTokens() {
+    return getAcceptableTokens();
+  }
+
+  @Override
+  public void visitToken(DetailAST ast) {
+    if (isEntity(ast, typeAnnotation) || isEntity(ast, abstractTypeAnnotation)) {
+      List<DetailAST> variables = getNonStaticVariables(ast);
+      for (DetailAST variable : variables) {
+        if (hasAnnotation(variable, idAnnotation) &&
+            hasAnnotation(variable, generatedValueAnnotation)) {
+          String generatedPrimaryKeyName = getVariableName(variable);
+          if (!generatedPrimaryKeyName.equals(suggestedGeneratedPrimaryKeyName)) {
+            log(variable.getLineNo(), MSG_KEY, suggestedGeneratedPrimaryKeyName);
+          }
+          break;
+        }
+      }
+    }
+  }
+
   public void setTypeAnnotation(String typeAnnotation) {
     this.typeAnnotation = typeAnnotation;
   }
@@ -64,46 +95,5 @@ public class GeneratedPrimaryKeyNameCheck extends AbstractCheck {
 
   public void setSuggestedGeneratedPrimaryKeyName(String suggestedGeneratedPrimaryKeyName) {
     this.suggestedGeneratedPrimaryKeyName = suggestedGeneratedPrimaryKeyName;
-  }
-
-  @Override
-  public int[] getDefaultTokens() {
-    return getAcceptableTokens();
-  }
-
-  @Override
-  public int[] getAcceptableTokens() {
-    return new int[] {TokenTypes.CLASS_DEF};
-  }
-
-  @Override
-  public int[] getRequiredTokens() {
-    return getAcceptableTokens();
-  }
-
-  @Override
-  public void visitToken(DetailAST ast) {
-    assertions();
-    if (isEntity(ast, typeAnnotation) || isEntity(ast, abstractTypeAnnotation)) {
-      List<DetailAST> variables = getNonStaticVariables(ast);
-      for (DetailAST variable : variables) {
-        if (hasAnnotation(variable, idAnnotation) &&
-            hasAnnotation(variable, generatedValueAnnotation)) {
-          String generatedPrimaryKeyName = getVariableName(variable);
-          if (!generatedPrimaryKeyName.equals(suggestedGeneratedPrimaryKeyName)) {
-            log(variable.getLineNo(), MSG_KEY, suggestedGeneratedPrimaryKeyName);
-          }
-          break;
-        }
-      }
-    }
-  }
-
-  private void assertions() {
-    assert !isEmpty(typeAnnotation);
-    assert !isEmpty(abstractTypeAnnotation);
-    assert !isEmpty(idAnnotation);
-    assert !isEmpty(generatedValueAnnotation);
-    assert !isEmpty(suggestedGeneratedPrimaryKeyName);
   }
 }

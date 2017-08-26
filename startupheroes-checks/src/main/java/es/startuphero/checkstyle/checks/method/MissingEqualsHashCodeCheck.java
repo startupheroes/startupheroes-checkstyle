@@ -9,7 +9,6 @@ import java.util.List;
 import static es.startuphero.checkstyle.util.AnnotationUtil.hasAnnotation;
 import static es.startuphero.checkstyle.util.ClassUtil.isEntity;
 import static es.startuphero.checkstyle.util.MethodUtil.getMethods;
-import static es.startuphero.checkstyle.util.StringUtil.isEmpty;
 import static es.startuphero.checkstyle.util.VariableUtil.getNonStaticVariables;
 
 /**
@@ -34,18 +33,6 @@ public class MissingEqualsHashCodeCheck extends AbstractCheck {
 
   private String idAnnotation;
 
-  public void setTypeAnnotation(String typeAnnotation) {
-    this.typeAnnotation = typeAnnotation;
-  }
-
-  public void setAbstractTypeAnnotation(String abstractTypeAnnotation) {
-    this.abstractTypeAnnotation = abstractTypeAnnotation;
-  }
-
-  public void setIdAnnotation(String idAnnotation) {
-    this.idAnnotation = idAnnotation;
-  }
-
   @Override
   public int[] getDefaultTokens() {
     return getAcceptableTokens();
@@ -63,7 +50,6 @@ public class MissingEqualsHashCodeCheck extends AbstractCheck {
 
   @Override
   public void visitToken(DetailAST ast) {
-    assertions();
     if (isEntity(ast, typeAnnotation) || isEntity(ast, abstractTypeAnnotation)) {
       Boolean entityHasAnyId = getNonStaticVariables(ast).stream()
                                                          .anyMatch(variable -> hasAnnotation(variable, idAnnotation));
@@ -78,9 +64,15 @@ public class MissingEqualsHashCodeCheck extends AbstractCheck {
     }
   }
 
-  private void assertions() {
-    assert !isEmpty(typeAnnotation);
-    assert !isEmpty(abstractTypeAnnotation);
-    assert !isEmpty(idAnnotation);
+  public void setTypeAnnotation(String typeAnnotation) {
+    this.typeAnnotation = typeAnnotation;
+  }
+
+  public void setAbstractTypeAnnotation(String abstractTypeAnnotation) {
+    this.abstractTypeAnnotation = abstractTypeAnnotation;
+  }
+
+  public void setIdAnnotation(String idAnnotation) {
+    this.idAnnotation = idAnnotation;
   }
 }

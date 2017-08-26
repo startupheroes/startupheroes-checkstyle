@@ -11,7 +11,6 @@ import java.util.stream.Collectors;
 import static es.startuphero.checkstyle.util.ClassUtil.isEntity;
 import static es.startuphero.checkstyle.util.MethodUtil.getGetters;
 import static es.startuphero.checkstyle.util.MethodUtil.getMethodName;
-import static es.startuphero.checkstyle.util.StringUtil.isEmpty;
 import static es.startuphero.checkstyle.util.VariableUtil.getVariableNameAstMap;
 
 /**
@@ -34,14 +33,6 @@ public class MissingGetterCheck extends AbstractCheck {
    */
   private String abstractTypeAnnotation;
 
-  public void setTypeAnnotation(String typeAnnotation) {
-    this.typeAnnotation = typeAnnotation;
-  }
-
-  public void setAbstractTypeAnnotation(String abstractTypeAnnotation) {
-    this.abstractTypeAnnotation = abstractTypeAnnotation;
-  }
-
   @Override
   public int[] getDefaultTokens() {
     return getAcceptableTokens();
@@ -59,7 +50,6 @@ public class MissingGetterCheck extends AbstractCheck {
 
   @Override
   public void visitToken(DetailAST ast) {
-    assertions();
     if (isEntity(ast, typeAnnotation) || isEntity(ast, abstractTypeAnnotation)) {
       Map<String, DetailAST> variableNameAstMap = getVariableNameAstMap(ast, false);
       List<String> getterVariableNames = getGetters(ast).stream()
@@ -77,8 +67,11 @@ public class MissingGetterCheck extends AbstractCheck {
     }
   }
 
-  private void assertions() {
-    assert !isEmpty(typeAnnotation);
-    assert !isEmpty(abstractTypeAnnotation);
+  public void setTypeAnnotation(String typeAnnotation) {
+    this.typeAnnotation = typeAnnotation;
+  }
+
+  public void setAbstractTypeAnnotation(String abstractTypeAnnotation) {
+    this.abstractTypeAnnotation = abstractTypeAnnotation;
   }
 }

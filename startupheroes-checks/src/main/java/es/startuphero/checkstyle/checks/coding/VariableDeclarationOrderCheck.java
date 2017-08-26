@@ -4,9 +4,9 @@ import com.puppycrawl.tools.checkstyle.api.AbstractCheck;
 import com.puppycrawl.tools.checkstyle.api.DetailAST;
 import com.puppycrawl.tools.checkstyle.api.Scope;
 import com.puppycrawl.tools.checkstyle.api.TokenTypes;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 import static es.startuphero.checkstyle.util.VariableUtil.getScopeOf;
 import static es.startuphero.checkstyle.util.VariableUtil.getVariableNameAstMap;
@@ -30,14 +30,6 @@ public class VariableDeclarationOrderCheck extends AbstractCheck {
    * set declaration order of given variable.
    */
   private Integer declarationOrder;
-
-  public void setVariableName(String variableName) {
-    this.variableName = variableName;
-  }
-
-  public void setDeclarationOrder(Integer declarationOrder) {
-    this.declarationOrder = declarationOrder;
-  }
 
   @Override
   public int[] getDefaultTokens() {
@@ -71,7 +63,15 @@ public class VariableDeclarationOrderCheck extends AbstractCheck {
   }
 
   private Boolean isVariableNotInCorrectOrder(Map<String, DetailAST> variableNameAstMap) {
-    List<String> variableNames = variableNameAstMap.keySet().stream().collect(Collectors.toList());
+    List<String> variableNames = new ArrayList<>(variableNameAstMap.keySet());
     return variableNames.indexOf(variableName) != declarationOrder - 1;
+  }
+
+  public void setVariableName(String variableName) {
+    this.variableName = variableName;
+  }
+
+  public void setDeclarationOrder(Integer declarationOrder) {
+    this.declarationOrder = declarationOrder;
   }
 }

@@ -15,7 +15,6 @@ import static es.startuphero.checkstyle.util.AnnotationUtil.getKeyValueAstMap;
 import static es.startuphero.checkstyle.util.AnnotationUtil.getValueAsString;
 import static es.startuphero.checkstyle.util.ClassUtil.isEntity;
 import static es.startuphero.checkstyle.util.CommonUtil.getSimpleName;
-import static es.startuphero.checkstyle.util.StringUtil.isEmpty;
 import static es.startuphero.checkstyle.util.VariableUtil.getVariableNameAstMap;
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
@@ -42,14 +41,6 @@ public class VariableAnnotationKeyValueCheck extends AbstractCheck {
 
   private Table<String, String, Map<String, String>> variableAnnotationKeyValueTable = HashBasedTable.create();
 
-  public void setTypeAnnotation(String typeAnnotation) {
-    this.typeAnnotation = typeAnnotation;
-  }
-
-  public void setAbstractTypeAnnotation(String abstractTypeAnnotation) {
-    this.abstractTypeAnnotation = abstractTypeAnnotation;
-  }
-
   @Override
   public int[] getDefaultTokens() {
     return getAcceptableTokens();
@@ -67,7 +58,6 @@ public class VariableAnnotationKeyValueCheck extends AbstractCheck {
 
   @Override
   public void visitToken(DetailAST ast) {
-    assertions();
     if (isEntity(ast, typeAnnotation) || isEntity(ast, abstractTypeAnnotation)) {
       Map<String, DetailAST> variableNameAstMap = getVariableNameAstMap(ast, false);
       Set<String> checkedVariables = variableAnnotationKeyValueTable.rowKeySet();
@@ -81,11 +71,6 @@ public class VariableAnnotationKeyValueCheck extends AbstractCheck {
                                                                                         checkedAnnotation));
                       });
     }
-  }
-
-  private void assertions() {
-    assert !isEmpty(typeAnnotation);
-    assert !isEmpty(abstractTypeAnnotation);
   }
 
   private void checkAnnotation(String checkedVariable, DetailAST variableAst,
@@ -120,6 +105,14 @@ public class VariableAnnotationKeyValueCheck extends AbstractCheck {
       log(annotationAst.getLineNo(), MSG_KEY, checkedVariable, getSimpleName(checkedAnnotation),
           checkedKey, checkedValue);
     }
+  }
+
+  public void setTypeAnnotation(String typeAnnotation) {
+    this.typeAnnotation = typeAnnotation;
+  }
+
+  public void setAbstractTypeAnnotation(String abstractTypeAnnotation) {
+    this.abstractTypeAnnotation = abstractTypeAnnotation;
   }
 
   @SuppressWarnings("checkstyle:MagicNumber")

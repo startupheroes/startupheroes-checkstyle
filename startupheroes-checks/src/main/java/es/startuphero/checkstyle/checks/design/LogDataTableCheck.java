@@ -14,7 +14,6 @@ import static es.startuphero.checkstyle.util.AnnotationUtil.getKeyValueAstMap;
 import static es.startuphero.checkstyle.util.AnnotationUtil.getValueAsString;
 import static es.startuphero.checkstyle.util.ClassUtil.getClassName;
 import static es.startuphero.checkstyle.util.ClassUtil.isEntity;
-import static es.startuphero.checkstyle.util.StringUtil.isEmpty;
 import static es.startuphero.checkstyle.util.VariableUtil.getNonStaticVariables;
 import static es.startuphero.checkstyle.util.VariableUtil.getVariableName;
 import static java.util.Objects.nonNull;
@@ -46,32 +45,6 @@ public class LogDataTableCheck extends AbstractCheck {
   /** The regexp to match against. */
   private Pattern regexp = Pattern.compile(classNameFormat);
 
-  public void setTypeAnnotation(String typeAnnotation) {
-    this.typeAnnotation = typeAnnotation;
-  }
-
-  public void setAbstractTypeAnnotation(String abstractTypeAnnotation) {
-    this.abstractTypeAnnotation = abstractTypeAnnotation;
-  }
-
-  public void setColumnAnnotation(String columnAnnotation) {
-    this.columnAnnotation = columnAnnotation;
-  }
-
-  public void setLimitLength(Integer limitLength) {
-    this.limitLength = limitLength;
-  }
-
-  /**
-   * Set the format to the specified regular expression.
-   *
-   * @param format a {@code String} value
-   */
-  public void setClassNameFormat(String format) {
-    this.classNameFormat = format;
-    regexp = CommonUtils.createPattern(format);
-  }
-
   @Override
   public int[] getDefaultTokens() {
     return getAcceptableTokens();
@@ -89,7 +62,6 @@ public class LogDataTableCheck extends AbstractCheck {
 
   @Override
   public void visitToken(DetailAST ast) {
-    assertions();
     if (isEntity(ast, typeAnnotation) || isEntity(ast, abstractTypeAnnotation)) {
       String className = getClassName(ast);
       if (isMatchingClassName(className)) {
@@ -97,13 +69,6 @@ public class LogDataTableCheck extends AbstractCheck {
         variableNodes.forEach(this::checkVariableLength);
       }
     }
-  }
-
-  private void assertions() {
-    assert !isEmpty(typeAnnotation);
-    assert !isEmpty(abstractTypeAnnotation);
-    assert !isEmpty(columnAnnotation);
-    assert !isEmpty(limitLength);
   }
 
   /**
@@ -129,5 +94,31 @@ public class LogDataTableCheck extends AbstractCheck {
         }
       }
     }
+  }
+
+  public void setTypeAnnotation(String typeAnnotation) {
+    this.typeAnnotation = typeAnnotation;
+  }
+
+  public void setAbstractTypeAnnotation(String abstractTypeAnnotation) {
+    this.abstractTypeAnnotation = abstractTypeAnnotation;
+  }
+
+  public void setColumnAnnotation(String columnAnnotation) {
+    this.columnAnnotation = columnAnnotation;
+  }
+
+  public void setLimitLength(Integer limitLength) {
+    this.limitLength = limitLength;
+  }
+
+  /**
+   * Set the format to the specified regular expression.
+   *
+   * @param format a {@code String} value
+   */
+  public void setClassNameFormat(String format) {
+    this.classNameFormat = format;
+    regexp = CommonUtils.createPattern(format);
   }
 }

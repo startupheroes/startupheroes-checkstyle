@@ -5,11 +5,10 @@ import com.puppycrawl.tools.checkstyle.api.DetailAST;
 import com.puppycrawl.tools.checkstyle.api.FullIdent;
 import com.puppycrawl.tools.checkstyle.api.TokenTypes;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
-import static es.startuphero.checkstyle.util.StringUtil.isEmpty;
+import static java.util.Arrays.asList;
 import static java.util.Objects.isNull;
 
 /**
@@ -100,7 +99,7 @@ public final class CommonUtil {
    * @return list of simple name and full qualifier {Object, java.lang.Object}
    */
   public static List<String> getSimpleAndFullNames(String fullName) {
-    return Arrays.asList(getSimpleName(fullName), fullName);
+    return asList(getSimpleName(fullName), fullName);
   }
 
   public static String getPackageName(DetailAST ast) {
@@ -143,5 +142,9 @@ public final class CommonUtil {
     }
     return isEmpty(suggestedName) ? name :
         suggestedName.substring(0, 1).toLowerCase() + suggestedName.substring(1);
+  }
+
+  private static boolean isEmpty(Object str) {
+    return (str == null || "".equals(str));
   }
 }
