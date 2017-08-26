@@ -948,10 +948,6 @@
             <defaultValue>javax.persistence.Entity</defaultValue>
             <description>Type Annotation property with value of 'javax.persistence.Entity'</description>
         </param>
-        <param key="abstractTypeAnnotation" name="Abstract Type Annotation">
-            <defaultValue>javax.persistence.MappedSuperclass</defaultValue>
-            <description>Abstract Type Annotation property with value of 'javax.persistence.MappedSuperclass'</description>
-        </param>
         <tag>sh-rule</tag>
         <tag>naming</tag>
     </rule>
