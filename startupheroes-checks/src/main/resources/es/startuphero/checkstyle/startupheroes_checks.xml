@@ -246,7 +246,7 @@
     <module name="es.startuphero.checkstyle.checks.variable.MissingVariableCheck">
       <property name="typeAnnotation" value="javax.persistence.Entity"/>
       <property name="abstractTypeAnnotation" value="javax.persistence.MappedSuperclass"/>
-      <property name="mandatoryVariables" value="createdAt, lastUpdatedAt"/>
+      <property name="mandatoryVariables" value="createdAt"/>
     </module>
     <module name="es.startuphero.checkstyle.checks.annotation.RedundantMultipleAnnotationCheck">
       <property name="tokens" value="VARIABLE_DEF"/>
