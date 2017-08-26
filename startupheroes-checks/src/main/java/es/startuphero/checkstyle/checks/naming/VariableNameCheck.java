@@ -9,7 +9,6 @@ import static es.startuphero.checkstyle.util.ClassUtil.ABSTRACT_CLASS_PREFIX;
 import static es.startuphero.checkstyle.util.ClassUtil.getClassName;
 import static es.startuphero.checkstyle.util.ClassUtil.isEntity;
 import static es.startuphero.checkstyle.util.CommonUtil.getNameWithoutContext;
-import static es.startuphero.checkstyle.util.StringUtil.isEmpty;
 import static es.startuphero.checkstyle.util.VariableUtil.getVariableNameAstMap;
 
 /**
@@ -28,14 +27,6 @@ public class VariableNameCheck extends AbstractCheck {
   private String typeAnnotation;
 
   private String abstractTypeAnnotation;
-
-  public void setTypeAnnotation(String typeAnnotation) {
-    this.typeAnnotation = typeAnnotation;
-  }
-
-  public void setAbstractTypeAnnotation(String abstractTypeAnnotation) {
-    this.abstractTypeAnnotation = abstractTypeAnnotation;
-  }
 
   @Override
   public int[] getDefaultTokens() {
@@ -57,7 +48,6 @@ public class VariableNameCheck extends AbstractCheck {
 
   @Override
   public void visitToken(DetailAST ast) {
-    assertions();
     if (isEntity(ast, typeAnnotation) || isEntity(ast, abstractTypeAnnotation)) {
       String className = getClassName(ast);
       if (className.startsWith(ABSTRACT_CLASS_PREFIX)) {
@@ -65,11 +55,6 @@ public class VariableNameCheck extends AbstractCheck {
       }
       checkVariablesName(ast, className);
     }
-  }
-
-  private void assertions() {
-    assert !isEmpty(typeAnnotation);
-    assert !isEmpty(abstractTypeAnnotation);
   }
 
   private void checkVariablesName(DetailAST ast, String className) {
@@ -82,5 +67,13 @@ public class VariableNameCheck extends AbstractCheck {
         log(variableNameAstMap.get(variableName).getLineNo(), MSG_KEY, suggestedVariableName);
       }
     }
+  }
+
+  public void setTypeAnnotation(String typeAnnotation) {
+    this.typeAnnotation = typeAnnotation;
+  }
+
+  public void setAbstractTypeAnnotation(String abstractTypeAnnotation) {
+    this.abstractTypeAnnotation = abstractTypeAnnotation;
   }
 }

@@ -9,7 +9,6 @@ import java.util.List;
 
 import static es.startuphero.checkstyle.util.ClassUtil.isEntity;
 import static es.startuphero.checkstyle.util.MethodUtil.getMethods;
-import static es.startuphero.checkstyle.util.StringUtil.isEmpty;
 
 /**
  * @author ozlem.ulag
@@ -31,14 +30,6 @@ public class MissingToStringCheck extends AbstractCheck {
    */
   private String abstractTypeAnnotation;
 
-  public void setTypeAnnotation(String typeAnnotation) {
-    this.typeAnnotation = typeAnnotation;
-  }
-
-  public void setAbstractTypeAnnotation(String abstractTypeAnnotation) {
-    this.abstractTypeAnnotation = abstractTypeAnnotation;
-  }
-
   @Override
   public int[] getDefaultTokens() {
     return getAcceptableTokens();
@@ -56,7 +47,6 @@ public class MissingToStringCheck extends AbstractCheck {
 
   @Override
   public void visitToken(DetailAST ast) {
-    assertions();
     if (isEntity(ast, typeAnnotation) || isEntity(ast, abstractTypeAnnotation)) {
       if (!VariableUtil.getNonStaticVariables(ast).isEmpty()) {
         List<DetailAST> methods = getMethods(ast);
@@ -68,8 +58,11 @@ public class MissingToStringCheck extends AbstractCheck {
     }
   }
 
-  private void assertions() {
-    assert !isEmpty(typeAnnotation);
-    assert !isEmpty(abstractTypeAnnotation);
+  public void setTypeAnnotation(String typeAnnotation) {
+    this.typeAnnotation = typeAnnotation;
+  }
+
+  public void setAbstractTypeAnnotation(String abstractTypeAnnotation) {
+    this.abstractTypeAnnotation = abstractTypeAnnotation;
   }
 }

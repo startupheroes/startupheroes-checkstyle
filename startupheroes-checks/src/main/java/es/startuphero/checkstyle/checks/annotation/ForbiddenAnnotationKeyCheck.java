@@ -32,22 +32,6 @@ public class ForbiddenAnnotationKeyCheck extends AbstractCheck {
    */
   private Map<String, Set<String>> annotationForbiddenKeysMap = new HashMap<>();
 
-  public void setAnnotationForbiddenKeysMap(String property) {
-    if (nonNull(property)) {
-      Map<String, String> annotationKeysMap = splitProperty(property);
-      for (String annotation : annotationKeysMap.keySet()) {
-        Iterable<String> iterableKeys =
-            getSplitterOnComma().split(annotationKeysMap.get(annotation));
-        for (String forbiddenKey : iterableKeys) {
-          Set<String> forbiddenKeys =
-              annotationForbiddenKeysMap.getOrDefault(annotation, new HashSet<>());
-          forbiddenKeys.add(forbiddenKey);
-          annotationForbiddenKeysMap.put(annotation, forbiddenKeys);
-        }
-      }
-    }
-  }
-
   @Override
   public int[] getDefaultTokens() {
     return getAcceptableTokens();
@@ -78,5 +62,19 @@ public class ForbiddenAnnotationKeyCheck extends AbstractCheck {
                           }
                         }
                       });
+  }
+
+  public void setAnnotationForbiddenKeysMap(String property) {
+    if (nonNull(property)) {
+      Map<String, String> annotationKeysMap = splitProperty(property);
+      for (String annotation : annotationKeysMap.keySet()) {
+        Iterable<String> iterableKeys = getSplitterOnComma().split(annotationKeysMap.get(annotation));
+        for (String forbiddenKey : iterableKeys) {
+          Set<String> forbiddenKeys = annotationForbiddenKeysMap.getOrDefault(annotation, new HashSet<>());
+          forbiddenKeys.add(forbiddenKey);
+          annotationForbiddenKeysMap.put(annotation, forbiddenKeys);
+        }
+      }
+    }
   }
 }

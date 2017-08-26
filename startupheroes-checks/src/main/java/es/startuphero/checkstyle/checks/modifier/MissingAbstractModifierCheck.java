@@ -6,7 +6,6 @@ import com.puppycrawl.tools.checkstyle.api.TokenTypes;
 
 import static es.startuphero.checkstyle.util.ClassUtil.isAbstract;
 import static es.startuphero.checkstyle.util.ClassUtil.isEntity;
-import static es.startuphero.checkstyle.util.StringUtil.isEmpty;
 
 /**
  * @author ozlem.ulag
@@ -22,10 +21,6 @@ public class MissingAbstractModifierCheck extends AbstractCheck {
    * set abstract type annotation to understand that a class is abstract.
    */
   private String abstractTypeAnnotation;
-
-  public void setAbstractTypeAnnotation(String abstractTypeAnnotation) {
-    this.abstractTypeAnnotation = abstractTypeAnnotation;
-  }
 
   @Override
   public int[] getDefaultTokens() {
@@ -44,13 +39,12 @@ public class MissingAbstractModifierCheck extends AbstractCheck {
 
   @Override
   public void visitToken(DetailAST ast) {
-    assertions();
     if (isEntity(ast, abstractTypeAnnotation) && !isAbstract(ast)) {
       log(ast.getLineNo(), MSG_KEY, abstractTypeAnnotation);
     }
   }
 
-  private void assertions() {
-    assert !isEmpty(abstractTypeAnnotation);
+  public void setAbstractTypeAnnotation(String abstractTypeAnnotation) {
+    this.abstractTypeAnnotation = abstractTypeAnnotation;
   }
 }

@@ -17,8 +17,8 @@ import static es.startuphero.checkstyle.util.AnnotationUtil.getValueAsString;
 import static es.startuphero.checkstyle.util.AnnotationUtil.hasAnnotation;
 import static es.startuphero.checkstyle.util.ClassUtil.getClassName;
 import static es.startuphero.checkstyle.util.CommonUtil.getSplitterOnComma;
-import static es.startuphero.checkstyle.util.StringUtil.isEmpty;
 import static java.util.Objects.nonNull;
+import static java.util.Optional.empty;
 
 /**
  * @author ozlem.ulag
@@ -60,38 +60,6 @@ public class TableIdentifierNameCheck extends AbstractCheck {
    */
   private String regex;
 
-  public void setTableAnnotation(String tableAnnotation) {
-    this.tableAnnotation = tableAnnotation;
-  }
-
-  public void setIdentifierAnnotation(String identifierAnnotation) {
-    this.identifierAnnotation = identifierAnnotation;
-  }
-
-  public void setKey(String key) {
-    this.key = key;
-  }
-
-  public void setKeyName(String keyName) {
-    this.keyName = keyName;
-  }
-
-  public void setKeyColumns(String keyColumns) {
-    this.keyColumns = keyColumns;
-  }
-
-  public void setSuggestedSuffix(String suggestedSuffix) {
-    this.suggestedSuffix = suggestedSuffix;
-  }
-
-  public void setMaxLength(Integer maxLength) {
-    this.maxLength = maxLength;
-  }
-
-  public void setRegex(String regex) {
-    this.regex = regex;
-  }
-
   @Override
   public int[] getDefaultTokens() {
     return getAcceptableTokens();
@@ -109,7 +77,6 @@ public class TableIdentifierNameCheck extends AbstractCheck {
 
   @Override
   public void visitToken(DetailAST ast) {
-    assertions();
     if (hasAnnotation(ast, tableAnnotation)) {
       Map<String, DetailAST> tableKeyValueAstMap =
           getKeyValueAstMap(AnnotationUtil.getAnnotation(ast, tableAnnotation));
@@ -126,9 +93,8 @@ public class TableIdentifierNameCheck extends AbstractCheck {
   private void checkIdentifierName(String className, DetailAST identifierAnnotationNode) {
     Map<String, DetailAST> identifierKeyValueAstMap = getKeyValueAstMap(identifierAnnotationNode);
     DetailAST nameKeyValueAst = identifierKeyValueAstMap.get(keyName);
-    Optional<String> identifierNameOptional =
-        nonNull(nameKeyValueAst) ? getValueAsString(nameKeyValueAst) : Optional.empty();
-    String identifierName = identifierNameOptional.isPresent() ? identifierNameOptional.get() : "";
+    Optional<String> identifierNameOptional = nonNull(nameKeyValueAst) ? getValueAsString(nameKeyValueAst) : empty();
+    String identifierName = identifierNameOptional.orElse("");
     checkBySuggestedName(className, identifierAnnotationNode, identifierKeyValueAstMap, identifierName);
   }
 
@@ -164,14 +130,35 @@ public class TableIdentifierNameCheck extends AbstractCheck {
            identifierName.endsWith(CommonUtil.getDatabaseIdentifierName("_" + suggestedSuffix));
   }
 
-  private void assertions() {
-    assert !isEmpty(tableAnnotation);
-    assert !isEmpty(identifierAnnotation);
-    assert !isEmpty(key);
-    assert !isEmpty(keyName);
-    assert !isEmpty(keyColumns);
-    assert !isEmpty(suggestedSuffix);
-    assert !isEmpty(maxLength);
-    assert !isEmpty(regex);
+  public void setTableAnnotation(String tableAnnotation) {
+    this.tableAnnotation = tableAnnotation;
+  }
+
+  public void setIdentifierAnnotation(String identifierAnnotation) {
+    this.identifierAnnotation = identifierAnnotation;
+  }
+
+  public void setKey(String key) {
+    this.key = key;
+  }
+
+  public void setKeyName(String keyName) {
+    this.keyName = keyName;
+  }
+
+  public void setKeyColumns(String keyColumns) {
+    this.keyColumns = keyColumns;
+  }
+
+  public void setSuggestedSuffix(String suggestedSuffix) {
+    this.suggestedSuffix = suggestedSuffix;
+  }
+
+  public void setMaxLength(Integer maxLength) {
+    this.maxLength = maxLength;
+  }
+
+  public void setRegex(String regex) {
+    this.regex = regex;
   }
 }

@@ -22,10 +22,6 @@ public class RedundantMultipleAnnotationCheck extends AbstractCheck {
 
   private Map<String, String> redundantAnnotationPairs = new HashMap<>();
 
-  public void setRedundantAnnotationPairs(String property) {
-    this.redundantAnnotationPairs = CommonUtil.splitProperty(property);
-  }
-
   @Override
   public int[] getDefaultTokens() {
     return getAcceptableTokens();
@@ -56,5 +52,9 @@ public class RedundantMultipleAnnotationCheck extends AbstractCheck {
         log(ast.getLineNo(), MSG_KEY, getSimpleName(annotation1), getSimpleName(annotation2));
       }
     }
+  }
+
+  public void setRedundantAnnotationPairs(String property) {
+    this.redundantAnnotationPairs = CommonUtil.splitProperty(property);
   }
 }

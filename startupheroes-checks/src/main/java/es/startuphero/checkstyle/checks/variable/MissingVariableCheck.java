@@ -10,7 +10,6 @@ import java.util.Set;
 
 import static es.startuphero.checkstyle.util.ClassUtil.isEntity;
 import static es.startuphero.checkstyle.util.ClassUtil.isExtendsAnotherClass;
-import static es.startuphero.checkstyle.util.StringUtil.isEmpty;
 import static es.startuphero.checkstyle.util.VariableUtil.getVariableNames;
 
 /**
@@ -38,18 +37,6 @@ public class MissingVariableCheck extends AbstractCheck {
    */
   private Set<String> mandatoryVariables = new HashSet<>();
 
-  public void setTypeAnnotation(String typeAnnotation) {
-    this.typeAnnotation = typeAnnotation;
-  }
-
-  public void setAbstractTypeAnnotation(String abstractTypeAnnotation) {
-    this.abstractTypeAnnotation = abstractTypeAnnotation;
-  }
-
-  public void setMandatoryVariables(String... mandatoryVariables) {
-    Collections.addAll(this.mandatoryVariables, mandatoryVariables);
-  }
-
   @Override
   public int[] getDefaultTokens() {
     return getAcceptableTokens();
@@ -67,9 +54,9 @@ public class MissingVariableCheck extends AbstractCheck {
 
   @Override
   public void visitToken(DetailAST ast) {
-    assertions();
-    if ((isEntity(ast, typeAnnotation) || isEntity(ast, abstractTypeAnnotation))
-        && !isExtendsAnotherClass(ast)) {
+    if ((isEntity(ast, typeAnnotation) ||
+         isEntity(ast, abstractTypeAnnotation)) &&
+        !isExtendsAnotherClass(ast)) {
       List<String> variableNames = getVariableNames(ast);
       mandatoryVariables.stream()
                         .filter(mandatoryVariable -> !variableNames.contains(mandatoryVariable))
@@ -77,8 +64,15 @@ public class MissingVariableCheck extends AbstractCheck {
     }
   }
 
-  private void assertions() {
-    assert !isEmpty(typeAnnotation);
-    assert !isEmpty(abstractTypeAnnotation);
+  public void setTypeAnnotation(String typeAnnotation) {
+    this.typeAnnotation = typeAnnotation;
+  }
+
+  public void setAbstractTypeAnnotation(String abstractTypeAnnotation) {
+    this.abstractTypeAnnotation = abstractTypeAnnotation;
+  }
+
+  public void setMandatoryVariables(String... mandatoryVariables) {
+    Collections.addAll(this.mandatoryVariables, mandatoryVariables);
   }
 }

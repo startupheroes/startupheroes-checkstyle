@@ -28,12 +28,6 @@ public class ForbiddenAnnotationCheck extends AbstractCheck {
    */
   private Set<String> forbiddenAnnotations = new HashSet<>();
 
-  public void setForbiddenAnnotations(String... forbiddenAnnotations) {
-    if (nonNull(forbiddenAnnotations)) {
-      Collections.addAll(this.forbiddenAnnotations, forbiddenAnnotations);
-    }
-  }
-
   @Override
   public int[] getDefaultTokens() {
     return new int[] {
@@ -76,9 +70,14 @@ public class ForbiddenAnnotationCheck extends AbstractCheck {
   public void visitToken(DetailAST ast) {
     forbiddenAnnotations.stream()
                         .filter(forbiddenAnnotation -> hasAnnotation(ast, forbiddenAnnotation))
-                        .forEach(forbiddenAnnotation -> log(
-                            getAnnotation(ast, forbiddenAnnotation).getLineNo(),
-                            MSG_KEY,
-                            getSimpleName(forbiddenAnnotation)));
+                        .forEach(forbiddenAnnotation -> log(getAnnotation(ast, forbiddenAnnotation).getLineNo(),
+                                                            MSG_KEY,
+                                                            getSimpleName(forbiddenAnnotation)));
+  }
+
+  public void setForbiddenAnnotations(String... forbiddenAnnotations) {
+    if (nonNull(forbiddenAnnotations)) {
+      Collections.addAll(this.forbiddenAnnotations, forbiddenAnnotations);
+    }
   }
 }
