@@ -836,8 +836,8 @@
             <description>Abstract Type Annotation property with value of 'javax.persistence.MappedSuperclass'</description>
         </param>
         <param key="mandatoryVariables" name="Mandatory Variables">
-            <defaultValue>createdAt, lastUpdatedAt</defaultValue>
-            <description>Mandatory Variables property with value of 'createdAt, lastUpdatedAt'</description>
+            <defaultValue>createdAt</defaultValue>
+            <description>Mandatory Variables property with value of 'createdAt'</description>
         </param>
         <tag>sh-rule</tag>
         <tag>variable</tag>
