@@ -691,22 +691,6 @@
         <tag>annotation</tag>
     </rule>
     <rule>
-        <key>es.startuphero.checkstyle.checks.annotation.RedundantMultipleAnnotationCheck</key>
-        <name>Redundant Multiple Annotation Check</name>
-        <description>Redundant Multiple Annotation Check</description>
-        <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.annotation.RedundantMultipleAnnotationCheck</internalKey>
-        <param key="tokens" name="Tokens">
-            <defaultValue>VARIABLE_DEF</defaultValue>
-            <description>Tokens property with value of 'VARIABLE_DEF'</description>
-        </param>
-        <param key="redundantAnnotationPairs" name="Redundant Annotation Pairs">
-            <defaultValue>javax.persistence.Id:javax.persistence.Column</defaultValue>
-            <description>Redundant Annotation Pairs property with value of 'javax.persistence.Id:javax.persistence.Column'</description>
-        </param>
-        <tag>sh-rule</tag>
-        <tag>annotation</tag>
-    </rule>
-    <rule>
         <key>es.startuphero.checkstyle.checks.annotation.VariableAnnotationKeyValueCheck</key>
         <name>Variable Annotation Key Value Check</name>
         <description>Variable Annotation Key Value Check</description>

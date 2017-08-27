@@ -248,11 +248,6 @@
       <property name="abstractTypeAnnotation" value="javax.persistence.MappedSuperclass"/>
       <property name="mandatoryVariables" value="createdAt"/>
     </module>
-    <module name="es.startuphero.checkstyle.checks.annotation.RedundantMultipleAnnotationCheck">
-      <property name="tokens" value="VARIABLE_DEF"/>
-      <property name="redundantAnnotationPairs"
-          value="javax.persistence.Id:javax.persistence.Column"/>
-    </module>
     <module name="es.startuphero.checkstyle.checks.naming.TableIdentifierNameCheck">
       <property name="id" value="IndexNameCheck"/>
       <property name="tableAnnotation" value="javax.persistence.Table"/>
