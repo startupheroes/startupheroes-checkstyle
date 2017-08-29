@@ -138,7 +138,6 @@
       <property name="ignoreAnnotation" value="true"/>
       <property name="ignoreFieldDeclaration" value="true"/>
     </module>
-    <module name="com.puppycrawl.tools.checkstyle.checks.coding.MissingSwitchDefaultCheck"/>
     <module name="com.puppycrawl.tools.checkstyle.checks.coding.DefaultComesLastCheck"/>
     <module name="com.puppycrawl.tools.checkstyle.checks.coding.SimplifyBooleanExpressionCheck"/>
     <module name="com.puppycrawl.tools.checkstyle.checks.coding.SimplifyBooleanReturnCheck"/>

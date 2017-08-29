@@ -214,15 +214,6 @@
         <tag>coding</tag>
     </rule>
     <rule>
-        <key>com.puppycrawl.tools.checkstyle.checks.coding.MissingSwitchDefaultCheck</key>
-        <name>Missing Switch Default Check</name>
-        <description>Missing Switch Default Check</description>
-        <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.coding.MissingSwitchDefaultCheck</internalKey>
-        <severity>MAJOR</severity>
-        <tag>sh-rule</tag>
-        <tag>coding</tag>
-    </rule>
-    <rule>
         <key>com.puppycrawl.tools.checkstyle.checks.coding.MultipleVariableDeclarationsCheck</key>
         <name>Multiple Variable Declarations Check</name>
         <description>Multiple Variable Declarations Check</description>
