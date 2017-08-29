@@ -12,6 +12,9 @@ import static es.startuphero.checkstyle.sonar.BaseRuleTestSupport.getRepositoryO
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
+/**
+ * @author ozlem.ulag
+ */
 public class SonarRulesDefinitionTest {
 
   @Test

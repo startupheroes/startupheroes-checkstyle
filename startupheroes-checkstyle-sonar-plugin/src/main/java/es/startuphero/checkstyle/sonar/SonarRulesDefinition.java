@@ -3,9 +3,10 @@ package es.startuphero.checkstyle.sonar;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.Reader;
-import java.nio.charset.StandardCharsets;
 import org.sonar.api.server.rule.RulesDefinition;
 import org.sonar.api.server.rule.RulesDefinitionXmlLoader;
+
+import static java.nio.charset.StandardCharsets.UTF_8;
 
 /**
  * @author ozlem.ulag
@@ -29,14 +30,12 @@ public final class SonarRulesDefinition implements RulesDefinition {
 
   @Override
   public void define(Context context) {
-    try (Reader reader = new InputStreamReader(
-        getClass().getResourceAsStream(RULES_RELATIVE_FILE_PATH), StandardCharsets.UTF_8)) {
+    try (Reader reader = new InputStreamReader(getClass().getResourceAsStream(RULES_RELATIVE_FILE_PATH), UTF_8)) {
       NewRepository repository = context.createRepository(REPOSITORY_KEY, REPOSITORY_LANGUAGE).setName(REPOSITORY_NAME);
       xmlLoader.load(repository, reader);
       repository.done();
-    } catch (IOException e) {
-      throw new IllegalStateException(
-          String.format("Fail to read file %s", RULES_RELATIVE_FILE_PATH), e);
+    } catch (IOException ex) {
+      throw new IllegalStateException(String.format("Fail to read file %s", RULES_RELATIVE_FILE_PATH), ex);
     }
   }
 }
