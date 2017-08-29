@@ -5,6 +5,7 @@
         <name>Array Type Style Check</name>
         <description>Array Type Style Check</description>
         <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.ArrayTypeStyleCheck</internalKey>
+        <severity>MAJOR</severity>
         <tag>sh-rule</tag>
     </rule>
     <rule>
@@ -12,6 +13,7 @@
         <name>Outer Type Filename Check</name>
         <description>Outer Type Filename Check</description>
         <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.OuterTypeFilenameCheck</internalKey>
+        <severity>MAJOR</severity>
         <tag>sh-rule</tag>
     </rule>
     <rule>
@@ -19,6 +21,7 @@
         <name>Translation Check</name>
         <description>Translation Check</description>
         <internalKey>Checker/com.puppycrawl.tools.checkstyle.checks.TranslationCheck</internalKey>
+        <severity>MAJOR</severity>
         <tag>sh-rule</tag>
     </rule>
     <rule>
@@ -26,6 +29,7 @@
         <name>Upper Ell Check</name>
         <description>Upper Ell Check</description>
         <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.UpperEllCheck</internalKey>
+        <severity>MAJOR</severity>
         <tag>sh-rule</tag>
     </rule>
     <rule>
@@ -33,6 +37,7 @@
         <name>Annotation Location Check</name>
         <description>Annotation Location Check</description>
         <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.annotation.AnnotationLocationCheck</internalKey>
+        <severity>MAJOR</severity>
         <tag>sh-rule</tag>
         <tag>annotation</tag>
     </rule>
@@ -41,6 +46,7 @@
         <name>Avoid Nested Blocks Check</name>
         <description>Avoid Nested Blocks Check</description>
         <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.blocks.AvoidNestedBlocksCheck</internalKey>
+        <severity>MAJOR</severity>
         <tag>sh-rule</tag>
         <tag>blocks</tag>
     </rule>
@@ -49,6 +55,7 @@
         <name>Empty Block Check</name>
         <description>Empty Block Check</description>
         <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.blocks.EmptyBlockCheck</internalKey>
+        <severity>MAJOR</severity>
         <tag>sh-rule</tag>
         <tag>blocks</tag>
     </rule>
@@ -57,6 +64,7 @@
         <name>Empty Catch Block Check</name>
         <description>Empty Catch Block Check</description>
         <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.blocks.EmptyCatchBlockCheck</internalKey>
+        <severity>MAJOR</severity>
         <param key="exceptionVariableName" name="Exception Variable Name">
             <defaultValue>expected|ignored</defaultValue>
             <description>Exception Variable Name property with value of 'expected|ignored'</description>
@@ -69,6 +77,7 @@
         <name>Left Curly Check</name>
         <description>Left Curly Check</description>
         <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck</internalKey>
+        <severity>MAJOR</severity>
         <tag>sh-rule</tag>
         <tag>blocks</tag>
     </rule>
@@ -77,6 +86,7 @@
         <name>Need Braces Check</name>
         <description>Need Braces Check</description>
         <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.blocks.NeedBracesCheck</internalKey>
+        <severity>MAJOR</severity>
         <tag>sh-rule</tag>
         <tag>blocks</tag>
     </rule>
@@ -85,6 +95,7 @@
         <name>Right Curly Check</name>
         <description>Right Curly Check</description>
         <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheck</internalKey>
+        <severity>MAJOR</severity>
         <tag>sh-rule</tag>
         <tag>blocks</tag>
     </rule>
@@ -93,6 +104,7 @@
         <name>Declaration Order Check</name>
         <description>Declaration Order Check</description>
         <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.coding.DeclarationOrderCheck</internalKey>
+        <severity>MAJOR</severity>
         <tag>sh-rule</tag>
         <tag>coding</tag>
     </rule>
@@ -101,6 +113,7 @@
         <name>Default Comes Last Check</name>
         <description>Default Comes Last Check</description>
         <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.coding.DefaultComesLastCheck</internalKey>
+        <severity>MAJOR</severity>
         <tag>sh-rule</tag>
         <tag>coding</tag>
     </rule>
@@ -109,6 +122,7 @@
         <name>Empty Statement Check</name>
         <description>Empty Statement Check</description>
         <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.coding.EmptyStatementCheck</internalKey>
+        <severity>MAJOR</severity>
         <tag>sh-rule</tag>
         <tag>coding</tag>
     </rule>
@@ -117,6 +131,7 @@
         <name>Equals Avoid Null Check</name>
         <description>Equals Avoid Null Check</description>
         <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.coding.EqualsAvoidNullCheck</internalKey>
+        <severity>MAJOR</severity>
         <tag>sh-rule</tag>
         <tag>coding</tag>
     </rule>
@@ -125,6 +140,7 @@
         <name>Equals Hash Code Check</name>
         <description>Equals Hash Code Check</description>
         <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.coding.EqualsHashCodeCheck</internalKey>
+        <severity>MAJOR</severity>
         <tag>sh-rule</tag>
         <tag>coding</tag>
     </rule>
@@ -133,6 +149,7 @@
         <name>Explicit Initialization Check</name>
         <description>Explicit Initialization Check</description>
         <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.coding.ExplicitInitializationCheck</internalKey>
+        <severity>MAJOR</severity>
         <tag>sh-rule</tag>
         <tag>coding</tag>
     </rule>
@@ -141,6 +158,7 @@
         <name>Fall Through Check</name>
         <description>Fall Through Check</description>
         <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.coding.FallThroughCheck</internalKey>
+        <severity>MAJOR</severity>
         <tag>sh-rule</tag>
         <tag>coding</tag>
     </rule>
@@ -149,6 +167,7 @@
         <name>Illegal Instantiation Check</name>
         <description>Illegal Instantiation Check</description>
         <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.coding.IllegalInstantiationCheck</internalKey>
+        <severity>MAJOR</severity>
         <tag>sh-rule</tag>
         <tag>coding</tag>
     </rule>
@@ -157,6 +176,7 @@
         <name>Illegal Token Text Check</name>
         <description>Illegal Token Text Check</description>
         <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.coding.IllegalTokenTextCheck</internalKey>
+        <severity>MAJOR</severity>
         <param key="tokens" name="Tokens">
             <defaultValue>STRING_LITERAL, CHAR_LITERAL</defaultValue>
             <description>Tokens property with value of 'STRING_LITERAL, CHAR_LITERAL'</description>
@@ -177,6 +197,7 @@
         <name>Magic Number Check</name>
         <description>Magic Number Check</description>
         <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.coding.MagicNumberCheck</internalKey>
+        <severity>MAJOR</severity>
         <param key="ignoreHashCodeMethod" name="Ignore Hash Code Method">
             <defaultValue>true</defaultValue>
             <description>Ignore Hash Code Method property with value of 'true'</description>
@@ -197,6 +218,7 @@
         <name>Missing Switch Default Check</name>
         <description>Missing Switch Default Check</description>
         <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.coding.MissingSwitchDefaultCheck</internalKey>
+        <severity>MAJOR</severity>
         <tag>sh-rule</tag>
         <tag>coding</tag>
     </rule>
@@ -205,6 +227,7 @@
         <name>Multiple Variable Declarations Check</name>
         <description>Multiple Variable Declarations Check</description>
         <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.coding.MultipleVariableDeclarationsCheck</internalKey>
+        <severity>MAJOR</severity>
         <tag>sh-rule</tag>
         <tag>coding</tag>
     </rule>
@@ -213,6 +236,7 @@
         <name>No Finalizer Check</name>
         <description>No Finalizer Check</description>
         <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.coding.NoFinalizerCheck</internalKey>
+        <severity>MAJOR</severity>
         <tag>sh-rule</tag>
         <tag>coding</tag>
     </rule>
@@ -221,6 +245,7 @@
         <name>One Statement Per Line Check</name>
         <description>One Statement Per Line Check</description>
         <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.coding.OneStatementPerLineCheck</internalKey>
+        <severity>MAJOR</severity>
         <tag>sh-rule</tag>
         <tag>coding</tag>
     </rule>
@@ -229,6 +254,7 @@
         <name>Package Declaration Check</name>
         <description>Package Declaration Check</description>
         <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.coding.PackageDeclarationCheck</internalKey>
+        <severity>MAJOR</severity>
         <tag>sh-rule</tag>
         <tag>coding</tag>
     </rule>
@@ -237,6 +263,7 @@
         <name>Simplify Boolean Expression Check</name>
         <description>Simplify Boolean Expression Check</description>
         <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.coding.SimplifyBooleanExpressionCheck</internalKey>
+        <severity>MAJOR</severity>
         <tag>sh-rule</tag>
         <tag>coding</tag>
     </rule>
@@ -245,6 +272,7 @@
         <name>Simplify Boolean Return Check</name>
         <description>Simplify Boolean Return Check</description>
         <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.coding.SimplifyBooleanReturnCheck</internalKey>
+        <severity>MAJOR</severity>
         <tag>sh-rule</tag>
         <tag>coding</tag>
     </rule>
@@ -253,6 +281,7 @@
         <name>Interface Is Type Check</name>
         <description>Interface Is Type Check</description>
         <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.design.InterfaceIsTypeCheck</internalKey>
+        <severity>MAJOR</severity>
         <tag>sh-rule</tag>
         <tag>design</tag>
     </rule>
@@ -261,6 +290,7 @@
         <name>One Top Level Class Check</name>
         <description>One Top Level Class Check</description>
         <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.design.OneTopLevelClassCheck</internalKey>
+        <severity>MAJOR</severity>
         <tag>sh-rule</tag>
         <tag>design</tag>
     </rule>
@@ -269,6 +299,7 @@
         <name>Visibility Modifier Check</name>
         <description>Visibility Modifier Check</description>
         <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck</internalKey>
+        <severity>MAJOR</severity>
         <param key="protectedAllowed" name="Protected Allowed">
             <defaultValue>true</defaultValue>
             <description>Protected Allowed property with value of 'true'</description>
@@ -281,6 +312,7 @@
         <name>Avoid Star Import Check</name>
         <description>Avoid Star Import Check</description>
         <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.imports.AvoidStarImportCheck</internalKey>
+        <severity>MAJOR</severity>
         <tag>sh-rule</tag>
         <tag>imports</tag>
     </rule>
@@ -289,6 +321,7 @@
         <name>Illegal Import Check</name>
         <description>Illegal Import Check</description>
         <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.imports.IllegalImportCheck</internalKey>
+        <severity>MAJOR</severity>
         <tag>sh-rule</tag>
         <tag>imports</tag>
     </rule>
@@ -297,6 +330,7 @@
         <name>Redundant Import Check</name>
         <description>Redundant Import Check</description>
         <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.imports.RedundantImportCheck</internalKey>
+        <severity>MAJOR</severity>
         <tag>sh-rule</tag>
         <tag>imports</tag>
     </rule>
@@ -305,6 +339,7 @@
         <name>Unused Imports Check</name>
         <description>Unused Imports Check</description>
         <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.imports.UnusedImportsCheck</internalKey>
+        <severity>MAJOR</severity>
         <tag>sh-rule</tag>
         <tag>imports</tag>
     </rule>
@@ -313,6 +348,7 @@
         <name>Comments Indentation Check</name>
         <description>Comments Indentation Check</description>
         <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.indentation.CommentsIndentationCheck</internalKey>
+        <severity>MAJOR</severity>
         <tag>sh-rule</tag>
         <tag>indentation</tag>
     </rule>
@@ -321,6 +357,7 @@
         <name>Modifier Order Check</name>
         <description>Modifier Order Check</description>
         <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.modifier.ModifierOrderCheck</internalKey>
+        <severity>MAJOR</severity>
         <tag>sh-rule</tag>
         <tag>modifier</tag>
     </rule>
@@ -329,6 +366,7 @@
         <name>Redundant Modifier Check</name>
         <description>Redundant Modifier Check</description>
         <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.modifier.RedundantModifierCheck</internalKey>
+        <severity>MAJOR</severity>
         <tag>sh-rule</tag>
         <tag>modifier</tag>
     </rule>
@@ -337,6 +375,7 @@
         <name>Abbreviation As Word In Name Check</name>
         <description>Abbreviation As Word In Name Check</description>
         <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.naming.AbbreviationAsWordInNameCheck</internalKey>
+        <severity>MAJOR</severity>
         <param key="ignoreFinal" name="Ignore Final">
             <defaultValue>false</defaultValue>
             <description>Ignore Final property with value of 'false'</description>
@@ -353,6 +392,7 @@
         <name>Abstract Class Name Check</name>
         <description>Abstract Class Name Check</description>
         <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.naming.AbstractClassNameCheck</internalKey>
+        <severity>MAJOR</severity>
         <param key="ignoreName" name="Ignore Name">
             <defaultValue>true</defaultValue>
             <description>Ignore Name property with value of 'true'</description>
@@ -365,6 +405,7 @@
         <name>Catch Parameter Name Check</name>
         <description>Catch Parameter Name Check</description>
         <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.naming.CatchParameterNameCheck</internalKey>
+        <severity>MAJOR</severity>
         <tag>sh-rule</tag>
         <tag>naming</tag>
     </rule>
@@ -373,6 +414,7 @@
         <name>Class Type Parameter Name Check</name>
         <description>Class Type Parameter Name Check</description>
         <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.naming.ClassTypeParameterNameCheck</internalKey>
+        <severity>MAJOR</severity>
         <param key="format" name="Format">
             <defaultValue>^[A-Z]*$</defaultValue>
             <description>Format property with value of '^[A-Z]*$'</description>
@@ -385,6 +427,7 @@
         <name>Constant Name Check</name>
         <description>Constant Name Check</description>
         <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.naming.ConstantNameCheck</internalKey>
+        <severity>MAJOR</severity>
         <tag>sh-rule</tag>
         <tag>naming</tag>
     </rule>
@@ -393,6 +436,7 @@
         <name>Interface Type Parameter Name Check</name>
         <description>Interface Type Parameter Name Check</description>
         <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.naming.InterfaceTypeParameterNameCheck</internalKey>
+        <severity>MAJOR</severity>
         <param key="format" name="Format">
             <defaultValue>^[A-Z]*$</defaultValue>
             <description>Format property with value of '^[A-Z]*$'</description>
@@ -405,6 +449,7 @@
         <name>Local Final Variable Name Check</name>
         <description>Local Final Variable Name Check</description>
         <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.naming.LocalFinalVariableNameCheck</internalKey>
+        <severity>MAJOR</severity>
         <tag>sh-rule</tag>
         <tag>naming</tag>
     </rule>
@@ -413,6 +458,7 @@
         <name>Local Variable Name Check</name>
         <description>Local Variable Name Check</description>
         <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.naming.LocalVariableNameCheck</internalKey>
+        <severity>MAJOR</severity>
         <tag>sh-rule</tag>
         <tag>naming</tag>
     </rule>
@@ -421,6 +467,7 @@
         <name>Member Name Check</name>
         <description>Member Name Check</description>
         <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheck</internalKey>
+        <severity>MAJOR</severity>
         <tag>sh-rule</tag>
         <tag>naming</tag>
     </rule>
@@ -429,6 +476,7 @@
         <name>Method Name Check</name>
         <description>Method Name Check</description>
         <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.naming.MethodNameCheck</internalKey>
+        <severity>MAJOR</severity>
         <tag>sh-rule</tag>
         <tag>naming</tag>
     </rule>
@@ -437,6 +485,7 @@
         <name>Method Type Parameter Name Check</name>
         <description>Method Type Parameter Name Check</description>
         <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.naming.MethodTypeParameterNameCheck</internalKey>
+        <severity>MAJOR</severity>
         <param key="format" name="Format">
             <defaultValue>^[A-Z]*$</defaultValue>
             <description>Format property with value of '^[A-Z]*$'</description>
@@ -449,6 +498,7 @@
         <name>Package Name Check</name>
         <description>Package Name Check</description>
         <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.naming.PackageNameCheck</internalKey>
+        <severity>MAJOR</severity>
         <tag>sh-rule</tag>
         <tag>naming</tag>
     </rule>
@@ -457,6 +507,7 @@
         <name>Parameter Name Check</name>
         <description>Parameter Name Check</description>
         <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.naming.ParameterNameCheck</internalKey>
+        <severity>MAJOR</severity>
         <tag>sh-rule</tag>
         <tag>naming</tag>
     </rule>
@@ -465,6 +516,7 @@
         <name>Static Variable Name Check</name>
         <description>Static Variable Name Check</description>
         <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.naming.StaticVariableNameCheck</internalKey>
+        <severity>MAJOR</severity>
         <tag>sh-rule</tag>
         <tag>naming</tag>
     </rule>
@@ -473,6 +525,7 @@
         <name>Type Name Check</name>
         <description>Type Name Check</description>
         <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.naming.TypeNameCheck</internalKey>
+        <severity>MAJOR</severity>
         <tag>sh-rule</tag>
         <tag>naming</tag>
     </rule>
@@ -481,6 +534,7 @@
         <name>Regexp Singleline Check</name>
         <description>Regexp Singleline Check</description>
         <internalKey>Checker/com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck</internalKey>
+        <severity>MAJOR</severity>
         <cardinality>MULTIPLE</cardinality>
         <param key="id" name="Id">
             <defaultValue>RegexpSinglelineTrailingSpaceCheck</defaultValue>
@@ -510,6 +564,7 @@
         <name>File Length Check</name>
         <description>File Length Check</description>
         <internalKey>Checker/com.puppycrawl.tools.checkstyle.checks.sizes.FileLengthCheck</internalKey>
+        <severity>MAJOR</severity>
         <param key="max" name="Max">
             <defaultValue>1500</defaultValue>
             <description>Max property with value of '1500'</description>
@@ -522,6 +577,7 @@
         <name>Line Length Check</name>
         <description>Line Length Check</description>
         <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck</internalKey>
+        <severity>MAJOR</severity>
         <param key="max" name="Max">
             <defaultValue>120</defaultValue>
             <description>Max property with value of '120'</description>
@@ -538,6 +594,7 @@
         <name>Method Length Check</name>
         <description>Method Length Check</description>
         <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.sizes.MethodLengthCheck</internalKey>
+        <severity>MAJOR</severity>
         <param key="max" name="Max">
             <defaultValue>30</defaultValue>
             <description>Max property with value of '30'</description>
@@ -550,6 +607,7 @@
         <name>Empty For Iterator Pad Check</name>
         <description>Empty For Iterator Pad Check</description>
         <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.whitespace.EmptyForIteratorPadCheck</internalKey>
+        <severity>MAJOR</severity>
         <tag>sh-rule</tag>
         <tag>whitespace</tag>
     </rule>
@@ -558,6 +616,7 @@
         <name>Empty Line Separator Check</name>
         <description>Empty Line Separator Check</description>
         <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.whitespace.EmptyLineSeparatorCheck</internalKey>
+        <severity>MAJOR</severity>
         <tag>sh-rule</tag>
         <tag>whitespace</tag>
     </rule>
@@ -566,6 +625,7 @@
         <name>File Tab Character Check</name>
         <description>File Tab Character Check</description>
         <internalKey>Checker/com.puppycrawl.tools.checkstyle.checks.whitespace.FileTabCharacterCheck</internalKey>
+        <severity>MAJOR</severity>
         <param key="eachLine" name="Each Line">
             <defaultValue>true</defaultValue>
             <description>Each Line property with value of 'true'</description>
@@ -578,6 +638,7 @@
         <name>Generic Whitespace Check</name>
         <description>Generic Whitespace Check</description>
         <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.whitespace.GenericWhitespaceCheck</internalKey>
+        <severity>MAJOR</severity>
         <tag>sh-rule</tag>
         <tag>whitespace</tag>
     </rule>
@@ -586,6 +647,7 @@
         <name>Method Param Pad Check</name>
         <description>Method Param Pad Check</description>
         <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.whitespace.MethodParamPadCheck</internalKey>
+        <severity>MAJOR</severity>
         <tag>sh-rule</tag>
         <tag>whitespace</tag>
     </rule>
@@ -594,6 +656,7 @@
         <name>No Line Wrap Check</name>
         <description>No Line Wrap Check</description>
         <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.whitespace.NoLineWrapCheck</internalKey>
+        <severity>MAJOR</severity>
         <tag>sh-rule</tag>
         <tag>whitespace</tag>
     </rule>
@@ -602,6 +665,7 @@
         <name>No Whitespace After Check</name>
         <description>No Whitespace After Check</description>
         <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.whitespace.NoWhitespaceAfterCheck</internalKey>
+        <severity>MAJOR</severity>
         <tag>sh-rule</tag>
         <tag>whitespace</tag>
     </rule>
@@ -610,6 +674,7 @@
         <name>No Whitespace Before Check</name>
         <description>No Whitespace Before Check</description>
         <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.whitespace.NoWhitespaceBeforeCheck</internalKey>
+        <severity>MAJOR</severity>
         <tag>sh-rule</tag>
         <tag>whitespace</tag>
     </rule>
@@ -618,6 +683,7 @@
         <name>Paren Pad Check</name>
         <description>Paren Pad Check</description>
         <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.whitespace.ParenPadCheck</internalKey>
+        <severity>MAJOR</severity>
         <tag>sh-rule</tag>
         <tag>whitespace</tag>
     </rule>
@@ -626,6 +692,7 @@
         <name>Separator Wrap Check</name>
         <description>Separator Wrap Check</description>
         <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.whitespace.SeparatorWrapCheck</internalKey>
+        <severity>MAJOR</severity>
         <cardinality>MULTIPLE</cardinality>
         <param key="id" name="Id">
             <defaultValue>SeparatorWrapDotCheck</defaultValue>
@@ -647,6 +714,7 @@
         <name>Typecast Paren Pad Check</name>
         <description>Typecast Paren Pad Check</description>
         <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.whitespace.TypecastParenPadCheck</internalKey>
+        <severity>MAJOR</severity>
         <tag>sh-rule</tag>
         <tag>whitespace</tag>
     </rule>
@@ -655,6 +723,7 @@
         <name>Whitespace After Check</name>
         <description>Whitespace After Check</description>
         <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAfterCheck</internalKey>
+        <severity>MAJOR</severity>
         <tag>sh-rule</tag>
         <tag>whitespace</tag>
     </rule>
@@ -663,6 +732,7 @@
         <name>Whitespace Around Check</name>
         <description>Whitespace Around Check</description>
         <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck</internalKey>
+        <severity>MAJOR</severity>
         <tag>sh-rule</tag>
         <tag>whitespace</tag>
     </rule>
@@ -671,6 +741,7 @@
         <name>Forbidden Annotation Check</name>
         <description>Forbidden Annotation Check</description>
         <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.annotation.ForbiddenAnnotationCheck</internalKey>
+        <severity>MAJOR</severity>
         <param key="forbiddenAnnotations" name="Forbidden Annotations">
             <defaultValue>com.clovify.lyso.core.annotation.LysoRepository</defaultValue>
             <description>Forbidden Annotations property with value of 'com.clovify.lyso.core.annotation.LysoRepository'</description>
@@ -683,6 +754,7 @@
         <name>Forbidden Annotation Key Check</name>
         <description>Forbidden Annotation Key Check</description>
         <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.annotation.ForbiddenAnnotationKeyCheck</internalKey>
+        <severity>MAJOR</severity>
         <param key="annotationForbiddenKeysMap" name="Annotation Forbidden Keys Map">
             <defaultValue>javax.persistence.Column:unique</defaultValue>
             <description>Annotation Forbidden Keys Map property with value of 'javax.persistence.Column:unique'</description>
@@ -695,6 +767,7 @@
         <name>Variable Annotation Key Value Check</name>
         <description>Variable Annotation Key Value Check</description>
         <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.annotation.VariableAnnotationKeyValueCheck</internalKey>
+        <severity>MAJOR</severity>
         <param key="typeAnnotation" name="Type Annotation">
             <defaultValue>javax.persistence.Entity</defaultValue>
             <description>Type Annotation property with value of 'javax.persistence.Entity'</description>
@@ -715,6 +788,7 @@
         <name>Variable Declaration Order Check</name>
         <description>Variable Declaration Order Check</description>
         <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.coding.VariableDeclarationOrderCheck</internalKey>
+        <severity>MAJOR</severity>
         <param key="variableName" name="Variable Name">
             <defaultValue>LOGGER</defaultValue>
             <description>Variable Name property with value of 'LOGGER'</description>
@@ -731,6 +805,7 @@
         <name>Log Data Table Check</name>
         <description>Log Data Table Check</description>
         <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.design.LogDataTableCheck</internalKey>
+        <severity>MAJOR</severity>
         <param key="typeAnnotation" name="Type Annotation">
             <defaultValue>javax.persistence.Entity</defaultValue>
             <description>Type Annotation property with value of 'javax.persistence.Entity'</description>
@@ -755,6 +830,7 @@
         <name>Missing Equals Hash Code Check</name>
         <description>Missing Equals Hash Code Check</description>
         <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.method.MissingEqualsHashCodeCheck</internalKey>
+        <severity>MAJOR</severity>
         <param key="typeAnnotation" name="Type Annotation">
             <defaultValue>javax.persistence.Entity</defaultValue>
             <description>Type Annotation property with value of 'javax.persistence.Entity'</description>
@@ -775,6 +851,7 @@
         <name>Missing Getter Check</name>
         <description>Missing Getter Check</description>
         <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.method.MissingGetterCheck</internalKey>
+        <severity>MAJOR</severity>
         <param key="typeAnnotation" name="Type Annotation">
             <defaultValue>javax.persistence.Entity</defaultValue>
             <description>Type Annotation property with value of 'javax.persistence.Entity'</description>
@@ -791,6 +868,7 @@
         <name>Missing Setter Check</name>
         <description>Missing Setter Check</description>
         <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.method.MissingSetterCheck</internalKey>
+        <severity>MAJOR</severity>
         <param key="typeAnnotation" name="Type Annotation">
             <defaultValue>javax.persistence.Entity</defaultValue>
             <description>Type Annotation property with value of 'javax.persistence.Entity'</description>
@@ -807,6 +885,7 @@
         <name>Missing To String Check</name>
         <description>Missing To String Check</description>
         <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.method.MissingToStringCheck</internalKey>
+        <severity>MAJOR</severity>
         <param key="typeAnnotation" name="Type Annotation">
             <defaultValue>javax.persistence.Entity</defaultValue>
             <description>Type Annotation property with value of 'javax.persistence.Entity'</description>
@@ -823,6 +902,7 @@
         <name>Missing Abstract Modifier Check</name>
         <description>Missing Abstract Modifier Check</description>
         <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.modifier.MissingAbstractModifierCheck</internalKey>
+        <severity>MAJOR</severity>
         <param key="abstractTypeAnnotation" name="Abstract Type Annotation">
             <defaultValue>javax.persistence.MappedSuperclass</defaultValue>
             <description>Abstract Type Annotation property with value of 'javax.persistence.MappedSuperclass'</description>
@@ -835,6 +915,7 @@
         <name>Generated Primary Key Name Check</name>
         <description>Generated Primary Key Name Check</description>
         <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.naming.GeneratedPrimaryKeyNameCheck</internalKey>
+        <severity>MAJOR</severity>
         <param key="typeAnnotation" name="Type Annotation">
             <defaultValue>javax.persistence.Entity</defaultValue>
             <description>Type Annotation property with value of 'javax.persistence.Entity'</description>
@@ -863,6 +944,7 @@
         <name>Table Identifier Name Check</name>
         <description>Table Identifier Name Check</description>
         <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.naming.TableIdentifierNameCheck</internalKey>
+        <severity>MAJOR</severity>
         <cardinality>MULTIPLE</cardinality>
         <param key="id" name="Id">
             <defaultValue>IndexNameCheck</defaultValue>
@@ -908,6 +990,7 @@
         <name>Variable Name Check</name>
         <description>Variable Name Check</description>
         <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.naming.VariableNameCheck</internalKey>
+        <severity>MAJOR</severity>
         <param key="typeAnnotation" name="Type Annotation">
             <defaultValue>javax.persistence.Entity</defaultValue>
             <description>Type Annotation property with value of 'javax.persistence.Entity'</description>
@@ -920,6 +1003,7 @@
         <name>Missing Variable Check</name>
         <description>Missing Variable Check</description>
         <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.variable.MissingVariableCheck</internalKey>
+        <severity>MAJOR</severity>
         <param key="typeAnnotation" name="Type Annotation">
             <defaultValue>javax.persistence.Entity</defaultValue>
             <description>Type Annotation property with value of 'javax.persistence.Entity'</description>

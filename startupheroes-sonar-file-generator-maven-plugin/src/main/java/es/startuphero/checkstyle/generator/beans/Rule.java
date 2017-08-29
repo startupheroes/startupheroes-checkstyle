@@ -27,6 +27,9 @@ public class Rule {
   @XmlElement
   private Boolean template;
 
+  @XmlElement
+  private String severity;
+
   @Deprecated
   @XmlElement
   private String cardinality;
@@ -77,6 +80,14 @@ public class Rule {
     this.template = template;
   }
 
+  public String getSeverity() {
+    return severity;
+  }
+
+  public void setSeverity(String severity) {
+    this.severity = severity;
+  }
+
   public String getCardinality() {
     return cardinality;
   }
@@ -109,9 +120,7 @@ public class Rule {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-
     Rule rule = (Rule) o;
-
     return key != null ? key.equals(rule.key) : rule.key == null;
   }
 
@@ -128,6 +137,7 @@ public class Rule {
            ", description='" + description + '\'' +
            ", internalKey='" + internalKey + '\'' +
            ", template=" + template +
+           ", severity='" + severity + '\'' +
            ", cardinality='" + cardinality + '\'' +
            ", params=" + params +
            ", tags=" + tags +

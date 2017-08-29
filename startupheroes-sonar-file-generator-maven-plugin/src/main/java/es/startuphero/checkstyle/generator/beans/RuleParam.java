@@ -63,9 +63,7 @@ public class RuleParam {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-
     RuleParam ruleParam = (RuleParam) o;
-
     return key != null ? key.equals(ruleParam.key) : ruleParam.key == null;
   }
 
