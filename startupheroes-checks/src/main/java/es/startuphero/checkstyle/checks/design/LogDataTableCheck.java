@@ -3,15 +3,15 @@ package es.startuphero.checkstyle.checks.design;
 import com.puppycrawl.tools.checkstyle.api.AbstractCheck;
 import com.puppycrawl.tools.checkstyle.api.DetailAST;
 import com.puppycrawl.tools.checkstyle.api.TokenTypes;
-import com.puppycrawl.tools.checkstyle.utils.CommonUtils;
+import com.puppycrawl.tools.checkstyle.utils.CommonUtil;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.regex.Pattern;
 
-import static es.startuphero.checkstyle.util.AnnotationUtil.getAnnotation;
-import static es.startuphero.checkstyle.util.AnnotationUtil.getKeyValueAstMap;
-import static es.startuphero.checkstyle.util.AnnotationUtil.getValueAsString;
+import static es.startuphero.checkstyle.util.AnnotationUtils.getAnnotation;
+import static es.startuphero.checkstyle.util.AnnotationUtils.getKeyValueAstMap;
+import static es.startuphero.checkstyle.util.AnnotationUtils.getValueAsString;
 import static es.startuphero.checkstyle.util.ClassUtil.getClassName;
 import static es.startuphero.checkstyle.util.ClassUtil.isEntity;
 import static es.startuphero.checkstyle.util.VariableUtil.getNonStaticVariables;
@@ -119,6 +119,6 @@ public class LogDataTableCheck extends AbstractCheck {
    */
   public void setClassNameFormat(String format) {
     this.classNameFormat = format;
-    regexp = CommonUtils.createPattern(format);
+    regexp = CommonUtil.createPattern(format);
   }
 }

@@ -2,7 +2,7 @@ package es.startuphero.checkstyle.util;
 
 import com.puppycrawl.tools.checkstyle.api.DetailAST;
 import com.puppycrawl.tools.checkstyle.api.TokenTypes;
-import com.puppycrawl.tools.checkstyle.utils.AnnotationUtility;
+import com.puppycrawl.tools.checkstyle.utils.AnnotationUtil;
 import java.lang.reflect.Method;
 import java.util.Collection;
 import java.util.Collections;
@@ -18,11 +18,11 @@ import static java.util.Objects.nonNull;
 /**
  * @author ozlem.ulag
  */
-public final class AnnotationUtil {
+public final class AnnotationUtils {
 
   public static final String OVERRIDE_ANNOTATION_NAME_BY_PACKAGE = "java.lang.Override";
 
-  private AnnotationUtil() {
+  private AnnotationUtils() {
   }
 
   /**
@@ -31,14 +31,14 @@ public final class AnnotationUtil {
    */
   public static Boolean hasAnnotation(DetailAST ast, String fullAnnotation) {
     return CommonUtil.getSimpleAndFullNames(fullAnnotation).stream()
-                     .anyMatch(annotation -> AnnotationUtility.containsAnnotation(ast, annotation));
+                     .anyMatch(annotation -> AnnotationUtil.containsAnnotation(ast, annotation));
   }
 
   public static DetailAST getAnnotation(DetailAST ast, String fullAnnotation) {
     DetailAST simpleAnnotationAst =
-        AnnotationUtility.getAnnotation(ast, CommonUtil.getSimpleName(fullAnnotation));
+        AnnotationUtil.getAnnotation(ast, CommonUtil.getSimpleName(fullAnnotation));
     return nonNull(simpleAnnotationAst) ? simpleAnnotationAst
-        : AnnotationUtility.getAnnotation(ast, fullAnnotation);
+        : AnnotationUtil.getAnnotation(ast, fullAnnotation);
   }
 
   public static List<String> getKeys(DetailAST annotationAst) {

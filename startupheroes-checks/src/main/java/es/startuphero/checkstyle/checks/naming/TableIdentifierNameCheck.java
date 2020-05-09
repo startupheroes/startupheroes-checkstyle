@@ -3,7 +3,7 @@ package es.startuphero.checkstyle.checks.naming;
 import com.puppycrawl.tools.checkstyle.api.AbstractCheck;
 import com.puppycrawl.tools.checkstyle.api.DetailAST;
 import com.puppycrawl.tools.checkstyle.api.TokenTypes;
-import es.startuphero.checkstyle.util.AnnotationUtil;
+import es.startuphero.checkstyle.util.AnnotationUtils;
 import es.startuphero.checkstyle.util.CommonUtil;
 import java.util.Collections;
 import java.util.List;
@@ -11,10 +11,10 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.regex.Pattern;
 
-import static es.startuphero.checkstyle.util.AnnotationUtil.getKeyValueAstMap;
-import static es.startuphero.checkstyle.util.AnnotationUtil.getValueAsAnnotations;
-import static es.startuphero.checkstyle.util.AnnotationUtil.getValueAsString;
-import static es.startuphero.checkstyle.util.AnnotationUtil.hasAnnotation;
+import static es.startuphero.checkstyle.util.AnnotationUtils.getKeyValueAstMap;
+import static es.startuphero.checkstyle.util.AnnotationUtils.getValueAsAnnotations;
+import static es.startuphero.checkstyle.util.AnnotationUtils.getValueAsString;
+import static es.startuphero.checkstyle.util.AnnotationUtils.hasAnnotation;
 import static es.startuphero.checkstyle.util.ClassUtil.getClassName;
 import static es.startuphero.checkstyle.util.CommonUtil.getSplitterOnComma;
 import static java.util.Objects.nonNull;
@@ -79,7 +79,7 @@ public class TableIdentifierNameCheck extends AbstractCheck {
   public void visitToken(DetailAST ast) {
     if (hasAnnotation(ast, tableAnnotation)) {
       Map<String, DetailAST> tableKeyValueAstMap =
-          getKeyValueAstMap(AnnotationUtil.getAnnotation(ast, tableAnnotation));
+          getKeyValueAstMap(AnnotationUtils.getAnnotation(ast, tableAnnotation));
       if (tableKeyValueAstMap.containsKey(key)) {
         DetailAST keyValuePairNode = tableKeyValueAstMap.get(key);
         List<DetailAST> identifierAnnotationNodes = getValueAsAnnotations(keyValuePairNode);
@@ -102,7 +102,7 @@ public class TableIdentifierNameCheck extends AbstractCheck {
                                     Map<String, DetailAST> identifierKeyValueAstMap, String identifierName) {
     DetailAST columnsKeyValueAst = identifierKeyValueAstMap.get(keyColumns);
     if (nonNull(columnsKeyValueAst)) {
-      List<String> columnNames = AnnotationUtil.getValueAsStringList(columnsKeyValueAst);
+      List<String> columnNames = AnnotationUtils.getValueAsStringList(columnsKeyValueAst);
       if (!columnNames.isEmpty()) {
         String suggestedIdentifierName = getSuggestedIdentifierName(className, columnNames);
         if (identifierName.length() > maxLength) {

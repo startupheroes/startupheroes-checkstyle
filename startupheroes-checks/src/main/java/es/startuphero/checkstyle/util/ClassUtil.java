@@ -29,7 +29,7 @@ public final class ClassUtil {
    * @return true if class is an entity, otherwise false
    */
   public static Boolean isEntity(DetailAST classAst, String fullEntityAnnotation) {
-    return AnnotationUtil.hasAnnotation(classAst, fullEntityAnnotation);
+    return AnnotationUtils.hasAnnotation(classAst, fullEntityAnnotation);
   }
 
   /**

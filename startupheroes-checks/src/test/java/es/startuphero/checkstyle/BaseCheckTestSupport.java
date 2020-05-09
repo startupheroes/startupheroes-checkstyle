@@ -1,13 +1,14 @@
 package es.startuphero.checkstyle;
 
 import com.google.common.collect.Lists;
-import com.puppycrawl.tools.checkstyle.AuditEventUtFormatter;
+import com.puppycrawl.tools.checkstyle.AuditEventDefaultFormatter;
 import com.puppycrawl.tools.checkstyle.Checker;
 import com.puppycrawl.tools.checkstyle.DefaultConfiguration;
 import com.puppycrawl.tools.checkstyle.DefaultLogger;
 import com.puppycrawl.tools.checkstyle.TreeWalker;
 import com.puppycrawl.tools.checkstyle.api.AuditEvent;
 import com.puppycrawl.tools.checkstyle.api.Configuration;
+import com.puppycrawl.tools.checkstyle.internal.utils.AuditEventUtFormatter;
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -154,7 +155,7 @@ public abstract class BaseCheckTestSupport extends Assert {
   private static class BriefLogger extends DefaultLogger {
 
     BriefLogger(OutputStream out) throws UnsupportedEncodingException {
-      super(out, true, out, false, new AuditEventUtFormatter());
+      super(out, OutputStreamOptions.CLOSE, out, OutputStreamOptions.NONE, new AuditEventUtFormatter());
     }
 
     @Override

@@ -7,9 +7,9 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
 
-import static es.startuphero.checkstyle.util.AnnotationUtil.getKeyDefaultValueMap;
-import static es.startuphero.checkstyle.util.AnnotationUtil.getKeyValueAstMap;
-import static es.startuphero.checkstyle.util.AnnotationUtil.getValueAsString;
+import static es.startuphero.checkstyle.util.AnnotationUtils.getKeyDefaultValueMap;
+import static es.startuphero.checkstyle.util.AnnotationUtils.getKeyValueAstMap;
+import static es.startuphero.checkstyle.util.AnnotationUtils.getValueAsString;
 import static es.startuphero.checkstyle.util.ClassUtil.getImportSimpleFullNameMap;
 import static es.startuphero.checkstyle.util.CommonUtil.getFullName;
 import static es.startuphero.checkstyle.util.CommonUtil.getSimpleName;

@@ -51,6 +51,14 @@
     <property name="message" value="Space needed around ':' character."/>
   </module>
 
+  <!-- Checks for Size Violations.                    -->
+  <!-- See http://checkstyle.sf.net/config_sizes.html -->
+  <module name="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck">
+    <property name="max" value="120"/>
+    <property name="ignorePattern"
+        value="^package.*|^import.*|a href|href|http://|https://|ftp://"/>
+  </module>
+
   <module name="TreeWalker">
 
     <!-- Checks for Naming Conventions.                  -->
@@ -82,13 +90,6 @@
     <module name="com.puppycrawl.tools.checkstyle.checks.imports.RedundantImportCheck"/>
     <module name="com.puppycrawl.tools.checkstyle.checks.imports.UnusedImportsCheck"/>
 
-    <!-- Checks for Size Violations.                    -->
-    <!-- See http://checkstyle.sf.net/config_sizes.html -->
-    <module name="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck">
-      <property name="max" value="120"/>
-      <property name="ignorePattern"
-          value="^package.*|^import.*|a href|href|http://|https://|ftp://"/>
-    </module>
     <module name="com.puppycrawl.tools.checkstyle.checks.sizes.MethodLengthCheck">
       <property name="max" value="30"/>
     </module>

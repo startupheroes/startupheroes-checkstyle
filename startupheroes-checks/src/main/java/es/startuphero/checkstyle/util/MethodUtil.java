@@ -4,7 +4,7 @@ import antlr.collections.AST;
 import com.puppycrawl.tools.checkstyle.api.DetailAST;
 import com.puppycrawl.tools.checkstyle.api.FullIdent;
 import com.puppycrawl.tools.checkstyle.api.TokenTypes;
-import com.puppycrawl.tools.checkstyle.utils.CheckUtils;
+import com.puppycrawl.tools.checkstyle.utils.CheckUtil;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.List;
@@ -103,14 +103,14 @@ public final class MethodUtil {
   public static List<DetailAST> getGetters(DetailAST classAst) {
     return getMethods(classAst).stream()
                                .filter(
-                                   getter -> CheckUtils.isGetterMethod(getter) && getMethodName(getter).startsWith(GET))
+                                   getter -> CheckUtil.isGetterMethod(getter) && getMethodName(getter).startsWith(GET))
                                .collect(Collectors.toList());
   }
 
   public static List<DetailAST> getSetters(DetailAST classAst) {
     return getMethods(classAst).stream()
                                .filter(
-                                   setter -> CheckUtils.isSetterMethod(setter) && getMethodName(setter).startsWith(SET))
+                                   setter -> CheckUtil.isSetterMethod(setter) && getMethodName(setter).startsWith(SET))
                                .collect(Collectors.toList());
   }
 
@@ -124,7 +124,7 @@ public final class MethodUtil {
     DetailAST modifiers = ast.getFirstChild();
     DetailAST parameters = ast.findFirstToken(TokenTypes.PARAMETERS);
 
-    return CheckUtils.isEqualsMethod(ast)
+    return CheckUtil.isEqualsMethod(ast)
            && modifiers.branchContains(TokenTypes.LITERAL_PUBLIC)
            && isObjectParam(parameters.getFirstChild())
            && (ast.branchContains(TokenTypes.SLIST)
@@ -139,8 +139,8 @@ public final class MethodUtil {
    */
   public static Boolean isHashCodeMethod(DetailAST ast) {
     DetailAST modifiers = ast.getFirstChild();
-    AST type = ast.findFirstToken(TokenTypes.TYPE);
-    AST methodName = ast.findFirstToken(TokenTypes.IDENT);
+    DetailAST type = ast.findFirstToken(TokenTypes.TYPE);
+    DetailAST methodName = ast.findFirstToken(TokenTypes.IDENT);
     DetailAST parameters = ast.findFirstToken(TokenTypes.PARAMETERS);
 
     return type.getFirstChild().getType() == TokenTypes.LITERAL_INT
@@ -160,8 +160,8 @@ public final class MethodUtil {
    */
   public static Boolean isToStringMethod(DetailAST ast) {
     DetailAST modifiers = ast.getFirstChild();
-    AST type = ast.findFirstToken(TokenTypes.TYPE);
-    AST methodName = ast.findFirstToken(TokenTypes.IDENT);
+    DetailAST type = ast.findFirstToken(TokenTypes.TYPE);
+    DetailAST methodName = ast.findFirstToken(TokenTypes.IDENT);
     DetailAST parameters = ast.findFirstToken(TokenTypes.PARAMETERS);
 
     return CommonUtil.getSimpleAndFullNames(ClassUtil.STRING_CLASS_NAME_BY_PACKAGE)

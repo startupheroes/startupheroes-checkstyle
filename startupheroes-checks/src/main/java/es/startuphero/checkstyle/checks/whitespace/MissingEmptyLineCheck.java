@@ -39,7 +39,7 @@ public class MissingEmptyLineCheck extends AbstractCheck {
     DetailAST rightCurlyNode = objBlockNode.findFirstToken(TokenTypes.RCURLY);
     int lineNoBeforeLastLine = rightCurlyNode.getLineNo() - 1;
     String lineBeforeLastLine = getLine(lineNoBeforeLastLine - 1);
-    if (!CharMatcher.WHITESPACE.matchesAllOf(lineBeforeLastLine)) {
+    if (!CharMatcher.whitespace().matchesAllOf(lineBeforeLastLine)) {
       log(lineNoBeforeLastLine, MSG_KEY);
     }
   }

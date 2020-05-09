@@ -7,7 +7,7 @@ import es.startuphero.checkstyle.util.CommonUtil;
 import java.util.HashMap;
 import java.util.Map;
 
-import static es.startuphero.checkstyle.util.AnnotationUtil.hasAnnotation;
+import static es.startuphero.checkstyle.util.AnnotationUtils.hasAnnotation;
 import static es.startuphero.checkstyle.util.CommonUtil.getSimpleName;
 
 /**
