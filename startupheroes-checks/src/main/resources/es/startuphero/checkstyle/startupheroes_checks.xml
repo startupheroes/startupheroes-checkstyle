@@ -179,10 +179,6 @@
     </module>
 
     <module name="com.puppycrawl.tools.checkstyle.checks.coding.NoFinalizerCheck"/>
-    <module name="com.puppycrawl.tools.checkstyle.checks.naming.AbbreviationAsWordInNameCheck">
-      <property name="ignoreFinal" value="false"/>
-      <property name="allowedAbbreviationLength" value="1"/>
-    </module>
     <module name="com.puppycrawl.tools.checkstyle.checks.annotation.AnnotationLocationCheck"/>
     <module name="com.puppycrawl.tools.checkstyle.checks.blocks.EmptyCatchBlockCheck">
       <property name="exceptionVariableName" value="expected|ignored"/>
