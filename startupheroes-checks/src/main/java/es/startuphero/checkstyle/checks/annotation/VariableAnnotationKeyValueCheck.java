@@ -10,9 +10,9 @@ import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
 
-import static es.startuphero.checkstyle.util.AnnotationUtil.getAnnotation;
-import static es.startuphero.checkstyle.util.AnnotationUtil.getKeyValueAstMap;
-import static es.startuphero.checkstyle.util.AnnotationUtil.getValueAsString;
+import static es.startuphero.checkstyle.util.AnnotationUtils.getAnnotation;
+import static es.startuphero.checkstyle.util.AnnotationUtils.getKeyValueAstMap;
+import static es.startuphero.checkstyle.util.AnnotationUtils.getValueAsString;
 import static es.startuphero.checkstyle.util.ClassUtil.isEntity;
 import static es.startuphero.checkstyle.util.CommonUtil.getSimpleName;
 import static es.startuphero.checkstyle.util.VariableUtil.getVariableNameAstMap;

@@ -6,7 +6,7 @@ import com.puppycrawl.tools.checkstyle.api.TokenTypes;
 import es.startuphero.checkstyle.util.MethodUtil;
 import java.util.List;
 
-import static es.startuphero.checkstyle.util.AnnotationUtil.hasAnnotation;
+import static es.startuphero.checkstyle.util.AnnotationUtils.hasAnnotation;
 import static es.startuphero.checkstyle.util.ClassUtil.isEntity;
 import static es.startuphero.checkstyle.util.MethodUtil.getMethods;
 import static es.startuphero.checkstyle.util.VariableUtil.getNonStaticVariables;

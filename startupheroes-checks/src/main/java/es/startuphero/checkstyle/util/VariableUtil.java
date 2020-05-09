@@ -3,7 +3,7 @@ package es.startuphero.checkstyle.util;
 import com.puppycrawl.tools.checkstyle.api.DetailAST;
 import com.puppycrawl.tools.checkstyle.api.Scope;
 import com.puppycrawl.tools.checkstyle.api.TokenTypes;
-import com.puppycrawl.tools.checkstyle.utils.ScopeUtils;
+import com.puppycrawl.tools.checkstyle.utils.ScopeUtil;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -54,7 +54,7 @@ public final class VariableUtil {
 
   public static Scope getScopeOf(DetailAST variableAst) {
     DetailAST variableModifiersNode = variableAst.findFirstToken(TokenTypes.MODIFIERS);
-    return ScopeUtils.getScopeFromMods(variableModifiersNode);
+    return ScopeUtil.getScopeFromMods(variableModifiersNode);
   }
 
   /**

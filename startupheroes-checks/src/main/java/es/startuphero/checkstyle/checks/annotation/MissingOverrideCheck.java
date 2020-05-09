@@ -7,8 +7,8 @@ import java.lang.reflect.Method;
 import java.util.Map;
 import java.util.Optional;
 
-import static es.startuphero.checkstyle.util.AnnotationUtil.OVERRIDE_ANNOTATION_NAME_BY_PACKAGE;
-import static es.startuphero.checkstyle.util.AnnotationUtil.hasAnnotation;
+import static es.startuphero.checkstyle.util.AnnotationUtils.OVERRIDE_ANNOTATION_NAME_BY_PACKAGE;
+import static es.startuphero.checkstyle.util.AnnotationUtils.hasAnnotation;
 import static es.startuphero.checkstyle.util.ClassUtil.getClassName;
 import static es.startuphero.checkstyle.util.ClassUtil.getClassOf;
 import static es.startuphero.checkstyle.util.ClassUtil.getImportSimpleFullNameMap;
