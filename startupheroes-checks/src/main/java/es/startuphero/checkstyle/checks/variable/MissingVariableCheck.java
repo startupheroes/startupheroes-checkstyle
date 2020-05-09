@@ -8,9 +8,9 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import static es.startuphero.checkstyle.util.ClassUtil.isEntity;
-import static es.startuphero.checkstyle.util.ClassUtil.isExtendsAnotherClass;
-import static es.startuphero.checkstyle.util.VariableUtil.getVariableNames;
+import static es.startuphero.checkstyle.util.ClassUtils.isEntity;
+import static es.startuphero.checkstyle.util.ClassUtils.isExtendsAnotherClass;
+import static es.startuphero.checkstyle.util.VariableUtils.getVariableNames;
 
 /**
  * @author ozlem.ulag

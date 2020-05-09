@@ -19,6 +19,7 @@
   <!-- See http://checkstyle.sf.net/config_sizes.html -->
   <module name="com.puppycrawl.tools.checkstyle.checks.sizes.FileLengthCheck">
     <property name="max" value="1500"/>
+    <property name="fileExtensions" value="java"/>
   </module>
 
   <!-- Checks for whitespace                               -->
@@ -57,6 +58,7 @@
     <property name="max" value="120"/>
     <property name="ignorePattern"
         value="^package.*|^import.*|a href|href|http://|https://|ftp://"/>
+    <property name="fileExtensions" value="java"/>
   </module>
 
   <module name="TreeWalker">
@@ -94,14 +96,14 @@
       <property name="max" value="30"/>
     </module>
 
-    <!--<module name="Indentation">-->
-    <!--<property name="basicOffset" value="2"/>-->
-    <!--<property name="braceAdjustment" value="0"/>-->
-    <!--<property name="caseIndent" value="2"/>-->
-    <!--<property name="throwsIndent" value="4"/>-->
-    <!--<property name="lineWrappingIndentation" value="4"/>-->
-    <!--<property name="arrayInitIndent" value="2"/>-->
-    <!--</module>-->
+    <module name="Indentation">
+      <property name="basicOffset" value="2"/>
+      <property name="braceAdjustment" value="0"/>
+      <property name="caseIndent" value="2"/>
+      <property name="throwsIndent" value="4"/>
+      <property name="lineWrappingIndentation" value="4"/>
+      <property name="arrayInitIndent" value="2"/>
+    </module>
 
     <!-- Checks for whitespace                               -->
     <!-- See http://checkstyle.sf.net/config_whitespace.html -->
@@ -139,6 +141,7 @@
       <property name="ignoreAnnotation" value="true"/>
       <property name="ignoreFieldDeclaration" value="true"/>
     </module>
+    <module name="com.puppycrawl.tools.checkstyle.checks.coding.MissingSwitchDefaultCheck"/>
     <module name="com.puppycrawl.tools.checkstyle.checks.coding.DefaultComesLastCheck"/>
     <module name="com.puppycrawl.tools.checkstyle.checks.coding.SimplifyBooleanExpressionCheck"/>
     <module name="com.puppycrawl.tools.checkstyle.checks.coding.SimplifyBooleanReturnCheck"/>
@@ -197,6 +200,7 @@
     <module name="com.puppycrawl.tools.checkstyle.checks.SuppressWarningsHolder">
       <metadata name="skip" value="true"/>
     </module>
+    <module name="com.puppycrawl.tools.checkstyle.filters.SuppressionCommentFilter"/>
 
     <!-- Custom Checks-->
     <module name="es.startuphero.checkstyle.checks.annotation.ForbiddenAnnotationCheck">

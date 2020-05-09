@@ -6,9 +6,9 @@ import com.puppycrawl.tools.checkstyle.api.TokenTypes;
 import java.util.List;
 
 import static es.startuphero.checkstyle.util.AnnotationUtils.hasAnnotation;
-import static es.startuphero.checkstyle.util.ClassUtil.isEntity;
-import static es.startuphero.checkstyle.util.VariableUtil.getNonStaticVariables;
-import static es.startuphero.checkstyle.util.VariableUtil.getVariableName;
+import static es.startuphero.checkstyle.util.ClassUtils.isEntity;
+import static es.startuphero.checkstyle.util.VariableUtils.getNonStaticVariables;
+import static es.startuphero.checkstyle.util.VariableUtils.getVariableName;
 
 /**
  * @author ozlem.ulag

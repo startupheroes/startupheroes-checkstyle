@@ -14,11 +14,11 @@ import static java.util.Objects.isNull;
 /**
  * @author ozlem.ulag
  */
-public final class CommonUtil {
+public final class CommonUtils {
 
   private static final String JAVA_LANG_PACKAGE = "java.lang";
 
-  private CommonUtil() {
+  private CommonUtils() {
   }
 
   /**

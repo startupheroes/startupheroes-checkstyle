@@ -10,9 +10,9 @@ import java.util.Map;
 import java.util.Set;
 
 import static es.startuphero.checkstyle.util.AnnotationUtils.getKeys;
-import static es.startuphero.checkstyle.util.CommonUtil.getSimpleName;
-import static es.startuphero.checkstyle.util.CommonUtil.getSplitterOnComma;
-import static es.startuphero.checkstyle.util.CommonUtil.splitProperty;
+import static es.startuphero.checkstyle.util.CommonUtils.getSimpleName;
+import static es.startuphero.checkstyle.util.CommonUtils.getSplitterOnComma;
+import static es.startuphero.checkstyle.util.CommonUtils.splitProperty;
 import static java.util.Objects.nonNull;
 
 /**

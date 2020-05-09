@@ -4,7 +4,7 @@ import com.puppycrawl.tools.checkstyle.api.AbstractCheck;
 import com.puppycrawl.tools.checkstyle.api.DetailAST;
 import com.puppycrawl.tools.checkstyle.api.TokenTypes;
 import es.startuphero.checkstyle.util.AnnotationUtils;
-import es.startuphero.checkstyle.util.CommonUtil;
+import es.startuphero.checkstyle.util.CommonUtils;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
@@ -15,8 +15,8 @@ import static es.startuphero.checkstyle.util.AnnotationUtils.getKeyValueAstMap;
 import static es.startuphero.checkstyle.util.AnnotationUtils.getValueAsAnnotations;
 import static es.startuphero.checkstyle.util.AnnotationUtils.getValueAsString;
 import static es.startuphero.checkstyle.util.AnnotationUtils.hasAnnotation;
-import static es.startuphero.checkstyle.util.ClassUtil.getClassName;
-import static es.startuphero.checkstyle.util.CommonUtil.getSplitterOnComma;
+import static es.startuphero.checkstyle.util.ClassUtils.getClassName;
+import static es.startuphero.checkstyle.util.CommonUtils.getSplitterOnComma;
 import static java.util.Objects.nonNull;
 import static java.util.Optional.empty;
 
@@ -119,15 +119,15 @@ public class TableIdentifierNameCheck extends AbstractCheck {
   }
 
   private String getSuggestedIdentifierName(String className, List<String> columnNames) {
-    return CommonUtil.convertToDatabaseForm(className, suggestedSuffix,
+    return CommonUtils.convertToDatabaseForm(className, suggestedSuffix,
                                             columnNames.size() == 1 ? getSplitterOnComma().split(columnNames.get(0))
                                                 : columnNames);
   }
 
   private Boolean acceptableIdentifierName(String tableName, String identifierName) {
-    return identifierName.startsWith(CommonUtil.getDatabaseIdentifierName(tableName + "_")) &&
+    return identifierName.startsWith(CommonUtils.getDatabaseIdentifierName(tableName + "_")) &&
            Pattern.compile(regex).matcher(identifierName).matches() &&
-           identifierName.endsWith(CommonUtil.getDatabaseIdentifierName("_" + suggestedSuffix));
+           identifierName.endsWith(CommonUtils.getDatabaseIdentifierName("_" + suggestedSuffix));
   }
 
   public void setTableAnnotation(String tableAnnotation) {

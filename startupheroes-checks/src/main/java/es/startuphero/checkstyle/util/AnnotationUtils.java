@@ -30,20 +30,20 @@ public final class AnnotationUtils {
    * @return : true if ast has any possible annotation, otherwise false
    */
   public static Boolean hasAnnotation(DetailAST ast, String fullAnnotation) {
-    return CommonUtil.getSimpleAndFullNames(fullAnnotation).stream()
-                     .anyMatch(annotation -> AnnotationUtil.containsAnnotation(ast, annotation));
+    return CommonUtils.getSimpleAndFullNames(fullAnnotation).stream()
+                      .anyMatch(annotation -> AnnotationUtil.containsAnnotation(ast, annotation));
   }
 
   public static DetailAST getAnnotation(DetailAST ast, String fullAnnotation) {
     DetailAST simpleAnnotationAst =
-        AnnotationUtil.getAnnotation(ast, CommonUtil.getSimpleName(fullAnnotation));
+        AnnotationUtil.getAnnotation(ast, CommonUtils.getSimpleName(fullAnnotation));
     return nonNull(simpleAnnotationAst) ? simpleAnnotationAst
         : AnnotationUtil.getAnnotation(ast, fullAnnotation);
   }
 
   public static List<String> getKeys(DetailAST annotationAst) {
     List<DetailAST> keyValuePairAstList =
-        CommonUtil.getChildsByType(annotationAst, TokenTypes.ANNOTATION_MEMBER_VALUE_PAIR);
+        CommonUtils.getChildsByType(annotationAst, TokenTypes.ANNOTATION_MEMBER_VALUE_PAIR);
     return keyValuePairAstList.stream()
                               .map(keyValuePairAst -> keyValuePairAst.getFirstChild().getText())
                               .collect(Collectors.toList());
@@ -54,11 +54,10 @@ public final class AnnotationUtils {
    */
   public static Map<String, DetailAST> getKeyValueAstMap(DetailAST annotationAst) {
     List<DetailAST> keyValuePairAstList =
-        CommonUtil.getChildsByType(annotationAst, TokenTypes.ANNOTATION_MEMBER_VALUE_PAIR);
+        CommonUtils.getChildsByType(annotationAst, TokenTypes.ANNOTATION_MEMBER_VALUE_PAIR);
     return keyValuePairAstList.stream()
                               .collect(Collectors.toMap(keyValuePairAst -> keyValuePairAst.getFirstChild().getText(),
-                                                        Function.identity(),
-                                                        (v1, v2) -> null,
+                                                        Function.identity(), (v1, v2) -> null,
                                                         LinkedHashMap::new));
   }
 
@@ -80,7 +79,7 @@ public final class AnnotationUtils {
     DetailAST annotationValueNode = getAnnotationValueNode(annotationKeyValueAst);
     List<DetailAST> exprNodes = annotationValueNode.getType() == TokenTypes.EXPR ?
         Collections.singletonList(annotationValueNode) :
-        CommonUtil.getChildsByType(annotationValueNode, TokenTypes.EXPR);
+        CommonUtils.getChildsByType(annotationValueNode, TokenTypes.EXPR);
     return exprNodes.stream()
                     .map(exprNode -> exprNode.findFirstToken(TokenTypes.STRING_LITERAL)
                                              .getText()
@@ -93,7 +92,7 @@ public final class AnnotationUtils {
     DetailAST annotationValueNode = getAnnotationValueNode(annotationKeyValueAst);
     return annotationValueNode.getType() == TokenTypes.ANNOTATION ?
         Collections.singletonList(annotationValueNode) :
-        CommonUtil.getChildsByType(annotationValueNode, TokenTypes.ANNOTATION);
+        CommonUtils.getChildsByType(annotationValueNode, TokenTypes.ANNOTATION);
   }
 
   private static DetailAST getAnnotationValueNode(DetailAST annotationKeyValueAst) {

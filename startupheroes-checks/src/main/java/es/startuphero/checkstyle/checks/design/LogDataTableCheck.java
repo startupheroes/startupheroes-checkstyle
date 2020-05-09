@@ -12,10 +12,10 @@ import java.util.regex.Pattern;
 import static es.startuphero.checkstyle.util.AnnotationUtils.getAnnotation;
 import static es.startuphero.checkstyle.util.AnnotationUtils.getKeyValueAstMap;
 import static es.startuphero.checkstyle.util.AnnotationUtils.getValueAsString;
-import static es.startuphero.checkstyle.util.ClassUtil.getClassName;
-import static es.startuphero.checkstyle.util.ClassUtil.isEntity;
-import static es.startuphero.checkstyle.util.VariableUtil.getNonStaticVariables;
-import static es.startuphero.checkstyle.util.VariableUtil.getVariableName;
+import static es.startuphero.checkstyle.util.ClassUtils.getClassName;
+import static es.startuphero.checkstyle.util.ClassUtils.isEntity;
+import static es.startuphero.checkstyle.util.VariableUtils.getNonStaticVariables;
+import static es.startuphero.checkstyle.util.VariableUtils.getVariableName;
 import static java.util.Objects.nonNull;
 
 /**

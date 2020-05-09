@@ -3,13 +3,13 @@ package es.startuphero.checkstyle.checks.method;
 import com.puppycrawl.tools.checkstyle.api.AbstractCheck;
 import com.puppycrawl.tools.checkstyle.api.DetailAST;
 import com.puppycrawl.tools.checkstyle.api.TokenTypes;
-import es.startuphero.checkstyle.util.MethodUtil;
+import es.startuphero.checkstyle.util.MethodUtils;
 import java.util.List;
 
 import static es.startuphero.checkstyle.util.AnnotationUtils.hasAnnotation;
-import static es.startuphero.checkstyle.util.ClassUtil.isEntity;
-import static es.startuphero.checkstyle.util.MethodUtil.getMethods;
-import static es.startuphero.checkstyle.util.VariableUtil.getNonStaticVariables;
+import static es.startuphero.checkstyle.util.ClassUtils.isEntity;
+import static es.startuphero.checkstyle.util.MethodUtils.getMethods;
+import static es.startuphero.checkstyle.util.VariableUtils.getNonStaticVariables;
 
 /**
  * @author ozlem.ulag
@@ -55,8 +55,8 @@ public class MissingEqualsHashCodeCheck extends AbstractCheck {
                                                          .anyMatch(variable -> hasAnnotation(variable, idAnnotation));
       if (entityHasAnyId) {
         List<DetailAST> methods = getMethods(ast);
-        Boolean hasEquals = methods.stream().anyMatch(MethodUtil::isEqualsMethod);
-        Boolean hasHashCode = methods.stream().anyMatch(MethodUtil::isHashCodeMethod);
+        Boolean hasEquals = methods.stream().anyMatch(MethodUtils::isEqualsMethod);
+        Boolean hasHashCode = methods.stream().anyMatch(MethodUtils::isHashCodeMethod);
         if (!hasEquals || !hasHashCode) {
           log(ast.getLineNo(), MSG_KEY);
         }

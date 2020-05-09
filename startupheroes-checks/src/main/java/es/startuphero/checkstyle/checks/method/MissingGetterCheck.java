@@ -3,15 +3,15 @@ package es.startuphero.checkstyle.checks.method;
 import com.puppycrawl.tools.checkstyle.api.AbstractCheck;
 import com.puppycrawl.tools.checkstyle.api.DetailAST;
 import com.puppycrawl.tools.checkstyle.api.TokenTypes;
-import es.startuphero.checkstyle.util.MethodUtil;
+import es.startuphero.checkstyle.util.MethodUtils;
 import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import static es.startuphero.checkstyle.util.ClassUtil.isEntity;
-import static es.startuphero.checkstyle.util.MethodUtil.getGetters;
-import static es.startuphero.checkstyle.util.MethodUtil.getMethodName;
-import static es.startuphero.checkstyle.util.VariableUtil.getVariableNameAstMap;
+import static es.startuphero.checkstyle.util.ClassUtils.isEntity;
+import static es.startuphero.checkstyle.util.MethodUtils.getGetters;
+import static es.startuphero.checkstyle.util.MethodUtils.getMethodName;
+import static es.startuphero.checkstyle.util.VariableUtils.getVariableNameAstMap;
 
 /**
  * @author ozlem.ulag
@@ -54,7 +54,7 @@ public class MissingGetterCheck extends AbstractCheck {
       Map<String, DetailAST> variableNameAstMap = getVariableNameAstMap(ast, false);
       List<String> getterVariableNames = getGetters(ast).stream()
                                                         .map(getter -> getMethodName(getter).split(
-                                                            MethodUtil.GETTER_PREFIX_REGEX)[1])
+                                                            MethodUtils.GETTER_PREFIX_REGEX)[1])
                                                         .collect(Collectors.toList());
 
       for (String variableName : variableNameAstMap.keySet()) {
