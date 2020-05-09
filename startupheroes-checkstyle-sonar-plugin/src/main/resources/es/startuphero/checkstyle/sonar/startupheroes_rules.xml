@@ -214,6 +214,15 @@
         <tag>coding</tag>
     </rule>
     <rule>
+        <key>com.puppycrawl.tools.checkstyle.checks.coding.MissingSwitchDefaultCheck</key>
+        <name>Missing Switch Default Check</name>
+        <description>Missing Switch Default Check</description>
+        <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.coding.MissingSwitchDefaultCheck</internalKey>
+        <severity>MAJOR</severity>
+        <tag>sh-rule</tag>
+        <tag>coding</tag>
+    </rule>
+    <rule>
         <key>com.puppycrawl.tools.checkstyle.checks.coding.MultipleVariableDeclarationsCheck</key>
         <name>Multiple Variable Declarations Check</name>
         <description>Multiple Variable Declarations Check</description>
@@ -360,23 +369,6 @@
         <severity>MAJOR</severity>
         <tag>sh-rule</tag>
         <tag>modifier</tag>
-    </rule>
-    <rule>
-        <key>com.puppycrawl.tools.checkstyle.checks.naming.AbbreviationAsWordInNameCheck</key>
-        <name>Abbreviation As Word In Name Check</name>
-        <description>Abbreviation As Word In Name Check</description>
-        <internalKey>Checker/TreeWalker/com.puppycrawl.tools.checkstyle.checks.naming.AbbreviationAsWordInNameCheck</internalKey>
-        <severity>MAJOR</severity>
-        <param key="ignoreFinal" name="Ignore Final">
-            <defaultValue>false</defaultValue>
-            <description>Ignore Final property with value of 'false'</description>
-        </param>
-        <param key="allowedAbbreviationLength" name="Allowed Abbreviation Length">
-            <defaultValue>1</defaultValue>
-            <description>Allowed Abbreviation Length property with value of '1'</description>
-        </param>
-        <tag>sh-rule</tag>
-        <tag>naming</tag>
     </rule>
     <rule>
         <key>com.puppycrawl.tools.checkstyle.checks.naming.AbstractClassNameCheck</key>

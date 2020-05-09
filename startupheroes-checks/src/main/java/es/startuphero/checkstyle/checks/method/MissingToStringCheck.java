@@ -3,12 +3,12 @@ package es.startuphero.checkstyle.checks.method;
 import com.puppycrawl.tools.checkstyle.api.AbstractCheck;
 import com.puppycrawl.tools.checkstyle.api.DetailAST;
 import com.puppycrawl.tools.checkstyle.api.TokenTypes;
-import es.startuphero.checkstyle.util.MethodUtil;
-import es.startuphero.checkstyle.util.VariableUtil;
+import es.startuphero.checkstyle.util.MethodUtils;
+import es.startuphero.checkstyle.util.VariableUtils;
 import java.util.List;
 
-import static es.startuphero.checkstyle.util.ClassUtil.isEntity;
-import static es.startuphero.checkstyle.util.MethodUtil.getMethods;
+import static es.startuphero.checkstyle.util.ClassUtils.isEntity;
+import static es.startuphero.checkstyle.util.MethodUtils.getMethods;
 
 /**
  * @author ozlem.ulag
@@ -48,9 +48,9 @@ public class MissingToStringCheck extends AbstractCheck {
   @Override
   public void visitToken(DetailAST ast) {
     if (isEntity(ast, typeAnnotation) || isEntity(ast, abstractTypeAnnotation)) {
-      if (!VariableUtil.getNonStaticVariables(ast).isEmpty()) {
+      if (!VariableUtils.getNonStaticVariables(ast).isEmpty()) {
         List<DetailAST> methods = getMethods(ast);
-        Boolean hasToString = methods.stream().anyMatch(MethodUtil::isToStringMethod);
+        Boolean hasToString = methods.stream().anyMatch(MethodUtils::isToStringMethod);
         if (!hasToString) {
           log(ast.getLineNo(), MSG_KEY);
         }

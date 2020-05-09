@@ -13,9 +13,9 @@ import java.util.Set;
 import static es.startuphero.checkstyle.util.AnnotationUtils.getAnnotation;
 import static es.startuphero.checkstyle.util.AnnotationUtils.getKeyValueAstMap;
 import static es.startuphero.checkstyle.util.AnnotationUtils.getValueAsString;
-import static es.startuphero.checkstyle.util.ClassUtil.isEntity;
-import static es.startuphero.checkstyle.util.CommonUtil.getSimpleName;
-import static es.startuphero.checkstyle.util.VariableUtil.getVariableNameAstMap;
+import static es.startuphero.checkstyle.util.ClassUtils.isEntity;
+import static es.startuphero.checkstyle.util.CommonUtils.getSimpleName;
+import static es.startuphero.checkstyle.util.VariableUtils.getVariableNameAstMap;
 import static java.util.Objects.isNull;
 import static java.util.Objects.nonNull;
 

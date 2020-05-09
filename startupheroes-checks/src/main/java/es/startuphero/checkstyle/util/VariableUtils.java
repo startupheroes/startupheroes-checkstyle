@@ -13,9 +13,9 @@ import java.util.stream.Collectors;
 /**
  * @author ozlem.ulag
  */
-public final class VariableUtil {
+public final class VariableUtils {
 
-  private VariableUtil() {
+  private VariableUtils() {
   }
 
   /**
@@ -24,21 +24,21 @@ public final class VariableUtil {
    */
   public static List<DetailAST> getVariables(DetailAST classAst) {
     DetailAST objBlock = classAst.findFirstToken(TokenTypes.OBJBLOCK);
-    return CommonUtil.getChildsByType(objBlock, TokenTypes.VARIABLE_DEF);
+    return CommonUtils.getChildsByType(objBlock, TokenTypes.VARIABLE_DEF);
   }
 
   public static List<DetailAST> getStaticVariables(DetailAST classAst) {
     DetailAST objBlock = classAst.findFirstToken(TokenTypes.OBJBLOCK);
-    return CommonUtil.getChildsByType(objBlock, TokenTypes.VARIABLE_DEF).stream()
-                     .filter(CommonUtil::isStatic)
-                     .collect(Collectors.toList());
+    return CommonUtils.getChildsByType(objBlock, TokenTypes.VARIABLE_DEF).stream()
+                      .filter(CommonUtils::isStatic)
+                      .collect(Collectors.toList());
   }
 
   public static List<DetailAST> getNonStaticVariables(DetailAST classAst) {
     DetailAST objBlock = classAst.findFirstToken(TokenTypes.OBJBLOCK);
-    return CommonUtil.getChildsByType(objBlock, TokenTypes.VARIABLE_DEF).stream()
-                     .filter(ast -> !CommonUtil.isStatic(ast))
-                     .collect(Collectors.toList());
+    return CommonUtils.getChildsByType(objBlock, TokenTypes.VARIABLE_DEF).stream()
+                      .filter(ast -> !CommonUtils.isStatic(ast))
+                      .collect(Collectors.toList());
   }
 
   /**
@@ -72,7 +72,7 @@ public final class VariableUtil {
    */
   public static List<String> getVariableNames(DetailAST classAst) {
     return getVariables(classAst).stream()
-                                 .map(VariableUtil::getVariableName)
+                                 .map(VariableUtils::getVariableName)
                                  .collect(Collectors.toList());
   }
 
@@ -82,26 +82,23 @@ public final class VariableUtil {
    */
   public static Map<String, DetailAST> getVariableNameAstMap(DetailAST classAst) {
     List<DetailAST> variables = getVariables(classAst);
-    return variables.stream().collect(Collectors.toMap(VariableUtil::getVariableName,
-                                                       Function.identity(),
-                                                       (v1, v2) -> null,
+    return variables.stream().collect(Collectors.toMap(VariableUtils::getVariableName,
+                                                       Function.identity(), (v1, v2) -> null,
                                                        LinkedHashMap::new));
   }
 
   public static Map<String, DetailAST> getVariableNameAstMap(DetailAST classAst, Boolean isStatic) {
     List<DetailAST> variables =
         isStatic ? getStaticVariables(classAst) : getNonStaticVariables(classAst);
-    return variables.stream().collect(Collectors.toMap(VariableUtil::getVariableName,
-                                                       Function.identity(),
-                                                       (v1, v2) -> null,
+    return variables.stream().collect(Collectors.toMap(VariableUtils::getVariableName,
+                                                       Function.identity(), (v1, v2) -> null,
                                                        LinkedHashMap::new));
   }
 
   public static Map<String, DetailAST> getVariableNameAstMap(DetailAST classAst, Scope scope) {
     List<DetailAST> variables = getVariables(classAst, scope);
-    return variables.stream().collect(Collectors.toMap(VariableUtil::getVariableName,
-                                                       Function.identity(),
-                                                       (v1, v2) -> null,
+    return variables.stream().collect(Collectors.toMap(VariableUtils::getVariableName,
+                                                       Function.identity(), (v1, v2) -> null,
                                                        LinkedHashMap::new));
   }
 }

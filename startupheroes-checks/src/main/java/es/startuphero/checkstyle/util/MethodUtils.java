@@ -1,6 +1,5 @@
 package es.startuphero.checkstyle.util;
 
-import antlr.collections.AST;
 import com.puppycrawl.tools.checkstyle.api.DetailAST;
 import com.puppycrawl.tools.checkstyle.api.FullIdent;
 import com.puppycrawl.tools.checkstyle.api.TokenTypes;
@@ -14,7 +13,7 @@ import java.util.stream.Collectors;
 /**
  * @author ozlem.ulag
  */
-public final class MethodUtil {
+public final class MethodUtils {
 
   private static final String TO_STRING_METHOD_NAME = "toString";
 
@@ -30,7 +29,7 @@ public final class MethodUtil {
   /** Pattern matching names of setter methods. */
   public static final String SETTER_PREFIX_REGEX = "^" + SET;
 
-  private MethodUtil() {
+  private MethodUtils() {
   }
 
   /**
@@ -39,7 +38,7 @@ public final class MethodUtil {
    */
   public static List<DetailAST> getMethods(DetailAST classAst) {
     DetailAST objBlock = classAst.findFirstToken(TokenTypes.OBJBLOCK);
-    return CommonUtil.getChildsByType(objBlock, TokenTypes.METHOD_DEF);
+    return CommonUtils.getChildsByType(objBlock, TokenTypes.METHOD_DEF);
   }
 
   /**
@@ -59,12 +58,12 @@ public final class MethodUtil {
                                              Map<String, String> importSimpleFullNameMap) {
     DetailAST parameters = methodAst.findFirstToken(TokenTypes.PARAMETERS);
     List<DetailAST> parameterNodes =
-        CommonUtil.getChildsByType(parameters, TokenTypes.PARAMETER_DEF);
+        CommonUtils.getChildsByType(parameters, TokenTypes.PARAMETER_DEF);
     List<Class<?>> parameterTypes = new ArrayList<>();
     for (DetailAST parameterNode : parameterNodes) {
       String paramTypeSimpleName = getParamTypeSimpleName(parameterNode);
       String paramTypeFullName =
-          CommonUtil.getFullName(methodAst, importSimpleFullNameMap, paramTypeSimpleName);
+          CommonUtils.getFullName(methodAst, importSimpleFullNameMap, paramTypeSimpleName);
       try {
         Class<?> parameterClass = Class.forName(paramTypeFullName);
         parameterTypes.add(parameterClass);
@@ -164,8 +163,8 @@ public final class MethodUtil {
     DetailAST methodName = ast.findFirstToken(TokenTypes.IDENT);
     DetailAST parameters = ast.findFirstToken(TokenTypes.PARAMETERS);
 
-    return CommonUtil.getSimpleAndFullNames(ClassUtil.STRING_CLASS_NAME_BY_PACKAGE)
-                     .contains(type.getFirstChild().getText())
+    return CommonUtils.getSimpleAndFullNames(ClassUtils.STRING_CLASS_NAME_BY_PACKAGE)
+                      .contains(type.getFirstChild().getText())
            && TO_STRING_METHOD_NAME.equals(methodName.getText())
            && modifiers.branchContains(TokenTypes.LITERAL_PUBLIC)
            && !modifiers.branchContains(TokenTypes.LITERAL_STATIC)
@@ -181,7 +180,7 @@ public final class MethodUtil {
    * @return true if firstChild is a parameter of an Object type.
    */
   private static Boolean isObjectParam(DetailAST paramNode) {
-    return CommonUtil.getSimpleAndFullNames(ClassUtil.OBJECT_CLASS_NAME_BY_PACKAGE)
-                     .contains(getParamTypeSimpleName(paramNode));
+    return CommonUtils.getSimpleAndFullNames(ClassUtils.OBJECT_CLASS_NAME_BY_PACKAGE)
+                      .contains(getParamTypeSimpleName(paramNode));
   }
 }

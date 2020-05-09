@@ -3,12 +3,12 @@ package es.startuphero.checkstyle.checks.annotation;
 import com.puppycrawl.tools.checkstyle.api.AbstractCheck;
 import com.puppycrawl.tools.checkstyle.api.DetailAST;
 import com.puppycrawl.tools.checkstyle.api.TokenTypes;
-import es.startuphero.checkstyle.util.CommonUtil;
+import es.startuphero.checkstyle.util.CommonUtils;
 import java.util.HashMap;
 import java.util.Map;
 
 import static es.startuphero.checkstyle.util.AnnotationUtils.hasAnnotation;
-import static es.startuphero.checkstyle.util.CommonUtil.getSimpleName;
+import static es.startuphero.checkstyle.util.CommonUtils.getSimpleName;
 
 /**
  * @author ozlem.ulag
@@ -55,6 +55,6 @@ public class RedundantMultipleAnnotationCheck extends AbstractCheck {
   }
 
   public void setRedundantAnnotationPairs(String property) {
-    this.redundantAnnotationPairs = CommonUtil.splitProperty(property);
+    this.redundantAnnotationPairs = CommonUtils.splitProperty(property);
   }
 }

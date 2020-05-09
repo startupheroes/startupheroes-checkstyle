@@ -9,13 +9,13 @@ import java.util.Optional;
 
 import static es.startuphero.checkstyle.util.AnnotationUtils.OVERRIDE_ANNOTATION_NAME_BY_PACKAGE;
 import static es.startuphero.checkstyle.util.AnnotationUtils.hasAnnotation;
-import static es.startuphero.checkstyle.util.ClassUtil.getClassName;
-import static es.startuphero.checkstyle.util.ClassUtil.getClassOf;
-import static es.startuphero.checkstyle.util.ClassUtil.getImportSimpleFullNameMap;
-import static es.startuphero.checkstyle.util.CommonUtil.getPackageName;
-import static es.startuphero.checkstyle.util.MethodUtil.getMethodName;
-import static es.startuphero.checkstyle.util.MethodUtil.getParameterTypes;
-import static es.startuphero.checkstyle.util.MethodUtil.isMethodOverriden;
+import static es.startuphero.checkstyle.util.ClassUtils.getClassName;
+import static es.startuphero.checkstyle.util.ClassUtils.getClassOf;
+import static es.startuphero.checkstyle.util.ClassUtils.getImportSimpleFullNameMap;
+import static es.startuphero.checkstyle.util.CommonUtils.getPackageName;
+import static es.startuphero.checkstyle.util.MethodUtils.getMethodName;
+import static es.startuphero.checkstyle.util.MethodUtils.getParameterTypes;
+import static es.startuphero.checkstyle.util.MethodUtils.isMethodOverriden;
 
 /**
  * @author ozlem.ulag

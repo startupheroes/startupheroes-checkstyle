@@ -4,9 +4,9 @@ import com.puppycrawl.tools.checkstyle.api.AbstractCheck;
 import com.puppycrawl.tools.checkstyle.api.DetailAST;
 import com.puppycrawl.tools.checkstyle.api.TokenTypes;
 
-import static es.startuphero.checkstyle.util.ClassUtil.ABSTRACT_CLASS_PREFIX;
-import static es.startuphero.checkstyle.util.ClassUtil.getClassName;
-import static es.startuphero.checkstyle.util.ClassUtil.isEntity;
+import static es.startuphero.checkstyle.util.ClassUtils.ABSTRACT_CLASS_PREFIX;
+import static es.startuphero.checkstyle.util.ClassUtils.getClassName;
+import static es.startuphero.checkstyle.util.ClassUtils.isEntity;
 
 /**
  * @author ozlem.ulag

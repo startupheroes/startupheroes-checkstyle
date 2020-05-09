@@ -11,7 +11,7 @@ import static java.util.Objects.nonNull;
 /**
  * @author ozlem.ulag
  */
-public final class ClassUtil {
+public final class ClassUtils {
 
   public static final String STRING_CLASS_NAME_BY_PACKAGE = "java.lang.String";
 
@@ -19,7 +19,7 @@ public final class ClassUtil {
 
   public static final String ABSTRACT_CLASS_PREFIX = "Abstract";
 
-  private ClassUtil() {
+  private ClassUtils() {
   }
 
   /**
@@ -64,8 +64,8 @@ public final class ClassUtil {
     Map<String, String> simpleFullNameMapOfImports = new LinkedHashMap<>();
     for (DetailAST sibling = rootAst; sibling != null; sibling = sibling.getNextSibling()) {
       if (sibling.getType() == TokenTypes.IMPORT) {
-        simpleFullNameMapOfImports.put(CommonUtil.getSimpleName(sibling),
-                                       CommonUtil.getFullName(sibling));
+        simpleFullNameMapOfImports.put(CommonUtils.getSimpleName(sibling),
+                                       CommonUtils.getFullName(sibling));
       }
     }
     return simpleFullNameMapOfImports;

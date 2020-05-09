@@ -4,8 +4,8 @@ import com.puppycrawl.tools.checkstyle.api.AbstractCheck;
 import com.puppycrawl.tools.checkstyle.api.DetailAST;
 import com.puppycrawl.tools.checkstyle.api.TokenTypes;
 
-import static es.startuphero.checkstyle.util.ClassUtil.isAbstract;
-import static es.startuphero.checkstyle.util.ClassUtil.isEntity;
+import static es.startuphero.checkstyle.util.ClassUtils.isAbstract;
+import static es.startuphero.checkstyle.util.ClassUtils.isEntity;
 
 /**
  * @author ozlem.ulag

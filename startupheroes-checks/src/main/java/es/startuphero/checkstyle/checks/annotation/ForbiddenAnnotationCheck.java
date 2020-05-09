@@ -10,7 +10,7 @@ import java.util.Set;
 
 import static es.startuphero.checkstyle.util.AnnotationUtils.getAnnotation;
 import static es.startuphero.checkstyle.util.AnnotationUtils.hasAnnotation;
-import static es.startuphero.checkstyle.util.CommonUtil.getSimpleName;
+import static es.startuphero.checkstyle.util.CommonUtils.getSimpleName;
 import static java.util.Objects.nonNull;
 
 /**

@@ -8,8 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import static es.startuphero.checkstyle.util.VariableUtil.getScopeOf;
-import static es.startuphero.checkstyle.util.VariableUtil.getVariableNameAstMap;
+import static es.startuphero.checkstyle.util.VariableUtils.getScopeOf;
+import static es.startuphero.checkstyle.util.VariableUtils.getVariableNameAstMap;
 
 /**
  * @author ozlem.ulag

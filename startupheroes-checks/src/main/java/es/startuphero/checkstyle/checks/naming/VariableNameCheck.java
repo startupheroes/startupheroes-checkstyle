@@ -5,11 +5,11 @@ import com.puppycrawl.tools.checkstyle.api.DetailAST;
 import com.puppycrawl.tools.checkstyle.api.TokenTypes;
 import java.util.Map;
 
-import static es.startuphero.checkstyle.util.ClassUtil.ABSTRACT_CLASS_PREFIX;
-import static es.startuphero.checkstyle.util.ClassUtil.getClassName;
-import static es.startuphero.checkstyle.util.ClassUtil.isEntity;
-import static es.startuphero.checkstyle.util.CommonUtil.getNameWithoutContext;
-import static es.startuphero.checkstyle.util.VariableUtil.getVariableNameAstMap;
+import static es.startuphero.checkstyle.util.ClassUtils.ABSTRACT_CLASS_PREFIX;
+import static es.startuphero.checkstyle.util.ClassUtils.getClassName;
+import static es.startuphero.checkstyle.util.ClassUtils.isEntity;
+import static es.startuphero.checkstyle.util.CommonUtils.getNameWithoutContext;
+import static es.startuphero.checkstyle.util.VariableUtils.getVariableNameAstMap;
 
 /**
  * @author ozlem.ulag
