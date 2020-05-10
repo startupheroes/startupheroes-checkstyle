@@ -145,7 +145,10 @@
     <!-- Whitespace Checks -->
     <!-- See https://checkstyle.sourceforge.io/config_whitespace.html -->
     <module name="com.puppycrawl.tools.checkstyle.checks.whitespace.EmptyForIteratorPadCheck"/>
-    <module name="com.puppycrawl.tools.checkstyle.checks.whitespace.EmptyLineSeparatorCheck"/>
+    <module name="com.puppycrawl.tools.checkstyle.checks.whitespace.EmptyLineSeparatorCheck">
+      <property name="allowMultipleEmptyLines" value="false"/>
+      <property name="allowMultipleEmptyLinesInsideClassMembers" value="false"/>
+    </module>
     <module name="com.puppycrawl.tools.checkstyle.checks.whitespace.GenericWhitespaceCheck"/>
     <module name="com.puppycrawl.tools.checkstyle.checks.whitespace.MethodParamPadCheck"/>
     <module name="com.puppycrawl.tools.checkstyle.checks.whitespace.NoLineWrapCheck"/>
@@ -293,14 +296,14 @@
   <!-- Size Checks -->
   <!-- See https://checkstyle.sourceforge.io/config_sizes.html -->
   <module name="com.puppycrawl.tools.checkstyle.checks.sizes.FileLengthCheck">
-    <property name="max" value="1500"/>
     <property name="fileExtensions" value="java"/>
+    <property name="max" value="1500"/>
   </module>
   <module name="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck">
+    <property name="fileExtensions" value="java"/>
     <property name="max" value="120"/>
     <property name="ignorePattern"
         value="^package.*|^import.*|a href|href|http://|https://|ftp://"/>
-    <property name="fileExtensions" value="java"/>
   </module>
 
   <!-- Whitespace Checks -->
@@ -316,10 +319,14 @@
 
   <!-- Filters -->
   <!-- Allow turning checks off in the code using @SuppressWarnings annotation -->
-  <!-- See http://checkstyle.sourceforge.net/config_filters.html#SuppressWarningsFilter -->
+  <!-- See http://checkstyle.sourceforge.net/config_filters.html -->
   <!-- Filter out Checkstyle warnings that have been suppressed with the @SuppressWarnings annotation -->
   <module name="com.puppycrawl.tools.checkstyle.filters.SuppressWarningsFilter">
     <metadata name="skip" value="true"/>
+  </module>
+  <module name="com.puppycrawl.tools.checkstyle.filters.SuppressionSingleFilter">
+    <property name="checks" value="MagicNumber"/>
+    <property name="files" value=".*[\\/]src[\\/](test|it)[\\/]"/>
   </module>
 
 </module>
