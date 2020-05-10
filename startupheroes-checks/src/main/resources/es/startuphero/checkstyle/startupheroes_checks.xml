@@ -30,8 +30,6 @@
 
     <!-- Coding Checks -->
     <!-- See https://checkstyle.sourceforge.io/config_coding.html -->
-    <module name="com.puppycrawl.tools.checkstyle.checks.coding.ArrayTrailingCommaCheck"/>
-    <module name="com.puppycrawl.tools.checkstyle.checks.coding.AvoidDoubleBraceInitializationCheck"/>
     <module name="com.puppycrawl.tools.checkstyle.checks.coding.AvoidNoArgumentSuperConstructorCallCheck"/>
     <module name="com.puppycrawl.tools.checkstyle.checks.coding.CovariantEqualsCheck"/>
     <module name="com.puppycrawl.tools.checkstyle.checks.coding.DeclarationOrderCheck"/>
@@ -73,6 +71,7 @@
     <module name="com.puppycrawl.tools.checkstyle.checks.coding.UnnecessarySemicolonAfterTypeMemberDeclarationCheck"/>
     <module name="com.puppycrawl.tools.checkstyle.checks.coding.UnnecessarySemicolonInEnumerationCheck"/>
     <module name="com.puppycrawl.tools.checkstyle.checks.coding.UnnecessarySemicolonInTryWithResourcesCheck"/>
+    <module name="com.puppycrawl.tools.checkstyle.checks.coding.VariableDeclarationUsageDistanceCheck"/>
 
     <!-- Design Checks -->
     <!-- See https://checkstyle.sourceforge.io/config_design.html -->
@@ -174,8 +173,8 @@
 
     <!-- Miscellaneous Checks -->
     <!-- See http://checkstyle.sf.net/config_misc.html -->
-    <module name="com.puppycrawl.tools.checkstyle.checks.OuterTypeFilenameCheck"/>
     <module name="com.puppycrawl.tools.checkstyle.checks.ArrayTypeStyleCheck"/>
+    <module name="com.puppycrawl.tools.checkstyle.checks.OuterTypeFilenameCheck"/>
     <module name="com.puppycrawl.tools.checkstyle.checks.UpperEllCheck"/>
 
     <!-- Suppress Checks -->
