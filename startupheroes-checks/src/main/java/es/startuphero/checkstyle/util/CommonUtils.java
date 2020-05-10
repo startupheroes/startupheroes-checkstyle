@@ -144,7 +144,7 @@ public final class CommonUtils {
         suggestedName.substring(0, 1).toLowerCase() + suggestedName.substring(1);
   }
 
-  private static boolean isEmpty(Object str) {
-    return (str == null || "".equals(str));
+  private static Boolean isEmpty(Object str) {
+    return str == null || "".equals(str);
   }
 }

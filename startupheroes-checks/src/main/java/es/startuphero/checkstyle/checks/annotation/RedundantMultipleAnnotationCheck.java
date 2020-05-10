@@ -35,8 +35,8 @@ public class RedundantMultipleAnnotationCheck extends AbstractCheck {
         TokenTypes.ENUM_DEF,
         TokenTypes.METHOD_DEF,
         TokenTypes.CTOR_DEF,
-        TokenTypes.VARIABLE_DEF,
-        };
+        TokenTypes.VARIABLE_DEF
+    };
   }
 
   @Override
