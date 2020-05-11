@@ -330,13 +330,13 @@
   <!-- Allow turning checks off in the code using @SuppressWarnings annotation -->
   <!-- See http://checkstyle.sourceforge.net/config_filters.html -->
   <!-- Filter out Checkstyle warnings that have been suppressed with the @SuppressWarnings annotation -->
-  <module name="com.puppycrawl.tools.checkstyle.filters.SuppressWarningsFilter">
-    <metadata name="skip" value="true"/>
-  </module>
-  <module name="com.puppycrawl.tools.checkstyle.filters.SuppressWithPlainTextCommentFilter"/>
   <module name="com.puppycrawl.tools.checkstyle.filters.SuppressionSingleFilter">
     <property name="checks" value="MagicNumber"/>
     <property name="files" value=".*[\\/]src[\\/](test|it)[\\/]"/>
   </module>
+  <module name="com.puppycrawl.tools.checkstyle.filters.SuppressWarningsFilter">
+    <metadata name="skip" value="true"/>
+  </module>
+  <module name="com.puppycrawl.tools.checkstyle.filters.SuppressWithPlainTextCommentFilter"/>
 
 </module>
