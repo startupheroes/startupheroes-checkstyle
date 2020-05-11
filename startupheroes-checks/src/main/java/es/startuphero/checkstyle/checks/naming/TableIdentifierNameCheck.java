@@ -5,7 +5,6 @@ import com.puppycrawl.tools.checkstyle.api.DetailAST;
 import com.puppycrawl.tools.checkstyle.api.TokenTypes;
 import es.startuphero.checkstyle.util.AnnotationUtils;
 import es.startuphero.checkstyle.util.CommonUtils;
-import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -31,6 +30,8 @@ public class TableIdentifierNameCheck extends AbstractCheck {
   private static final String MSG_KEY = "illegal.table.identifier.name";
 
   private static final String MSG_IDENTIFIER_NAME_TOO_LONG = "table.identifier.name.too.long";
+
+  private static final String TOO_LONG_IDENTIFIER_SUGGESTED_PREFIX = "your_table_name_your_column_names_";
 
   /**
    * set table annotation to check identifiers inside table.
@@ -103,30 +104,33 @@ public class TableIdentifierNameCheck extends AbstractCheck {
     DetailAST columnsKeyValueAst = identifierKeyValueAstMap.get(keyColumns);
     if (nonNull(columnsKeyValueAst)) {
       List<String> columnNames = AnnotationUtils.getValueAsStringList(columnsKeyValueAst);
-      if (!columnNames.isEmpty()) {
-        String suggestedIdentifierName = getSuggestedIdentifierName(className, columnNames);
-        if (identifierName.length() > maxLength) {
-          log(identifierAnnotationNode.getLineNo(), MSG_IDENTIFIER_NAME_TOO_LONG, identifierName, maxLength);
-        } else if (suggestedIdentifierName.length() <= maxLength &&
-                   !suggestedIdentifierName.equals(identifierName)) {
-          log(identifierAnnotationNode.getLineNo(), MSG_KEY, suggestedIdentifierName);
-        } else if (!acceptableIdentifierName(className, identifierName)) {
-          log(identifierAnnotationNode.getLineNo(), MSG_KEY,
-              getSuggestedIdentifierName(className, Collections.singletonList("your_fields")));
-        }
+      if (columnNames.isEmpty()) {
+        return;
+      }
+      if (identifierName.length() > maxLength) {
+        log(identifierAnnotationNode.getLineNo(), MSG_IDENTIFIER_NAME_TOO_LONG, identifierName, maxLength);
+        return;
+      }
+      String suggestedIdentifierName = getSuggestedIdentifierName(className, columnNames);
+      if (suggestedIdentifierName.length() <= maxLength && !suggestedIdentifierName.equals(identifierName)) {
+        log(identifierAnnotationNode.getLineNo(), MSG_KEY, suggestedIdentifierName);
+        return;
+      }
+      if (!acceptableIdentifierName(identifierName)) {
+        String suggestedIdentifierNameForLongNames = TOO_LONG_IDENTIFIER_SUGGESTED_PREFIX.concat(suggestedSuffix);
+        log(identifierAnnotationNode.getLineNo(), MSG_KEY, suggestedIdentifierNameForLongNames);
       }
     }
   }
 
   private String getSuggestedIdentifierName(String className, List<String> columnNames) {
     return CommonUtils.convertToDatabaseForm(className, suggestedSuffix,
-                                            columnNames.size() == 1 ? getSplitterOnComma().split(columnNames.get(0))
-                                                : columnNames);
+                                             columnNames.size() == 1 ? getSplitterOnComma().split(columnNames.get(0))
+                                                 : columnNames);
   }
 
-  private Boolean acceptableIdentifierName(String tableName, String identifierName) {
-    return identifierName.startsWith(CommonUtils.getDatabaseIdentifierName(tableName + "_")) &&
-           Pattern.compile(regex).matcher(identifierName).matches() &&
+  private Boolean acceptableIdentifierName(String identifierName) {
+    return Pattern.compile(regex).matcher(identifierName).matches() &&
            identifierName.endsWith(CommonUtils.getDatabaseIdentifierName("_" + suggestedSuffix));
   }
 

@@ -36,8 +36,8 @@ public class ForbiddenAnnotationCheck extends AbstractCheck {
         TokenTypes.ENUM_DEF,
         TokenTypes.METHOD_DEF,
         TokenTypes.CTOR_DEF,
-        TokenTypes.VARIABLE_DEF,
-        };
+        TokenTypes.VARIABLE_DEF
+    };
   }
 
   @Override
@@ -57,7 +57,7 @@ public class ForbiddenAnnotationCheck extends AbstractCheck {
         TokenTypes.TYPE_ARGUMENT,
         TokenTypes.LITERAL_NEW,
         TokenTypes.DOT,
-        TokenTypes.ANNOTATION_FIELD_DEF,
+        TokenTypes.ANNOTATION_FIELD_DEF
         };
   }
 
