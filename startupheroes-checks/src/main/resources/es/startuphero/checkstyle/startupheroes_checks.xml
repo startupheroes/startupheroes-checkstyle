@@ -180,6 +180,7 @@
     <!-- Suppress Checks -->
     <!-- Required by SuppressWarningsFilter below -->
     <!-- Make the @SuppressWarnings annotations available to Checkstyle -->
+    <module name="com.puppycrawl.tools.checkstyle.filters.SuppressionCommentFilter"/>
     <module name="com.puppycrawl.tools.checkstyle.checks.SuppressWarningsHolder">
       <metadata name="skip" value="true"/>
     </module>
@@ -292,6 +293,15 @@
     <property name="message" value="Space needed around ':' character."/>
   </module>
 
+  <!-- Javadoc author check -->
+  <module name="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck">
+    <property name="fileExtensions" value="java"/>
+    <property name="format" value="^\s*\*\s*@author"/>
+    <property name="minimum" value="1"/>
+    <property name="maximum" value="10"/>
+    <property name="message" value="Javadoc has illegal ''@author'' tag."/>
+  </module>
+
   <!-- Size Checks -->
   <!-- See https://checkstyle.sourceforge.io/config_sizes.html -->
   <module name="com.puppycrawl.tools.checkstyle.checks.sizes.FileLengthCheck">
@@ -323,6 +333,7 @@
   <module name="com.puppycrawl.tools.checkstyle.filters.SuppressWarningsFilter">
     <metadata name="skip" value="true"/>
   </module>
+  <module name="com.puppycrawl.tools.checkstyle.filters.SuppressWithPlainTextCommentFilter"/>
   <module name="com.puppycrawl.tools.checkstyle.filters.SuppressionSingleFilter">
     <property name="checks" value="MagicNumber"/>
     <property name="files" value=".*[\\/]src[\\/](test|it)[\\/]"/>
