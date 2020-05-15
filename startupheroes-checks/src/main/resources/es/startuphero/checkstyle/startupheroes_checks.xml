@@ -137,7 +137,8 @@
     <!-- Size Checks -->
     <!-- See https://checkstyle.sourceforge.io/config_sizes.html -->
     <module name="com.puppycrawl.tools.checkstyle.checks.sizes.MethodLengthCheck">
-      <property name="max" value="30"/>
+      <property name="tokens" value="METHOD_DEF"/>
+      <property name="max" value="40"/>
       <property name="countEmpty" value="false"/>
     </module>
 
@@ -332,6 +333,10 @@
   <!-- Filter out Checkstyle warnings that have been suppressed with the @SuppressWarnings annotation -->
   <module name="com.puppycrawl.tools.checkstyle.filters.SuppressionSingleFilter">
     <property name="checks" value="MagicNumber"/>
+    <property name="files" value=".*[\\/]src[\\/](test|it)[\\/]"/>
+  </module>
+  <module name="com.puppycrawl.tools.checkstyle.filters.SuppressionSingleFilter">
+    <property name="checks" value="MethodLength"/>
     <property name="files" value=".*[\\/]src[\\/](test|it)[\\/]"/>
   </module>
   <module name="com.puppycrawl.tools.checkstyle.filters.SuppressWarningsFilter">
