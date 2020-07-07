@@ -217,35 +217,35 @@ public class TestEntityForColumnDefaultCheck {
   @Column(nullable = false)
   private Boolean activeWithNoDefault;
 
-  // Single quota
+  // Single quote
 
   @ColumnDefault("ozlem")
   @Column(nullable = false)
-  private String nameWithMatchingDefaultsAndWithoutSingleQuota = "ozlem";
+  private String nameWithMatchingDefaultsAndWithoutSingleQuote = "ozlem";
 
   @ColumnDefault("M")
   @Column(nullable = false)
-  private Character genderWithMatchingDefaultsAndWithoutSingleQuota = 'M';
+  private Character genderWithMatchingDefaultsAndWithoutSingleQuote = 'M';
 
   @ColumnDefault("M")
   @Column(nullable = false)
-  private char smallGenderWithMatchingDefaultsAndWithoutSingleQuota = 'M';
+  private char smallGenderWithMatchingDefaultsAndWithoutSingleQuote = 'M';
 
   @ColumnDefault("NORMAL")
   @Column(nullable = false)
-  private StorageCondition storageConditionWithMatchingDefaultsAndWithoutSingleQuota = StorageCondition.NORMAL;
+  private StorageCondition storageConditionWithMatchingDefaultsAndWithoutSingleQuote = StorageCondition.NORMAL;
 
   @ColumnDefault("COLD")
   @Column(nullable = false)
-  private StorageCondition storageConditionWithMatchingDefaultsAndStaticImportAndWithoutSingleQuota = COLD;
+  private StorageCondition storageConditionWithMatchingDefaultsAndStaticImportAndWithoutSingleQuote = COLD;
 
   @ColumnDefault("'ozlem")
   @Column(nullable = false)
-  private String nameWithMatchingDefaultsAndWithOnlyLeftSingleQuota = "ozlem";
+  private String nameWithMatchingDefaultsAndWithOnlyLeftSingleQuote = "ozlem";
 
   @ColumnDefault("ozlem'")
   @Column(nullable = false)
-  private String nameWithMatchingDefaultsAndWithOnlyRightSingleQuota = "ozlem";
+  private String nameWithMatchingDefaultsAndWithOnlyRightSingleQuote = "ozlem";
 
   // Date variable
 

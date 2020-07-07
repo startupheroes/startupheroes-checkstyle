@@ -75,7 +75,7 @@ public class LogDataTableCheck extends AbstractCheck {
    * @param className class name for check.
    * @return true if class name matches format of any class names.
    */
-  private boolean isMatchingClassName(String className) {
+  private Boolean isMatchingClassName(String className) {
     return regexp.matcher(className).find();
   }
 
