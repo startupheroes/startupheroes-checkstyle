@@ -267,6 +267,12 @@
     <module name="es.startuphero.checkstyle.checks.naming.VariableNameCheck">
       <property name="typeAnnotation" value="javax.persistence.Entity"/>
     </module>
+    <module name="es.startuphero.checkstyle.checks.annotation.ColumnDefaultCheck">
+      <property name="typeAnnotation" value="javax.persistence.Entity"/>
+      <property name="abstractTypeAnnotation" value="javax.persistence.MappedSuperclass"/>
+      <property name="columnDefaultAnnotation" value="org.hibernate.annotations.ColumnDefault"/>
+      <property name="excludedColumnDefaultAnnotationValueRegex" value="^.*?(\bCURRENT_TIMESTAMP\b|\bNOW\b|\bLOCALTIME\b|\bLOCALTIMESTAMP\b).*$"/>
+    </module>
 
   </module>
 

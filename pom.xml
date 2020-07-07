@@ -31,7 +31,7 @@
   </developers>
 
   <properties>
-    <java.version>1.8</java.version>
+    <java.version>11</java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <checkstyle.version>8.32</checkstyle.version>
@@ -44,9 +44,11 @@
     <sonar-packaging-maven-plugin.version>1.17</sonar-packaging-maven-plugin.version>
     <commons-logging.version>1.2</commons-logging.version>
     <codehause-plexus-utils.version>3.0.22</codehause-plexus-utils.version>
+    <!-- Test -->
     <junit.version>4.11</junit.version>
     <slf4j.version>1.7.21</slf4j.version>
     <javax-persistence.version>2.1.0</javax-persistence.version>
+    <hibernate.version>5.4.18.Final</hibernate.version>
     <sonar-java.version>4.2.1.6971</sonar-java.version>
     <fest-assert.version>1.4</fest-assert.version>
   </properties>
@@ -136,30 +138,42 @@
         <groupId>junit</groupId>
         <artifactId>junit</artifactId>
         <version>${junit.version}</version>
+        <scope>test</scope>
       </dependency>
 
       <dependency>
         <groupId>org.slf4j</groupId>
         <artifactId>slf4j-api</artifactId>
         <version>${slf4j.version}</version>
+        <scope>test</scope>
       </dependency>
 
       <dependency>
         <groupId>org.eclipse.persistence</groupId>
         <artifactId>javax.persistence</artifactId>
         <version>${javax-persistence.version}</version>
+        <scope>test</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>org.hibernate</groupId>
+        <artifactId>hibernate-core</artifactId>
+        <version>${hibernate.version}</version>
+        <scope>test</scope>
       </dependency>
 
       <dependency>
         <groupId>org.sonarsource.java</groupId>
         <artifactId>java-checks-testkit</artifactId>
         <version>${sonar-java.version}</version>
+        <scope>test</scope>
       </dependency>
 
       <dependency>
         <groupId>org.easytesting</groupId>
         <artifactId>fest-assert</artifactId>
         <version>${fest-assert.version}</version>
+        <scope>test</scope>
       </dependency>
     </dependencies>
   </dependencyManagement>
