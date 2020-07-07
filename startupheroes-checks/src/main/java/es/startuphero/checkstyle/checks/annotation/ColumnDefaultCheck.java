@@ -25,16 +25,16 @@ public class ColumnDefaultCheck extends AbstractCheck {
   private static final String ANNOTATION_DIRECT_EXPRESSION_MSG_KEY =
       "column.default.annotation.direct.expression";
 
-  private static final String ANNOTATION_VALUE_REQUIRE_SINGLE_QUOTA_MSG_KEY =
-      "column.default.annotation.value.require.single.quota";
+  private static final String ANNOTATION_VALUE_REQUIRE_SINGLE_QUOTE_MSG_KEY =
+      "column.default.annotation.value.require.single.quote";
 
-  private static final String SINGLE_QUOTA = "'";
+  private static final String SINGLE_QUOTE = "'";
 
-  private static final String DOUBLE_QUOTA = "\"";
+  private static final String DOUBLE_QUOTE = "\"";
 
   private static final String EMPTY = "";
 
-  private static final List<Integer> TOKEN_TYPES_REQUIRE_SINGLE_QUOTA_ON_ANNOTATION_VALUE =
+  private static final List<Integer> TOKEN_TYPES_REQUIRE_SINGLE_QUOTE_ON_ANNOTATION_VALUE =
       List.of(TokenTypes.STRING_LITERAL,
               TokenTypes.CHAR_LITERAL,
               TokenTypes.LITERAL_CHAR,
@@ -110,11 +110,11 @@ public class ColumnDefaultCheck extends AbstractCheck {
           getAnnotationValue(annotationAst, true));
       return;
     }
-    // require single quota on string, char, enum variables
-    if (requireSingleQuotaOnAnnotationValue(assignAst) &&
-        !(getAnnotationValue(annotationAst, false).startsWith(SINGLE_QUOTA) &&
-          getAnnotationValue(annotationAst, false).endsWith(SINGLE_QUOTA))) {
-      log(variableAst.getLineNo(), ANNOTATION_VALUE_REQUIRE_SINGLE_QUOTA_MSG_KEY,
+    // require single quote on string, char, enum variables
+    if (requireSingleQuoteOnAnnotationValue(assignAst) &&
+        !(getAnnotationValue(annotationAst, false).startsWith(SINGLE_QUOTE) &&
+          getAnnotationValue(annotationAst, false).endsWith(SINGLE_QUOTE))) {
+      log(variableAst.getLineNo(), ANNOTATION_VALUE_REQUIRE_SINGLE_QUOTE_MSG_KEY,
           getSimpleName(columnDefaultAnnotation),
           getAnnotationValue(annotationAst, true),
           variable);
@@ -129,10 +129,13 @@ public class ColumnDefaultCheck extends AbstractCheck {
   }
 
   private Boolean isExcludedVariable(String annotationValue) {
+    if (excludedColumnDefaultAnnotationValueRegex == null) {
+      return false;
+    }
     return annotationValue.matches(excludedColumnDefaultAnnotationValueRegex);
   }
 
-  private Boolean requireSingleQuotaOnAnnotationValue(DetailAST assignAst) {
+  private Boolean requireSingleQuoteOnAnnotationValue(DetailAST assignAst) {
     DetailAST expressionAst = assignAst.findFirstToken(TokenTypes.EXPR);
     // case enum
     DetailAST dotDst = expressionAst.findFirstToken(TokenTypes.DOT);
@@ -140,7 +143,7 @@ public class ColumnDefaultCheck extends AbstractCheck {
       return true;
     } else {
       DetailAST valueAst = expressionAst.getFirstChild();
-      return TOKEN_TYPES_REQUIRE_SINGLE_QUOTA_ON_ANNOTATION_VALUE.contains(valueAst.getType());
+      return TOKEN_TYPES_REQUIRE_SINGLE_QUOTE_ON_ANNOTATION_VALUE.contains(valueAst.getType());
     }
   }
 
@@ -163,11 +166,11 @@ public class ColumnDefaultCheck extends AbstractCheck {
   private String trimAssignValue(String assignValue, DetailAST valueAst) {
     switch (valueAst.getType()) {
       case TokenTypes.STRING_LITERAL:
-        assignValue = assignValue.replaceAll(DOUBLE_QUOTA, EMPTY);
+        assignValue = assignValue.replaceAll(DOUBLE_QUOTE, EMPTY);
         break;
       case TokenTypes.CHAR_LITERAL:
       case TokenTypes.LITERAL_CHAR:
-        assignValue = assignValue.replaceAll(SINGLE_QUOTA, EMPTY);
+        assignValue = assignValue.replaceAll(SINGLE_QUOTE, EMPTY);
         break;
       case TokenTypes.NUM_LONG:
         assignValue = assignValue.replace("l", EMPTY).replace("L", EMPTY);
@@ -185,12 +188,12 @@ public class ColumnDefaultCheck extends AbstractCheck {
     return assignValue;
   }
 
-  private String getAnnotationValue(DetailAST annotationAst, Boolean skipSingleQuotas) {
+  private String getAnnotationValue(DetailAST annotationAst, Boolean skipSingleQuotes) {
     DetailAST expressionAst = annotationAst.findFirstToken(TokenTypes.EXPR);
     String annotationValue = expressionAst.getFirstChild().getText();
-    annotationValue = annotationValue.replaceAll(DOUBLE_QUOTA, EMPTY);
-    if (skipSingleQuotas) {
-      annotationValue = annotationValue.replaceAll(SINGLE_QUOTA, EMPTY);
+    annotationValue = annotationValue.replaceAll(DOUBLE_QUOTE, EMPTY);
+    if (skipSingleQuotes) {
+      annotationValue = annotationValue.replaceAll(SINGLE_QUOTE, EMPTY);
     }
     return annotationValue;
   }

@@ -16,8 +16,8 @@ public class ColumnDefaultCheckTest extends BaseCheckTestSupport {
   private static final String ANNOTATION_DIRECT_EXPRESSION_MSG_KEY =
       "column.default.annotation.direct.expression";
 
-  private static final String ANNOTATION_VALUE_REQUIRE_SINGLE_QUOTA_MSG_KEY =
-      "column.default.annotation.value.require.single.quota";
+  private static final String ANNOTATION_VALUE_REQUIRE_SINGLE_QUOTE_MSG_KEY =
+      "column.default.annotation.value.require.single.quote";
 
   private static final String REGEX = "^.*?(\\bCURRENT_TIMESTAMP\\b|\\bNOW\\b|\\bLOCALTIME\\b|\\bLOCALTIMESTAMP\\b).*$";
 
@@ -58,31 +58,31 @@ public class ColumnDefaultCheckTest extends BaseCheckTestSupport {
          "206: " + getCheckMessage(NOT_MATCHING_MSG_KEY, "activeWithUnMatchingDefaults", "true", "false"),
          "210: " + getCheckMessage(NOT_MATCHING_MSG_KEY, "activeWithOnlyColumnDefaultValue", null, "true"),
          "214: " + getCheckMessage(NOT_MATCHING_MSG_KEY, "activeWithOnlyAssignValue", "false", null),
-         "222: " + getCheckMessage(ANNOTATION_VALUE_REQUIRE_SINGLE_QUOTA_MSG_KEY,
+         "222: " + getCheckMessage(ANNOTATION_VALUE_REQUIRE_SINGLE_QUOTE_MSG_KEY,
                                    "ColumnDefault", "ozlem",
-                                   "nameWithMatchingDefaultsAndWithoutSingleQuota"),
-         "226: " + getCheckMessage(ANNOTATION_VALUE_REQUIRE_SINGLE_QUOTA_MSG_KEY,
+                                   "nameWithMatchingDefaultsAndWithoutSingleQuote"),
+         "226: " + getCheckMessage(ANNOTATION_VALUE_REQUIRE_SINGLE_QUOTE_MSG_KEY,
                                    "ColumnDefault", "M",
-                                   "genderWithMatchingDefaultsAndWithoutSingleQuota"),
-         "230: " + getCheckMessage(ANNOTATION_VALUE_REQUIRE_SINGLE_QUOTA_MSG_KEY,
+                                   "genderWithMatchingDefaultsAndWithoutSingleQuote"),
+         "230: " + getCheckMessage(ANNOTATION_VALUE_REQUIRE_SINGLE_QUOTE_MSG_KEY,
                                    "ColumnDefault", "M",
-                                   "smallGenderWithMatchingDefaultsAndWithoutSingleQuota"),
-         "234: " + getCheckMessage(ANNOTATION_VALUE_REQUIRE_SINGLE_QUOTA_MSG_KEY,
+                                   "smallGenderWithMatchingDefaultsAndWithoutSingleQuote"),
+         "234: " + getCheckMessage(ANNOTATION_VALUE_REQUIRE_SINGLE_QUOTE_MSG_KEY,
                                    "ColumnDefault", "NORMAL",
-                                   "storageConditionWithMatchingDefaultsAndWithoutSingleQuota"),
-         "238: " + getCheckMessage(ANNOTATION_VALUE_REQUIRE_SINGLE_QUOTA_MSG_KEY,
+                                   "storageConditionWithMatchingDefaultsAndWithoutSingleQuote"),
+         "238: " + getCheckMessage(ANNOTATION_VALUE_REQUIRE_SINGLE_QUOTE_MSG_KEY,
                                    "ColumnDefault", "COLD",
-                                   "storageConditionWithMatchingDefaultsAndStaticImportAndWithoutSingleQuota"),
-         "242: " + getCheckMessage(ANNOTATION_VALUE_REQUIRE_SINGLE_QUOTA_MSG_KEY,
+                                   "storageConditionWithMatchingDefaultsAndStaticImportAndWithoutSingleQuote"),
+         "242: " + getCheckMessage(ANNOTATION_VALUE_REQUIRE_SINGLE_QUOTE_MSG_KEY,
                                    "ColumnDefault", "ozlem",
-                                   "nameWithMatchingDefaultsAndWithOnlyLeftSingleQuota"),
-         "246: " + getCheckMessage(ANNOTATION_VALUE_REQUIRE_SINGLE_QUOTA_MSG_KEY,
+                                   "nameWithMatchingDefaultsAndWithOnlyLeftSingleQuote"),
+         "246: " + getCheckMessage(ANNOTATION_VALUE_REQUIRE_SINGLE_QUOTE_MSG_KEY,
                                    "ColumnDefault", "ozlem",
-                                   "nameWithMatchingDefaultsAndWithOnlyRightSingleQuota"),
+                                   "nameWithMatchingDefaultsAndWithOnlyRightSingleQuote"),
          "291: " + getCheckMessage(NOT_MATCHING_MSG_KEY, "createdAtWithUnknownTimeStamp", null,
                                    "UNKNOWN_TIMESTAMP(6)"),
          "295: " + getCheckMessage(ANNOTATION_DIRECT_EXPRESSION_MSG_KEY,
-                                   "createdAtWithCurrentTimeStamp6AndValueParam"),};
+                                   "createdAtWithCurrentTimeStamp6AndValueParam")};
     test("TestEntityForColumnDefaultCheck.java", expectedMessages);
   }
 
