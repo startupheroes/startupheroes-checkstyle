@@ -39,7 +39,7 @@ public class VariableAnnotationKeyValueCheck extends AbstractCheck {
    */
   private String abstractTypeAnnotation;
 
-  private Table<String, String, Map<String, String>> variableAnnotationKeyValueTable = HashBasedTable.create();
+  private final Table<String, String, Map<String, String>> variableAnnotationKeyValueTable = HashBasedTable.create();
 
   @Override
   public int[] getDefaultTokens() {
@@ -63,7 +63,7 @@ public class VariableAnnotationKeyValueCheck extends AbstractCheck {
       Set<String> checkedVariables = variableAnnotationKeyValueTable.rowKeySet();
       Set<String> checkedAnnotations = variableAnnotationKeyValueTable.columnKeySet();
       checkedVariables.stream()
-                      .filter(checkedVariable -> variableNameAstMap.keySet().contains(checkedVariable))
+                      .filter(variableNameAstMap::containsKey)
                       .forEach(checkedVariable -> {
                         DetailAST variableAst = variableNameAstMap.get(checkedVariable);
                         checkedAnnotations.forEach(checkedAnnotation -> checkAnnotation(checkedVariable,
@@ -78,8 +78,7 @@ public class VariableAnnotationKeyValueCheck extends AbstractCheck {
     DetailAST annotationAst = getAnnotation(variableAst, checkedAnnotation);
     if (nonNull(annotationAst)) {
       Map<String, DetailAST> annotationKeyPairAstMap = getKeyValueAstMap(annotationAst);
-      Map<String, String> checkedKeyValueMap =
-          variableAnnotationKeyValueTable.get(checkedVariable, checkedAnnotation);
+      Map<String, String> checkedKeyValueMap = variableAnnotationKeyValueTable.get(checkedVariable, checkedAnnotation);
       checkedKeyValueMap.keySet().forEach(checkedKey -> checkKeyValuePair(checkedVariable,
                                                                           checkedAnnotation,
                                                                           annotationAst,
