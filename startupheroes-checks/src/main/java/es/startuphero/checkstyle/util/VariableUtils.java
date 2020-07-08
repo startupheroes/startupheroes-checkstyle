@@ -8,7 +8,9 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
-import java.util.stream.Collectors;
+
+import static java.util.stream.Collectors.toList;
+import static java.util.stream.Collectors.toMap;
 
 /**
  * @author ozlem.ulag
@@ -31,14 +33,14 @@ public final class VariableUtils {
     DetailAST objBlock = classAst.findFirstToken(TokenTypes.OBJBLOCK);
     return CommonUtils.getChildsByType(objBlock, TokenTypes.VARIABLE_DEF).stream()
                       .filter(CommonUtils::isStatic)
-                      .collect(Collectors.toList());
+                      .collect(toList());
   }
 
   public static List<DetailAST> getNonStaticVariables(DetailAST classAst) {
     DetailAST objBlock = classAst.findFirstToken(TokenTypes.OBJBLOCK);
     return CommonUtils.getChildsByType(objBlock, TokenTypes.VARIABLE_DEF).stream()
                       .filter(ast -> !CommonUtils.isStatic(ast))
-                      .collect(Collectors.toList());
+                      .collect(toList());
   }
 
   /**
@@ -49,7 +51,7 @@ public final class VariableUtils {
   public static List<DetailAST> getVariables(DetailAST classAst, Scope scope) {
     return getVariables(classAst).stream()
                                  .filter(variableAst -> scope.equals(getScopeOf(variableAst)))
-                                 .collect(Collectors.toList());
+                                 .collect(toList());
   }
 
   public static Scope getScopeOf(DetailAST variableAst) {
@@ -73,7 +75,7 @@ public final class VariableUtils {
   public static List<String> getVariableNames(DetailAST classAst) {
     return getVariables(classAst).stream()
                                  .map(VariableUtils::getVariableName)
-                                 .collect(Collectors.toList());
+                                 .collect(toList());
   }
 
   /**
@@ -82,23 +84,22 @@ public final class VariableUtils {
    */
   public static Map<String, DetailAST> getVariableNameAstMap(DetailAST classAst) {
     List<DetailAST> variables = getVariables(classAst);
-    return variables.stream().collect(Collectors.toMap(VariableUtils::getVariableName,
-                                                       Function.identity(), (v1, v2) -> null,
-                                                       LinkedHashMap::new));
+    return variables.stream().collect(toMap(VariableUtils::getVariableName,
+                                            Function.identity(), (v1, v2) -> null,
+                                            LinkedHashMap::new));
   }
 
   public static Map<String, DetailAST> getVariableNameAstMap(DetailAST classAst, Boolean isStatic) {
-    List<DetailAST> variables =
-        isStatic ? getStaticVariables(classAst) : getNonStaticVariables(classAst);
-    return variables.stream().collect(Collectors.toMap(VariableUtils::getVariableName,
-                                                       Function.identity(), (v1, v2) -> null,
-                                                       LinkedHashMap::new));
+    List<DetailAST> variables = isStatic ? getStaticVariables(classAst) : getNonStaticVariables(classAst);
+    return variables.stream().collect(toMap(VariableUtils::getVariableName,
+                                            Function.identity(), (v1, v2) -> null,
+                                            LinkedHashMap::new));
   }
 
   public static Map<String, DetailAST> getVariableNameAstMap(DetailAST classAst, Scope scope) {
     List<DetailAST> variables = getVariables(classAst, scope);
-    return variables.stream().collect(Collectors.toMap(VariableUtils::getVariableName,
-                                                       Function.identity(), (v1, v2) -> null,
-                                                       LinkedHashMap::new));
+    return variables.stream().collect(toMap(VariableUtils::getVariableName,
+                                            Function.identity(), (v1, v2) -> null,
+                                            LinkedHashMap::new));
   }
 }
