@@ -8,6 +8,7 @@ import java.util.Map;
 import java.util.Objects;
 
 import static es.startuphero.checkstyle.util.AnnotationUtils.getAnnotation;
+import static es.startuphero.checkstyle.util.AnnotationUtils.hasAnnotation;
 import static es.startuphero.checkstyle.util.ClassUtils.isEntity;
 import static es.startuphero.checkstyle.util.CommonUtils.getSimpleName;
 import static es.startuphero.checkstyle.util.VariableUtils.getVariableNameAstMap;
@@ -50,6 +51,8 @@ public class ColumnDefaultCheck extends AbstractCheck {
    */
   private String abstractTypeAnnotation;
 
+  private String columnAnnotation;
+
   private String columnDefaultAnnotation;
 
   private String excludedColumnDefaultAnnotationValueRegex;
@@ -75,7 +78,9 @@ public class ColumnDefaultCheck extends AbstractCheck {
       Map<String, DetailAST> variableNameAstMap = getVariableNameAstMap(ast, false);
       for (String variable : variableNameAstMap.keySet()) {
         DetailAST variableAst = variableNameAstMap.get(variable);
-        checkAssignValueAndAnnotationValueMatching(variable, variableAst, columnDefaultAnnotation);
+        if (hasAnnotation(variableAst, columnAnnotation)) {
+          checkAssignValueAndAnnotationValueMatching(variable, variableAst, columnDefaultAnnotation);
+        }
       }
     }
   }
@@ -204,6 +209,10 @@ public class ColumnDefaultCheck extends AbstractCheck {
 
   public void setAbstractTypeAnnotation(String abstractTypeAnnotation) {
     this.abstractTypeAnnotation = abstractTypeAnnotation;
+  }
+
+  public void setColumnAnnotation(String columnAnnotation) {
+    this.columnAnnotation = columnAnnotation;
   }
 
   public void setColumnDefaultAnnotation(String columnDefaultAnnotation) {

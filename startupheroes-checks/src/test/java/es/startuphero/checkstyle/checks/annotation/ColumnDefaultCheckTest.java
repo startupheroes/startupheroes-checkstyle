@@ -90,6 +90,7 @@ public class ColumnDefaultCheckTest extends BaseCheckTestSupport {
     verify(createCheckConfig(ColumnDefaultCheck.class,
                              ImmutableMap.of("typeAnnotation", "javax.persistence.Entity",
                                              "abstractTypeAnnotation", "javax.persistence.MappedSuperclass",
+                                             "columnAnnotation", "javax.persistence.Column",
                                              "columnDefaultAnnotation", "org.hibernate.annotations.ColumnDefault",
                                              "excludedColumnDefaultAnnotationValueRegex", REGEX)),
            getPath(fileName),
