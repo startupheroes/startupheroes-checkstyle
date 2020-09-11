@@ -10,13 +10,7 @@
 
     <!-- Annotation Checks -->
     <!-- See https://checkstyle.sourceforge.io/config_annotation.html -->
-    <module name="com.puppycrawl.tools.checkstyle.checks.annotation.AnnotationLocationCheck">
-      <property name="tokens" value="CLASS_DEF, INTERFACE_DEF, ENUM_DEF, METHOD_DEF, CTOR_DEF"/>
-    </module>
-    <module name="com.puppycrawl.tools.checkstyle.checks.annotation.AnnotationLocationCheck">
-      <property name="tokens" value="VARIABLE_DEF"/>
-      <property name="allowSamelineMultipleAnnotations" value="true"/>
-    </module>
+    <module name="com.puppycrawl.tools.checkstyle.checks.annotation.AnnotationLocationCheck"/>
     <module name="com.puppycrawl.tools.checkstyle.checks.annotation.AnnotationUseStyleCheck"/>
     <module name="com.puppycrawl.tools.checkstyle.checks.annotation.MissingDeprecatedCheck"/>
     <module name="com.puppycrawl.tools.checkstyle.checks.annotation.MissingOverrideCheck">
@@ -26,23 +20,14 @@
 
     <!-- Blocks Checks -->
     <!-- See https://checkstyle.sourceforge.io/config_blocks.html -->
-    <module name="com.puppycrawl.tools.checkstyle.checks.blocks.AvoidNestedBlocksCheck">
-      <property name="allowInSwitchCase" value="true"/>
-    </module>
-    <module name="com.puppycrawl.tools.checkstyle.checks.blocks.EmptyBlockCheck">
-      <property name="option" value="TEXT"/>
-      <property name="tokens" value="LITERAL_TRY, LITERAL_FINALLY, LITERAL_IF, LITERAL_ELSE, LITERAL_SWITCH"/>
-    </module>
+    <module name="com.puppycrawl.tools.checkstyle.checks.blocks.AvoidNestedBlocksCheck"/>
+    <module name="com.puppycrawl.tools.checkstyle.checks.blocks.EmptyBlockCheck"/>
     <module name="com.puppycrawl.tools.checkstyle.checks.blocks.EmptyCatchBlockCheck">
       <property name="exceptionVariableName" value="ignore"/>
     </module>
     <module name="com.puppycrawl.tools.checkstyle.checks.blocks.LeftCurlyCheck"/>
     <module name="com.puppycrawl.tools.checkstyle.checks.blocks.NeedBracesCheck"/>
-    <module name="com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheck">
-      <property name="option" value="alone"/>
-      <property name="tokens"
-          value="CLASS_DEF, METHOD_DEF, CTOR_DEF, LITERAL_FOR, LITERAL_WHILE, STATIC_INIT, INSTANCE_INIT"/>
-    </module>
+    <module name="com.puppycrawl.tools.checkstyle.checks.blocks.RightCurlyCheck"/>
 
     <!-- Coding Checks -->
     <!-- See https://checkstyle.sourceforge.io/config_coding.html -->
@@ -109,7 +94,6 @@
       <property name="max" value="7"/>
     </module>
     <module name="com.puppycrawl.tools.checkstyle.checks.design.VisibilityModifierCheck">
-      <property name="packageAllowed" value="true"/>
       <property name="protectedAllowed" value="true"/>
     </module>
 
@@ -172,51 +156,26 @@
     </module>
     <module name="com.puppycrawl.tools.checkstyle.checks.naming.CatchParameterNameCheck"/>
     <module name="com.puppycrawl.tools.checkstyle.checks.naming.ClassTypeParameterNameCheck">
-      <property name="format" value="(^[A-Z][0-9]?)$|([A-Z][a-zA-Z0-9]*[T]$)"/>
-      <message value="Class type name ''{0}'' must match pattern ''{1}''." key="name.invalidPattern"/>
+      <property name="format" value="^[A-Z]*$"/>
     </module>
     <module name="com.puppycrawl.tools.checkstyle.checks.naming.ConstantNameCheck"/>
     <module name="com.puppycrawl.tools.checkstyle.checks.naming.InterfaceTypeParameterNameCheck">
-      <property name="format" value="(^[A-Z][0-9]?)$|([A-Z][a-zA-Z0-9]*[T]$)"/>
-      <message value="Interface type name ''{0}'' must match pattern ''{1}''." key="name.invalidPattern"/>
+      <property name="format" value="^[A-Z]*$"/>
     </module>
     <module name="com.puppycrawl.tools.checkstyle.checks.naming.LambdaParameterNameCheck"/>
     <module name="com.puppycrawl.tools.checkstyle.checks.naming.LocalFinalVariableNameCheck"/>
-    <module name="com.puppycrawl.tools.checkstyle.checks.naming.LocalVariableNameCheck">
-      <property name="tokens" value="VARIABLE_DEF"/>
-      <property name="format" value="^[a-z][a-z0-9][a-zA-Z0-9]*$"/>
-      <property name="allowOneCharVarInForLoop" value="true"/>
-      <message value="Local variable name ''{0}'' must match pattern ''{1}''." key="name.invalidPattern"/>
-    </module>
-    <module name="com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheck">
-      <property name="format" value="^[a-z][a-z0-9][a-zA-Z0-9]*$"/>
-      <message value="Member name ''{0}'' must match pattern ''{1}''." key="name.invalidPattern"/>
-    </module>
-    <module name="com.puppycrawl.tools.checkstyle.checks.naming.MethodNameCheck">
-      <property name="format" value="^[a-z0-9][a-zA-Z0-9_]*$"/>
-      <message value="Method name ''{0}'' must match pattern ''{1}''." key="name.invalidPattern"/>
-    </module>
+    <module name="com.puppycrawl.tools.checkstyle.checks.naming.LocalVariableNameCheck"/>
+    <module name="com.puppycrawl.tools.checkstyle.checks.naming.MemberNameCheck"/>
+    <module name="com.puppycrawl.tools.checkstyle.checks.naming.MethodNameCheck"/>
     <module name="com.puppycrawl.tools.checkstyle.checks.naming.MethodTypeParameterNameCheck">
-      <property name="format" value="(^[A-Z][0-9]?)$|([A-Z][a-zA-Z0-9]*[T]$)"/>
-      <message value="Method type name ''{0}'' must match pattern ''{1}''." key="name.invalidPattern"/>
+      <property name="format" value="^[A-Z]*$"/>
     </module>
     <module name="com.puppycrawl.tools.checkstyle.checks.naming.PackageNameCheck">
       <property name="format" value="^[a-z]+(\.[a-z][a-z0-9]*)*$"/>
-      <message value="Package name ''{0}'' must match pattern ''{1}''." key="name.invalidPattern"/>
     </module>
-    <module name="com.puppycrawl.tools.checkstyle.checks.naming.ParameterNameCheck">
-      <property name="format" value="^[a-z][a-z0-9][a-zA-Z0-9]*$"/>
-      <message value="Parameter name ''{0}'' must match pattern ''{1}''." key="name.invalidPattern"/>
-    </module>
-    <module name="com.puppycrawl.tools.checkstyle.checks.naming.CatchParameterNameCheck">
-      <property name="format" value="^(e|[a-z][a-z][a-zA-Z]+)$"/>
-    </module>
-    <module name="com.puppycrawl.tools.checkstyle.checks.naming.StaticVariableNameCheck">
-      <property name="format" value="^(id)|([a-z][a-z0-9][a-zA-Z0-9]+)$"/>
-    </module>
-    <module name="com.puppycrawl.tools.checkstyle.checks.naming.TypeNameCheck">
-      <message value="Type name ''{0}'' must match pattern ''{1}''." key="name.invalidPattern"/>
-    </module>
+    <module name="com.puppycrawl.tools.checkstyle.checks.naming.ParameterNameCheck"/>
+    <module name="com.puppycrawl.tools.checkstyle.checks.naming.StaticVariableNameCheck"/>
+    <module name="com.puppycrawl.tools.checkstyle.checks.naming.TypeNameCheck"/>
 
     <!-- Size Checks -->
     <!-- See https://checkstyle.sourceforge.io/config_sizes.html -->
@@ -230,16 +189,10 @@
     <!-- See https://checkstyle.sourceforge.io/config_whitespace.html -->
     <module name="com.puppycrawl.tools.checkstyle.checks.whitespace.EmptyForIteratorPadCheck"/>
     <module name="com.puppycrawl.tools.checkstyle.checks.whitespace.EmptyLineSeparatorCheck">
-      <property name="allowNoEmptyLineBetweenFields" value="true"/>
       <property name="allowMultipleEmptyLines" value="false"/>
       <property name="allowMultipleEmptyLinesInsideClassMembers" value="false"/>
     </module>
-    <module name="com.puppycrawl.tools.checkstyle.checks.whitespace.GenericWhitespaceCheck">
-      <message value="GenericWhitespace ''{0}'' is followed by whitespace." key="ws.followed"/>
-      <message value="GenericWhitespace ''{0}'' is preceded with whitespace." key="ws.preceded"/>
-      <message value="GenericWhitespace ''{0}'' should followed by whitespace." key="ws.illegalFollow"/>
-      <message value="GenericWhitespace ''{0}'' is not preceded with whitespace." key="ws.notPreceded"/>
-    </module>
+    <module name="com.puppycrawl.tools.checkstyle.checks.whitespace.GenericWhitespaceCheck"/>
     <module name="com.puppycrawl.tools.checkstyle.checks.whitespace.MethodParamPadCheck"/>
     <module name="com.puppycrawl.tools.checkstyle.checks.whitespace.NoLineWrapCheck"/>
     <module name="com.puppycrawl.tools.checkstyle.checks.whitespace.NoWhitespaceAfterCheck"/>
@@ -256,10 +209,7 @@
       <property name="option" value="nl"/>
     </module>
     <module name="com.puppycrawl.tools.checkstyle.checks.whitespace.SeparatorWrapCheck">
-      <property name="tokens" value="DOT"/>
-      <property name="option" value="nl"/>
-    </module>
-    <module name="com.puppycrawl.tools.checkstyle.checks.whitespace.SeparatorWrapCheck">
+      <property name="id" value="SeparatorWrapCommaCheck"/>
       <property name="tokens" value="COMMA"/>
       <property name="option" value="EOL"/>
     </module>
@@ -268,16 +218,7 @@
     </module>
     <module name="com.puppycrawl.tools.checkstyle.checks.whitespace.TypecastParenPadCheck"/>
     <module name="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAfterCheck"/>
-    <module name="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck">
-      <property name="allowEmptyConstructors" value="true"/>
-      <property name="allowEmptyMethods" value="true"/>
-      <property name="allowEmptyTypes" value="true"/>
-      <property name="allowEmptyLoops" value="true"/>
-      <message
-          value="WhitespaceAround: ''{0}'' is not followed by whitespace. Empty blocks may only be represented as '{}' when not part of a multi-block statement (4.1.3)"
-          key="ws.notFollowed"/>
-      <message value="WhitespaceAround: ''{0}'' is not preceded with whitespace." key="ws.notPreceded"/>
-    </module>
+    <module name="com.puppycrawl.tools.checkstyle.checks.whitespace.WhitespaceAroundCheck"/>
     <!-- Miscellaneous Checks -->
     <!-- See http://checkstyle.sf.net/config_misc.html -->
     <module name="com.puppycrawl.tools.checkstyle.checks.ArrayTypeStyleCheck"/>
@@ -434,7 +375,7 @@
   </module>
   <module name="com.puppycrawl.tools.checkstyle.checks.sizes.LineLengthCheck">
     <property name="fileExtensions" value="java"/>
-    <property name="max" value="120"/>
+    <property name="max" value="200"/>
     <property name="ignorePattern" value="^package.*|^import.*|a href|href|http://|https://|ftp://"/>
   </module>
 
