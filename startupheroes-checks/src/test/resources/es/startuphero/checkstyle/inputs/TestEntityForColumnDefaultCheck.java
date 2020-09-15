@@ -1,8 +1,10 @@
 package es.startuphero.checkstyle.inputs;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import org.hibernate.annotations.ColumnDefault;
 
 import static es.startuphero.checkstyle.inputs.TestEntityForColumnDefaultCheck.StorageCondition.COLD;
@@ -295,6 +297,20 @@ public class TestEntityForColumnDefaultCheck {
   @ColumnDefault(value = "CURRENT_TIMESTAMP(6)")
   @Column(nullable = false)
   private Date createdAtWithCurrentTimeStamp6AndValueParam;
+
+  @GeneratedValue
+  @ColumnDefault("CURRENT_TIMESTAMP(6)")
+  @Column(nullable = false)
+  private LocalDateTime createdAtOnLocalDateType;
+
+  @GeneratedValue
+  @ColumnDefault("CURRENT_TIMESTAMP(6) on update CURRENT_TIMESTAMP(6)")
+  @Column(nullable = false)
+  private LocalDateTime lastUpdatedAtOnLocalDateType;
+
+  @Column(nullable = false)
+  @ColumnDefault("'1970-01-01 00:00:00'")
+  private LocalDateTime localDateTimeWithDefault = LocalDateTime.parse("1970-01-01T00:00:00");
 
   public enum StorageCondition {
 
