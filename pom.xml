@@ -62,10 +62,9 @@
 
   <distributionManagement>
     <repository>
-      <id>bintray-startupheroes-maven</id>
-      <name>startupheroes-maven</name>
-      <url>https://api.bintray.com/maven/startupheroes/maven/startupheroes-checkstyle/;publish=1
-      </url>
+      <id>github</id>
+      <name>GitHub</name>
+      <url>https://maven.pkg.github.com/startupheroes/startupheroes-checkstyle</url>
     </repository>
   </distributionManagement>
 
