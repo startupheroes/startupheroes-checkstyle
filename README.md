@@ -2,7 +2,7 @@
 
 Checkstyle corresponding to StartupHeroes's coding conventions.
 
-[Download latest StartupHeroes Checkstyle version Jar](https://bintray.com/startupheroes/maven/download_file?file_path=es%2Fstartuphero%2Fcheckstyle%2Fstartupheroes-checks%2F1.0.16%2Fstartupheroes-checks-1.0.16.jar)
+[Download latest StartupHeroes Checkstyle version Jar](https://github.com/orgs/startupheroes/packages?repo_name=startupheroes-checkstyle)
 
 [StartupHeroes Checkstyle XML File](https://raw.githubusercontent.com/startupheroes/startupheroes-checkstyle/master/startupheroes-checks/src/main/resources/es/startuphero/checkstyle/startupheroes_checks.xml)
 
