@@ -18,7 +18,7 @@ jobs:
           server-username: ${{ steps.github-username.outputs.value }} # env variable for username in deploy
           server-password: ${{ secrets.GITHUB_TOKEN }} # env variable for token in deploy
       - name: Release startupheroes-checkstyle
-        run: ./mvnw -B -DdeveloperConnectionUrl="scm:git:https://${{ steps.github-username.outputs.value }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" release:prepare release:perform
+        run: ./mvnw -B -DdeveloperConnection="scm:git:https://${{ steps.github-username.outputs.value }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" release:prepare release:perform
       - name: Setup tmate session in case of a failure
         uses: mxschmitt/action-tmate@v3
         if: ${{ failure() }}
