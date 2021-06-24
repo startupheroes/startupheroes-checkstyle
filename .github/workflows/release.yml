@@ -6,16 +6,20 @@ jobs:
     runs-on: ubuntu-latest
     steps: 
       - uses: actions/checkout@v2
+      - uses: fregante/setup-git-user@v1
+      - name: Get GitHub username
+        id: github-username
+        run: echo "::set-output name=value::$(git config user.name)"
       - name: Setup Java JDK
         uses: actions/setup-java@v1
         with:
           java-version: 16
           server-id: github
-          server-username: heroci # env variable for username in deploy
-          server-password: ${{ secrets.HEROCI_TOKEN }} # env variable for token in deploy
-      - name: Setup git credentials
-        run: |
-          git config --global user.email "cemalettin.koc+heroci@gmail.com"
-          git config --global user.name "heroci"
+          server-username: ${{ steps.github-username.outputs.value }} # env variable for username in deploy
+          server-password: ${{ secrets.GITHUB_TOKEN }} # env variable for token in deploy
       - name: Release startupheroes-checkstyle
-        run: ./mvnw -B release:prepare release:perform
+        run: ./mvnw -B -DdeveloperConnection="scm:git:https://${{ steps.github-username.outputs.value }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}.git" release:prepare release:perform
+      - name: Setup tmate session in case of a failure
+        uses: mxschmitt/action-tmate@v3
+        if: ${{ failure() }}
+        timeout-minutes: 15
