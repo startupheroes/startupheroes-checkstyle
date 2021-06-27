@@ -6,16 +6,16 @@ jobs:
     runs-on: ubuntu-latest
     steps: 
       - uses: actions/checkout@v2
-      - name: Setup Java JDK
-        uses: actions/setup-java@v1
+      - uses: actions/setup-java@v2
         with:
+          distribution: 'adopt'
           java-version: 16
           server-id: github
-          server-username: heroci # env variable for username in deploy
-          server-password: ${{ secrets.HEROCI_TOKEN }} # env variable for token in deploy
-      - name: Setup git credentials
+      - name: Configure Git user
         run: |
-          git config --global user.email "cemalettin.koc+heroci@gmail.com"
-          git config --global user.name "heroci"
-      - name: Release startupheroes-checkstyle
+          git config user.email "actions@github.com"
+          git config user.name "GitHub Actions"
+      - name: Publish JAR
         run: ./mvnw -B release:prepare release:perform
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
