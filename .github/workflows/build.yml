@@ -1,4 +1,4 @@
-name: CheckStyle Build Workflow
+name: Build Workflow
 on:
   pull_request:
     branches:
@@ -20,5 +20,5 @@ jobs:
           key: ${{ runner.os }}-maven-${{ hashFiles('**/pom.xml') }}
           restore-keys: |
             ${{ runner.os }}-maven-
-      - name: Release startupheroes-checkstyle
+      - name: Build startupheroes-checkstyle
         run: ./mvnw clean install
