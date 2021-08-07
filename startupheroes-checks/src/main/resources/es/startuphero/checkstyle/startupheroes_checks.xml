@@ -271,7 +271,8 @@
       <property name="abstractTypeAnnotation" value="javax.persistence.MappedSuperclass"/>
       <property name="columnAnnotation" value="javax.persistence.Column"/>
       <property name="columnDefaultAnnotation" value="org.hibernate.annotations.ColumnDefault"/>
-      <property name="excludedColumnDefaultAnnotationValueRegex" value="^.*?(\bCURRENT_TIMESTAMP\b|\bNOW\b|\bLOCALTIME\b|\bLOCALTIMESTAMP\b).*$"/>
+      <property name="excludedColumnDefaultAnnotationValueRegex"
+          value="^.*?(\bCURRENT_TIMESTAMP\b|\bNOW\b|\bLOCALTIME\b|\bLOCALTIMESTAMP\b).*$"/>
     </module>
 
   </module>
@@ -307,6 +308,27 @@
     <property name="minimum" value="1"/>
     <property name="maximum" value="10"/>
     <property name="message" value="Javadoc has illegal ''@author'' tag."/>
+  </module>
+
+  <!-- System.out.print check -->
+  <module name="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck">
+    <property name="fileExtensions" value="java"/>
+    <property name="format" value="System\.out\.print"/>
+    <property name="message" value="Using System.out.print is forbidden. Please log."/>
+  </module>
+
+  <!-- System.err.print check -->
+  <module name="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck">
+    <property name="fileExtensions" value="java"/>
+    <property name="format" value="System\.err\.print"/>
+    <property name="message" value="Using System.err.print is forbidden. Please log."/>
+  </module>
+
+  <!-- Exception printStackTrace check -->
+  <module name="com.puppycrawl.tools.checkstyle.checks.regexp.RegexpSinglelineCheck">
+    <property name="fileExtensions" value="java"/>
+    <property name="format" value="\.printStackTrace\(\)"/>
+    <property name="message" value="Using e.printStackTrace() is forbidden. Rethrow, log or handle the exception."/>
   </module>
 
   <!-- Size Checks -->
