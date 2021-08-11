@@ -53,9 +53,7 @@
     </module>
     <module name="com.puppycrawl.tools.checkstyle.checks.coding.MissingSwitchDefaultCheck"/>
     <module name="com.puppycrawl.tools.checkstyle.checks.coding.MultipleVariableDeclarationsCheck"/>
-    <module name="com.puppycrawl.tools.checkstyle.checks.coding.NoArrayTrailingCommaCheck"/>
     <module name="com.puppycrawl.tools.checkstyle.checks.coding.NoCloneCheck"/>
-    <module name="com.puppycrawl.tools.checkstyle.checks.coding.NoEnumTrailingCommaCheck"/>
     <module name="com.puppycrawl.tools.checkstyle.checks.coding.NoFinalizerCheck"/>
     <module name="com.puppycrawl.tools.checkstyle.checks.coding.OneStatementPerLineCheck"/>
     <module name="com.puppycrawl.tools.checkstyle.checks.coding.PackageDeclarationCheck"/>
