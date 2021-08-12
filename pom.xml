@@ -56,7 +56,7 @@
   <scm>
     <url>https://github.com/startupheroes/startupheroes-checkstyle</url>
     <connection>scm:git:git@github.com:startupheroes/startupheroes-checkstyle.git</connection>
-    <developerConnection>scm:git:git@github.com:startupheroes/startupheroes-checkstyle.git</developerConnection>
+    <developerConnection>scm:git:https://github.com/startupheroes/startupheroes-checkstyle.git</developerConnection>
     <tag>HEAD</tag>
   </scm>
 
