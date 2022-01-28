@@ -51,6 +51,8 @@
     <hibernate.version>5.4.18.Final</hibernate.version>
     <sonar-java.version>4.2.1.6971</sonar-java.version>
     <fest-assert.version>1.4</fest-assert.version>
+
+    <project.scm.id>github</project.scm.id>
   </properties>
 
   <scm>
