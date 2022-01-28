@@ -9,7 +9,8 @@ jobs:
       - name: Setup Java JDK
         uses: actions/setup-java@v1
         with:
-          java-version: 16
+          java-version: 17
+          distribution: 'temurin'
           server-id: github
           server-username: heroci # env variable for username in deploy
           server-password: ${{ secrets.HEROCI_TOKEN }} # env variable for token in deploy
@@ -19,3 +20,6 @@ jobs:
           git config --global user.name "heroci"
       - name: Release startupheroes-checkstyle
         run: ./mvnw -B release:prepare release:perform
+        env:
+          GITHUB_ACTOR: ${{ github.actor }}
+          GITHUB_TOKEN: ${{ github.token }}
