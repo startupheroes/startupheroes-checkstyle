@@ -12,8 +12,8 @@ jobs:
           java-version: 17
           distribution: 'temurin'
           server-id: github
-          server-username: heroci # env variable for username in deploy
-          server-password: ${{ secrets.HEROCI_TOKEN }} # env variable for token in deploy
+          server-username: GITHUB_ACTOR
+          server-password: GITHUB_TOKEN
       - name: Setup git credentials
         run: |
           git config --global user.email "cemalettin.koc+heroci@gmail.com"
