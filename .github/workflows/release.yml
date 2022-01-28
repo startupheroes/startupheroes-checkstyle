@@ -12,8 +12,6 @@ jobs:
           java-version: 17
           distribution: 'temurin'
           server-id: github
-          server-username: GITHUB_ACTOR
-          server-password: GITHUB_TOKEN
       - name: Setup git credentials
         run: |
           git config --global user.email "cemalettin.koc+heroci@gmail.com"
@@ -21,5 +19,4 @@ jobs:
       - name: Release startupheroes-checkstyle
         run: ./mvnw -B release:prepare release:perform
         env:
-          GITHUB_ACTOR: ${{ github.actor }}
           GITHUB_TOKEN: ${{ github.token }}
