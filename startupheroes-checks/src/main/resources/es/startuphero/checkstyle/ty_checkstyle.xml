@@ -250,6 +250,13 @@
     <module name="es.startuphero.checkstyle.checks.annotation.ForbiddenAnnotationKeyCheck">
       <property name="annotationForbiddenKeysMap" value="javax.persistence.Column:unique"/>
     </module>
+    <module name="es.startuphero.checkstyle.checks.annotation.RequestBodyAnnotationCheck">
+      <property name="severity" value="info"/>
+      <property name="postMapping" value="org.springframework.web.bind.annotation.PostMapping"/>
+      <property name="putMapping" value="org.springframework.web.bind.annotation.PutMapping"/>
+      <property name="patchMapping" value="org.springframework.web.bind.annotation.PatchMapping"/>
+      <property name="requestBody" value="org.springframework.web.bind.annotation.RequestBody"/>
+    </module>
     <module name="es.startuphero.checkstyle.checks.naming.GeneratedPrimaryKeyNameCheck">
       <property name="typeAnnotation" value="javax.persistence.Entity"/>
       <property name="abstractTypeAnnotation" value="javax.persistence.MappedSuperclass"/>

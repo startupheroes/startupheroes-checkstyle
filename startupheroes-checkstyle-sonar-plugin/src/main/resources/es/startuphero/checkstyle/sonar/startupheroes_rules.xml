@@ -746,6 +746,35 @@
         <tag>annotation</tag>
     </rule>
     <rule>
+        <key>es.startuphero.checkstyle.checks.annotation.RequestBodyAnnotationCheck</key>
+        <name>Request Body Annotation Check</name>
+        <description>Request Body Annotation Check</description>
+        <internalKey>Checker/TreeWalker/es.startuphero.checkstyle.checks.annotation.RequestBodyAnnotationCheck
+        </internalKey>
+        <severity>INFO</severity>
+        <param key="postMapping" name="Post Mapping">
+            <defaultValue>javax.persistence.Column:unique</defaultValue>
+            <defaultValue>org.springframework.web.bind.annotation.PostMapping</defaultValue>
+            <description>Extend versions of @RequestMapping, indicates HTTP method POST</description>
+        </param>
+        <param key="putMapping" name="Put Mapping">
+            <defaultValue>javax.persistence.Column:unique</defaultValue>
+            <defaultValue>org.springframework.web.bind.annotation.putMapping</defaultValue>
+            <description>Extend versions of @RequestMapping, indicates HTTP method PUT</description>
+        </param>
+        <param key="patchMapping" name="Patch Mapping">
+            <defaultValue>javax.persistence.Column:unique</defaultValue>
+            <defaultValue>org.springframework.web.bind.annotation.PatchMapping</defaultValue>
+            <description>Extend versions of @RequestMapping, indicates HTTP method PATCH</description>
+        </param>
+        <param key="requestBody" name="Request Body Annotation">
+            <defaultValue>org.springframework.web.bind.annotation.RequestBody</defaultValue>
+            <description>Required annotation to deserialize request body</description>
+        </param>
+        <tag>sh-rule</tag>
+        <tag>annotation</tag>
+    </rule>
+    <rule>
         <key>es.startuphero.checkstyle.checks.annotation.VariableAnnotationKeyValueCheck</key>
         <name>Variable Annotation Key Value Check</name>
         <description>Variable Annotation Key Value Check</description>
